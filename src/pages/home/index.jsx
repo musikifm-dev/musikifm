@@ -4,6 +4,7 @@ import BlogSlider from './components/BlogSlider';
 import VideoSlider from 'pages/home/components/VideoSlider';
 
 const Home = () => {
+  console.log("Hello");
   return (
     <>
       <HeroSlider />
