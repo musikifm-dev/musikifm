@@ -1,0 +1,120 @@
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+@import '../../assets/scss/variables';
+
+// .home {
+//   width: 82%;
+//   padding: 50px;
+//   position: relative;
+//   left: 18%;
+//   top: 65px;
+//   background: #e1e1e1;
+// }
+
+// HERO
+
+.heroSlide {
+  width: 105%;
+}
+.heroSlide:hover {
+  cursor: pointer;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// PODCAST
+.slider {
+  :global(.swiper-wrapper) {
+    padding-bottom: 20px;
+  }
+  :global(.swiper-pagination) {
+    bottom: 0;
+    text-align: right;
+  }
+}
+
+// .swiper-pagination-bullet {
+//   right: 0;
+//   background-color: #000 !important;
+// }
+// .swiper-container {
+//   width: 480px;
+// }
+
+// @media screen and (min-width: 640px) {
+//   .swiper-container {
+//     width: 640px;
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   .swiper-container {
+//     width: 768px;
+//   }
+// }
+
+// .heroSlide {
+//   .heroSlider {
+//     .heroCont {
+//       @include center;
+
+//       .heroSliderContent {
+//         // @include center;
+//         // text-align: left;
+//         font-size: 30px;
+//         font-weight: 200;
+//       }
+//     }
+//   }
+
+//   .swiper-slide {
+//     text-align: center;
+//     font-size: 18px;
+//     background: #fff;
+
+//     /* Center slide text vertically */
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: -webkit-flex;
+//     display: flex;
+//     -webkit-box-pack: center;
+//     -ms-flex-pack: center;
+//     -webkit-justify-content: center;
+//     justify-content: center;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     -webkit-align-items: center;
+//     align-items: center;
+//   }
+
+//   .swiper-slide {
+//     width: 80% !important;
+//   }
+
+//   .swiper-slide:nth-child(2n) {
+//     width: 80% !important;
+//   }
+
+//   .swiper-slide:nth-child(3n) {
+//     width: 20% !important;
+//   }
+// }
+
+// .content {
+//   color: red;
+// }

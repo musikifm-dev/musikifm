@@ -1,0 +1,21 @@
+{
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^react-router-dom/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^layout(.*)$",
+    "^components/(.*)$",
+    "^utils/(.*)$",
+    "^store/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "arrowParens": "avoid",
+  "trailingComma": "none",
+  "singleQuote": true,
+  "semi": true
+}

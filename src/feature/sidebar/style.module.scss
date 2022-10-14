@@ -1,0 +1,21 @@
+.banner {
+  // width: 399.93px;
+  &__img {
+    width: 100%;
+  }
+}
+
+// .player {
+//   height: 24.996rem;
+// }
+.playerWrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  background-color: red;
+}
+
+.reactPlayer {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
