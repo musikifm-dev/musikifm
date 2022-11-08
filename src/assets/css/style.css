@@ -14717,8 +14717,7 @@ body {
 
 .navbar {
   padding: 9px 25px;
-  position: fixed;
-  top: 0;
+  position: sticky;
   z-index: 9999;
   width: 100%;
 }
@@ -14840,65 +14839,6 @@ body {
 }
 .switchPlayer .active {
   background: pink;
-}
-
-.player {
-  position: relative;
-  color: #fff;
-  min-height: 250px;
-}
-.player .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: auto;
-  cursor: pointer;
-}
-.player img {
-  height: 350px;
-  height: 100%;
-  width: 100%;
-}
-.player .player-play-info {
-  position: absolute;
-  bottom: 50px;
-  text-align: center;
-  width: 100%;
-}
-.player .player-play-info #playerInfo {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  padding: 0 20px;
-}
-.player .player-control {
-  position: absolute;
-  display: flex;
-  top: 83%;
-  left: 22%;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
-.player .player-control button {
-  background: unset;
-  border: unset;
-  padding: 0;
-  margin: 0;
-  color: #fff;
-}
-.player .player-control .playIcon {
-  background: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-  color: #000;
 }
 
 .titleDiv {

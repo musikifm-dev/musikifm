@@ -14,19 +14,22 @@ const HeroSlider = () => {
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       className={styles.heroSlide}
-      spaceBetween={10}
-      slidesPerView={1.1}
       pagination={{
         clickable: true
+      }}
+      breakpoints={{
+        576: { slidesPerView: 1 },
+        768: { slidesPerView: 1.1, spaceBetween: 20 },
+        992: { spaceBetween: 25 }
       }}
     >
       <SwiperSlide>
         <div className={styles.heroSlider}>
           <div className="row">
-            <div className="col-6">
-              <Image src={SliderImage} width="593px" />
+            <div className="col-8">
+              <Image src={SliderImage} fluid={true} />
             </div>
-            <div className="col-4 mx-auto my-auto">
+            <div className="col-4 my-auto">
               <h2 className={styles.heroSliderContent}>Creator Forum brought DJ workshops, mental health panels and</h2>
             </div>
           </div>
@@ -35,17 +38,35 @@ const HeroSlider = () => {
       <SwiperSlide>
         <div className={styles.heroSlider}>
           <div className="row">
-            <div className="col-md-6">
-              <Image src={SliderImage2} width="593px" />
+            <div className="col-8">
+              <Image src={SliderImage2} fluid={true} />
             </div>
-            <div className="col-4 mx-auto my-auto">
+            <div className="col-4 my-auto">
               <h2 className={styles.heroSliderContent}>Creator Forum brought DJ workshops, mental health panels and</h2>
             </div>
           </div>
         </div>
       </SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      {/* <SwiperSlide src={SliderImage} width="593px">
+        <div className="row">
+          <div className="col-6">
+            <Image src={SliderImage} width="593px" />
+          </div>
+          <div className="col-4 mx-auto my-auto">
+            <h2 className={styles.heroSliderContent}>Creator Forum brought DJ workshops, mental health panels and</h2>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide src={SliderImage2} width="593px">
+        <div className="row">
+          <div className="col-md-6">
+            <Image src={SliderImage2} width="593px" />
+          </div>
+          <div className="col-4 mx-auto my-auto">
+            <h2 className={styles.heroSliderContent}>Creator Forum brought DJ workshops, mental health panels and</h2>
+          </div>
+        </div>
+      </SwiperSlide> */}
     </Swiper>
   );
 };

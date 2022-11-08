@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { MUSIKI_RADIO } from 'utils/URL';
 import PropTypes from 'prop-types';
 import Songs from 'song.json';
-import ReactPlayer from 'react-player';
-// import styles from './style.module.scss';
+// import ReactPlayer from 'react-player';
+import styles from './style.module.scss';
 
 const Player = () => {
   const STEP = 0.1;
@@ -60,42 +60,35 @@ const Player = () => {
   const playImage = 'http://localhost:1337' + current.image;
   console.log(MUSIKI_RADIO, audio);
   return (
-    <div>
-      {/* {audio} */}
-      {/* <audio src={MUSIKI_RADIO} autoPlay={true}></audio> */}
+   
+      <div className={styles.player}>
+        {audio}
+        <img className={styles.player__img} src={PlayerControl ? playImage : radioPlayImage} />
+        <div className={styles.player__overlay}></div>
 
-      <ReactPlayer url={MUSIKI_RADIO} playing config={{ file: { forceAudio: true } }} />
-
-      <div className="switchPlayer">
-        {/* <button onClick={(srk = 'https://stream.coraxonline.com/musikifm-src.mp3')} className="active">
-          Radio
-        </button>
-        <button onClick={changeSong}>Song</button> */}
-      </div>
-      <div className="player">
-        <img className="img-fluid" src={PlayerControl ? playImage : radioPlayImage} />
-        <div className="overlay"></div>
-
-        <div className="player-play-info">
-          <h3 id="playerTitle">{PlayerControl ? current.title : Songs.song}</h3>
-          <p id="playerInfo">{PlayerControl ? current.description : Songs.artist}</p>
+        <div className={styles.info}>
+          <h3 className={styles.info__title}>{PlayerControl ? current.title : Songs.song}</h3>
+          <p className={styles.info__description}>{PlayerControl ? current.description : Songs.artist}</p>
         </div>
-        <div className="player-control">
-          <button>
-            <Icon name="favorite" size="24" />
-          </button>
-          <button>
-            <Icon name="prev" size="24" />
-          </button>
-          <button className="playIcon" onClick={controls[state?.playing ? 'pause' : 'play']}>
-            <Icon name={state?.playing ? 'pause' : 'play'} size="16" />
-          </button>
-          <button>
-            <Icon name="next" size="24" />
-          </button>
-          <button>
-            <Icon name="share" size="24" />
-          </button>
+
+        <div className={styles.controlWrapper}>
+          <div className={styles.control}>
+            <button>
+              <Icon name="favorite" size="24" />
+            </button>
+            <button>
+              <Icon name="prev" size="24" />
+            </button>
+            <button className={styles.control__icon} onClick={controls[state?.playing ? 'pause' : 'play']}>
+              <Icon name={state?.playing ? 'pause' : 'play'} size="16" />
+            </button>
+            <button>
+              <Icon name="next" size="24" />
+            </button>
+            <button>
+              <Icon name="share" size="24" />
+            </button>
+          </div>
         </div>
 
         <Range
@@ -152,7 +145,7 @@ const Player = () => {
           )}
         />
       </div>
-    </div>
+    
   );
 };
 

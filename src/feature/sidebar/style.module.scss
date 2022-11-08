@@ -1,21 +1,65 @@
-.banner {
-  // width: 399.93px;
-  &__img {
+// PLAYER
+.player {
+  position: relative;
+  color: #fff;
+  height: 250px;
+
+  &__overlay {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    // z-index: auto;
+    cursor: pointer;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .info {
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    width: 100%;
+
+    &__description {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+  }
+
+  .controlWrapper {
+    display: flex;
+    justify-content: center;
+    
+    .control {
+      position: absolute;
+      bottom: 5%;
+
+      button {
+        background: unset;
+        border: unset;
+        padding: 0;
+        margin: 0;
+        color: #fff;
+      }
+
+      &__icon {
+        background: #fff !important;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        color: #000 !important;
+      }
+    }
   }
 }
 
-// .player {
-//   height: 24.996rem;
-// }
-.playerWrapper {
-  position: relative;
-  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-  background-color: red;
-}
-
-.reactPlayer {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-}
+// BANNER

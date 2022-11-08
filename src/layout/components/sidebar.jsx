@@ -6,7 +6,7 @@ function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <Player />
-      <p>
+      <p className='mt-4'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit Lorem ipsum dolor sit amet,
         consectetur Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit Lorem ipsum dolor sit
         amet, consectetur

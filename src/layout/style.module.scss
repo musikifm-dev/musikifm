@@ -4,19 +4,23 @@
 @import '../../node_modules/bootstrap/scss/utilities/api';
 // @import './variables';
 
-.navbar {
-  height: 55px;
-}
+// .navbar {
+//   position: sticky;
+//   top: auto;
+//   height: 55px;
+// }
 
-.main {
-  overflow-x: hidden;
-  margin-top: 55px;
-}
+// .main {
+//   overflow-x: hidden;
+//   margin-top: 55px;
+// }
 
 .sidebar {
   position: sticky;
-  // width: 399.93px;
-  // height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .outletContainer {

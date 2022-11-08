@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       {[false].map(expand => (
-        <ReactBootstrapNavbar key={expand} bg="light" expand={expand} className={`mb-3 ${styles.navbar}`}>
+        <ReactBootstrapNavbar key={expand} bg="light" expand={expand} className={styles.navbar}>
           <Container fluid>
             <ReactBootstrapNavbar.Brand>
               <Stack direction="horizontal" gap={2} className="align-items-start">
