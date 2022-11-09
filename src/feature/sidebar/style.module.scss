@@ -2,7 +2,8 @@
 .player {
   position: relative;
   color: #fff;
-  height: 250px;
+  height: 100%;
+
 
   &__overlay {
     position: absolute;
@@ -11,7 +12,6 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    // z-index: auto;
     cursor: pointer;
   }
 
@@ -38,7 +38,7 @@
   .controlWrapper {
     display: flex;
     justify-content: center;
-    
+
     .control {
       position: absolute;
       bottom: 5%;

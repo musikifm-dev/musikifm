@@ -14708,6 +14708,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   padding-right: 0px !important;
+  overflow-x: hidden;
 }
 
 .navbar-toggler {

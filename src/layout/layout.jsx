@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import { Navbar, Sidebar } from './index';
-import styles from './style.module.scss';
+import { Navbar, Sidebar } from './index'
+import { Outlet } from 'react-router-dom'
+import styles from './style.module.scss'
 
 const Layout = () => {
   return (
@@ -8,16 +8,16 @@ const Layout = () => {
       <Navbar />
       <main className={styles.main}>
         <div className="row">
-          <div className="col-3">
+          <div className="col-sm-12 col-md-3">
             <Sidebar />
           </div>
-          <div className="col-9 p-5">
+          <div className="col-sm-12 col-md-9 p-5">
             <Outlet />
           </div>
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

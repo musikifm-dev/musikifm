@@ -1,21 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { default as RBCard } from 'react-bootstrap/Card';
-import { setCurrent } from 'store/slices/player';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Icon from 'assets/svg';
-import styles from './style.module.scss';
+import { setCurrent } from 'store/slices/player'
+import PropTypes from 'prop-types'
+import { default as RBCard } from 'react-bootstrap/Card'
+import { useDispatch, useSelector } from 'react-redux'
+import Icon from 'assets/svg'
+import { Link } from 'react-router-dom'
+import styles from './style.module.scss'
 
 export default function Card({ item }) {
-  const { id, title, description, image } = item;
-  console.log(image);
-  const dispatch = useDispatch();
-  const { current } = useSelector(state => state.player);
-  const updateCurrent = () => {
-    dispatch(setCurrent(item));
-  };
+  const { id, title, description, image } = item
 
-  const podcastImage = 'http://localhost:1337' + image;
+  const dispatch = useDispatch()
+  const { current } = useSelector((state) => state.player)
+  const updateCurrent = () => {
+    dispatch(setCurrent(item))
+  }
+
+  const podcastImage = 'http://localhost:1337' + image
   return (
     <RBCard className={styles.card}>
       <Link to={`/podcast/${id}`} className={styles.card__link}>
@@ -34,7 +34,7 @@ export default function Card({ item }) {
         </section>
       </RBCard.Body>
     </RBCard>
-  );
+  )
 }
 
 Card.propTypes = {
@@ -44,6 +44,6 @@ Card.propTypes = {
     id: PropTypes.number,
     image: PropTypes.string,
     src: PropTypes.string,
-    title: PropTypes.string
-  })
-};
+    title: PropTypes.string,
+  }),
+}

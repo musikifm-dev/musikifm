@@ -19,6 +19,7 @@ html {
 body {
   font-family: $primaryFont;
   padding-right: 0px !important; // **Can couse ui issue
+  overflow-x: hidden;
 }
 
 // NAVBAR
