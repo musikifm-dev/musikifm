@@ -1,8 +1,9 @@
-export { default as Blog } from './blog/Blog';
-export { default as Card } from '../components/Card';
-export { default as Filter } from './filter/Filter';
-export { default as Podcast } from './podcast/Podcast';
-export { default as Songs } from './song/Songs';
-export { default as VideoHomeSlider } from './video/VideoHomeSlider';
-export { default as Videos } from './video/videos';
-export { default as Home } from './home/index';
+export { default as Blog } from './blog/Blog'
+export { default as Filter } from './filter'
+export { default as Podcast } from './podcast'
+export { default as Songs } from './song/Songs'
+export { default as VideoHomeSlider } from './video'
+export { default as Videos } from './video/videos'
+export { default as Home } from './home/index'
+export { default as Login } from './login/index'
+export { default as Register } from './register/index'

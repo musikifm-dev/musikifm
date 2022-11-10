@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookie } from 'react-use';
-import { API_URL } from '../URL';
+import { API_URL } from '../../utils/URL';
 
 export default function Register() {
   const [cookies] = useCookie();

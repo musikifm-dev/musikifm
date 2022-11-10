@@ -14669,6 +14669,8 @@ textarea.form-control-lg {
 }
 /*Fonts*/
 :root {
+  --f-poppings: "Poppins", sans-serif;
+  --f-patrick-hand: "Patrick Hand", cursive;
   --fs-8: 0.8rem;
   --fs-9: 0.9rem;
   --fs-10: 1rem;

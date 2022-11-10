@@ -2,7 +2,7 @@ import Icon from '../../assets/svg'
 import { Range, getTrackBackground } from 'react-range'
 import { useAudio } from 'react-use'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { MUSIKI_RADIO } from 'utils/URL'
 import PropTypes from 'prop-types'
 import Songs from 'song.json'
@@ -16,7 +16,7 @@ const Player = () => {
   const MAX = 100
 
   // const dispatch = useDispatch();
-  const { current } = useSelector((state) => state.player)
+  // const {  } = useSelector((state) => state.player)
   // var srk = ''
 
   // if (PlayerControl == false && current.src == undefined) {
@@ -47,7 +47,7 @@ const Player = () => {
     // isSuccess && setRadioPlayImage(data.results[8].cover_image)
   }, [])
 
-  console.log(current, state.playing)
+  // console.log(current, state.playing)
   return (
     <div className={styles.player}>
       <div>{audio}</div> 

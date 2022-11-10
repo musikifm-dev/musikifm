@@ -1,4 +1,4 @@
-import { Navbar, Sidebar } from './index'
+import { Navbar, Sidebar } from '../index'
 import { Outlet } from 'react-router-dom'
 import styles from './style.module.scss'
 

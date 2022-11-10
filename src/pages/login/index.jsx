@@ -1,23 +1,24 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import { useState } from 'react'
+import Button from 'react-bootstrap/Button'
 
-import Form from 'react-bootstrap/Form';
-import { useCookies } from 'react-cookie';
-import { URL_LOGIN } from '../URL';
-const LoginForm = () => {
-  const [setCookie] = useCookies(['token']);
-  const [form, setForm] = useState({});
+import Form from 'react-bootstrap/Form'
+// import { useCookies } from 'react-cookie'
+import { URL_LOGIN } from '../../utils/URL'
+
+const Login = () => {
+  // const [setCookie] = useCookies(['token'])
+  const [form, setForm] = useState({})
 
   const setValue = (e) => {
-    const target = e.target;
-    const name = target.name;
-    const value = target.value;
+    const target = e.target
+    const name = target.name
+    const value = target.value
 
-    setForm({ ...form, [name]: value });
-  };
+    setForm({ ...form, [name]: value })
+  }
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const req = await fetch(URL_LOGIN, {
       method: 'POST',
@@ -25,13 +26,14 @@ const LoginForm = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(form),
-    });
-    const res = await req.json();
+    })
+    const res = await req.json()
+    console.log(res)
 
-    if (res.jwt) {
-      setCookie('token', res.jwt, { path: '/' });
-    }
-  };
+    // if (res.jwt) {
+    //   setCookie('token', res.jwt, { path: '/' })
+    // }
+  }
 
   return (
     <div className="page">
@@ -54,7 +56,7 @@ const LoginForm = () => {
         </Form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default Login;

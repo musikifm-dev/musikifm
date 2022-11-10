@@ -1,5 +1,5 @@
-import Player from '../../feature/sidebar/player';
-import AdsBanner from '../../feature/sidebar/banner';
+import Player from '../../../feature/sidebar/player';
+import AdsBanner from '../../../feature/sidebar/banner';
 import styles from '../style.module.scss';
 
 function Sidebar() {

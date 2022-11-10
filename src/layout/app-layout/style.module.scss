@@ -1,0 +1,43 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+
+.btnContainer {
+  &__btn {
+    font-family: var(--f-poppings);
+    font-size: var(--fs-15);
+    font-weight: var(--fw-4);
+    color: black;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  &__btn:first-child:hover {
+    color: #faaf40;
+  }
+
+  &__btn:last-child:hover {
+    color: #91c6a3;
+  }
+
+  span {
+    font-family: var(--f-patrick-hand);
+    font-size: var(--fs-14);
+    margin: 0 0.5rem;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    height: 420px;
+  }
+}

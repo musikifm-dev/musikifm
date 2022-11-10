@@ -9,7 +9,7 @@ export const route = {
   profile: 'profile',
   register: 'register',
   accountSettings: 'account-settings',
-};
+}
 
 export const navLinks = [
   { route: route.home, text: 'Home' },
@@ -17,4 +17,4 @@ export const navLinks = [
   { route: route.podcast, text: 'Podcast' },
   { route: route.blog, text: 'Blog' },
   { route: route.video, text: 'Video' },
-];
+]
