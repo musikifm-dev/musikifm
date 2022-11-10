@@ -2,7 +2,7 @@ import { Navbar, Sidebar } from '../index'
 import { Outlet } from 'react-router-dom'
 import styles from './style.module.scss'
 
-const Layout = () => {
+const AppLayout = () => {
   return (
     <>
       <Navbar />
@@ -20,4 +20,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default AppLayout

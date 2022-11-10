@@ -6,13 +6,12 @@ import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
 import { Home, Login, Podcast, Register, Videos, Blog, Songs } from './pages'
-import Layout from './layout/app-layout'
-import AuthLayout from 'layout/auth-layout'
+import { AppLayout, AuthLayout } from 'layout'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path={route.home} element={<Layout />}>
+      <Route path={route.home} element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path={route.podcast} element={<Podcast />} />
         <Route path={`${route.podcast}:id`} element={<PodcastDetail />} />
