@@ -30,7 +30,8 @@
     "sqlite3": "^5.1.2",
     "strapi-comments-client": "^2.0.8",
     "swiper": "^8.4.3",
-    "web-vitals": "^3.0.3"
+    "web-vitals": "^3.0.3",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
