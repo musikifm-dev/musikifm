@@ -9,63 +9,22 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import styles from './index.module.scss'
 import { useFormik } from 'formik'
 import { useRegisterMutation } from 'store/api/auth'
+import { registerValidationSchema } from 'utils/validationSchema'
 
 export default function Register() {
   const [register] = useRegisterMutation()
-  // const [cookies] = useCookie()
-  // const [form, setForm] = useState({})
-
-  // let navigate = useNavigate()
-  // const url = API_URL
-
-  // const setValue = (e) => {
-  //   const target = e.target
-  //   const name = target.name
-  //   const value = target.value
-
-  //   setForm({ ...form, [name]: value })
-  // }
-
-  // useEffect(() => {
-  //   const checkCookie = () => {
-  //     if (cookies.token) {
-  //       return navigate('/dashboard')
-  //     }
-  //   }
-  //   checkCookie()
-  // })
-
-  // const handleRegister = async (e) => {
-  //   e.preventDefault()
-
-  //   const req = await fetch(`${url}/api/auth/local/register`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(form),
-  //   })
-  //   const res = await req.json()
-  //   console.log(res)
-  //   if (res.jwt) {
-  //     setForm({})
-  //     e.target.reset()
-  //     setSuccess(true)
-  //   }
-  // }
 
   const formik = useFormik({
     initialValues: {
+      phoneNumber: '',
+      fullName: '',
       password: '',
-      username: '',
       email: '',
     },
+    validationSchema: registerValidationSchema,
     onSubmit: (values) => {
       register(values)
       console.log(values)
-      // phone: values.phone
-      // nameSurname: values.nameSurname
-      // email: values.email
     },
   })
 
@@ -80,8 +39,8 @@ export default function Register() {
       </div>
       <Form className="flex-column mt-4" onSubmit={formik.handleSubmit}>
         <Form.Group>
-          <Form.Label htmlFor="password" className={`mb-3 ${styles.label}`}>
-            Your member
+          <Form.Label htmlFor="phoneNumber" className={`mb-3 ${styles.label}`}>
+            Your Phone Number
           </Form.Label>
           <Form.Group className={styles.dropdown}>
             <DropdownButton
@@ -94,33 +53,49 @@ export default function Register() {
             >
               <Dropdown.Item href="#">+90</Dropdown.Item>
               <Dropdown.Item href="#">+375</Dropdown.Item>
-              <Dropdown.Item href="#">+243</Dropdown.Item>
             </DropdownButton>
             <Form.Control
-              id="password"
-              name="password"
+              id="phoneNumber"
+              name="phoneNumber"
               type="text"
               placeholder="Write your mobile number"
               size="lg"
               className={styles.dropdown__input}
               onChange={formik.handleChange}
-              value={formik.values.password}
+              value={formik.values.phoneNumber}
             />
+            {formik.errors.phoneNumber && formik.touched.phoneNumber && <div>{formik.errors.phoneNumber}</div>}
           </Form.Group>
         </Form.Group>
         <Form.Group className="mt-3">
-          <Form.Label htmlFor="username" className={styles.label}>
+          <Form.Label htmlFor="fullName" className={styles.label}>
             Name, surname
           </Form.Label>
           <Form.Control
-            id="username"
-            name="username"
+            id="fullName"
+            name="fullName"
             type="text"
             placeholder="Write your name and surname"
             size="lg"
             onChange={formik.handleChange}
-            value={formik.values.username}
+            value={formik.values.fullName}
           />
+          {formik.errors.fullName && formik.touched.fullName && <div>{formik.errors.fullName}</div>}
+        </Form.Group>
+        <Form.Group className="mt-3">
+          <Form.Label htmlFor="password" className={styles.label}>
+            Password
+          </Form.Label>
+          <Form.Control
+            id="password"
+            name="password"
+            type="text"
+            placeholder="Write your password"
+            size="lg"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+          />
+          {formik.errors.password && formik.touched.password && <div>{formik.errors.password}</div>}
         </Form.Group>
         <Form.Group className="mt-3">
           <Form.Label htmlFor="email" className={styles.label}>
@@ -135,13 +110,15 @@ export default function Register() {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
+          {formik.errors.email && formik.touched.email && <div>{formik.errors.email}</div>}
         </Form.Group>
-        {['checkbox'].map((type) => (
-          <Stack key={`default-${type}`} gap={2} className="my-3">
-            <Form.Check type={type} id={`default-${type}`} label="I aggree to Terms & Conditions" />
-            <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" />
-          </Stack>
-        ))}
+
+        <Stack gap={2} className="my-3">
+          {/* <Form.Check type="checkbox" id="terms" label="I aggree to Terms & Conditions" name="terms" />  Checkbox Val is needed*/} 
+          {formik.errors.terms && formik.touched.terms && <div>{formik.errors.terms}</div>}
+          {/* <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" /> */}
+        </Stack>
+
         <Button variant="primary" type="submit" className="w-100">
           Sign Up for free
         </Button>

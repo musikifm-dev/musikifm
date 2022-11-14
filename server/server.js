@@ -10,40 +10,40 @@ const app = express()
 
 dotenv.config();
 
-const db = new sqlite3.Database("../solea.db", sqlite3.OPEN_READWRITE, (err) =>{
-    if(err) return console.error(err.message);
-})
+// const db = new sqlite3.Database("../solea.db", sqlite3.OPEN_READWRITE, (err) =>{
+//     if(err) return console.error(err.message);
+// })
 const exporter = new SqliteToJson({
     client: new sqlite3.Database('../solea.db')
 });
 
 
-let sql = `SELECT SongName,PrdYear,GenreName,Mood FROM SONGS A
-    LEFT OUTER JOIN GENRES B ON A.GenreId = B.GenreId`
+// let sql = `SELECT SongName,PrdYear,GenreName,Mood FROM SONGS A
+//     LEFT OUTER JOIN GENRES B ON A.GenreId = B.GenreId`
    
-db.all(sql, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
+// db.all(sql, [], (err, rows) => {
+//     if (err) {
+//       throw err;
+//     }
 
-    var res = new JefNode(rows).filter(function(node) {
-        if (node.has('Mood')) {
-            return node.value.Mood;
-        }
-    });
-    console.log(res);
+//     var res = new JefNode(rows).filter(function(node) {
+//         if (node.has('Mood')) {
+//             return node.value.Mood;
+//         }
+//     });
+//     console.log(res);
 
-    const moodQuery = JSON.stringify(rows);
-    JSON.parse(moodQuery);
+//     const moodQuery = JSON.stringify(rows);
+//     JSON.parse(moodQuery);
 
-    fs.appendFile('./data/moodfilter.json', moodQuery, (err) => {
-        if (err)
-            throw err;
-         });
+//     fs.appendFile('./data/moodfilter.json', moodQuery, (err) => {
+//         if (err)
+//             throw err;
+//     });
 
         
    
-  });
+//   });
 
 
 
@@ -73,6 +73,10 @@ app.get("/genres",(req,res)=>{
 app.get("/moodfilter",(req,res)=>{
     res.header("Content-Type",'application/json');
     res.sendFile(path.join(__dirname, '/data/moodfilter.json'));
+})
+app.get("/phonecountry",(req,res)=>{
+    res.header("Content-Type",'application/json');
+    res.sendFile(path.join(__dirname, '/data/phonecountry.json'));
 })
 
 

@@ -16,7 +16,7 @@ export const authApi = createApi({
       query: (data) => ({
         url: 'api/auth/local/register',
         method: 'POST',
-        body: JSON.stringify(data),
+        body: data,
       }),
     }),
     login: builder.query({
