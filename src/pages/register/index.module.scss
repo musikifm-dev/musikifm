@@ -1,0 +1,33 @@
+.signup {
+  font-size: var(--fs-31);
+  font-weight: var(--fw-7);
+}
+
+.label {
+  font-family: var(--f-poppins);
+  font-weight: var(--fw-5);
+  font-size: var(--fs-13);
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+
+  &__btn {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+
+    button[class~='btn'] {
+      border: 1px solid #ced4da !important;
+    }
+  }
+
+  &__input {
+    // overflow-x: hidden;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-left: none !important;
+  }
+}

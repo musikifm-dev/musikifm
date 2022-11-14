@@ -1,115 +1,154 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCookie } from 'react-use';
-import { API_URL } from '../../utils/URL';
+// import { useEffect, useState } from 'react'
+import { Button, DropdownButton, Form, Image, Stack } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { route } from 'utils/constants'
+import logoBlack from '../../assets/img/logo-black.png'
+// import { useCookie } from 'react-use'
+// import { API_URL } from '../../utils/URL'
+import Dropdown from 'react-bootstrap/Dropdown'
+import styles from './index.module.scss'
+import { useFormik } from 'formik'
+import { useRegisterMutation } from 'store/api/auth'
 
 export default function Register() {
-  const [cookies] = useCookie();
-  const [form, setForm] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [register] = useRegisterMutation()
+  // const [cookies] = useCookie()
+  // const [form, setForm] = useState({})
 
-  let navigate = useNavigate();
-  const url = API_URL;
+  // let navigate = useNavigate()
+  // const url = API_URL
 
-  const setValue = (e) => {
-    const target = e.target;
-    const name = target.name;
-    const value = target.value;
+  // const setValue = (e) => {
+  //   const target = e.target
+  //   const name = target.name
+  //   const value = target.value
 
-    setForm({ ...form, [name]: value });
-  };
+  //   setForm({ ...form, [name]: value })
+  // }
 
-  useEffect(() => {
-    const checkCookie = () => {
-      if (cookies.token) {
-        return navigate('/dashboard');
-      }
-    };
-    checkCookie();
-  });
+  // useEffect(() => {
+  //   const checkCookie = () => {
+  //     if (cookies.token) {
+  //       return navigate('/dashboard')
+  //     }
+  //   }
+  //   checkCookie()
+  // })
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  // const handleRegister = async (e) => {
+  //   e.preventDefault()
 
-    setLoading(true);
+  //   const req = await fetch(`${url}/api/auth/local/register`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(form),
+  //   })
+  //   const res = await req.json()
+  //   console.log(res)
+  //   if (res.jwt) {
+  //     setForm({})
+  //     e.target.reset()
+  //     setSuccess(true)
+  //   }
+  // }
 
-    const req = await fetch(`${url}/api/auth/local/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
-    });
-    const res = await req.json();
-    console.log(res);
-    if (res.jwt) {
-      setForm({});
-      e.target.reset();
-      setSuccess(true);
-    }
-
-    setLoading(false);
-  };
+  const formik = useFormik({
+    initialValues: {
+      password: '',
+      username: '',
+      email: '',
+    },
+    onSubmit: (values) => {
+      register(values)
+      console.log(values)
+      // phone: values.phone
+      // nameSurname: values.nameSurname
+      // email: values.email
+    },
+  })
 
   return (
-    <div className="page">
-      <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-        <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-          <h1 className="text-center font-semibold text-xl mb-5">Register</h1>
-          <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
-            {success && (
-              <div className="text-center bg-green-500 text-white rounded-t py-2">
-                Your account has been registered!
-              </div>
-            )}
-            <form onSubmit={handleRegister} className="px-5 py-7 relative">
-              {loading && <div className="absolute inset-0 z-10 bg-white/50"></div>}
-
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">Username</label>
-              <input
-                type="text"
-                name="username"
-                onChange={setValue}
-                required
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              />
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                onChange={setValue}
-                required
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              />
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
-              <input
-                type="password"
-                name="password"
-                onChange={setValue}
-                required
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-              >
-                <span className="inline-block mr-2">Sign Up</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="w-4 h-4 inline-block"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </form>
-          </div>
-        </div>
+    <div className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+      <Link to={route.home}>
+        <Image src={logoBlack} width={200} height={41} />
+      </Link>
+      <div className="d-flex flex-column justify-content-center align-items-center mt-4">
+        <h3 className="fs-3 fw-bold">Sign Up</h3>
+        <div>Enjoy the best music experience</div>
+      </div>
+      <Form className="flex-column mt-4" onSubmit={formik.handleSubmit}>
+        <Form.Group>
+          <Form.Label htmlFor="password" className={`mb-3 ${styles.label}`}>
+            Your member
+          </Form.Label>
+          <Form.Group className={styles.dropdown}>
+            <DropdownButton
+              variant="outline-secondary"
+              id="input-group-dropdown-1"
+              defaultValue="+90"
+              title="+90"
+              size="lg"
+              className={styles.dropdown__btn}
+            >
+              <Dropdown.Item href="#">+90</Dropdown.Item>
+              <Dropdown.Item href="#">+375</Dropdown.Item>
+              <Dropdown.Item href="#">+243</Dropdown.Item>
+            </DropdownButton>
+            <Form.Control
+              id="password"
+              name="password"
+              type="text"
+              placeholder="Write your mobile number"
+              size="lg"
+              className={styles.dropdown__input}
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+          </Form.Group>
+        </Form.Group>
+        <Form.Group className="mt-3">
+          <Form.Label htmlFor="username" className={styles.label}>
+            Name, surname
+          </Form.Label>
+          <Form.Control
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Write your name and surname"
+            size="lg"
+            onChange={formik.handleChange}
+            value={formik.values.username}
+          />
+        </Form.Group>
+        <Form.Group className="mt-3">
+          <Form.Label htmlFor="email" className={styles.label}>
+            Your email
+          </Form.Label>
+          <Form.Control
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Write your email"
+            size="lg"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+        </Form.Group>
+        {['checkbox'].map((type) => (
+          <Stack key={`default-${type}`} gap={2} className="my-3">
+            <Form.Check type={type} id={`default-${type}`} label="I aggree to Terms & Conditions" />
+            <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" />
+          </Stack>
+        ))}
+        <Button variant="primary" type="submit" className="w-100">
+          Sign Up for free
+        </Button>
+      </Form>
+      <div className="mt-3">
+        Do you have already account? <Link to={route.login}>Log in</Link>
       </div>
     </div>
-  );
+  )
 }
