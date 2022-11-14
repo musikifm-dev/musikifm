@@ -14669,7 +14669,7 @@ textarea.form-control-lg {
 }
 /*Fonts*/
 :root {
-  --f-poppings: "Poppins", sans-serif;
+  --f-poppins: "Poppins", sans-serif;
   --f-patrick-hand: "Patrick Hand", cursive;
   --fs-8: 0.8rem;
   --fs-9: 0.9rem;
@@ -14684,6 +14684,7 @@ textarea.form-control-lg {
   --fs-20: 2rem;
   --fs-25: 2.5rem;
   --fs-30: 3rem;
+  --fs-31: 3.1rem;
   --fs-32: 3.2rem;
   --fs-39: 3.9rem;
   --fs-48: 4.8rem;
@@ -14703,14 +14704,24 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   padding-right: 0px !important;
   overflow-x: hidden;
+}
+
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: var(--f-poppings);
 }
 
 .navbar-toggler {

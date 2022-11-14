@@ -13,13 +13,22 @@
 }
 
 html {
-  font-size: 62.5%;
+  // font-size: 62.5%;
 }
 
 body {
   font-family: $primaryFont;
   padding-right: 0px !important; // **Can couse ui issue
   overflow-x: hidden;
+}
+
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--f-poppings);
 }
 
 // NAVBAR
@@ -33,7 +42,7 @@ body {
 .navbar {
   padding: 9px 25px;
   position: sticky;
-  // top: 0;  // !* sticky navbar 
+  // top: 0;  // !* sticky navbar
   z-index: 9999;
   width: 100%;
 
