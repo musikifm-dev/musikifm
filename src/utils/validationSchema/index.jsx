@@ -4,9 +4,8 @@ export const registerValidationSchema = yup.object().shape({
   phoneNumber: yup
     .string()
     .required('Phone number is a required field')
-    .trim('Phonenumber can not include whitespace')
-    .min(6)
-    .max(14),
+    .min(6, 'Phone number  must be min 6 characters long')
+    .max(14, 'Phone number  must be max 14 characters long'),
   fullName: yup
     .string()
     .required('Name & Surname is a required field')
@@ -22,6 +21,10 @@ export const registerValidationSchema = yup.object().shape({
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!~'%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,15}$/,
       'Password can only contain Latin letters.',
     ),
-  email: yup.string().required('Email is a required field').trim('Email can not include whitespace').email(),
-  termsAndConditions: yup.boolean().oneOf([false], 'Message'),
+  email: yup
+    .string()
+    .required('Email is a required field')
+    .trim('Email can not include whitespace')
+    .email('Email must be a valid'),
+  termsAndConditions: yup.boolean().oneOf([true], 'Terms & Conditions must be checked'),
 })

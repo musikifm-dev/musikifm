@@ -1,14 +1,14 @@
 export const route = {
   home: '/',
-  podcast: 'podcast',
-  moodFilter: 'MoodFilter',
+  podcast: '/podcast',
+  moodFilter: '/MoodFilter',
   blog: 'blog',
-  video: 'video',
-  songs: 'songs',
-  login: 'login',
-  profile: 'profile',
-  register: 'register',
-  accountSettings: 'account-settings',
+  video: '/video',
+  songs: '/songs',
+  login: '/login',
+  profile: '/profile',
+  register: '/register',
+  accountSettings: '/account-settings',
 }
 
 export const navLinks = [
