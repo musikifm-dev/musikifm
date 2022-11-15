@@ -1,3 +1,25 @@
+.icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  &__link {
+    color: black;
+  }
+
+  &__item {
+    transition: 0.175s all;
+  }
+
+  &__item:hover {
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ced4da;
+    color: white;
+  }
+}
+
 .signup {
   font-size: var(--fs-31);
   font-weight: var(--fw-7);
@@ -30,4 +52,8 @@
     border-bottom-left-radius: 0px !important;
     border-left: none !important;
   }
+}
+
+.placeholder::placeholder {
+  font-size: var(--fs-9);
 }
