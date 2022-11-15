@@ -20,6 +20,7 @@ export default function Register() {
       fullName: '',
       password: '',
       email: '',
+      termsAndConditions: '',
     },
     validationSchema: registerValidationSchema,
     onSubmit: (values) => {
@@ -114,8 +115,18 @@ export default function Register() {
         </Form.Group>
 
         <Stack gap={2} className="my-3">
-          {/* <Form.Check type="checkbox" id="terms" label="I aggree to Terms & Conditions" name="terms" />  Checkbox Val is needed*/} 
-          {formik.errors.terms && formik.touched.terms && <div>{formik.errors.terms}</div>}
+          <Form.Check
+            type="checkbox"
+            id="termsAndConditions"
+            name="termsAndConditions"
+            label="I aggree to Terms & Conditions"
+            onChange={formik.handleChange}
+            value={formik.values.termsAndConditions}
+          />
+          Checkbox Val is needed
+          {formik.errors.termsAndConditions && formik.touched.termsAndConditions && (
+            <div>{formik.errors.termsAndConditions}</div>
+          )}
           {/* <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" /> */}
         </Stack>
 

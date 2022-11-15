@@ -13,11 +13,20 @@ export const authApi = createApi({
   }),
   endpoints: (builder) => ({
     register: builder.mutation({
-      query: (data) => ({
-        url: 'api/auth/local/register',
-        method: 'POST',
-        body: data,
-      }),
+      query: (data) => {
+        const { phoneNumber, fullName, password, email, termsAndConditions } = data
+        return {
+          url: 'api/auth/local/register',
+          method: 'POST',
+          body: {
+            phoneNumber: phoneNumber,
+            fullName: fullName,
+            password: password,
+            email: email,
+            termsAndConditions: termsAndConditions,
+          },
+        }
+      },
     }),
     login: builder.query({
       // query: () => Songs.song + '-' + Songs.artist,

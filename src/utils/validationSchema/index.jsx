@@ -11,13 +11,17 @@ export const registerValidationSchema = yup.object().shape({
     .string()
     .required('Name & Surname is a required field')
     .min(3, 'Name & Surname  must be at least 3 characters long')
-    .max(30, 'Name & Surname  must be max 30 characters long'),
+    .max(30, 'Name & Surname  must be max 30 characters long')
+    .matches(/[a-zA-ZığüşöçİĞÜŞÖÇ]/, 'Name & Surname can only contain Latin letters.'),
   password: yup
-    .string()
+    .string('Password must be string')
     .required('Password is a required field')
     .min(7, 'Password is too short - should be 7 chars minimum.')
     .max(12, 'Password is too long - should be 12 chars minimum.')
-    .matches(/[a-zA-ZığüşöçİĞÜŞÖÇ]/, 'Password can only contain Latin letters.'),
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!~'%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,15}$/,
+      'Password can only contain Latin letters.',
+    ),
   email: yup.string().required('Email is a required field').trim('Email can not include whitespace').email(),
-//   terms: yup.boolean().oneOf([false], 'Message'), 
+  termsAndConditions: yup.boolean().oneOf([false], 'Message'),
 })

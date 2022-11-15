@@ -14704,6 +14704,10 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   padding-right: 0px !important;
