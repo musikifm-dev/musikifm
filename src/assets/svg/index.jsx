@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const HomeIcon = ({ size }) => {
   return (
@@ -8,8 +8,8 @@ const HomeIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 const SearchIcon = ({ size }) => {
   return (
     <svg role="img" height={size} width={size} className="Svg-sc-1bi12j5-0 jgfuCe search-icon" viewBox="0 0 24 24">
@@ -18,8 +18,8 @@ const SearchIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
 const LibraryIcon = ({ size }) => {
   return (
@@ -29,21 +29,31 @@ const LibraryIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
 //Player Icon Set Start
 
-const PrevIcon = ({ size }) => {
+const PrevIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 23 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M19.1532 40.936L22.249 37.6735L6.37048 20.9396L22.249 4.20569L19.1532 0.943108L0.278712 20.9396L19.1532 40.936Z"
-        fill="currentColor"
-      />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-chevron-left"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <polyline points="15 6 9 12 15 18"></polyline>
     </svg>
-  );
-};
+  )
+}
 const NextIcon = ({ size }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 23 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +62,8 @@ const NextIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 const FavoriteIcon = ({ size }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,8 +72,8 @@ const FavoriteIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
 const PauseIcon = ({ size }) => {
   return (
@@ -76,8 +86,8 @@ const PauseIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 const PlayIcon = ({ size }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,8 +96,8 @@ const PlayIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
 const HamburgerIcon = ({ size }) => {
   return (
@@ -97,8 +107,8 @@ const HamburgerIcon = ({ size }) => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 const BlackHamburgerIcon = ({ size }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 39 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,8 +117,8 @@ const BlackHamburgerIcon = ({ size }) => {
         fill="#000"
       />
     </svg>
-  );
-};
+  )
+}
 const ShareIcon = ({ size }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,8 +144,8 @@ const ShareIcon = ({ size }) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
 const TimeIcon = ({ size }) => {
   return (
@@ -146,29 +156,30 @@ const TimeIcon = ({ size }) => {
       />
       <path d="M6.11531 2.92651H5.04883V6.12595H8.24826V5.05947H6.11531V2.92651Z" fill="currentColor" />
     </svg>
-  );
-};
+  )
+}
 
-const CloseIcon = ({ size }) => {
+const CloseIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M2 2.09351L22.97 23.0635"
-        stroke="white"
-        strokeWidth="2.58281"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M2 22.97L22.97 1.99997"
-        stroke="white"
-        strokeWidth="2.58281"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-x"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
-  );
-};
+  )
+}
 
 const VideoPlayIcon = ({ size }) => {
   return (
@@ -179,10 +190,10 @@ const VideoPlayIcon = ({ size }) => {
         fill="#F05E0C"
       />
     </svg>
-  );
-};
+  )
+}
 
-const Icon = ({ name, size }) => {
+const Icon = ({ name, size, className }) => {
   const icons = {
     home: HomeIcon,
     search: SearchIcon,
@@ -198,10 +209,10 @@ const Icon = ({ name, size }) => {
     close: CloseIcon,
     blackhamburger: BlackHamburgerIcon,
     videoplay: VideoPlayIcon,
-  };
+  }
 
-  const Component = icons[name];
-  return <Component size={size} />;
-};
+  const Component = icons[name]
+  return <Component size={size} className={className} />
+}
 
-export default Icon;
+export default Icon
