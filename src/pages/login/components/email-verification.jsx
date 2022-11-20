@@ -1,6 +1,6 @@
 // import React from 'react'
 
-export default function ActivationCodeToEmail() {
+export default function EmailVerification() {
   return (
     <div>ActivationCodeToEmail</div>
   )

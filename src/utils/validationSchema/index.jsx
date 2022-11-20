@@ -3,7 +3,7 @@ import * as yup from 'yup'
 export const registerValidationSchema = yup.object().shape({
   phoneNumber: yup
     .string()
-    .required('Phone number is a required field')
+    // .required('Phone number is a required field')
     .min(6, 'Phone number  must be min 6 characters long')
     .max(14, 'Phone number  must be max 14 characters long'),
   fullName: yup

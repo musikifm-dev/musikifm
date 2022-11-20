@@ -1,18 +1,22 @@
-import { Button, Dropdown, DropdownButton, Form, Image } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
-// import { useCookies } from 'react-cookie'
-import { useFormik } from 'formik'
-import { useRegisterMutation } from 'store/api/auth'
-import { registerValidationSchema } from 'utils/validationSchema'
-import logoBlack from '../../assets/img/logo-black.png'
-import { route } from 'utils/constants'
-import clsx from 'clsx'
-import styles from './index.module.scss'
-import Icon from 'assets/svg'
+import { useSelector } from 'react-redux'
+import { Login, SmsVerification } from '../../pages'
 
-const Login = () => {
-  
-  return <>LOGIN LOGIC</>
+const LoginProvider = () => {
+  const step = useSelector((state) => state.auth.step)
+  console.log(step, 'STEP')
+
+  const renderSwitch = () => {
+    switch (step) {
+      case 1:
+        return <Login />
+      case 2:
+        return <SmsVerification />
+      default:
+        console.log('DEFAKT')
+    }
+  }
+
+  return <div>{renderSwitch()}</div>
 }
 
-export default Login
+export default LoginProvider

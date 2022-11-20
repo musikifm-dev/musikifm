@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation, Pagination, Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import 'swiper/scss';
-import { Card } from 'components/index';
+// import { Card } from 'components/index';
 import { route } from 'utils/constants';
 import styles from '../style.module.scss';
 
 const PodcastSlider = () => {
-  const [podcastData, setPodcastData] = useState([{}]);
+  // const [podcastData, setPodcastData] = useState([{}]);
 
-  useEffect(() => {
-    fetch('http://localhost:1337/api/podcast-report')
-      .then(response => response.json())
-      .then(data => {
-        setPodcastData(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:1337/api/podcast-report')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setPodcastData(data);
+  //     });
+  // }, []);
 
   return (
     <div className={styles.slider}>
@@ -61,7 +61,7 @@ const PodcastSlider = () => {
           }
         }}
       >
-        {podcastData.map((item, i) => {
+        {/* {podcastData.map((item, i) => {
           if (item.homepage == true) {
             return (
               <SwiperSlide key={i}>
@@ -69,7 +69,7 @@ const PodcastSlider = () => {
               </SwiperSlide>
             );
           }
-        })}
+        })} */}
       </Swiper>
     </div>
   );
