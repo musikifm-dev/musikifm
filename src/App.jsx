@@ -7,6 +7,8 @@ import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
 import { Home, Login, Podcast, Register, Videos, Blog, Songs } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
+// import ActivationCodeToEmail from 'pages/login/components/activationCodeToEmail'
+// import ActivationCode from 'pages/login/components/activationCode'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<AuthLayout />}>
         <Route path={route.login} element={<Login />} />
+        {/* <Route path={`${route.login}${route.smsVerification}`} element={<ActivationCode />} />
+        <Route path={`${route.login}${route.emailVerification}`} element={<ActivationCodeToEmail />} /> */}
         <Route path={route.register} element={<Register />} />
       </Route>
     </Route>,

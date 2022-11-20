@@ -31,6 +31,11 @@
   font-size: var(--fs-13);
 }
 
+.label:has(div[class~='timer']) {
+  display: flex;
+  justify-content: center;
+}
+
 .dropdown {
   display: flex;
   justify-content: center;
@@ -60,7 +65,7 @@
 
 .divider {
   font-size: var(--fs-13);
-//   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  //   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;

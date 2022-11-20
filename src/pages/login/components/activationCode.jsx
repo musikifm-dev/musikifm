@@ -1,27 +1,14 @@
+import Icon from 'assets/svg'
 import { Button, Dropdown, DropdownButton, Form, Image } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
-// import { useCookies } from 'react-cookie'
-import { useFormik } from 'formik'
-import { useRegisterMutation } from 'store/api/auth'
-import { registerValidationSchema } from 'utils/validationSchema'
-import logoBlack from '../../assets/img/logo-black.png'
 import { route } from 'utils/constants'
+import styles from '../index.module.scss'
+import logoBlack from '../../../assets/img/logo-black.png'
 import clsx from 'clsx'
-import styles from './index.module.scss'
-import Icon from 'assets/svg'
+import { useFormik } from 'formik'
 
-const Login = () => {
-  const [register] = useRegisterMutation()
+export default function ActivationCode() {
   const navigate = useNavigate()
-  // const [step, setStep] = useState(1)
-
-  // const prevStep = () => {
-  //   setStep((prev) => prev - 1)
-  // }
-
-  // const nextStep = () => {
-  //   setStep((prev) => prev + 1)
-  // }
 
   const formik = useFormik({
     initialValues: {
@@ -31,13 +18,11 @@ const Login = () => {
       email: '',
       termsAndConditions: '',
     },
-    validationSchema: registerValidationSchema,
     onSubmit: (values) => {
-      register(values)
+      //   register(values)
       console.log(values)
     },
   })
-
   return (
     <div className="d-flex flex-column justify-content-center mt-10 px-5">
       <div className={styles.icon}>
@@ -54,13 +39,13 @@ const Login = () => {
             <Image src={logoBlack} width={200} height={41} />
           </Link>
           <div className="d-flex flex-column justify-content-center align-items-center mt-4">
-            <h3 className="fs-3 fw-bold">Login</h3>
-            <div>Go inside the best music experience!</div>
+            <h3 className="fs-3 fw-bold">Tek Kullanımlık Şifre</h3>
+            <div>Devam edebilmek için +905324553432 numaralı telefona gönderilen tek kullanımlık şifreyi gir.</div>
           </div>
           <Form className="flex-column mt-4" onSubmit={formik.handleSubmit}>
             <Form.Group>
-              <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label)}>
-                Your Phone Number
+              <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label, styles.timer)}>
+                <div className="timer"> 00:00 </div>
               </Form.Label>
               <Form.Group className={styles.dropdown}>
                 <DropdownButton
@@ -113,5 +98,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login

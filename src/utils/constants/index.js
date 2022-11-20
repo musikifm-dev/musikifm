@@ -6,6 +6,8 @@ export const route = {
   video: '/video',
   songs: '/songs',
   login: '/login',
+  smsVerification: '/sms-verification',
+  emailVerification:"/email-verification",
   profile: '/profile',
   register: '/register',
   accountSettings: '/account-settings',
