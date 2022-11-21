@@ -1,5 +1,5 @@
 import { Button, Dropdown, DropdownButton, Form, Image, Stack } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import { useCookies } from 'react-cookie'
 import { useFormik } from 'formik'
 // import { useRegisterMutation } from 'store/api/auth'
@@ -10,11 +10,11 @@ import clsx from 'clsx'
 import styles from '../index.module.scss'
 import Icon from 'assets/svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { nextStep } from 'store/slices/auth'
+import { setStep } from 'store/slices/auth'
 
 export default function Login() {
   // const [register] = useRegisterMutation()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const step = useSelector((state) => state.auth.step)
   const dispatch = useDispatch()
   console.log(step, 'STEP')
@@ -36,17 +36,16 @@ export default function Login() {
 
   return (
     <div className="container">
-      <div className="row mt-4">
-        <div className={styles.icon}>
-          <Link className={styles.icon__link} onClick={() => navigate(-1)}>
-            <Icon name="prev" size={30} />
-            <div className={styles.icon__text}>Geri</div>
-          </Link>
-          <Link className={styles.icon__link} to={route.home}>
-            <Icon name="close" size={30} />
-          </Link>
+      <div className="row mt-5">
+        <div className="col-10">
+          <div className={styles.icon}>
+            <Link className={styles.icon__link} to={route.home}>
+              <Icon name="close" size={30} />
+            </Link>
+          </div>
         </div>
       </div>
+      <div className="row mt-4"></div>
       <div className="row justify-content-center mt-5">
         <div className="col-4">
           <div className={clsx('d-flex flex-column justify-content-center align-items-center mt-12', styles.x)}>
@@ -57,7 +56,7 @@ export default function Login() {
               <h3 className="fs-3 fw-bold">Login</h3>
               <div>Go inside the best music experience!</div>
             </div>
-            <Form className="flex-column mt-4" onSubmit={formik.handleSubmit}>
+            <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
               <Form.Group>
                 <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label)}>
                   Your Phone Number
@@ -89,7 +88,7 @@ export default function Login() {
                   <Form.Text className="fw-light text-danger">{formik.errors.phoneNumber}</Form.Text>
                 )}
               </Form.Group>
-              <Button variant="primary" type="submit" className="w-100 mt-4" onClick={() => dispatch(nextStep())}>
+              <Button variant="primary" type="submit" className="w-100 mt-4" onClick={() => dispatch(setStep(2))}>
                 Continue with number
               </Button>
 

@@ -7,7 +7,7 @@ import { route } from 'utils/constants'
 import Icon from 'assets/svg'
 import logoBlack from '../../../assets/img/logo-black.png'
 import { useDispatch } from 'react-redux'
-import { prevStep } from 'store/slices/auth'
+import { setStep } from 'store/slices/auth'
 
 export default function SmsVerification() {
   const navigate = useNavigate()
@@ -18,21 +18,24 @@ export default function SmsVerification() {
       phoneNumber: '',
     },
     onSubmit: (values) => {
-      dispatch(prevStep()) // if submitting succesfully get back step state to initial val - 1
+      dispatch(setStep(1)) // if submitting succesfully get back step state to initial val - 1
       console.log(values)
     },
   })
+
   return (
     <div className="container">
-      <div className="row mt-4">
-        <div className={styles.icon}>
-          <Link className={styles.icon__link} onClick={() => dispatch(prevStep())}>
-            <Icon name="prev" size={30} className={styles.icon__item} />
-            <div className={styles.icon__text}>Geri</div>
-          </Link>
-          <Link className={styles.icon__link} to={route.home}>
-            <Icon name="close" size={30} className={styles.icon__item} />
-          </Link>
+      <div className="row mt-5">
+        <div className="col-10">
+          <div className={clsx(styles.icon, styles.spaceBetween)}>
+            <Link className={styles.icon__link} onClick={() => dispatch(setStep(1))}>
+              <Icon name="prev" size={30} className={styles.icon__item} />
+              <div className={styles.icon__text}>Geri</div>
+            </Link>
+            <Link className={styles.icon__link} to={route.home}>
+              <Icon name="close" size={30} className={styles.icon__item} />
+            </Link>
+          </div>
         </div>
       </div>
       <div className="row justify-content-center mt-5">
@@ -47,7 +50,7 @@ export default function SmsVerification() {
                 Devam edebilmek için +905324553432 numaralı telefona gönderilen tek kullanımlık şifreyi gir.
               </div>
             </div>
-            <Form className="flex-column mt-4" onSubmit={formik.handleSubmit}>
+            <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
               <Form.Group>
                 <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label, styles.timer)}>
                   <div className="timer"> 00:00 </div>
@@ -91,7 +94,7 @@ export default function SmsVerification() {
                 <div>
                   <div className={clsx('mt-3', styles.divider)}>or</div>
                 </div>
-                <Button variant="light" className="w-100 mt-3" onClick={() => navigate("/login/email-verification")}>
+                <Button variant="light" className="w-100 mt-3" onClick={() => navigate('/login/email-verification')}>
                   <Stack gap={4} direction="horizontal">
                     <Icon name="phone" size={24} />
                     <div className="fs-6 fw-medium">Telefonun yaninda yok mu?</div>

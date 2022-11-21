@@ -1,8 +1,8 @@
 .icon {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  justify-content: end;
+  // align-items: center;
+  // text-align: center;
 
   &__link {
     display: flex;
@@ -25,6 +25,14 @@
     background-color: #ced4da;
     color: white;
   }
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.form {
+  width: 350px;
 }
 
 .signup {
@@ -67,6 +75,7 @@
 }
 
 .placeholder::placeholder {
+  text-align: center;
   font-size: var(--fs-9);
 }
 

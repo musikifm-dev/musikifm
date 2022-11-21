@@ -16,17 +16,13 @@ const authSlice = createSlice({
     loginStep: (state, action) => {
       state.step = action.payload
     },
-    prevStep: (state) => {
-      state.step -= 1
+    setStep: (state, action) => {
+      state.step = action.payload
     },
-    nextStep: (state) => {
-      state.step += 1
-    },
-    
   },
 })
 
-export const { setCredentials, logOut, loginStep, prevStep, nextStep } = authSlice.actions
+export const { setCredentials, logOut, loginStep, setStep } = authSlice.actions
 
 export default authSlice.reducer
 
