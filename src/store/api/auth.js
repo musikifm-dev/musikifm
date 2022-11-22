@@ -14,26 +14,40 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (data) => {
-        const { phoneNumber, fullName, password, email, termsAndConditions } = data
+        const { phoneNumber, username, password, email } = data
         return {
           url: 'api/auth/local/register',
           method: 'POST',
           body: {
-            phoneNumber: phoneNumber,
-            fullName: fullName,
+            username: username,
             password: password,
             email: email,
-            termsAndConditions: termsAndConditions,
+            phoneNumber: phoneNumber,
+            // termsAndConditions: termsAndConditions,
           },
         }
       },
     }),
-    login: builder.query({
-      // query: () => Songs.song + '-' + Songs.artist,
+    login: builder.mutation({
+      query: (data) => {
+        const { email, password } = data
+        return {
+          url: 'api/auth/local',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: {
+            // username: username,
+            password: password,
+            email: email,
+          },
+        }
+      },
     }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useRegisterMutation } = authApi
+export const { useRegisterMutation, useLoginMutation } = authApi
