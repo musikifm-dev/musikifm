@@ -8,10 +8,13 @@ import Icon from 'assets/svg'
 import logoBlack from '../../../assets/img/logo-black.png'
 import { useDispatch } from 'react-redux'
 import { setStep } from 'store/slices/auth'
+import useCountdown from 'utils/hooks/useCountdown'
 
 export default function SmsVerification() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { state, time } = useCountdown(60, 1000)
+  console.log(time)
 
   const formik = useFormik({
     initialValues: {
@@ -25,7 +28,7 @@ export default function SmsVerification() {
 
   return (
     <div className="container">
-      <div className="row mt-5">
+      <div className="row mt-5 justify-content-center">
         <div className="col-10">
           <div className={clsx(styles.icon, styles.spaceBetween)}>
             <Link className={styles.icon__link} onClick={() => dispatch(setStep(1))}>
@@ -53,7 +56,8 @@ export default function SmsVerification() {
             <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
               <Form.Group>
                 <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label, styles.timer)}>
-                  <div className="timer"> 00:00 </div>
+                  <div className="timer">{state !== null && state}</div>
+                  <div className="timer">{time}</div>
                 </Form.Label>
                 <Form.Group className={styles.dropdown}>
                   <DropdownButton
@@ -95,8 +99,8 @@ export default function SmsVerification() {
                   <div className={clsx('mt-3', styles.divider)}>or</div>
                 </div>
                 <Button variant="light" className="w-100 mt-3" onClick={() => navigate('/login/email-verification')}>
-                  <Stack gap={4} direction="horizontal">
-                    <Icon name="phone" size={24} />
+                  <Stack gap={3} direction="horizontal">
+                    <Icon name="phone" size={24} className={styles.phoneIcon} />
                     <div className="fs-6 fw-medium">Telefonun yaninda yok mu?</div>
                   </Stack>
                 </Button>

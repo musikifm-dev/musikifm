@@ -36,7 +36,7 @@ export default function Login() {
 
   return (
     <div className="container">
-      <div className="row mt-5">
+      <div className="row mt-5 justify-content-center">
         <div className="col-10">
           <div className={styles.icon}>
             <Link className={styles.icon__link} to={route.home}>

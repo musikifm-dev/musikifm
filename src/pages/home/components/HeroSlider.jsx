@@ -8,7 +8,7 @@ import SliderImage2 from '../../../assets/img/slider/slider2.png'
 import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../style.module.scss'
-import { useWindowSize } from '../../../utils/hooks/useWindowSize.tsx'
+import { useWindowSize } from '../../../utils/hooks/useWindowSize.jsx'
 import { Card } from 'components'
 
 const HeroSlider = () => {
