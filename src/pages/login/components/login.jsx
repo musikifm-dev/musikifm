@@ -1,36 +1,40 @@
-import { Button, Dropdown, DropdownButton, Form, Image, Stack } from 'react-bootstrap'
+import { Button, Form, Image, Stack } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-// import { useCookies } from 'react-cookie'
 import { useFormik } from 'formik'
-// import { useRegisterMutation } from 'store/api/auth'
-import { registerValidationSchema } from 'utils/validationSchema'
+import { loginValidationSchema } from 'utils/validationSchema'
 import logoBlack from '../../../assets/img/logo-black.png'
 import { route } from 'utils/constants'
 import clsx from 'clsx'
 import styles from '../index.module.scss'
 import Icon from 'assets/svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { setStep } from 'store/slices/auth'
+// import { useDispatch } from 'react-redux'
+// import { setStep } from 'store/slices/auth'
+// import { useLoginMutation } from 'store/api/auth'
 
 export default function Login() {
-  // const [register] = useRegisterMutation()
+  // const [login] = useLoginMutation()
   // const navigate = useNavigate()
-  const step = useSelector((state) => state.auth.step)
-  const dispatch = useDispatch()
-  console.log(step, 'STEP')
+  // const step = useSelector((state) => state.auth.step)
+  // const dispatch = useDispatch()
+  // console.log(step, 'STEP')
 
   const formik = useFormik({
+    validateOnMount: true,
     initialValues: {
-      phoneNumber: '',
-      fullName: '',
+      userNameOrEmail: '',
       password: '',
-      email: '',
-      termsAndConditions: '',
     },
-    validationSchema: registerValidationSchema,
+    validationSchema: loginValidationSchema,
     onSubmit: (values) => {
-      // register(values)
       console.log(values)
+      // login(values)
+      // if (isValidEmail(values.input)) {
+      //   values.username = ''
+      //   values.email = values.input
+      // } else {
+      //   values.username = values.input
+      //   values.email = ''
+      // }
     },
   })
 
@@ -45,7 +49,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="row mt-4"></div>
       <div className="row justify-content-center mt-5">
         <div className="col-4">
           <div className={clsx('d-flex flex-column justify-content-center align-items-center mt-12', styles.x)}>
@@ -58,38 +61,61 @@ export default function Login() {
             </div>
             <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
               <Form.Group>
-                <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label)}>
-                  Your Phone Number
+                <Form.Label htmlFor="username" className={styles.label}>
+                  Username / Email
                 </Form.Label>
-                <Form.Group className={styles.dropdown}>
-                  <DropdownButton
-                    variant="outline-secondary"
-                    id="input-group-dropdown-1"
-                    defaultValue="+90"
-                    title="+90"
-                    size="lg"
-                    className={styles.dropdown__btn}
-                  >
-                    <Dropdown.Item href="#">+90</Dropdown.Item>
-                    <Dropdown.Item href="#">+375</Dropdown.Item>
-                  </DropdownButton>
-                  <Form.Control
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    type="text"
-                    placeholder="Write your mobile number"
-                    size="lg"
-                    className={clsx(styles.dropdown__input, styles.placeholder)}
-                    onChange={formik.handleChange}
-                    value={formik.values.phoneNumber}
-                  />
-                </Form.Group>
-                {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.phoneNumber}</Form.Text>
+                <Form.Control
+                  id="userNameOrEmail"
+                  name="userNameOrEmail"
+                  type="text"
+                  placeholder="Write your username or email"
+                  size="lg"
+                  onChange={formik.handleChange}
+                  value={formik.values.userNameOrEmail}
+                  className={styles.placeholder}
+                />
+                {formik.errors.userNameOrEmail && formik.touched.userNameOrEmail && (
+                  <Form.Text className="fw-light text-danger">{formik.errors.userNameOrEmail}</Form.Text>
                 )}
               </Form.Group>
-              <Button variant="primary" type="submit" className="w-100 mt-4" onClick={() => dispatch(setStep(2))}>
-                Continue with number
+              <Form.Group>
+                <Form.Label htmlFor="password" className={styles.label}>
+                  Password
+                </Form.Label>
+                <Form.Control
+                  id="password"
+                  name="password"
+                  type="text"
+                  placeholder="Write your password"
+                  size="lg"
+                  onChange={formik.handleChange}
+                  value={formik.values.password}
+                  className={styles.placeholder}
+                />
+                {formik.errors.password && formik.touched.password && (
+                  <Form.Text className="fw-light text-danger">{formik.errors.password}</Form.Text>
+                )}
+              </Form.Group>
+              {/* <Form.Group>
+                <Form.Label htmlFor="email" className={styles.label}>
+                  Email
+                </Form.Label>
+                <Form.Control
+                  id="email"
+                  name="email"
+                  type="text"
+                  placeholder="Write your email"
+                  size="lg"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  className={styles.placeholder}
+                />
+                {formik.errors.email && formik.touched.email && (
+                  <Form.Text className="fw-light text-danger">{formik.errors.email}</Form.Text>
+                )}
+              </Form.Group> */}
+              <Button variant="primary" type="submit" className="w-100 mt-4" disabled={!formik.isValid}>
+                Login
               </Button>
 
               <div className="mt-3 text-center">

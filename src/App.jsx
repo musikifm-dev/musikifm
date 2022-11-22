@@ -5,7 +5,7 @@ import BlogDetail from './components/Detail/BlogDetail'
 import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
-import { Home, Podcast, Register, Videos, Blog, Songs, LoginProvider, EmailVerification } from './pages'
+import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
 
 const router = createBrowserRouter(
@@ -25,8 +25,7 @@ const router = createBrowserRouter(
         <Route path="/connect/:providerName" element={<LoginRedirect />} />
       </Route>
       <Route element={<AuthLayout />}>
-        <Route path="/login" element={<LoginProvider />} />
-        {/* <Route path={`${route.login}${route.smsVerification}`} element={<SmsVerification />} /> */}
+        <Route path={route.login} element={<Login />} />
         <Route path="/login/email-verification" element={<EmailVerification />} />
         <Route path={route.register} element={<Register />} />
       </Route>

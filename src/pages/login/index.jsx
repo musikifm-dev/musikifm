@@ -3,7 +3,6 @@ import { Login, SmsVerification } from '../../pages'
 
 const LoginProvider = () => {
   const step = useSelector((state) => state.auth.step)
-  console.log(step, 'STEP')
 
   const renderSwitch = () => {
     switch (step) {
