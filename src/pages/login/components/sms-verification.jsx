@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { Button, Dropdown, DropdownButton, Form, Image, Stack } from 'react-bootstrap'
+import { Button, Form, Image, Stack } from 'react-bootstrap'
 import clsx from 'clsx'
 import { useFormik } from 'formik'
 import styles from '../index.module.scss'
@@ -9,11 +9,15 @@ import logoBlack from '../../../assets/img/logo-black.png'
 import { useDispatch } from 'react-redux'
 import { setStep } from 'store/slices/auth'
 import useCountdown from 'utils/hooks/useCountdown'
+import { OtpInput } from 'components'
+import { useState } from 'react'
 
 export default function SmsVerification() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { state, time } = useCountdown(60, 1000)
+  const { time } = useCountdown(60, 1000)
+  const [otp, setOtp] = useState('')
+  const onChange = (value) => setOtp(value)
   console.log(time)
 
   const formik = useFormik({
@@ -56,31 +60,10 @@ export default function SmsVerification() {
             <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
               <Form.Group>
                 <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label, styles.timer)}>
-                  <div className="timer">{state !== null && state}</div>
                   <div className="timer">{time}</div>
                 </Form.Label>
                 <Form.Group className={styles.dropdown}>
-                  <DropdownButton
-                    variant="outline-secondary"
-                    id="input-group-dropdown-1"
-                    defaultValue="+90"
-                    title="+90"
-                    size="lg"
-                    className={styles.dropdown__btn}
-                  >
-                    <Dropdown.Item href="#">+90</Dropdown.Item>
-                    <Dropdown.Item href="#">+375</Dropdown.Item>
-                  </DropdownButton>
-                  <Form.Control
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    type="text"
-                    placeholder="Write your mobile number"
-                    size="lg"
-                    className={clsx(styles.dropdown__input, styles.placeholder)}
-                    onChange={formik.handleChange}
-                    value={formik.values.phoneNumber}
-                  />
+                  <OtpInput value={otp} valueLength={4} onChange={onChange} />
                 </Form.Group>
                 {formik.errors.phoneNumber && formik.touched.phoneNumber && (
                   <Form.Text className="fw-light text-danger">{formik.errors.phoneNumber}</Form.Text>

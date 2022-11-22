@@ -20,3 +20,5 @@ export const navLinks = [
   { route: route.blog, text: 'Blog' },
   { route: route.video, text: 'Video' },
 ]
+
+export const RE_DIGIT = new RegExp(/^\d+$/);
