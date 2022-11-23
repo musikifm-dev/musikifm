@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { API_URL } from 'utils/URL';
 
 function BlogItem({ item }) {
-  const blogImage = 'http://localhost:1337' + item.image;
+  const blogImage = API_URL + item.image;
 
   return (
     <div className="blogBox" data-id={item.id}>
