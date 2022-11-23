@@ -5,7 +5,7 @@ import BlogDetail from './components/Detail/BlogDetail'
 import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
-import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login } from './pages'
+import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
 
 const router = createBrowserRouter(
@@ -20,6 +20,7 @@ const router = createBrowserRouter(
         <Route path={route.songs} element={<Songs />} />
         <Route path={route.video} element={<Videos />} />
         <Route path={route.blog} element={<Blog />} />
+        <Route path={route.moodFilter} element={<MoodFilter />} />
         <Route path={route.accountSettings} element={<Videos />} />
         <Route path={route.profile} element={<Profile />} />
         <Route path="/connect/:providerName" element={<LoginRedirect />} />

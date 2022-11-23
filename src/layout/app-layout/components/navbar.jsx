@@ -6,17 +6,18 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Image from 'react-bootstrap/Image'
 import Offcanvas from 'react-bootstrap/Offcanvas'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
 import { Button, Stack } from 'react-bootstrap'
 import { navLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <>
       {[false].map((expand) => (
-        <ReactBootstrapNavbar key={expand} bg="light" expand={expand} className={styles.navbar}>
+        <ReactBootstrapNavbar key={expand} bg="light" expand={expand}>
           <Container fluid>
             <ReactBootstrapNavbar.Brand>
               <Stack direction="horizontal" gap={2} className="align-items-start">
@@ -50,13 +51,20 @@ const Navbar = () => {
               </ReactBootstrapNavbar.Offcanvas>
             </ReactBootstrapNavbar.Brand>
             <div className={styles.btnContainer}>
-              <Link to={route.login} className={styles.btnContainer__btn}>
-                Login
-              </Link>
-              <span className={styles.btnContainer__btn}>/</span>
-              <Link to={route.register} className={styles.btnContainer__btn}>
-                Sign In
-              </Link>
+              <Stack gap={4} direction="horizontal">
+                <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
+                  Mood
+                </button>
+                <div>
+                  <Link to={route.login} className={styles.btnContainer__btn}>
+                    Login
+                  </Link>
+                  <span className={styles.btnContainer__btn}>/</span>
+                  <Link to={route.register} className={styles.btnContainer__btn}>
+                    Sign In
+                  </Link>
+                </div>
+              </Stack>
             </div>
           </Container>
         </ReactBootstrapNavbar>

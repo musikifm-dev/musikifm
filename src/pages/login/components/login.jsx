@@ -114,7 +114,7 @@ export default function Login() {
                   <Form.Text className="fw-light text-danger">{formik.errors.email}</Form.Text>
                 )}
               </Form.Group> */}
-              <Button variant="primary" type="submit" className="w-100 mt-4" disabled={!formik.isValid}>
+              <Button variant="primary" type="submit" className="w-100 mt-4" >
                 Login
               </Button>
 

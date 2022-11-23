@@ -4,6 +4,28 @@
 @import '../../../node_modules/bootstrap/scss/utilities/api';
 
 .btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__moodBtn {
+    font-size: var(--fs-17);
+    font-weight: var(--fw-6);
+    color: #fff;
+    background: linear-gradient(259.17deg, #9740ed 16.17%, #4085ed 85.39%);
+    border-radius: 30px;
+    white-space: 0.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.6rem 3.5rem;
+    transition: 0.3s all;
+
+    &:hover {
+      color: black;
+    }
+  }
+
   &__btn {
     font-family: var(--f-poppings);
     font-size: var(--fs-15);

@@ -30,11 +30,31 @@ export const registerValidationSchema = yup.object().shape({
   termsAndConditions: yup.boolean().oneOf([true], 'Terms & Conditions must be checked'),
 })
 
-export const loginValidationSchema = yup.object().shape({
+export const loginValidationSchema = yup.object({
   userNameOrEmail: yup
-    .string('Username of Email must be string')
-    .trim()
-    .required('Username or Email is a required field'),
+    .string('Username/Email must be string')
+    .required('Username or Email is a required field')
+    .test('is-username', 'Enter a Valid Username', (value) => {
+      const usernameRegex = /[a-zA-ZığüşöçİĞÜŞÖÇ]/
+      let isValidUsername = usernameRegex.test(value)
+
+      if (!isValidUsername) {
+        console.log('username')
+        return false
+      }
+      return true
+    })
+    .test('is-email', 'Enter a Valid Email', (value) => {
+      const emailRegex =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      let isValidEmail = emailRegex.test(value)
+
+      if (!isValidEmail) {
+        console.log('email')
+        return false
+      }
+      return true
+    }),
   // username: yup
   //   .string()
   //   .required('Name is a required field')
