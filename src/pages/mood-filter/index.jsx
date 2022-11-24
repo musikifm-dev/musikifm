@@ -1,24 +1,31 @@
 // import React from 'react'
 import Divider from 'components/divider'
-import { Form, InputGroup } from 'react-bootstrap'
+import Select from 'pages/home/components/select'
+
+// import { useState } from 'react'
+// import { Form, InputGroup } from 'react-bootstrap'
+// import Select from 'react-select'
 import styles from './index.module.scss'
+
+const colourOptions = [
+  { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'purple', label: 'Purple', color: '#5243AA' },
+  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+  { value: 'orange', label: 'Orange', color: '#FF8B00' },
+  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+  { value: 'green', label: 'Green', color: '#36B37E' },
+  { value: 'forest', label: 'Forest', color: '#00875A' },
+  { value: 'slate', label: 'Slate', color: '#253858' },
+  { value: 'silver', label: 'Silver', color: '#666666' },
+]
 
 export default function MoodFilter() {
   return (
     <main>
       <section className={styles.createMood}>
-        <InputGroup size="lg">
-          <InputGroup.Text id="inputGroup-sizing-lg" className={styles.inputText}>
-            Search
-          </InputGroup.Text>
-          <Form.Control
-            aria-label="Large"
-            aria-describedby="inputGroup-sizing-sm"
-            className={styles.input}
-            placeholder="Search genre, mood or year..."
-          />
-        </InputGroup>
-          <Divider text="OR" className="fs-4"/>
+        <Select options={colourOptions} />
+        <Divider text="OR" className="fs-4" />
       </section>
       <section className={styles.addPlaylist}></section>
       <section className={styles.moods}></section>

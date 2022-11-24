@@ -3,21 +3,21 @@ import OwlCarousel from 'react-owl-carousel'
 // import BlogItem from 'components/Items/BlogItem';
 import 'owl.carousel/dist/assets/owl.carousel.css'
 import 'owl.carousel/dist/assets/owl.theme.default.css'
-import { API_URL } from 'utils/URL'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import BlogItem from 'components/Items/BlogItem'
+// import { API_URL } from 'utils/URL'
+// import { useState } from 'react'
+// import { useEffect } from 'react'
+// import BlogItem from 'components/Items/BlogItem'
 
 const BlogSlider = () => {
-  const [blogData, setblogData] = useState([{}])
+  // const [blogData, setblogData] = useState([{}])
 
-  useEffect(() => {
-    fetch(`${API_URL}/api/blog-report`)
-      .then((response) => response.json())
-      .then((data) => {
-        setblogData(data)
-      })
-  }, [])
+  // useEffect(() => {
+  //   fetch(`${API_URL}/api/blog-report`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setblogData(data)
+  //     })
+  // }, [])
 
   const options = {
     margin: 30,
@@ -53,7 +53,7 @@ const BlogSlider = () => {
       </div>
 
       <OwlCarousel className="owl-theme" {...options}>
-        {blogData.map((item, i) => {
+        {/* {blogData.map((item, i) => {
           if (item.homepage == true) {
             return (
               <div className="item" key={i}>
@@ -63,7 +63,7 @@ const BlogSlider = () => {
           }
 
           return;
-        })}
+        })} */}
       </OwlCarousel>
     </div>
   )
