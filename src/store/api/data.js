@@ -9,13 +9,13 @@ export const dataApi = createApi({
   }),
   endpoints: (builder) => ({
     getBlogData: builder.query({
-      query: () => 'api/blog-report',
+      query: () => APP.blog,
     }),
     getPodcastData: builder.query({
-      query: () => 'api/podcast-report',
+      query: () => APP.podcast,
     }),
     getVideoData: builder.query({
-      query: () => 'api/video-report',
+      query: () => APP.video,
     }),
   }),
 })
