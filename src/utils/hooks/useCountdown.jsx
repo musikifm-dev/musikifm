@@ -10,7 +10,6 @@ export default function useCountdown(initialTime, interval = 1000) {
   const [seconds, setSeconds] = useState(initialTime % 60)
   const [state, setState] = useState()
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const countdown = setInterval(() => {
       if (time > 0) {
@@ -19,6 +18,7 @@ export default function useCountdown(initialTime, interval = 1000) {
         setMinutes(Math.floor(time / 60))
         setState(`${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`)
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, interval)
 
     if (time === 0) return
@@ -26,7 +26,7 @@ export default function useCountdown(initialTime, interval = 1000) {
     return () => clearInterval(countdown)
   }, [time])
 
-  return {time, state}
+  return { time, state }
 }
 
 useCountdown.PropTypes = {
