@@ -16,6 +16,7 @@ function PodcastDetail() {
     if (contentID) {
       setContentID(contentID)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentID])
 
   useEffect(() => {
@@ -46,7 +47,7 @@ function PodcastDetail() {
             <div className="col-md-2">
               <div className="podcastSection__play">
                 <div className="play__image">
-                  <img src={imgPodcast}></img>
+                  <img src={imgPodcast} alt="podcastIMG"></img>
                 </div>
               </div>
             </div>

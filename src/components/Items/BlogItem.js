@@ -9,7 +9,7 @@ function BlogItem({ data }) {
     <div className="blogBox" data-id={id}>
       <Link to={`/blog/${id}`}>
         <div className="blogBox__image">
-          <img src={APP.base + image} />
+          <img src={APP.base + image} alt="BlogIMG"/>
         </div>
         <div className="blogBox__content">
           <div className="blogBox__title">

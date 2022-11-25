@@ -18,6 +18,7 @@ function BlogDetail() {
     if (contentID) {
       setContentID(contentID)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentID])
 
   useEffect(() => {
@@ -46,7 +47,7 @@ function BlogDetail() {
         <div className="detail col-md-9" key={results.id} data-id={results.id}>
           <h1 className="detailTitle">{results.attributes.title}</h1>
           <div className="detailImage">
-            <img src={imgBlog}></img>
+            <img src={imgBlog} alt="imgBlogImage"></img>
           </div>
 
           <div className="detailContent">

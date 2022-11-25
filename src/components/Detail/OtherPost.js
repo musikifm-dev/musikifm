@@ -23,15 +23,13 @@ const OtherPost = () => {
       </div>
 
       {itemm.map((item, i) => {
-        if (item.homepage == true && i < 7 && detailTitle[0].dataset.id != item.id) {
+        if (item.homepage === true && i < 7 && detailTitle[0].dataset.id !== item.id) {
           return (
             <div className="other" key={i}>
               <BlogItem item={item} key={4} />
             </div>
           )
         }
-
-        return
       })}
     </div>
   )

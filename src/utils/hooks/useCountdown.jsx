@@ -10,6 +10,7 @@ export default function useCountdown(initialTime, interval = 1000) {
   const [seconds, setSeconds] = useState(initialTime % 60)
   const [state, setState] = useState()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const countdown = setInterval(() => {
       if (time > 0) {
