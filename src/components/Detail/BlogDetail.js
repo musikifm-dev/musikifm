@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { URL_BLOGS, API_URL } from 'utils/URL'
 import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from 'strapi-comments-client'
+import { APP } from 'utils/constants'
 import OtherPost from './OtherPost'
 
 function BlogDetail() {
@@ -24,7 +24,7 @@ function BlogDetail() {
     async function fetchData() {
       setLoading(true)
       try {
-        const res = await axios.get(URL_BLOGS + id + '?populate=*')
+        const res = await axios.get(APP.blogs + id + '?populate=*')
         setResult(res.data.data)
         setLoading(false)
       } catch (error) {
@@ -38,7 +38,7 @@ function BlogDetail() {
   if (loading) return <p>Loading</p>
   if (error) return <p>Error...</p>
 
-  var imgBlog = API_URL + results.attributes.image.data.attributes.url
+  var imgBlog = APP.base + results.attributes.image.data.attributes.url
 
   return (
     <div className="page">

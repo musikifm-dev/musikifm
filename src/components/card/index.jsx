@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Icon from 'assets/svg'
 import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
-import { API_URL } from 'utils/URL'
+import { APP } from 'utils/constants'
 
 export default function Card({ data, to }) {
   const { id, title, description, image } = data
@@ -16,7 +16,8 @@ export default function Card({ data, to }) {
     dispatch(setCurrent(data))
   }
 
-  const podcastImage = API_URL + image
+  const podcastImage = APP.base + image
+
   return (
     <RBCard className={styles.card}>
       <Link to={`${to}/${id}`} className={styles.card__link}>

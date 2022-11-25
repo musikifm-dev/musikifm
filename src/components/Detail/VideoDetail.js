@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { URL_VIDEO } from 'utils/URL'
+import { APP } from 'utils/constants'
 
 export default function VideoDetail() {
   const { id } = useParams()
@@ -13,7 +13,7 @@ export default function VideoDetail() {
     async function fetchData() {
       setLoading(true)
       try {
-        const res = await axios.get(URL_VIDEO + id + '?populate=*')
+        const res = await axios.get(APP.video + id + '?populate=*')
         setResult(res.data.data)
         setLoading(false)
       } catch (error) {

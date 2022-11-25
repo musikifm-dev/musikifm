@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { API_URL } from 'utils/URL'
+import { APP } from 'utils/constants'
 
 function BlogItem({ data }) {
   const { id, title, tag, image } = data
@@ -9,7 +9,7 @@ function BlogItem({ data }) {
     <div className="blogBox" data-id={id}>
       <Link to={`/blog/${id}`}>
         <div className="blogBox__image">
-          <img src={API_URL + image} />
+          <img src={APP.base + image} />
         </div>
         <div className="blogBox__content">
           <div className="blogBox__title">

@@ -1,43 +1,42 @@
-import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { URL_PODCASTS, API_URL } from 'utils/URL';
-import { CommentsConfigContext } from 'strapi-comments-client';
+import axios from 'axios'
+import { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { CommentsConfigContext } from 'strapi-comments-client'
+import { APP } from 'utils/constants'
 
 function PodcastDetail() {
-  const { id } = useParams();
-  const [results, setResult] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams()
+  const [results, setResult] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  const { setContentID } = useContext(CommentsConfigContext);
-  const { contentID } = useParams();
+  const { setContentID } = useContext(CommentsConfigContext)
+  const { contentID } = useParams()
   useEffect(() => {
     if (contentID) {
-      setContentID(contentID);
+      setContentID(contentID)
     }
-  }, [contentID]);
+  }, [contentID])
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      setLoading(true)
       try {
-        const res = await axios.get(URL_PODCASTS + id + '?populate=*');
-        setResult(res.data.data);
-        console.log(results);
-        setLoading(false);
+        const res = await axios.get(APP.podcasts + id + '?populate=*')
+        setResult(res.data.data)
+        setLoading(false)
       } catch (error) {
-        setError(error);
-        setLoading(false);
+        setError(error)
+        setLoading(false)
       }
     }
-    fetchData();
-  }, [id]);
+    fetchData()
+  }, [id])
 
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>Error...</p>;
+  if (loading) return <p>Loading</p>
+  if (error) return <p>Error...</p>
 
-  var imgPodcast = API_URL + results.attributes.image.data.attributes.url;
+  var imgPodcast = APP.base + results.attributes.image.data.attributes.url
 
   return (
     <div className="page">
@@ -70,6 +69,6 @@ function PodcastDetail() {
         <div className="col-md-3"></div>
       </div>
     </div>
-  );
+  )
 }
-export default PodcastDetail;
+export default PodcastDetail

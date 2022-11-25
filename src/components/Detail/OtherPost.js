@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import BlogItem from 'components/Items/BlogItem'
-import { API_URL } from 'utils/URL'
+import { APP } from 'utils/constants'
 
 const OtherPost = () => {
   const [blogData, setblogData] = useState([{}])
 
   useEffect(() => {
-    fetch(`${API_URL}/api/blog-report`)
+    fetch(`${APP.blog}/api/blog-report`)
       .then((response) => response.json())
       .then((data) => {
         setblogData(data)

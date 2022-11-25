@@ -1,7 +1,7 @@
 export { default as Podcast } from './podcast'
 export { default as Blog } from './blog'
 export { default as Songs } from './song/Songs'
-export { default as VideoHomeSlider } from './video'
+// export { default as VideoHomeSlider } from './video'
 export { default as Videos } from './video/videos'
 export { default as Home } from './home/index'
 export { default as LoginProvider } from './login/index'

@@ -5,7 +5,7 @@ import BlogDetail from './components/Detail/BlogDetail'
 import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
-import { Home, Register, Videos, Blog, Songs, EmailVerification, Login, MoodFilter, Podcast } from './pages'
+import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
 
 const router = createBrowserRouter(

@@ -3,12 +3,12 @@ import { Range, getTrackBackground } from 'react-range'
 import { useAudio } from 'react-use'
 import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
-import { MUSIKI_RADIO } from 'utils/URL'
 import PropTypes from 'prop-types'
 import Songs from 'song.json'
 // import ReactPlayer from 'react-player';
 import styles from './style.module.scss'
 import { useGetDataQuery } from 'store/api/player'
+import { APP } from 'utils/constants'
 
 const Player = () => {
   const STEP = 0.1
@@ -32,7 +32,7 @@ const Player = () => {
   // }
 
   const [values, setValues] = useState([50])
-  const [audio, state, controls] = useAudio({ src: MUSIKI_RADIO, autoPlay: true })
+  const [audio, state, controls] = useAudio({ src: APP.radio, autoPlay: true })
   // For more info about new behaviors of autoplay attribute --> https://developer.chrome.com/blog/autoplay/
   const { data, isSuccess } = useGetDataQuery()
 
@@ -50,9 +50,9 @@ const Player = () => {
   // console.log(current, state.playing)
   return (
     <div className={styles.player}>
-      <div>{audio}</div> 
+      <div>{audio}</div>
       {/* <audio src="https://stream.coraxonline.com/musikifm-src.mp3" autoPlay={true} /> */}
-      <img className={styles.player__img} src={isSuccess && data.results[8].cover_image} />
+      <img className={styles.player__img} src={isSuccess ? data.results[8].cover_image : null} />
       <div className={styles.player__overlay} />
 
       <div className={styles.info}>

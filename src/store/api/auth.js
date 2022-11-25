@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { APP } from 'utils/constants'
 // import Songs from 'song.json'
-import { API_URL } from 'utils/URL'
 
 // Define a service using a base URL and expected endpoints
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: API_URL,
+    baseUrl: APP.base,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -16,7 +16,7 @@ export const authApi = createApi({
       query: (data) => {
         const { phoneNumber, username, password, email } = data
         return {
-          url: 'api/auth/local/register',
+          url: APP.register,
           method: 'POST',
           body: {
             username: username,
@@ -32,11 +32,11 @@ export const authApi = createApi({
       query: (data) => {
         const { email, password } = data
         return {
-          url: 'api/auth/local',
+          url: APP.login,
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          // headers: {
+          //   'Content-Type': 'application/json',
+          // },
           body: {
             // username: username,
             password: password,

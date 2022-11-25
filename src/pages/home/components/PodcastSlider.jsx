@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react'
 import { Card } from 'components'
 import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss'
 import { route } from 'utils/constants'
-import { API_URL } from 'utils/URL'
 import styles from '../style.module.scss'
+import { useGetPodcastDataQuery } from 'store/api/data'
 
-const PodcastSlider = () => {
-  const [podcastData, setPodcastData] = useState([{}])
-
-  useEffect(() => {
-    fetch(`${API_URL}/api/podcast-report`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPodcastData(data)
-      })
-  }, [])
+export default function PodcastSlider() {
+  const { isSuccess, data } = useGetPodcastDataQuery()
 
   return (
     <div className={styles.slider}>
@@ -62,14 +53,13 @@ const PodcastSlider = () => {
           },
         }}
       >
-        {podcastData.map((item, i) => (
-          <SwiperSlide key={i}>
-            <Card data={item} to={route.podcast} />
-          </SwiperSlide>
-        ))}
+        {isSuccess &&
+          data.map((item, i) => (
+            <SwiperSlide key={i}>
+              <Card data={item} to={route.podcast} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   )
 }
-
-export default PodcastSlider

@@ -1,49 +1,13 @@
-import { useEffect, useState } from 'react'
-import OwlCarousel from 'react-owl-carousel'
-import 'owl.carousel/dist/assets/owl.carousel.css'
-import 'owl.carousel/dist/assets/owl.theme.default.css'
-import { API_URL } from 'utils/URL'
+import { Navigation, Pagination, Autoplay } from 'swiper'
+
 import { Link } from 'react-router-dom'
 import { route } from 'utils/constants'
 import { Card } from 'components'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { useGetBlogDataQuery } from 'store/api/data'
 
-const BlogSlider = () => {
-  const [blogData, setblogData] = useState([])
-
-  useEffect(() => {
-    fetch(`${API_URL}/api/blog-report`)
-      .then((response) => response.json())
-      .then((data) => {
-        setblogData(data)
-      })
-  }, [])
-  console.log(blogData)
-
-  const options = {
-    margin: 30,
-    responsiveClass: true,
-    nav: false,
-    dots: false,
-    autoplay: false,
-    smartSpeed: 1000,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-      1366: {
-        items: 4,
-      },
-    },
-  }
+export default function BlogSlider() {
+  const { isSuccess, data } = useGetBlogDataQuery()
 
   return (
     <div className="blog mt-5">
@@ -51,16 +15,50 @@ const BlogSlider = () => {
         <h3>BLOG</h3>
         <Link to={route.blog}>See All</Link>
       </div>
-
-      <OwlCarousel className="owl-theme" {...options}>
-        {blogData?.map((blogData) => (
-          <div className="item" key={blogData.id}>
-            <Card data={blogData} to={route.blog} />
-          </div>
-        ))}
-      </OwlCarousel>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={70}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          1400: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+        }}
+      >
+        <SwiperSlide>
+          {isSuccess &&
+            data?.map((item) => (
+              <div className="item" key={item.id}>
+                <Card data={item} to={route.blog} />
+              </div>
+            ))}
+        </SwiperSlide>
+      </Swiper>
     </div>
   )
 }
-
-export default BlogSlider

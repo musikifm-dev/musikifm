@@ -1,48 +1,13 @@
-import { useEffect, useState } from 'react'
-import OwlCarousel from 'react-owl-carousel'
-import 'owl.carousel/dist/assets/owl.carousel.css'
-import 'owl.carousel/dist/assets/owl.theme.default.css'
-import VideoItem from 'components/Items/VideoItem'
-import { URL_VIDEOS } from 'utils/URL'
 import { route } from 'utils/constants'
 import { Link } from 'react-router-dom'
+import { Navigation, Pagination, Autoplay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Card } from 'components'
+import 'swiper/scss'
+import { useGetVideoDataQuery } from 'store/api/data'
 
 export default function VideoSlider() {
-  const [videoData, setvideoData] = useState([{}])
-
-  useEffect(() => {
-    fetch(URL_VIDEOS)
-      .then((response) => response.json())
-      .then((data) => {
-        setvideoData(data)
-      })
-  }, [])
-
-  const options = {
-    margin: 30,
-    responsiveClass: true,
-    nav: false,
-    dots: false,
-    autoplay: false,
-    smartSpeed: 1000,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-      1366: {
-        items: 3,
-      },
-    },
-  }
+  const { isSuccess, data } = useGetVideoDataQuery()
 
   return (
     <div className="video mt-5">
@@ -50,14 +15,48 @@ export default function VideoSlider() {
         <h3>VİDEO</h3>
         <Link to={route.video}>See All</Link>
       </div>
-
-      <OwlCarousel className="owl-theme" {...options}>
-        {videoData.map((item, i) => (
-          <div className="item" key={i}>
-            <VideoItem data={item} />
-          </div>
-        ))}
-      </OwlCarousel>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={70}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 15,
+          },
+          1400: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+        }}
+      >
+        {isSuccess &&
+          data.map((item, i) => (
+            <SwiperSlide key={i}>
+              <Card data={item} to={route.video} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </div>
   )
 }
