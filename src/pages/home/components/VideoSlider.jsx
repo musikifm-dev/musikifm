@@ -8,7 +8,7 @@ import { useGetVideoDataQuery } from 'store/api/data'
 
 export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
-
+console.log(data);
   return (
     <div className="video mt-5">
       <div className="titleDiv">

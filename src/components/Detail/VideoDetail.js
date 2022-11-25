@@ -13,7 +13,7 @@ export default function VideoDetail() {
     async function fetchData() {
       setLoading(true)
       try {
-        const res = await axios.get(APP.video + id + '?populate=*')
+        const res = await axios.get(`${APP.videos}/${id}?populate=*`)
         setResult(res.data.data)
         setLoading(false)
       } catch (error) {

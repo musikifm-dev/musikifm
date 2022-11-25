@@ -7,7 +7,7 @@ import { route } from 'utils/constants'
 import styles from '../style.module.scss'
 import { useGetPodcastDataQuery } from 'store/api/data'
 
-export default function PodcastSlider() {
+const PodcastSlider = () => {
   const { isSuccess, data } = useGetPodcastDataQuery()
 
   return (
@@ -21,8 +21,6 @@ export default function PodcastSlider() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={70}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         pagination={{
           clickable: true,
         }}
@@ -63,3 +61,5 @@ export default function PodcastSlider() {
     </div>
   )
 }
+
+export default PodcastSlider

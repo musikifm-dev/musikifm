@@ -36,7 +36,7 @@ export const APP = {
 
   //DETAILS
   blogs: process.env.REACT_APP_URL_BLOGS,
-  podcasts: process.env.REACT_APP_URL_PODCAST,
+  podcasts: process.env.REACT_APP_URL_PODCASTS,
   videos: process.env.REACT_APP_URL_VIDEOS,
 
   radio: process.env.REACT_APP_URL_RADIO,

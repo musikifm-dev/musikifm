@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { CommentsConfigContext } from 'strapi-comments-client'
+
 import { APP } from 'utils/constants'
 
 function PodcastDetail() {
@@ -10,20 +10,11 @@ function PodcastDetail() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  const { setContentID } = useContext(CommentsConfigContext)
-  const { contentID } = useParams()
-  useEffect(() => {
-    if (contentID) {
-      setContentID(contentID)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [contentID])
-
   useEffect(() => {
     async function fetchData() {
       setLoading(true)
       try {
-        const res = await axios.get(APP.podcasts + id + '?populate=*')
+        const res = await axios.get(`${APP.podcasts}/${id}?populate=*`)
         setResult(res.data.data)
         setLoading(false)
       } catch (error) {

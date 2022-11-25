@@ -7,6 +7,7 @@ import OtherPost from './OtherPost'
 
 function BlogDetail() {
   const { id } = useParams()
+
   const [results, setResult] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -25,7 +26,7 @@ function BlogDetail() {
     async function fetchData() {
       setLoading(true)
       try {
-        const res = await axios.get(APP.blogs + id + '?populate=*')
+        const res = await axios.get(`${APP.blogs}/${id}?populate=*`)
         setResult(res.data.data)
         setLoading(false)
       } catch (error) {
@@ -58,7 +59,7 @@ function BlogDetail() {
           <Comments />
         </div>
         <div className="col-md-3">
-          <OtherPost />
+          <OtherPost id={id} />
         </div>
       </div>
     </div>

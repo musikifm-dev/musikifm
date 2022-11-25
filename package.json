@@ -1,7 +1,7 @@
 {
   "name": "musikinp",
   "version": "0.1.0",
-  "proxy": "http://localhost:5500",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.4",
