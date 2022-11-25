@@ -1,24 +1,24 @@
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { API_URL } from 'utils/URL';
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { API_URL } from 'utils/URL'
 
-function BlogItem({ item }) {
-  const blogImage = API_URL + item.image;
+function BlogItem({ data }) {
+  const { id, title, tag, image } = data
 
   return (
-    <div className="blogBox" data-id={item.id}>
-      <Link to={`/blog/${item.id}`}>
+    <div className="blogBox" data-id={id}>
+      <Link to={`/blog/${id}`}>
         <div className="blogBox__image">
-          <img src={blogImage} />
+          <img src={API_URL + image} />
         </div>
         <div className="blogBox__content">
           <div className="blogBox__title">
-            <h4>{item.title}</h4>
+            <h4>{title}</h4>
           </div>
           <div className="blogBox__more">
             <div className="hashtagBox">
               <div className="hashtag">
-                <span>{item.tag}</span>
+                <span>{tag}</span>
               </div>
             </div>
             <button className="blogLink" data-src="">
@@ -28,16 +28,16 @@ function BlogItem({ item }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
 BlogItem.propTypes = {
-  item: PropTypes.shape({
+  data: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
     tag: PropTypes.string,
     image: PropTypes.string,
   }),
-};
+}
 
-export default BlogItem;
+export default BlogItem

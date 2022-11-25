@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react';
-import BlogItem from 'components/Items/BlogItem';
+import { useEffect, useState } from 'react'
+import BlogItem from 'components/Items/BlogItem'
+import { API_URL } from 'utils/URL'
 
 const OtherPost = () => {
-  const [blogData, setblogData] = useState([{}]);
+  const [blogData, setblogData] = useState([{}])
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/blog-report')
+    fetch(`${API_URL}/api/blog-report`)
       .then((response) => response.json())
       .then((data) => {
-        setblogData(data);
-      });
-  }, []);
+        setblogData(data)
+      })
+  }, [])
 
-  const itemm = blogData;
-  const detailTitle = document.getElementsByClassName('detail');
-
-  console.log(detailTitle);
+  const itemm = blogData
+  const detailTitle = document.getElementsByClassName('detail')
 
   return (
     <div className="blog mt-5">
@@ -29,13 +28,13 @@ const OtherPost = () => {
             <div className="other" key={i}>
               <BlogItem item={item} key={4} />
             </div>
-          );
+          )
         }
 
-        return;
+        return
       })}
     </div>
-  );
-};
+  )
+}
 
-export default OtherPost;
+export default OtherPost

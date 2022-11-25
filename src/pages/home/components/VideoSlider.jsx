@@ -1,20 +1,22 @@
-// import { useEffect, useState } from 'react';
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-// import VideoItem from 'components/Items/VideoItem';
-// import { URL_VIDEOS } from 'utils/URL';
+import { useEffect, useState } from 'react'
+import OwlCarousel from 'react-owl-carousel'
+import 'owl.carousel/dist/assets/owl.carousel.css'
+import 'owl.carousel/dist/assets/owl.theme.default.css'
+import VideoItem from 'components/Items/VideoItem'
+import { URL_VIDEOS } from 'utils/URL'
+import { route } from 'utils/constants'
+import { Link } from 'react-router-dom'
 
-const VideoSlider = () => {
-  // const [videoData, setvideoData] = useState([{}]);
+export default function VideoSlider() {
+  const [videoData, setvideoData] = useState([{}])
 
-  // useEffect(() => {
-  //   fetch(URL_VIDEOS)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setvideoData(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(URL_VIDEOS)
+      .then((response) => response.json())
+      .then((data) => {
+        setvideoData(data)
+      })
+  }, [])
 
   const options = {
     margin: 30,
@@ -40,30 +42,22 @@ const VideoSlider = () => {
         items: 3,
       },
     },
-  };
+  }
 
   return (
     <div className="video mt-5">
       <div className="titleDiv">
         <h3>VİDEO</h3>
-        <a href="">See All</a>
+        <Link to={route.video}>See All</Link>
       </div>
 
       <OwlCarousel className="owl-theme" {...options}>
-        {/* {videoData.map((item, i) => {
-          if (item.homepage == true) {
-            return (
-              <div className="item" key={i}>
-                <VideoItem item={item} key={Math.random()} />
-              </div>
-            );
-          }
-
-          return;
-        })} */}
+        {videoData.map((item, i) => (
+          <div className="item" key={i}>
+            <VideoItem data={item} />
+          </div>
+        ))}
       </OwlCarousel>
     </div>
-  );
-};
-
-export default VideoSlider;
+  )
+}

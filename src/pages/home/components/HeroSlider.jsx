@@ -13,7 +13,6 @@ import { Card } from 'components'
 
 const HeroSlider = () => {
   const { isMobile } = useWindowSize()
-  console.log(isMobile);
 
   const data = {
     id: '2',

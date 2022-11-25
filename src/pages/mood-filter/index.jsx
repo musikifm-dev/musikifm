@@ -1,6 +1,6 @@
 // import React from 'react'
 import Divider from 'components/divider'
-import Select from 'pages/home/components/select'
+import Select from 'components/select'
 
 // import { useState } from 'react'
 // import { Form, InputGroup } from 'react-bootstrap'

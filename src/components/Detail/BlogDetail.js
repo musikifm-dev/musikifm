@@ -1,44 +1,44 @@
-import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { URL_BLOGS, API_URL } from 'utils/URL';
-import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from 'strapi-comments-client';
-import OtherPost from './OtherPost';
+import axios from 'axios'
+import { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { URL_BLOGS, API_URL } from 'utils/URL'
+import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from 'strapi-comments-client'
+import OtherPost from './OtherPost'
 
 function BlogDetail() {
-  const { id } = useParams();
-  const [results, setResult] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams()
+  const [results, setResult] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  const { setContentID } = useContext(CommentsConfigContext);
-  const { contentID } = useParams();
-  console.log(contentID);
+  const { setContentID } = useContext(CommentsConfigContext)
+  const { contentID } = useParams()
+  console.log(id)
   useEffect(() => {
     if (contentID) {
-      setContentID(contentID);
+      setContentID(contentID)
     }
-  }, [contentID]);
+  }, [contentID])
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      setLoading(true)
       try {
-        const res = await axios.get(URL_BLOGS + id + '?populate=*');
-        setResult(res.data.data);
-        setLoading(false);
+        const res = await axios.get(URL_BLOGS + id + '?populate=*')
+        setResult(res.data.data)
+        setLoading(false)
       } catch (error) {
-        setError(error);
-        setLoading(false);
+        setError(error)
+        setLoading(false)
       }
     }
-    fetchData();
-  }, [id]);
+    fetchData()
+  }, [id])
 
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>Error...</p>;
+  if (loading) return <p>Loading</p>
+  if (error) return <p>Error...</p>
 
-  var imgBlog = API_URL + results.attributes.image.data.attributes.url;
+  var imgBlog = API_URL + results.attributes.image.data.attributes.url
 
   return (
     <div className="page">
@@ -52,7 +52,6 @@ function BlogDetail() {
           <div className="detailContent">
             <p>{results.attributes.content}</p>
           </div>
-
           <CommentForm />
           <ErrorBox />
           <Comments />
@@ -62,6 +61,6 @@ function BlogDetail() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default BlogDetail;
+export default BlogDetail

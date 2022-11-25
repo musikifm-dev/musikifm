@@ -22,6 +22,9 @@ const Control = ({ children, ...props }) => {
     <components.Control {...props}>
       <span className={styles.search}>Search</span>
       {children}
+      <components.ValueContainer {...props}>
+        <div className={styles.placeholder}>Search genre, mood or year...</div>
+      </components.ValueContainer>
       <components.IndicatorsContainer {...props}>
         <Icon name="search" size={22} />
       </components.IndicatorsContainer>
@@ -34,7 +37,7 @@ Control.propTypes = {
 }
 
 export default function Select(props) {
-  const { isMobile, isTablet } = useWindowSize()
+  const { isMobile, isTablet, isLDesktop, isDesktop } = useWindowSize()
   const valuesContainerStyle = isMobile ? '5px' : isTablet ? '8px' : '10px'
   const multiValueStyle = isMobile ? '2px 4px' : isTablet ? '3px 6px' : '4px 10px'
   const valueLabelStyle = isMobile ? '10px' : isTablet ? '14px' : '18px'
@@ -43,13 +46,16 @@ export default function Select(props) {
     control: (css) => ({
       ...css,
       paddingLeft: isMobile ? '0.5rem' : '2rem',
-      height: '80px',
+      height: isTablet ? 'unset' : isDesktop ? 'unset' : isLDesktop ? 'unset' : '80px',
       '& > div:nth-child(3)': {
         display: 'none',
       },
     }),
     valueContainer: (css) => ({
       ...css,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       padding: valuesContainerStyle,
     }),
     multiValue: (css) => ({
@@ -77,7 +83,7 @@ export default function Select(props) {
     }),
     placeholder: (css) => ({
       ...css,
-      textAlign: 'center',
+        textAlign: 'center',
     }),
     indicatorsContainer: (css) => ({
       ...css,

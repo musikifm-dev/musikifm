@@ -1,38 +1,38 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { URL_VIDEO } from 'utils/URL';
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { URL_VIDEO } from 'utils/URL'
 
-function VideoDetail() {
-  const { id } = useParams();
-  const [results, setResult] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function VideoDetail() {
+  const { id } = useParams()
+  const [results, setResult] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      setLoading(true)
       try {
-        const res = await axios.get(URL_VIDEO + id + '?populate=*');
-        setResult(res.data.data);
-        setLoading(false);
+        const res = await axios.get(URL_VIDEO + id + '?populate=*')
+        setResult(res.data.data)
+        setLoading(false)
       } catch (error) {
-        setError(error);
-        setLoading(false);
+        setError(error)
+        setLoading(false)
       }
     }
-    fetchData();
-  }, [id]);
+    fetchData()
+  }, [id])
 
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>Error...</p>;
+  if (loading) return <p>Loading</p>
+  if (error) return <p>Error...</p>
 
   // var imgVideo= API_URL + results.attributes.image.data.attributes.url
 
-  var tag = document.createElement('script');
-  tag.src = 'http://www.youtube.com/player_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var tag = document.createElement('script')
+  tag.src = 'http://www.youtube.com/player_api'
+  var firstScriptTag = document.getElementsByTagName('script')[0]
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
 
   return (
     <div className="page">
@@ -54,6 +54,5 @@ function VideoDetail() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default VideoDetail;

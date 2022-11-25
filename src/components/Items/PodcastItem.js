@@ -1,23 +1,22 @@
-import Icon from '../../assets/svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCurrent } from 'store/slices/player';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import Icon from '../../assets/svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrent } from 'store/slices/player'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { API_URL } from 'utils/URL'
 
 function PodcastItem({ item }) {
-  const dispatch = useDispatch();
-  const { current } = useSelector((state) => state.player);
+  const dispatch = useDispatch()
+  const { current } = useSelector((state) => state.player)
   const updateCurrent = () => {
-    console.log(item);
-    dispatch(setCurrent(item));
-  };
-  const podcastImage = 'http://localhost:1337' + item.image;
+    dispatch(setCurrent(item))
+  }
 
   return (
     <div className="podcastBox">
       <Link to={`/podcast/${item.id}`}>
         <div className="podcastBox__image">
-          <img src={podcastImage} />
+          <img src={API_URL + item.image} />
         </div>
       </Link>
       <div className="podcastBox__content">
@@ -38,7 +37,7 @@ function PodcastItem({ item }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 PodcastItem.propTypes = {
@@ -49,6 +48,6 @@ PodcastItem.propTypes = {
     image: PropTypes.string,
     description: PropTypes.string,
   }),
-};
+}
 
-export default PodcastItem;
+export default PodcastItem

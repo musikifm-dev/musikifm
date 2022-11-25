@@ -5,20 +5,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import Icon from 'assets/svg'
 import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
+import { API_URL } from 'utils/URL'
 
-export default function Card({ item }) {
-  const { id, title, description, image } = item
+export default function Card({ data, to }) {
+  const { id, title, description, image } = data
 
   const dispatch = useDispatch()
   const { current } = useSelector((state) => state.player)
   const updateCurrent = () => {
-    dispatch(setCurrent(item))
+    dispatch(setCurrent(data))
   }
 
-  const podcastImage = 'http://localhost:1337' + image
+  const podcastImage = API_URL + image
   return (
     <RBCard className={styles.card}>
-      <Link to={`/podcast/${id}`} className={styles.card__link}>
+      <Link to={`${to}/${id}`} className={styles.card__link}>
         <RBCard.Img variant="top" src={podcastImage} className={styles.card__img} />
       </Link>
       <RBCard.Body className={styles.card__body}>
@@ -38,7 +39,7 @@ export default function Card({ item }) {
 }
 
 Card.propTypes = {
-  item: PropTypes.shape({
+  data: PropTypes.shape({
     description: PropTypes.string,
     homepage: PropTypes.bool,
     id: PropTypes.number,
@@ -46,4 +47,5 @@ Card.propTypes = {
     src: PropTypes.string,
     title: PropTypes.string,
   }),
+  to: PropTypes.string,
 }

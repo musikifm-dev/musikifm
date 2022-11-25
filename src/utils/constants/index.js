@@ -1,8 +1,8 @@
 export const route = {
   home: '/',
   podcast: '/podcast',
-  moodFilter: '/MoodFilter',
-  blog: 'blog',
+  moodFilter: '/moodFilter',
+  blog: '/blog',
   video: '/video',
   songs: '/songs',
   login: '/login',

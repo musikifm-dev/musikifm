@@ -4,7 +4,9 @@ export const useWindowSize = () => {
   const [device, setDevice] = useState({
     isMobile: undefined,
     isTablet: undefined,
-    isDesktop: undefined,
+    isSDesktop: undefined,
+    isMDesktop: undefined,
+    isLDesktop: undefined,
   })
   const [windowSize, setWindowSize] = useState({ width: undefined, height: undefined })
 
@@ -14,13 +16,16 @@ export const useWindowSize = () => {
       // let innerHeight = window.innerHeight
 
       if (innerWidth < 576) {
-        setDevice({ isMobile: true, isTablet: false, isDesktop: false })
+        setDevice({ isMobile: true, isTablet: false, isSDesktop: false, isMDesktop: false, isLDesktop: false })
       } else if (innerWidth < 768) {
-        setDevice({ isMobile: false, isTablet: true, isDesktop: false })
-      } else if (innerWidth > 992) {
-        setDevice({ isMobile: false, isTablet: false, isDesktop: true })
+        setDevice({ isMobile: false, isTablet: true, isSDesktop: false, isMDesktop: false, isLDesktop: false })
+      } else if (innerWidth > 991) {
+        setDevice({ isMobile: false, isTablet: false, isSDesktop: true, isMDesktop: false, isLDesktop: false })
+      } else if (innerWidth > 1199) {
+        setDevice({ isMobile: false, isTablet: false, isSDesktop: false, isMDesktop: true, isLDesktop: false })
+      } else if (innerWidth > 1280) {
+        setDevice({ isMobile: false, isTablet: false, isSDesktop: false, isMDesktop: false, isLDesktop: true })
       }
-
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
