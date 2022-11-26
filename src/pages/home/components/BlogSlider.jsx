@@ -8,7 +8,7 @@ import { useGetBlogDataQuery } from 'store/api/data'
 
 export default function BlogSlider() {
   const { isSuccess, data } = useGetBlogDataQuery()
-
+console.log(data);
   return (
     <div className="blog mt-5">
       <div className="titleDiv">
@@ -18,8 +18,6 @@ export default function BlogSlider() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={70}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         pagination={{
           clickable: true,
         }}

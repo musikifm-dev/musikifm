@@ -5,7 +5,7 @@ import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from 'strapi-c
 import { APP } from 'utils/constants'
 import OtherPost from './OtherPost'
 
-function BlogDetail() {
+export default function BlogDetail() {
   const { id } = useParams()
 
   const [results, setResult] = useState([])
@@ -14,7 +14,7 @@ function BlogDetail() {
 
   const { setContentID } = useContext(CommentsConfigContext)
   const { contentID } = useParams()
-  console.log(id)
+
   useEffect(() => {
     if (contentID) {
       setContentID(contentID)
@@ -65,4 +65,3 @@ function BlogDetail() {
     </div>
   )
 }
-export default BlogDetail

@@ -9,7 +9,7 @@
   justify-content: center;
 
   &__moodBtn {
-    font-size: var(--fs-17);
+    font-size: var(--fs-14);
     font-weight: var(--fw-6);
     color: #fff;
     background: linear-gradient(259.17deg, #9740ed 16.17%, #4085ed 85.39%);
@@ -18,8 +18,8 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 0.6rem 3.5rem;
-    transition: 0.3s all;
+    padding: 0.3rem 2.5rem;
+    transition: 0.4s all;
 
     &:hover {
       color: black;
@@ -28,8 +28,8 @@
 
   &__btn {
     font-family: var(--f-poppings);
-    font-size: var(--fs-15);
-    font-weight: var(--fw-4);
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
     color: black;
     border: none;
     background-color: transparent;
@@ -47,12 +47,12 @@
   span {
     font-family: var(--f-patrick-hand);
     font-size: var(--fs-14);
-    margin: 0 0.5rem;
+    margin: 0 0.3rem;
   }
 }
 
 .sidebar {
-  position: sticky;
+  // position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -61,5 +61,26 @@
 @media (max-width: 576px) {
   .sidebar {
     height: 420px;
+  }
+}
+
+.navbar {
+  position: fixed !important;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding-top: 49.25px;
+  height: calc(100vh - 49.25px);
+
+  &__contentContainer {
+    padding: 2.5rem 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainRow {
+    flex-direction: column;
   }
 }

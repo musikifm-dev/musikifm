@@ -17,15 +17,15 @@ const Navbar = () => {
   return (
     <>
       {[false].map((expand) => (
-        <ReactBootstrapNavbar key={expand} bg="light" expand={expand}>
+        <ReactBootstrapNavbar key={expand} bg="light" expand={expand} className={styles.navbar}>
           <Container fluid>
             <ReactBootstrapNavbar.Brand>
               <Stack direction="horizontal" gap={2} className="align-items-start">
                 <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
-                  <Icon name="hamburger" size="26" className={styles.btn} />
+                  <Icon name="hamburger" size="20" className={styles.btn} />
                 </ReactBootstrapNavbar.Toggle>
                 <Link to={route.home}>
-                  <Image src={logoBlack} width={162} height={32} />
+                  <Image src={logoBlack} height={20} />
                 </Link>
               </Stack>
               <ReactBootstrapNavbar.Offcanvas

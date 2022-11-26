@@ -35,3 +35,16 @@
   color: red !important;
   // display: none;
 }
+
+.btn {
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 25px !important;
+  margin-left: 0.3rem !important;
+}
+
+.active {
+  background-color: #000;
+  color: #f1f1f1;
+}

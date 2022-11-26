@@ -16,12 +16,10 @@ export default function Card({ data, to }) {
     dispatch(setCurrent(data))
   }
 
-  const podcastImage = APP.base + image
-
   return (
     <RBCard className={styles.card}>
       <Link to={`${to}/${id}`} className={styles.card__link}>
-        <RBCard.Img variant="top" src={podcastImage} className={styles.card__img} />
+        <RBCard.Img variant="top" src={APP.base + image} className={styles.card__img} />
       </Link>
       <RBCard.Body className={styles.card__body}>
         <div>
@@ -41,12 +39,15 @@ export default function Card({ data, to }) {
 
 Card.propTypes = {
   data: PropTypes.shape({
-    description: PropTypes.string,
-    homepage: PropTypes.bool,
     id: PropTypes.number,
-    image: PropTypes.string,
-    src: PropTypes.string,
     title: PropTypes.string,
+    content: PropTypes.string,
+    url: PropTypes.string,
+    homepage: PropTypes.bool,
+    image: PropTypes.string,
+    tag: PropTypes.string,
+    description: PropTypes.string,
+    src: PropTypes.string,
   }),
   to: PropTypes.string,
 }

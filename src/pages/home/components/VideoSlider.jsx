@@ -1,14 +1,14 @@
-import { route } from 'utils/constants'
-import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper'
+import { Link } from 'react-router-dom'
+import { useGetVideoDataQuery } from 'store/api/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { route } from 'utils/constants'
 import { Card } from 'components'
 import 'swiper/scss'
-import { useGetVideoDataQuery } from 'store/api/data'
 
 export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
-console.log(data);
+
   return (
     <div className="video mt-5">
       <div className="titleDiv">
@@ -18,8 +18,6 @@ console.log(data);
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={70}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         pagination={{
           clickable: true,
         }}

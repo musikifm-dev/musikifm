@@ -14,18 +14,36 @@ import { Card } from 'components'
 const HeroSlider = () => {
   const { isMobile } = useWindowSize()
 
-  const data = {
-    id: '2',
-    title: 'asd',
-    description: 'LOrem',
-    image: '/',
-  }
+  const data = [
+    {
+      id: 1,
+      title: 'Ezhel Alışamadım ile Canlı Performans',
+      content:
+        'Rapidiously underwhelm backend niches through real-time vortals. Quickly cultivate visionary leadership skills before process-centric catalysts for change. Energistically incubate mission-critical internal or "organic" sources and process-centric networks. Globally deliver next-generation expertise before cross functional resources. Quickly pontificate technically sound solutions via cross-unit manufactured products.\n\nCredibly impact long-term high-impact metrics vis-a-vis corporate resources. Seamlessly harness intermandated convergence for user-centric leadership skills. Competently formulate just in time e-commerce with an expanded array of leadership skills. Appropriately extend leveraged "outside the box" thinking without customer directed quality vectors. Monotonectally mesh viral web services via cross-platform scenarios.\n\nConveniently harness granular applications with diverse processes. Progressively maximize inexpensive customer service rather than client-centered meta-services. Holisticly benchmark client-centered leadership skills and resource-leveling core competencies. Uniquely plagiarize enabled expertise before equity invested communities. Distinctively evolve frictionless human capital through diverse growth strategies.\n\nDistinctively predominate strategic information without extensible relationships. Enthusiastically embrace effective web-readiness vis-a-vis visionary "outside the box" thinking. Uniquely develop cross-platform relationships before extensive interfaces. Seamlessly integrate extensible internal or "organic" sources vis-a-vis accurate potentialities. Quickly generate cutting-edge schemas via premier expertise.\n\nEnergistically pursue process-centric services rather than.',
+      url: 'oniVKun5bIE',
+      homepage: true,
+      image: '/uploads/ezhelcanli_f85c4c61de.jpg',
+      tag: 'ezhel',
+    },
+    {
+      id: 1,
+      title: 'Ezhel Alışamadım ile Canlı Performans',
+      content:
+        'Rapidiously underwhelm backend niches through real-time vortals. Quickly cultivate visionary leadership skills before process-centric catalysts for change. Energistically incubate mission-critical internal or "organic" sources and process-centric networks. Globally deliver next-generation expertise before cross functional resources. Quickly pontificate technically sound solutions via cross-unit manufactured products.\n\nCredibly impact long-term high-impact metrics vis-a-vis corporate resources. Seamlessly harness intermandated convergence for user-centric leadership skills. Competently formulate just in time e-commerce with an expanded array of leadership skills. Appropriately extend leveraged "outside the box" thinking without customer directed quality vectors. Monotonectally mesh viral web services via cross-platform scenarios.\n\nConveniently harness granular applications with diverse processes. Progressively maximize inexpensive customer service rather than client-centered meta-services. Holisticly benchmark client-centered leadership skills and resource-leveling core competencies. Uniquely plagiarize enabled expertise before equity invested communities. Distinctively evolve frictionless human capital through diverse growth strategies.\n\nDistinctively predominate strategic information without extensible relationships. Enthusiastically embrace effective web-readiness vis-a-vis visionary "outside the box" thinking. Uniquely develop cross-platform relationships before extensive interfaces. Seamlessly integrate extensible internal or "organic" sources vis-a-vis accurate potentialities. Quickly generate cutting-edge schemas via premier expertise.\n\nEnergistically pursue process-centric services rather than.',
+      url: 'oniVKun5bIE',
+      homepage: true,
+      image: '/uploads/ezhelcanli_f85c4c61de.jpg',
+      tag: 'ezhel',
+    },
+  ]
 
   return (
     <>
       {isMobile ? (
         <Swiper>
-          <Card id={1} item={data} />
+          <SwiperSlide>
+            <Card data={data} />
+          </SwiperSlide>
         </Swiper>
       ) : (
         <Swiper

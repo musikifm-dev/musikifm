@@ -1,10 +1,11 @@
 import BlogItem from 'components/Items/BlogItem'
 import { useGetBlogDataQuery } from 'store/api/data'
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 
-const OtherPost = (id) => {
+const OtherPost = () => {
+  const { id } = useParams()
   const { data, isSuccess } = useGetBlogDataQuery()
-  const filteredData = data?.map((f) => f.id !== id)
 
   return (
     <div className="blog mt-5">
@@ -12,11 +13,15 @@ const OtherPost = (id) => {
         <h3>OTHER POSTS</h3>
       </div>
       {isSuccess &&
-        filteredData.map((item, i) => (
-          <div className="other" key={i}>
-            <BlogItem data={item} key={4} />
-          </div>
-        ))}
+        data
+          .filter((f) => f.id !== Number(id))
+          .map((item) => {
+            return (
+              <div className="other" key={item.id}>
+                <BlogItem data={item} />
+              </div>
+            )
+          })}
     </div>
   )
 }

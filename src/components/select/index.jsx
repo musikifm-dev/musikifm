@@ -4,29 +4,29 @@ import styles from './index.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Icon from 'assets/svg'
 
-const colourOptions = [
-  { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
-  { value: 'purple', label: 'Purple', color: '#5243AA' },
-  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-  { value: 'orange', label: 'Orange', color: '#FF8B00' },
-  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-  { value: 'green', label: 'Green', color: '#36B37E' },
-  { value: 'forest', label: 'Forest', color: '#00875A' },
-  { value: 'slate', label: 'Slate', color: '#253858' },
-  { value: 'silver', label: 'Silver', color: '#666666' },
-]
+// const colourOptions = [
+//   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+//   { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+//   { value: 'purple', label: 'Purple', color: '#5243AA' },
+//   { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+//   { value: 'orange', label: 'Orange', color: '#FF8B00' },
+//   { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+//   { value: 'green', label: 'Green', color: '#36B37E' },
+//   { value: 'forest', label: 'Forest', color: '#00875A' },
+//   { value: 'slate', label: 'Slate', color: '#253858' },
+//   { value: 'silver', label: 'Silver', color: '#666666' },
+// ]
 
 const Control = ({ children, ...props }) => {
   return (
     <components.Control {...props}>
-      <span className={styles.search}>Search</span>
+      <div>
+        <span className={styles.search}>Search</span>
+      </div>
       {children}
-      <components.ValueContainer {...props}>
-        <div className={styles.placeholder}>Search genre, mood or year...</div>
-      </components.ValueContainer>
+      <components.Placeholder {...props} />
       <components.IndicatorsContainer {...props}>
-        <Icon name="search" size={22} />
+        <Icon name="search" size={20} />
       </components.IndicatorsContainer>
     </components.Control>
   )
@@ -36,7 +36,8 @@ Control.propTypes = {
   children: PropTypes.node,
 }
 
-export default function Select(props) {
+export default function Select({ ...props }) {
+  const { onChange, options } = props
   const { isMobile, isTablet, isLDesktop, isDesktop } = useWindowSize()
   const valuesContainerStyle = isMobile ? '5px' : isTablet ? '8px' : '10px'
   const multiValueStyle = isMobile ? '2px 4px' : isTablet ? '3px 6px' : '4px 10px'
@@ -47,15 +48,12 @@ export default function Select(props) {
       ...css,
       paddingLeft: isMobile ? '0.5rem' : '2rem',
       height: isTablet ? 'unset' : isDesktop ? 'unset' : isLDesktop ? 'unset' : '80px',
-      '& > div:nth-child(3)': {
-        display: 'none',
-      },
+      // '& > div:nth-child(3)': {
+      //   display: 'none',
+      // },
     }),
     valueContainer: (css) => ({
       ...css,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
       padding: valuesContainerStyle,
     }),
     multiValue: (css) => ({
@@ -83,7 +81,10 @@ export default function Select(props) {
     }),
     placeholder: (css) => ({
       ...css,
-        textAlign: 'center',
+      textAlign: 'center',
+      fontSize: '27px',
+      boxShadow: '0px 5.33239px 85.3182px rgba(0, 0, 0, 0.02)',
+      opacity: 0.3,
     }),
     indicatorsContainer: (css) => ({
       ...css,
@@ -92,6 +93,20 @@ export default function Select(props) {
   }
 
   return (
-    <ReactSelect {...props} components={{ Control }} isSearchable options={colourOptions} styles={styles} isMulti />
+    <ReactSelect
+      {...props}
+      placeholder="Search genre, mood or year..."
+      components={{ Control }}
+      isSearchable
+      options={options}
+      styles={styles}
+      isMulti
+      onChange={onChange}
+    />
   )
+}
+
+Select.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.any,
 }
