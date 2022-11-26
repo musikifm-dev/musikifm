@@ -7,7 +7,7 @@ import 'swiper/css/pagination'
 import SliderImage2 from '../../../assets/img/slider/slider2.png'
 import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import styles from '../style.module.scss'
+import styles from '../index.module.scss'
 import { useWindowSize } from '../../../utils/hooks/useWindowSize.jsx'
 import { Card } from 'components'
 

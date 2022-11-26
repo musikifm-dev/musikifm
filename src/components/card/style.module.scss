@@ -1,5 +1,4 @@
 .card {
-  // width: 210px;
   min-height: 447.92px;
 
   &__link {
@@ -30,9 +29,9 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    font-size: var(--fs-16);
+    font-weight: var(--fw-4);
+    line-height: 2.4rem;
     color: black;
   }
 
@@ -41,16 +40,31 @@
     justify-content: space-between;
     align-items: center;
     &__time {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 22px;
+      font-size: var(--fs-14);
+      font-weight: var(--fw-4);
+      line-height: 2.2rem;
     }
 
-    &__btn {
-      width: 40px;
-      height: 40px;
+    &__podcastBtn {
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       background-color: transparent;
+    }
+  }
+
+  .blogBtnSection {
+    display: flex;
+    align-items: center;
+    
+    &__blogBtn {
+      background-color: #eeeeee !important;
+      color: black !important;
+      padding: 0.5 2rem !important;
+      border-radius: 2rem;
+      &:hover {
+        background-color: #cccccca4 !important;
+      }
     }
   }
 }

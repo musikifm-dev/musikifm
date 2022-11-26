@@ -4,16 +4,17 @@ import { useGetVideoDataQuery } from 'store/api/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { route } from 'utils/constants'
 import { Card } from 'components'
+import styles from '../index.module.scss'
 import 'swiper/scss'
 
 export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
 
   return (
-    <div className="video mt-5">
-      <div className="titleDiv">
-        <h3>VİDEO</h3>
-        <Link to={route.video}>See All</Link>
+    <div className={styles.slider}>
+      <div className="d-flex justify-content-between align-items-center my-5">
+        <h3 className={styles.slider__header}>VİDEO</h3>
+        <Link to={route.video} className={styles.slider__seeAll}>See All</Link>
       </div>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}

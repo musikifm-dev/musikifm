@@ -15087,15 +15087,3 @@ div#headlessui-menu-items-\:r3\: {
   padding: 10px;
   min-height: 400px;
 }
-
-.sectionHeader {
-  font-size: var(--fs-30);
-  font-weight: var(--fw-6);
-}
-
-.seeAll {
-  color: black;
-  text-decoration: underline;
-  font-size: var(--fs-19);
-  line-height: 30px;
-}

@@ -5,15 +5,19 @@ import { route } from 'utils/constants'
 import { Card } from 'components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useGetBlogDataQuery } from 'store/api/data'
+import styles from '../index.module.scss'
 
 export default function BlogSlider() {
   const { isSuccess, data } = useGetBlogDataQuery()
-console.log(data);
+  console.log(data)
+
   return (
-    <div className="blog mt-5">
-      <div className="titleDiv">
-        <h3>BLOG</h3>
-        <Link to={route.blog}>See All</Link>
+    <div className={styles.slider}>
+      <div className="d-flex justify-content-between align-items-center my-5">
+        <h3 className={styles.slider__header}>BLOG</h3>
+        <Link to={route.blog} className={styles.slider__seeAll}>
+          See All
+        </Link>
       </div>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -48,14 +52,14 @@ console.log(data);
           },
         }}
       >
-        <SwiperSlide>
-          {isSuccess &&
-            data?.map((item) => (
-              <div className="item" key={item.id}>
-                <Card data={item} to={route.blog} />
-              </div>
-            ))}
-        </SwiperSlide>
+        {isSuccess &&
+          data?.map((item) => (
+            <div className="item" key={item.id}>
+              <SwiperSlide>
+                <Card data={item} to={route.blog} isBlog={true} />
+              </SwiperSlide>
+            </div>
+          ))}
       </Swiper>
     </div>
   )

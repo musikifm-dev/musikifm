@@ -50,6 +50,18 @@
     bottom: 0;
     text-align: right;
   }
+
+  &__header {
+    font-size: var(--fs-30);
+    font-weight: var(--fw-6);
+  }
+  
+  &__seeAll {
+    color: black;
+    text-decoration: underline;
+    font-size: var(--fs-20);
+    line-height: 30px;
+  }
 }
 
 // .swiper-pagination-bullet {

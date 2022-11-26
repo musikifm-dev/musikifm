@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss'
 import { route } from 'utils/constants'
-import styles from '../style.module.scss'
+import styles from '../index.module.scss'
 import { useGetPodcastDataQuery } from 'store/api/data'
 
 const PodcastSlider = () => {
@@ -13,8 +13,8 @@ const PodcastSlider = () => {
   return (
     <div className={styles.slider}>
       <div className="d-flex justify-content-between align-items-center my-5">
-        <h3 className="sectionHeader">PODCAST</h3>
-        <Link to={route.podcast} className="seeAll">
+        <h3 className={styles.slider__header}>PODCAST</h3>
+        <Link to={route.podcast} className={styles.slider__seeAll}>
           See All
         </Link>
       </div>
@@ -54,7 +54,7 @@ const PodcastSlider = () => {
         {isSuccess &&
           data.map((item, i) => (
             <SwiperSlide key={i}>
-              <Card data={item} to={route.podcast} />
+              <Card data={item} to={route.podcast} isPodcast={true} />
             </SwiperSlide>
           ))}
       </Swiper>

@@ -6,8 +6,9 @@ import Icon from 'assets/svg'
 import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
 import { APP } from 'utils/constants'
+import { Button, Stack } from 'react-bootstrap'
 
-export default function Card({ data, to }) {
+export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
   const { id, title, description, image } = data
 
   const dispatch = useDispatch()
@@ -26,12 +27,30 @@ export default function Card({ data, to }) {
           <RBCard.Title className={styles.card__title}>{title}</RBCard.Title>
           <RBCard.Text className={styles.card__description}>{description}</RBCard.Text>
         </div>
-        <section className={styles.btnSection}>
-          <div className={styles.btnSection__time}>00:25PM</div>
-          <button className={styles.btnSection__btn} onClick={updateCurrent}>
-            <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
-          </button>
-        </section>
+        {isPodcast && (
+          <section className={styles.btnSection}>
+            <div className={styles.btnSection__time}>00:25PM</div>
+            <button className={styles.btnSection__podcastBtn} onClick={updateCurrent}>
+              <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
+            </button>
+          </section>
+        )}
+        {isBlog && (
+          <Stack direction="horizontal" gap={4} className={styles.blogBtnSection}>
+            <Button variant="secondary" className={styles.blogBtnSection__blogBtn} onClick={updateCurrent}>
+              #Techno
+            </Button>
+            <div>more ...</div>
+          </Stack>
+        )}
+        {isVideo && (
+          <section className={styles.btnSection}>
+            <div className={styles.btnSection__time}>00:25PM</div>
+            <button className={styles.btnSection__btn} onClick={updateCurrent}>
+              <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
+            </button>
+          </section>
+        )}
       </RBCard.Body>
     </RBCard>
   )
@@ -50,4 +69,7 @@ Card.propTypes = {
     src: PropTypes.string,
   }),
   to: PropTypes.string,
+  isPodcast: PropTypes.bool,
+  isBlog: PropTypes.bool,
+  isVideo: PropTypes.bool,
 }
