@@ -1,11 +1,10 @@
-import { Card } from 'components'
 import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/scss'
+import { Card } from 'components'
 import { route } from 'utils/constants'
-import styles from '../index.module.scss'
 import { useGetPodcastDataQuery } from 'store/api/data'
+import styles from '../index.module.scss'
 
 const PodcastSlider = () => {
   const { isSuccess, data } = useGetPodcastDataQuery()

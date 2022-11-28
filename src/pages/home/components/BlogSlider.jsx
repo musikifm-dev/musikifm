@@ -54,11 +54,9 @@ export default function BlogSlider() {
       >
         {isSuccess &&
           data?.map((item) => (
-            <div className="item" key={item.id}>
-              <SwiperSlide>
-                <Card data={item} to={route.blog} isBlog={true} />
-              </SwiperSlide>
-            </div>
+            <SwiperSlide key={item.id}>
+              <Card data={item} to={route.blog} isBlog={true} />
+            </SwiperSlide>
           ))}
       </Swiper>
     </div>
