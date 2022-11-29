@@ -1,22 +1,16 @@
 import 'swiper/scss'
 import 'swiper/css/navigation'
-// import SliderImage from '../../../assets/img/slider/slider1.png'
-// import { Image } from 'react-bootstrap'
 import { Navigation, Autoplay } from 'swiper'
 import 'swiper/css/pagination'
-// import SliderImage2 from '../../../assets/img/slider/slider2.png'
 import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../index.module.scss'
-import { useWindowSize } from '../../../utils/hooks/useWindowSize.jsx'
-import { Card } from 'components'
 import { default as RBCard } from 'react-bootstrap/Card'
 
 import { Stack } from 'react-bootstrap'
 import { APP } from 'utils/constants'
 
 const HeroSlider = () => {
-  const { isMobile } = useWindowSize()
 
   const data = [
     {
@@ -62,46 +56,36 @@ const HeroSlider = () => {
   ]
 
   return (
-    <>
-      {isMobile ? (
-        <Swiper>
-          <SwiperSlide>
-            <Card data={data} />
-          </SwiperSlide>
-        </Swiper>
-      ) : (
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          className={styles.heroSlide}
-          breakpoints={{
-            576: { slidesPerView: 1 },
-            768: { slidesPerView: 1.1, spaceBetween: 10 },
-            992: { slidesPerView: 1.1, spaceBetween: 20 },
-            1200: { slidesPerView: 1.1, spaceBetween: 25 },
-          }}
-        >
-          {data.map((m) => (
-            <SwiperSlide key={m.id}>
-              <RBCard bsPrefix={styles.card}>
-                <div className="row">
-                  <div className="col-6">
-                    <RBCard.Img variant="top" src={APP.base + m.image} className={styles.card__img} />
-                  </div>
-                  <div className="col-6 align-items-center">
-                    <RBCard.Body>
-                      <Stack direction="vertical" gap={1}>
-                        <RBCard.Title className={styles.card__title}>{m.title}</RBCard.Title>
-                        <RBCard.Text className={styles.card__description}>{m.content}</RBCard.Text>
-                      </Stack>
-                    </RBCard.Body>
-                  </div>
-                </div>
-              </RBCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
-    </>
+    <Swiper
+      modules={[Navigation, Autoplay]}
+      className={styles.heroSlide}
+      breakpoints={{
+        576: { slidesPerView: 1 },
+        768: { slidesPerView: 1.1, spaceBetween: 10 },
+        992: { slidesPerView: 1.1, spaceBetween: 20 },
+        1200: { slidesPerView: 1.1, spaceBetween: 25 },
+      }}
+    >
+      {data.map((m) => (
+        <SwiperSlide key={m.id}>
+          <RBCard bsPrefix={styles.card}>
+            <div className="row">
+              <div className="col-sm-12 col-md-6">
+                <RBCard.Img variant="top" src={APP.base + m.image} className={styles.card__img} />
+              </div>
+              <div className="col-sm-12 col-md-6 align-items-center">
+                <RBCard.Body>
+                  <Stack direction="vertical" gap={1}>
+                    <RBCard.Title className={styles.card__title}>{m.title}</RBCard.Title>
+                    <RBCard.Text className={styles.card__description}>{m.content}</RBCard.Text>
+                  </Stack>
+                </RBCard.Body>
+              </div>
+            </div>
+          </RBCard>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   )
 }
 export default HeroSlider

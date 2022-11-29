@@ -3,6 +3,7 @@
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/utilities/api';
 
+// Navbar
 .btnContainer {
   display: flex;
   align-items: center;
@@ -70,14 +71,18 @@
   .wrapper {
     flex-direction: column;
   }
-  
-  .sidebar {
-    height: 350px;
-  }
 }
 
 @media (max-width: 576px) {
-  .sidebar {
-    height: 320px;
+  .navbar {
+    padding: 0.9rem 0.775rem !important;
+  }
+
+  .btnContainer {
+    &__moodBtn {
+      font-size: var(--fs-10);
+      font-weight: var(--fw-4);
+      padding: 0.175rem 1.775rem;
+    }
   }
 }

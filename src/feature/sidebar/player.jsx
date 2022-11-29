@@ -35,7 +35,7 @@ const Player = () => {
   const [audio, state, controls] = useAudio({ src: APP.radio, autoPlay: true })
   // For more info about new behaviors of autoplay attribute --> https://developer.chrome.com/blog/autoplay/
   const { data, isSuccess } = useGetDataQuery()
-
+  // console.log(data)
   // const [radioPlayImage, setRadioPlayImage] = useState()
   // const baseUrl =
   //   'https://api.discogs.com/database/search?token=sVSjFzhvRFGxKdEPsHBIAEmmflcGIwCooPIOlNTL&q=' +
