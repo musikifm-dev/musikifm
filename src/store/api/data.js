@@ -8,6 +8,9 @@ export const dataApi = createApi({
     baseUrl: APP.base,
   }),
   endpoints: (builder) => ({
+    getHomeData: builder.query({
+      query: () => APP.home,
+    }),
     getBlogData: builder.query({
       query: () => APP.blog,
     }),
@@ -20,4 +23,4 @@ export const dataApi = createApi({
   }),
 })
 
-export const { useGetPodcastDataQuery, useGetVideoDataQuery, useGetBlogDataQuery } = dataApi
+export const { useGetHomeDataQuery, useGetPodcastDataQuery, useGetVideoDataQuery, useGetBlogDataQuery } = dataApi

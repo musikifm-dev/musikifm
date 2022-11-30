@@ -21,6 +21,11 @@ export const navLinks = [
   { route: route.video, text: 'Video' },
 ]
 
+export const authLinks = [
+  { route: route.login, text: 'Login' },
+  { route: route.register, text: 'Sign In' },
+]
+
 export const RE_DIGIT = new RegExp(/^\d+$/)
 
 export const APP = {
@@ -29,8 +34,9 @@ export const APP = {
 
   base: process.env.REACT_APP_URL_BASE,
 
+  home: process.env.REACT_APP_URL_HOME,
   //REPORT
-  blog: process.env.REACT_APP_URL_BLOG, 
+  blog: process.env.REACT_APP_URL_BLOG,
   podcast: process.env.REACT_APP_URL_PODCAST,
   video: process.env.REACT_APP_URL_VIDEO,
 

@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
 import { APP } from 'utils/constants'
 import { Button, Stack } from 'react-bootstrap'
+import { useAudio } from 'react-use'
 
 export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
   const { id, title, description, image } = data
-
   const dispatch = useDispatch()
+  const [state, controls] = useAudio({})
   const { current } = useSelector((state) => state.player)
-  const updateCurrent = () => {
+  console.log(controls)
+  const clickHandle = () => {
+    controls[state?.playing ? 'pause' : 'play']
     dispatch(setCurrent(data))
   }
 
@@ -30,14 +33,14 @@ export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
         {isPodcast && (
           <section className={styles.btnSection}>
             <div className={styles.btnSection__time}>00:25PM</div>
-            <button className={styles.btnSection__podcastBtn} onClick={updateCurrent}>
-              <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
+            <button className={styles.btnSection__podcastBtn} onClick={clickHandle}>
+              <Icon name={current?.id === id && state.playing ? 'pause' : 'play'} size="18" />
             </button>
           </section>
         )}
         {isBlog && (
           <Stack direction="horizontal" gap={4} className={styles.blogBtnSection}>
-            <Button variant="secondary" className={styles.blogBtnSection__blogBtn} onClick={updateCurrent}>
+            <Button variant="secondary" className={styles.blogBtnSection__blogBtn}>
               #Techno
             </Button>
             <div>more ...</div>
@@ -46,7 +49,7 @@ export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
         {isVideo && (
           <section className={styles.btnSection}>
             <div className={styles.btnSection__time}>00:25PM</div>
-            <button className={styles.btnSection__btn} onClick={updateCurrent}>
+            <button className={styles.btnSection__btn}>
               <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
             </button>
           </section>

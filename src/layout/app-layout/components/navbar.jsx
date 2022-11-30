@@ -6,12 +6,13 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Image from 'react-bootstrap/Image'
 import Offcanvas from 'react-bootstrap/Offcanvas'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
 import { Button, Stack } from 'react-bootstrap'
-import { navLinks, route } from '../../../utils/constants/index'
+import { authLinks, navLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
+import Divider from 'components/divider'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -24,10 +25,10 @@ const Navbar = () => {
             <ReactBootstrapNavbar.Brand>
               <Stack direction="horizontal" gap={2} className="align-items-start">
                 <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
-                  <Icon name="hamburger" size={isMobile ? '16' : '20'} className={styles.btn} />
+                  <Icon name="hamburger" size={isMobile ? '19' : '30'} className={styles.navbar__hamburger} />
                 </ReactBootstrapNavbar.Toggle>
                 <Link to={route.home}>
-                  <Image src={logoBlack} height={isMobile ? '16' : '20'} />
+                  <Image src={logoBlack} className={styles.navbar__logo} />
                 </Link>
               </Stack>
               <ReactBootstrapNavbar.Offcanvas
@@ -40,15 +41,24 @@ const Navbar = () => {
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Offcanvas</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav>
-                    <Stack gap={2} className="mt-2">
+                  <Nav className="mt-5">
+                    <Stack gap={2}>
                       {navLinks.map((item, i) => (
-                        <NavLink to={item.route} key={i}>
+                        <Link to={item.route} key={i}>
                           <Button variant="light" size="lg" className="w-100">
                             {item.text}
                           </Button>
-                        </NavLink>
+                        </Link>
                       ))}
+                      {isMobile && <Divider text="Auth" />}
+                      {isMobile &&
+                        authLinks.map((item, i) => (
+                          <Link to={item.route} className={styles.btnContainer__btn} key={i}>
+                            <Button variant="light" size="lg" className="w-100">
+                              {item.text}
+                            </Button>
+                          </Link>
+                        ))}
                     </Stack>
                   </Nav>
                 </Offcanvas.Body>
@@ -57,9 +67,9 @@ const Navbar = () => {
             <div className={styles.btnContainer}>
               <Stack gap={4} direction="horizontal">
                 <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
-                  Mood
+                  Mood Filter <span className={styles.tm}>TM</span>
                 </button>
-                {!isMobile ? (
+                {!isMobile && (
                   <div>
                     <Link to={route.login} className={styles.btnContainer__btn}>
                       Login
@@ -69,7 +79,7 @@ const Navbar = () => {
                       Sign In
                     </Link>
                   </div>
-                ) : null}
+                )}
               </Stack>
             </div>
           </Container>
