@@ -1,4 +1,4 @@
-import { setCurrent } from 'store/slices/player'
+import { setCurrent, setPlayerType } from 'store/slices/player'
 import PropTypes from 'prop-types'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,9 +14,10 @@ export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
   const dispatch = useDispatch()
   const [state, controls] = useAudio({})
   const { current } = useSelector((state) => state.player)
-  console.log(controls)
+console.log(data);
   const clickHandle = () => {
     controls[state?.playing ? 'pause' : 'play']
+    dispatch(setPlayerType(true)) // setPodcast --> true
     dispatch(setCurrent(data))
   }
 

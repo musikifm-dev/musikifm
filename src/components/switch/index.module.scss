@@ -1,0 +1,116 @@
+.toggleSwitch {
+  position: relative;
+  width: 9rem;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0 solid #bbb;
+    border-radius: 2rem;
+    margin: 0;
+    &:focus {
+      outline: none;
+      > span {
+        box-shadow: 0 0 0.2rem 0.5rem red;
+      }
+    }
+    > span:focus {
+      outline: none;
+    }
+  }
+  &__inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.2s ease-in 0s;
+    &:before,
+    &:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 3.3rem;
+      padding: 0;
+      line-height: 3.3rem;
+      font-size: var(--fs-12);
+      color: white;
+      font-weight: bold;
+      box-sizing: border-box;
+      padding: 0 1rem;
+    }
+    &:before {
+      content: attr(data-true);
+      padding-left: 0.7rem;
+      background-color: #2f855a;
+      color: #fff;
+    }
+  }
+  &__disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    &:before {
+      background-color: #ddd;
+      cursor: not-allowed;
+    }
+  }
+  &__inner:after {
+    content: attr(data-false);
+    padding-right: 1.8rem;
+    background-color: #bbb;
+    color: #fff;
+    text-align: right;
+  }
+  &__switch {
+    display: block;
+    width: 24px;
+    margin: 4px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 4rem;
+    border: 0 solid #bbb;
+    border-radius: 2rem;
+    transition: all 0.2s ease-in 0s;
+    margin-right: 2rem;
+  }
+
+  &__checkbox:checked + &__label {
+    .toggleSwitch__inner {
+      margin-left: 0;
+    }
+    .toggleSwitch__switch {
+      right: -1.5rem;
+    }
+  }
+  &.smallSwitch {
+    width: 40px;
+    .toggleSwitch__inner {
+      &:after,
+      &:before {
+        content: '';
+        height: 2rem;
+        line-height: 2rem;
+      }
+    }
+    .toggleSwitch__switch {
+      width: 1.6rem;
+      right: 2rem;
+      margin: 0.2rem;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    transform: scale(0.9);
+  }
+  @media screen and (max-width: 767px) {
+    transform: scale(0.825);
+  }
+  @media screen and (max-width: 575px) {
+    transform: scale(0.75);
+  }
+}

@@ -1,3 +1,16 @@
+.switch {
+  // font-size: var(--fs-20);
+  background-color: #eaeaea;
+  margin-top: 1rem;
+  padding: 1.8rem;
+  width: 100%;
+
+  &__text {
+    font-size: var(--fs-16);
+    font-weight: var(--fw-6);
+  }
+}
+
 // PLAYER
 .player {
   position: relative;
@@ -64,3 +77,42 @@
 }
 
 // BANNER
+
+@media (max-width: 1200px) {
+  .switch {
+
+    margin-top: 1rem;
+    padding: 1.5rem;
+
+    &__text {
+      font-size: var(--fs-14);
+      font-weight: var(--fw-5);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .switch {
+    padding: 1.8rem;
+    width: 100%;
+    grid-gap: 1.4rem;
+
+    &__text {
+      font-size: var(--fs-16);
+      font-weight: var(--fw-6);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .switch {
+    padding: 1.8rem;
+    width: 100%;
+    grid-gap: 1rem;
+
+    &__text {
+      font-size: var(--fs-16);
+      font-weight: var(--fw-6);
+    }
+  }
+}

@@ -1,56 +1,87 @@
 import Icon from '../../assets/svg'
 // import { Range, getTrackBackground } from 'react-range'
 import { useAudio } from 'react-use'
-// import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './style.module.scss'
 import { useSelector } from 'react-redux'
 import { APP } from 'utils/constants'
-// import { APP } from 'utils/constants'
-// import { useEffect } from 'react'
+import { Stack } from 'react-bootstrap'
+// import { setCurrent, setPlayerType } from 'store/slices/player'
+import Switch from 'components/switch'
+import { useState } from 'react'
+import clsx from 'clsx'
 
 const Player = () => {
-  // const [values, setValues] = useState([undefined])
   const { current } = useSelector((state) => state.player)
+  // const { switchType } = useSelector((state) => state.player)
+  // const dispatch = useDispatch()
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
-  console.log(current)
+  // console.log(switchType)
+
+  // const dummyRadioData = {
+  //   id: '',
+  //   title: '',
+  //   image: '',
+  //   description: '',
+  //   src: APP.radio,
+  // }
   // useEffect(() => {
   //   if (current.src !== APP.radio) setValues(state?.time)
   // }, [state.time])
 
+  const [x, setX] = useState(false)
+
+  const switchHandler = () => {
+    setX((prev) => !prev)
+    console.log('clicked')
+    // dispatch(setPlayerType(!switchType))
+    // if (switchType) {
+    //   dispatch(setCurrent(dummyRadioData))
+    // }
+  }
+
   return (
-    <div className={styles.player}>
-      <div>{audio}</div>
-      <img className={styles.player__img} src={APP.base + current.image} />
-      <div className={styles.player__overlay} />
+    <div>
+      <Stack
+        gap={2}
+        direction="horizontal"
+        className={clsx('d-flex justify-content-center align-items-center', styles.switch)}
+      >
+        <div className={styles.switch__text}>Şuan</div>
+        <Switch id="player" checked={x} onChange={switchHandler} defaultChecked={false} />
+        <div className={styles.switch__text}>dinlemektesiniz</div>
+      </Stack>
+      <div className={styles.player}>
+        <div>{audio}</div>
+        <img className={styles.player__img} src={APP.base + current.image} />
+        <div className={styles.player__overlay} />
 
-      <div className={styles.info}>
-        <h3 className={styles.info__title}>{current.title}</h3>
-        
-      </div>
-
-      <div className={styles.controlWrapper}>
-        <div className={styles.control}>
-          <button>
-            <Icon name="favorite" size="24" />
-          </button>
-          <button onClick={() => controls.seek(state.time - 10)}>
-            <Icon name="prev" size="24" />
-          </button>
-          <button className={styles.control__icon} onClick={controls[state.playing ? 'pause' : 'play']}>
-            <Icon name={state.playing ? 'pause' : 'play'} size="16" />
-          </button>
-          <button onClick={() => controls.seek(state.time + 10)}>
-            <Icon name="next" size="24" />
-          </button>
-          <button>
-            <Icon name="share" size="24" />
-          </button>
+        <div className={styles.info}>
+          <h3 className={styles.info__title}>{current.title}</h3>
         </div>
-      </div>
 
-      {/* {current.src !== APP.radio && (
+        <div className={styles.controlWrapper}>
+          <div className={styles.control}>
+            <button>
+              <Icon name="favorite" size="24" />
+            </button>
+            <button onClick={() => controls.seek(state.time - 10)}>
+              <Icon name="prev" size="24" />
+            </button>
+            <button className={styles.control__icon} onClick={controls[state.playing ? 'pause' : 'play']}>
+              <Icon name={state.playing ? 'pause' : 'play'} size="16" />
+            </button>
+            <button onClick={() => controls.seek(state.time + 10)}>
+              <Icon name="next" size="24" />
+            </button>
+            <button>
+              <Icon name="share" size="24" />
+            </button>
+          </div>
+        </div>
+
+        {/* {current.src !== APP.radio && (
         <Range
           values={values}
           step={0.1}
@@ -108,6 +139,7 @@ const Player = () => {
           )}
         />
       )} */}
+      </div>
     </div>
   )
 }
