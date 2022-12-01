@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { CommentsConfigContext, Comments, CommentForm, ErrorBox } from 'strapi-comments-client'
 import { APP } from 'utils/constants'
 import OtherPost from './OtherPost'
 
@@ -11,16 +10,6 @@ export default function BlogDetail() {
   const [results, setResult] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
-
-  const { setContentID } = useContext(CommentsConfigContext)
-  const { contentID } = useParams()
-
-  useEffect(() => {
-    if (contentID) {
-      setContentID(contentID)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [contentID])
 
   useEffect(() => {
     async function fetchData() {
@@ -54,9 +43,6 @@ export default function BlogDetail() {
           <div className="detailContent">
             <p>{results.attributes.content}</p>
           </div>
-          <CommentForm />
-          <ErrorBox />
-          <Comments />
         </div>
         <div className="col-md-3">
           <OtherPost id={id} />
