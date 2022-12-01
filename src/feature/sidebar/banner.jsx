@@ -1,9 +1,11 @@
+import clsx from 'clsx'
 import playImage from '../../assets/img/banner.png'
+import styles from './style.module.scss'
 
 export default function Banner() {
   return (
-    <div className="d-none d-md-block w-100">
-      <img src={playImage} className="w-100" />
+    <div className={clsx('d-none d-md-block w-100 max-h-10rem', styles.banner)}>
+      <img src={playImage} className="w-100 h-100" />
     </div>
   )
 }

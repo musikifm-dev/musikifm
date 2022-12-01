@@ -13,8 +13,8 @@
   height: calc(100vh - 48.25px);
 
   &__description {
-    padding: 0 3rem;
-    margin: 1rem 0;
+    margin: 1.2rem 3rem;
+    // margin: 1rem 0;
     font-family: var(--f-poppings);
     font-size: var(--fs-17);
     font-weight: var(--fw-4);
@@ -112,7 +112,7 @@
 @media (max-width: 1200px) {
   .sidebar {
     &__description {
-      -webkit-line-clamp: 24;
+      -webkit-line-clamp: 22;
     }
   }
 }
@@ -120,7 +120,7 @@
 @media (max-width: 992px) {
   .sidebar {
     &__description {
-      -webkit-line-clamp: 27;
+      -webkit-line-clamp: 25;
     }
   }
 }
