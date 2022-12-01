@@ -1,57 +1,61 @@
-import Icon from '../../assets/svg'
-// import { Range, getTrackBackground } from 'react-range'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAudio } from 'react-use'
 import PropTypes from 'prop-types'
-
-import styles from './style.module.scss'
-import { useSelector } from 'react-redux'
-import { APP } from 'utils/constants'
-import { Stack } from 'react-bootstrap'
-// import { setCurrent, setPlayerType } from 'store/slices/player'
+import { setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
+import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/switch'
-import { useState } from 'react'
-import clsx from 'clsx'
+import { APP } from 'utils/constants'
+import Icon from '../../assets/svg'
+import styles from './style.module.scss'
 
 const Player = () => {
-  const { current } = useSelector((state) => state.player)
-  // const { switchType } = useSelector((state) => state.player)
-  // const dispatch = useDispatch()
+  const { current, switchType } = useSelector((state) => state.player)
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
-  // console.log(switchType)
+  const { windowWidth } = useWindowSize()
+  const dispatch = useDispatch()
 
-  // const dummyRadioData = {
-  //   id: '',
-  //   title: '',
-  //   image: '',
-  //   description: '',
-  //   src: APP.radio,
-  // }
-  // useEffect(() => {
-  //   if (current.src !== APP.radio) setValues(state?.time)
-  // }, [state.time])
+  let smallSwitch = windowWidth < 1200
+  let bigSwitch = windowWidth < 768
 
-  const [x, setX] = useState(false)
+  useEffect(() => {
+    dispatch(setIsPlaying(state.playing))
+  }, [state.playing])
+
+  const dummyRadioData = {
+    id: '',
+    title: '',
+    image: '',
+    description: '',
+    src: APP.radio,
+  }
 
   const switchHandler = () => {
-    setX((prev) => !prev)
-    console.log('clicked')
-    // dispatch(setPlayerType(!switchType))
-    // if (switchType) {
-    //   dispatch(setCurrent(dummyRadioData))
-    // }
+    dispatch(setPlayerType(!switchType))
+    if (switchType) {
+      dispatch(setCurrent(dummyRadioData))
+    } else {
+      const newObj = {
+        ...current,
+        src: 'https://ia601002.us.archive.org/0/items/merttezlivehome01/merttez%20live%40home_01.mp3',
+      }
+      dispatch(setCurrent(newObj))
+    }
   }
 
   return (
-    <div>
-      <Stack
-        gap={2}
-        direction="horizontal"
-        className={clsx('d-flex justify-content-center align-items-center', styles.switch)}
-      >
+    <div className={styles.wrapper}>
+      <div className={styles.switch}>
         <div className={styles.switch__text}>Şuan</div>
-        <Switch id="player" checked={x} onChange={switchHandler} defaultChecked={false} />
+        <Switch
+          id="player"
+          checked={switchType}
+          onChange={switchHandler}
+          defaultChecked={false}
+          small={bigSwitch ? false : smallSwitch ? true : false}
+        />
         <div className={styles.switch__text}>dinlemektesiniz</div>
-      </Stack>
+      </div>
       <div className={styles.player}>
         <div>{audio}</div>
         <img className={styles.player__img} src={APP.base + current.image} />

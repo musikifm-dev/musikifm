@@ -89,19 +89,34 @@
     }
   }
   &.smallSwitch {
-    width: 40px;
+    width: 70px;
+
+    .toggleSwitch__inner:after {
+      padding-right: 1.5rem;
+    }
+
     .toggleSwitch__inner {
       &:after,
       &:before {
-        content: '';
+        // content: '';
         height: 2rem;
         line-height: 2rem;
+        font-size: var(--fs-10);
       }
     }
     .toggleSwitch__switch {
       width: 1.6rem;
-      right: 2rem;
+      right: 4.9rem;
       margin: 0.2rem;
+    }
+
+    .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+      .toggleSwitch__inner {
+        margin-left: 0;
+      }
+      .toggleSwitch__switch {
+        right: 0;
+      }
     }
   }
   @media screen and (max-width: 991px) {

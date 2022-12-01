@@ -67,7 +67,7 @@ const Navbar = () => {
             <div className={styles.btnContainer}>
               <Stack gap={4} direction="horizontal">
                 <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
-                  Mood Filter <span className={styles.tm}>TM</span>
+                  Mood Filter {isMobile && <span className={styles.tm}>TM</span>}
                 </button>
                 {!isMobile && (
                   <div>

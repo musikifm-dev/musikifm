@@ -7,16 +7,13 @@ import { Link } from 'react-router-dom'
 import styles from './style.module.scss'
 import { APP } from 'utils/constants'
 import { Button, Stack } from 'react-bootstrap'
-import { useAudio } from 'react-use'
 
 export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
   const { id, title, description, image } = data
   const dispatch = useDispatch()
-  const [state, controls] = useAudio({})
-  const { current } = useSelector((state) => state.player)
-console.log(data);
+  const { current, isPlaying } = useSelector((state) => state.player)
+console.log(isPlaying);
   const clickHandle = () => {
-    controls[state?.playing ? 'pause' : 'play']
     dispatch(setPlayerType(true)) // setPodcast --> true
     dispatch(setCurrent(data))
   }
@@ -35,7 +32,7 @@ console.log(data);
           <section className={styles.btnSection}>
             <div className={styles.btnSection__time}>00:25PM</div>
             <button className={styles.btnSection__podcastBtn} onClick={clickHandle}>
-              <Icon name={current?.id === id && state.playing ? 'pause' : 'play'} size="18" />
+              <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
             </button>
           </section>
         )}
@@ -51,7 +48,7 @@ console.log(data);
           <section className={styles.btnSection}>
             <div className={styles.btnSection__time}>00:25PM</div>
             <button className={styles.btnSection__btn}>
-              <Icon name={current?.id === id ? 'pause' : 'play'} size="18" />
+              <Icon name={current?.id === id && isPlaying ? 'pause' : 'play'} size="18" />
             </button>
           </section>
         )}

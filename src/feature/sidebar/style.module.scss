@@ -1,9 +1,16 @@
+.wrapper {
+  width: 100%;
+}
+
 .switch {
-  // font-size: var(--fs-20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #eaeaea;
   margin-top: 1rem;
-  padding: 1.8rem;
+  padding: 1.6rem;
   width: 100%;
+  grid-gap: 1.2rem;
 
   &__text {
     font-size: var(--fs-16);
@@ -16,7 +23,7 @@
   position: relative;
   color: #fff;
   width: 100%;
-  max-height: 40rem;
+  // max-height: 40rem;
 
   &__overlay {
     position: absolute;
@@ -80,22 +87,38 @@
 
 @media (max-width: 1200px) {
   .switch {
-
-    margin-top: 1rem;
-    padding: 1.5rem;
+    padding: 1rem 0.5rem;
+    grid-gap: 0.4rem;
 
     &__text {
-      font-size: var(--fs-14);
+      font-size: var(--fs-13);
+      font-weight: var(--fw-6);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .switch {
+    padding: 1rem 0.3rem;
+    grid-gap: 0.5rem;
+
+    &__text {
+      font-size: var(--fs-12);
       font-weight: var(--fw-5);
     }
   }
 }
 
+@media (max-width: 850px) {
+  .switch {
+    padding: 1rem 0.3rem;
+    grid-gap: 0.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .switch {
-    padding: 1.8rem;
-    width: 100%;
-    grid-gap: 1.4rem;
+    padding: 1.6rem;
 
     &__text {
       font-size: var(--fs-16);
@@ -106,13 +129,11 @@
 
 @media (max-width: 576px) {
   .switch {
-    padding: 1.8rem;
-    width: 100%;
-    grid-gap: 1rem;
+    margin-top: 0;
+    padding: 1rem;
 
     &__text {
-      font-size: var(--fs-16);
-      font-weight: var(--fw-6);
+      font-size: var(--fs-14);
     }
   }
 }

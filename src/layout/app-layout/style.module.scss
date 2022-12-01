@@ -45,6 +45,7 @@
     cursor: pointer;
     padding: 0.3rem 2.5rem;
     transition: 0.4s all;
+    margin: 0 auto;
 
     &:hover {
       color: black;
@@ -157,7 +158,10 @@
       position: relative;
       font-size: var(--fs-13);
       font-weight: var(--fw-5);
-      padding: 0.3rem 2.1rem;
+      padding-bottom: 0.3rem;
+      padding-top: 0.3rem;
+      padding-left: 1.5rem;
+      padding-right: 2.4rem;
       color: #fff;
       background: black;
 

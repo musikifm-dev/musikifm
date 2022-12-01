@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
-export default function Switch({ id, name, checked, onChange, optionLabels, small, disabled }) {
+export default function Switch({ id, name, checked, onChange, optionLabels, small, disabled, className }) {
   function handleKeyPress(e) {
     if (e.keyCode !== 32) return
     e.preventDefault()
@@ -10,7 +10,7 @@ export default function Switch({ id, name, checked, onChange, optionLabels, smal
   }
 
   return (
-    <div className={clsx(styles.toggleSwitch, small ? styles.smallSwitch : null)}>
+    <div className={clsx(styles.toggleSwitch, small ? styles.smallSwitch : null, className)}>
       <input
         type="checkbox"
         name={name}
@@ -55,4 +55,5 @@ Switch.propTypes = {
   optionLabels: PropTypes.array,
   small: PropTypes.bool,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 }
