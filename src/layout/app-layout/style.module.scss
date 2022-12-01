@@ -11,6 +11,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: calc(100vh - 48.25px);
+  position: fixed;
+  max-width: 20%;
 
   &__description {
     margin: 1.2rem 3rem;
@@ -20,7 +22,7 @@
     font-weight: var(--fw-4);
     line-height: 26px;
     display: -webkit-box;
-    -webkit-line-clamp: 14;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -90,37 +92,59 @@
   }
 }
 
+
+
 .wrapper {
   display: flex;
   width: 100%;
   padding-top: 49.25px;
   height: calc(100vh - 49.25px);
 
+  &__side {
+    width: 20%;
+    max-width: 100%;
+  }
+
   &__content {
     padding: 2.5rem 1.7rem;
+    width: 80%;
+    max-width: 100%;
   }
 }
+
+
 
 @media (max-width: 1400px) {
   .sidebar {
     &__description {
-      -webkit-line-clamp: 18;
+      margin: 1rem 0.8rem;
+    font-size: var(--fs-16);
+    line-height: 22px;
+    -webkit-line-clamp: 13;
     }
+    
   }
+  
+  .switch{
+    padding: 0.6rem;
+  }
+  .banner{
+    max-height: 20rem;
+}
 }
 
 @media (max-width: 1200px) {
   .sidebar {
-    &__description {
-      -webkit-line-clamp: 22;
-    }
+  &__description {
+    -webkit-line-clamp: 16;
   }
+}
 }
 
 @media (max-width: 992px) {
   .sidebar {
     &__description {
-      -webkit-line-clamp: 25;
+      -webkit-line-clamp: 18;
     }
   }
 }
@@ -144,6 +168,16 @@
 }
 
 @media (max-width: 576px) {
+
+  .wrapper{
+    &__side{
+      width: 100%;
+    }
+    &__content{
+      width: 100%;
+    }
+  }
+
   .navbar {
     padding: 0.9rem 0.775rem !important;
 
@@ -152,6 +186,16 @@
       height: 2rem;
     }
   }
+
+  .sidebar {
+    position: unset;
+    max-width: unset;
+    &__description {
+      display: none;
+    }
+  }
+
+  
 
   .btnContainer {
     &__moodBtn {

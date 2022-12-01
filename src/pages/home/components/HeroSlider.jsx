@@ -13,7 +13,7 @@ import { useGetHomeDataQuery } from 'store/api/data'
 
 const HeroSlider = () => {
   const { data, isSuccess } = useGetHomeDataQuery()
-  console.log(data)
+  
   // const data = [
   //   {
   //     id: 1,
@@ -58,7 +58,11 @@ const HeroSlider = () => {
   // ]
 
   return (
-    <Swiper modules={[Navigation, Autoplay]} className={styles.heroSlide}>
+    <Swiper modules={[Navigation, Autoplay] } className={styles.heroSlide} breakpoints={{
+      576: {},
+      768: { slidesPerView: 1, spaceBetween: 10 },
+      992: { slidesPerView: 1.1, spaceBetween: 20 },
+    }}>
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>

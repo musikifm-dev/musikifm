@@ -39,7 +39,7 @@
     text-decoration: none;
   }
   &__img {
-    height: 100%;
+    height: 400px;
     object-fit: cover;
   }
   &__title {
@@ -64,6 +64,21 @@
     color: black;
     height: 100%;
   }
+}
+
+@media (max-width: 1400px) { 
+  .card{
+    max-height: 300px;
+    
+    &__img{
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+
+
 }
 
 @media (max-width: 960px) {
