@@ -23,7 +23,7 @@ export default function BlogSlider() {
                 <RBCard.Title className={styles.card__title}>{item.title}</RBCard.Title>
                 <div className={styles.footerSection}>
                   <Button variant="secondary" className={styles.footerSection__genre}>
-                    #Techno
+                  #{item.tag}
                   </Button>
                   <div className={styles.footerSection__more}>more &gt;</div>
                 </div>

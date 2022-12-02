@@ -9,7 +9,7 @@ import styles from './index.module.scss'
 
 export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
-
+console.log(data);
   return (
     <SliderContainer header="VIDEO" breakpoints="video">
       {isSuccess &&
@@ -23,7 +23,7 @@ export default function VideoSlider() {
                 <RBCard.Title className={styles.card__title}>{item.title}</RBCard.Title>
                 <section className={styles.footerSection}>
                   <Button variant="secondary" className={styles.footerSection__genre}>
-                    #Techno
+                    #{item.tag}
                   </Button>
                   <div className={styles.footerSection__more}>more &gt;</div>
                 </section>

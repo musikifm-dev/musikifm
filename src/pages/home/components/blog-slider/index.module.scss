@@ -21,10 +21,12 @@
     text-align: center;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-height: 22px !important;
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: black;
-    padding: 1rem 1.5rem;
+    margin-top: 1rem !important;
+    padding: 0 1.5rem;
     font-size: var(--fs-20) !important;
     font-weight: var(--fw-6) !important;
   }
