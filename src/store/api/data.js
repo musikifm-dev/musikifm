@@ -20,7 +20,16 @@ export const dataApi = createApi({
     getVideoData: builder.query({
       query: () => APP.video,
     }),
+    getVideoDetail: builder.query({
+      query: () => APP.videos,
+    }),
   }),
 })
 
-export const { useGetHomeDataQuery, useGetPodcastDataQuery, useGetVideoDataQuery, useGetBlogDataQuery } = dataApi
+export const {
+  useGetHomeDataQuery,
+  useGetPodcastDataQuery,
+  useGetVideoDataQuery,
+  useGetBlogDataQuery,
+  useGetVideoDetailQuery,
+} = dataApi

@@ -1,6 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import LoginRedirect from './utils/auth/LoginRedirect'
-import Profile from './components/Profile/Profile'
 import BlogDetail from './components/Detail/BlogDetail'
 import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './components/Detail/PodcastDetail'
@@ -21,7 +20,6 @@ const router = createBrowserRouter(
         <Route path={`${route.video}/:id`} element={<VideoDetail />} />
         <Route path={route.songs} element={<Songs />} />
         <Route path={route.moodFilter} element={<MoodFilter />} />
-        <Route path={route.profile} element={<Profile />} />
         <Route path="/connect/:providerName" element={<LoginRedirect />} />
       </Route>
       <Route element={<AuthLayout />}>

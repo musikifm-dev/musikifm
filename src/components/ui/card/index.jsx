@@ -8,10 +8,10 @@ import styles from './style.module.scss'
 import { APP } from 'utils/constants'
 import { Button, Stack } from 'react-bootstrap'
 
-export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
-  const { id, title, description, image } = data
+export default function Card({ data, to, isBlog, isPodcast }) {
+  const { id, title, description, image, url } = data
   const dispatch = useDispatch()
-  const { current, isPlaying } = useSelector((state) => state.player)
+  const { current } = useSelector((state) => state.player)
 
   const clickHandle = () => {
     dispatch(setPlayerType(true)) // setPodcast --> true
@@ -20,9 +20,20 @@ export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
 
   return (
     <RBCard className={styles.card}>
-      <Link to={`${to}/${id}`} className={styles.card__link}>
-        <RBCard.Img variant="top" src={APP.base + image} className={styles.card__img} />
-      </Link>
+      {image ? (
+        <Link to={`${to}/${id}`} className={styles.card__link}>
+          <RBCard.Img variant="top" src={APP.base + image} className={styles.card__img} />
+        </Link>
+      ) : (
+        <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${url}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      )}
       <RBCard.Body className={styles.card__body}>
         <div>
           <RBCard.Title className={styles.card__title}>{title}</RBCard.Title>
@@ -44,14 +55,6 @@ export default function Card({ data, to, isBlog, isPodcast, isVideo }) {
             <div>more ...</div>
           </Stack>
         )}
-        {isVideo && (
-          <section className={styles.btnSection}>
-            <div className={styles.btnSection__time}>00:25PM</div>
-            <button className={styles.btnSection__btn}>
-              <Icon name={current?.id === id && isPlaying ? 'pause' : 'play'} size="18" />
-            </button>
-          </section>
-        )}
       </RBCard.Body>
     </RBCard>
   )
@@ -72,5 +75,4 @@ Card.propTypes = {
   to: PropTypes.string,
   isPodcast: PropTypes.bool,
   isBlog: PropTypes.bool,
-  isVideo: PropTypes.bool,
 }

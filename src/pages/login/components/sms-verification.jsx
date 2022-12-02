@@ -9,7 +9,7 @@ import logoBlack from '../../../assets/img/logo-black.png'
 import { useDispatch } from 'react-redux'
 import { setStep } from 'store/slices/auth'
 import useCountdown from 'utils/hooks/useCountdown'
-import { OtpInput } from 'components'
+import { OtpInput } from 'components/ui'
 import { useState } from 'react'
 
 export default function SmsVerification() {

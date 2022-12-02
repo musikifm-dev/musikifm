@@ -14684,6 +14684,7 @@ textarea.form-control-lg {
   --fs-16: 1.6rem;
   --fs-17: 1.7rem;
   --fs-18: 1.8rem;
+  --fs-19: 1.9rem;
   --fs-20: 2rem;
   --fs-25: 2.5rem;
   --fs-27: 2.7rem;
@@ -14716,6 +14717,7 @@ body {
   font-family: "Poppins", sans-serif;
   padding-right: 0px !important;
   overflow-x: hidden;
+  background: #fcfcfc;
 }
 
 .h1,

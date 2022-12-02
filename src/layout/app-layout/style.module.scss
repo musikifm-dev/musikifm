@@ -159,14 +159,19 @@
   .wrapper {
     flex-direction: column;
 
+    &__side {
+      width: 100%;
+    }
     &__content {
-      margin-left: 0;
+      width: 100%;
     }
   }
 
   .sidebar {
     flex-direction: row;
+    position: unset;
     height: auto;
+    max-width: unset;
     &__description {
       display: none;
     }

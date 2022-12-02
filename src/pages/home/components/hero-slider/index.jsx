@@ -4,7 +4,7 @@ import { Navigation, Autoplay } from 'swiper'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import styles from '../index.module.scss'
+import styles from './index.module.scss'
 import { default as RBCard } from 'react-bootstrap/Card'
 
 import { Stack } from 'react-bootstrap'
@@ -13,7 +13,7 @@ import { useGetHomeDataQuery } from 'store/api/data'
 
 const HeroSlider = () => {
   const { data, isSuccess } = useGetHomeDataQuery()
-  
+
   // const data = [
   //   {
   //     id: 1,
@@ -58,11 +58,14 @@ const HeroSlider = () => {
   // ]
 
   return (
-    <Swiper modules={[Navigation, Autoplay] } className={styles.heroSlide} breakpoints={{
-      576: {},
-      768: { slidesPerView: 1, spaceBetween: 10 },
-      992: { slidesPerView: 1.1, spaceBetween: 20 },
-    }}>
+    <Swiper
+      modules={[Navigation, Autoplay]}
+      breakpoints={{
+        576: {},
+        768: { slidesPerView: 1, spaceBetween: 10 },
+        992: { slidesPerView: 1.1, spaceBetween: 20 },
+      }}
+    >
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>

@@ -1,5 +1,5 @@
-import Divider from 'components/divider'
-import Select from 'components/select'
+import Divider from 'components/ui/divider'
+import Select from 'components/ui/select'
 import { Button } from 'react-bootstrap'
 import Accordion from 'react-bootstrap/Accordion'
 import styles from './index.module.scss'

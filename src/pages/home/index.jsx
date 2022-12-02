@@ -1,7 +1,8 @@
-import HeroSlider from './components/HeroSlider';
-import PodcastSlider from './components/PodcastSlider';
-import BlogSlider from './components/BlogSlider';
-import VideoSlider from 'pages/home/components/VideoSlider';
+import HeroSlider from './components/hero-slider'
+import PodcastSlider from './components/podcast-slider/PodcastSlider'
+import BlogSlider from './components/blog-slider/BlogSlider'
+import VideoSlider from './components/video-slider'
+
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
       <BlogSlider />
       <VideoSlider />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

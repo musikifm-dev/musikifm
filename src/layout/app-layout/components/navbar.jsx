@@ -12,7 +12,7 @@ import { Button, Stack } from 'react-bootstrap'
 import { authLinks, navLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
-import Divider from 'components/divider'
+import Divider from 'components/ui/divider'
 
 const Navbar = () => {
   const navigate = useNavigate()

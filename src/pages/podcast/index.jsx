@@ -1,4 +1,4 @@
-import { Card } from 'components'
+import { Card } from 'components/ui'
 import { useGetPodcastDataQuery } from 'store/api/data'
 import { route } from 'utils/constants'
 
