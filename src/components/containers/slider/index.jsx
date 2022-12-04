@@ -35,7 +35,7 @@ export default function SliderContainer(props) {
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 10,
+            spaceBetween: 34,
           },
         }
       case 'blog':
@@ -61,8 +61,8 @@ export default function SliderContainer(props) {
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 5,
-            spaceBetween: 10,
+            slidesPerView: 4,
+            spaceBetween: 44,
           },
         }
       case 'video':
@@ -88,8 +88,8 @@ export default function SliderContainer(props) {
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 4,
-            spaceBetween: 10,
+            slidesPerView: 3,
+            spaceBetween: 28,
           },
         }
       default:

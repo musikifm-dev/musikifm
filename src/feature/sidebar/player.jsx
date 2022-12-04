@@ -58,7 +58,7 @@ const Player = () => {
       </div>
       <div className={styles.player}>
         <div>{audio}</div>
-        <img className={styles.player__img} src={APP.base + current.image} />
+        <img className={styles.player__img} src={current.image} />
         <div className={styles.player__overlay} />
 
         <div className={styles.info}>

@@ -46,7 +46,7 @@ const PodcastSlider = () => {
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 10,
+            spaceBetween: 34,
           },
         }}
       >
