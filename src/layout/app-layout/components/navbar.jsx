@@ -2,27 +2,39 @@
 import logoBlack from '../../../assets/img/logo-black.png'
 import { default as ReactBootstrapNavbar } from 'react-bootstrap/Navbar'
 
-import { Container, Form, Nav, Image, Offcanvas } from 'react-bootstrap'
+import { Container, Form, Nav, Image, Offcanvas, Accordion, InputGroup, Stack, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
-import { Button, InputGroup, Stack } from 'react-bootstrap'
-import { authLinks, navLinks, route } from '../../../utils/constants/index'
+import { navLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
-import Divider from 'components/ui/divider'
 import clsx from 'clsx'
 import { Avatar } from 'components/ui'
+import { useState } from 'react'
 
 const Navbar = () => {
+  const [accordion, setAccordion] = useState('0')
+  const [navbar, setNavbar] = useState(false)
   const navigate = useNavigate()
   const { isMobile } = useWindowSize()
 
   const handleChange = () => {}
 
+  const handleNavbarToggle = (val) => {
+    setNavbar(val)
+    if (!navbar) setAccordion(null)
+  }
+
   return (
     <>
       {[false].map((expand) => (
-        <ReactBootstrapNavbar key={expand} bg="light" expand={expand} className={styles.navbar}>
+        <ReactBootstrapNavbar
+          key={expand}
+          bg="light"
+          expand={expand}
+          className={styles.navbar}
+          onToggle={handleNavbarToggle}
+        >
           <Container fluid>
             <ReactBootstrapNavbar.Brand>
               <Stack direction="horizontal" gap={2} className="align-items-start">
@@ -62,22 +74,74 @@ const Navbar = () => {
                           <Icon name="search" size={22} />
                         </InputGroup.Text>
                       </InputGroup>
-                      <div className="d-flex justify-content-center">
-                        <Avatar
-                          source="https://www.primianotucci.com/static/images/avatar-12df3081.png"
-                          size="xl"
-                          rounded="full"
-                        />
+
+                      <div className="d-flex justify-content-center mt-5">
+                        <div className="text-center">
+                          <Avatar
+                            source="https://images.squarespace-cdn.com/content/v1/569591ff0ab3771dba3f1ec6/1650383193773-4E38HIVJMG16Q5MHD80A/JD+Solo+by+Todd+V+Wolfson.jpg?format=2500w"
+                            size="xl"
+                            rounded="full"
+                          />
+                          <div className="d-flex justify-content-center">
+                            <div>
+                              <div className={clsx(styles.editProfile, 'fs-5 p-2 bg-gray')}>Edit Profile</div>
+                              <div className="fs-2 fw-bold">John Doe</div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      {isMobile && <Divider text="Auth" />}
-                      {isMobile &&
-                        authLinks.map((item, i) => (
-                          <Link to={item.route} className={styles.btnContainer__btn} key={i}>
-                            <Button variant="light" size="lg" className="w-100">
-                              {item.text}
-                            </Button>
-                          </Link>
-                        ))}
+                      <div className="d-flex justify-content-between mt-2">
+                        <div className="text-center">
+                          <div className="fs-4 fw-bold">64</div>
+                          <div className="fs-5 text-muted fw-semibold">Playlist</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="fs-4 fw-bold">45</div>
+                          <div className="fs-5 text-muted fw-semibold">Following</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="fs-4 fw-bold">21</div>
+                          <div className="fs-5 text-muted fw-semibold">Followers</div>
+                        </div>
+                      </div>
+
+                      <Link to={route.profile}>
+                        <button className={styles.navBtn}>PROFILE</button>
+                      </Link>
+                      <Link to={route.moodFilter}>
+                        <button className={styles.navBtn}>MOOD</button>
+                      </Link>
+
+                      <Accordion
+                        defaultActiveKey="#"
+                        bsPrefix={styles.accordionContainer}
+                        onSelect={(val) => {
+                          setAccordion(val)
+                        }}
+                      >
+                        <Accordion.Item eventKey="0" className={clsx('border-0', styles.accordionContainer__item)}>
+                          <Accordion.Header bsPrefix={styles.accordionContainer__header}>
+                            <button className={styles.navBtn}>LIBRARY</button>
+                            <Icon
+                              name={accordion === null ? 'up' : 'down'}
+                              size={22}
+                              className={styles.accordionContainer__icon}
+                            />
+                          </Accordion.Header>
+                          <Accordion.Body>
+                            {['MOOD', 'PLAYLIST', 'BLOG', 'VIDEO'].map((item) => (
+                              <div key={item}>
+                                <button className={styles.navBtn}>{item}</button>
+                              </div>
+                            ))}
+                          </Accordion.Body>
+                          <Button variant="link" className="mt-4 fs-4 text-muted text-decoration-none p-0">
+                            Çıkış Yap
+                            <Icon name="logout" size={22} className={styles.logout} />
+                          </Button>
+                        </Accordion.Item>
+                        {/** if user logged in, show button below */}
+                      </Accordion>
                     </Stack>
                   </Nav>
                 </Offcanvas.Body>
@@ -95,7 +159,7 @@ const Navbar = () => {
                     </Link>
                     <span className={styles.btnContainer__btn}>/</span>
                     <Link to={route.register} className={styles.btnContainer__btn}>
-                      Sign In
+                      Sign Up
                     </Link>
                   </div>
                 )}

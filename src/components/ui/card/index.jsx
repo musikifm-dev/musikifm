@@ -12,7 +12,6 @@ export default function Card({ data, to, isBlog, isPodcast }) {
   const { id, title, description, image, url } = data
   const dispatch = useDispatch()
   const { current } = useSelector((state) => state.player)
-
   const clickHandle = () => {
     dispatch(setPlayerType(true)) // setPodcast --> true
     dispatch(setCurrent(data))

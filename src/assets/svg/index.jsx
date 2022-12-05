@@ -197,8 +197,8 @@ const GoogleIcon = ({ size, className }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className={clsx('icon icon-tabler icon-tabler-brand-google', className)}
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       strokeWidth="2"
       stroke="currentColor"
@@ -240,6 +240,70 @@ const PhoneIcon = ({ size, className }) => {
   )
 }
 
+const DownIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-chevron-down"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  )
+}
+
+const UpIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-chevron-up"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <polyline points="6 15 12 9 18 15"></polyline>
+    </svg>
+  )
+}
+
+const LogoutIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-logout"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+      <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+    </svg>
+  )
+}
+
 const Icon = ({ name, size, className }) => {
   const icons = {
     home: HomeIcon,
@@ -258,6 +322,9 @@ const Icon = ({ name, size, className }) => {
     videoplay: VideoPlayIcon,
     google: GoogleIcon,
     phone: PhoneIcon,
+    down: DownIcon,
+    up: UpIcon,
+    logout: LogoutIcon,
   }
 
   const Component = icons[name]

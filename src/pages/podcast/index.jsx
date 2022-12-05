@@ -4,7 +4,7 @@ import { route } from 'utils/constants'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
-
+  console.log(data)
   return (
     <div className="page">
       <div className="row row-cols-5 blog">
