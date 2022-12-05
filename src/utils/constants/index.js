@@ -11,14 +11,17 @@ export const route = {
   profile: '/profile',
   register: '/register',
   accountSettings: '/account-settings',
+  schedule: '/schedule',
+  library: '/library',
 }
 
 export const navLinks = [
-  { route: route.home, text: 'Home' },
-  { route: route.moodFilter, text: 'Mood Filter' },
-  { route: route.podcast, text: 'Podcast' },
-  { route: route.blog, text: 'Blog' },
-  { route: route.video, text: 'Video' },
+  { route: route.home, text: 'HOME' },
+  { route: route.moodFilter, text: 'MODD FILTER' },
+  { route: route.podcast, text: 'PODCAST' },
+  { route: route.blog, text: 'BLOG' },
+  { route: route.video, text: 'VIDEO' },
+  { route: route.schedule, text: 'SCHEDULE' },
 ]
 
 export const authLinks = [
