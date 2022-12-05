@@ -2,21 +2,23 @@
 import logoBlack from '../../../assets/img/logo-black.png'
 import { default as ReactBootstrapNavbar } from 'react-bootstrap/Navbar'
 
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Image from 'react-bootstrap/Image'
-import Offcanvas from 'react-bootstrap/Offcanvas'
+import { Container, Form, Nav, Image, Offcanvas } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
-import { Button, Stack } from 'react-bootstrap'
+import { Button, InputGroup, Stack } from 'react-bootstrap'
 import { authLinks, navLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Divider from 'components/ui/divider'
+import clsx from 'clsx'
+import { Avatar } from 'components/ui'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const { isMobile } = useWindowSize()
+
+  const handleChange = () => {}
+
   return (
     <>
       {[false].map((expand) => (
@@ -41,15 +43,32 @@ const Navbar = () => {
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Offcanvas</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className="mt-5">
+                  <Nav className={styles.nav}>
                     <Stack gap={2}>
                       {navLinks.map((item, i) => (
                         <Link to={item.route} key={i}>
-                          <Button variant="light" size="lg" className="w-100">
-                            {item.text}
-                          </Button>
+                          <button className={styles.navBtn}>{item.text}</button>
                         </Link>
                       ))}
+                      <InputGroup className={styles.search}>
+                        <Form.Control
+                          type="email"
+                          placeholder="Search"
+                          size="lg"
+                          className={clsx('text-center', styles.input)}
+                          onChange={handleChange}
+                        />
+                        <InputGroup.Text className={styles.input__icon}>
+                          <Icon name="search" size={22} />
+                        </InputGroup.Text>
+                      </InputGroup>
+                      <div className="d-flex justify-content-center">
+                        <Avatar
+                          source="https://www.primianotucci.com/static/images/avatar-12df3081.png"
+                          size="xl"
+                          rounded="full"
+                        />
+                      </div>
                       {isMobile && <Divider text="Auth" />}
                       {isMobile &&
                         authLinks.map((item, i) => (

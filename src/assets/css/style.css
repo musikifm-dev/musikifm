@@ -14687,6 +14687,7 @@ textarea.form-control-lg {
   --fs-19: 1.9rem;
   --fs-20: 2rem;
   --fs-25: 2.5rem;
+  --fs-26: 2.6rem;
   --fs-27: 2.7rem;
   --fs-30: 3rem;
   --fs-31: 3.1rem;
@@ -14701,6 +14702,8 @@ textarea.form-control-lg {
   --fw-6: 600;
   --fw-7: 700;
   --fw-8: 800;
+  --cl-placeholder-bg: #585858;
+  --cl-placeholder: #919191;
 }
 
 * {
