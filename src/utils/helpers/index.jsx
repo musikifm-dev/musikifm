@@ -11,3 +11,16 @@ export const isValidEmail = (email) => {
     email,
   )
 }
+
+export const refreshPage = () => {
+  return window.location.reload(false)
+}
+
+export const renderComponent = (component) => {
+  switch (typeof component) {
+    case 'function':
+      return component()
+    default:
+      return component
+  }
+}

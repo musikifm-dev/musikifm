@@ -1,0 +1,22 @@
+.card {
+  min-height: 447.92px;
+  border: none !important;
+}
+
+.header {
+  &__link {
+    text-decoration: none;
+  }
+  &__img {
+    height: 268px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 5.33239px 85.3182px rgba(0, 0, 0, 0.07);
+}

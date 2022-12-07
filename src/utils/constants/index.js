@@ -34,6 +34,7 @@ export const RE_DIGIT = new RegExp(/^\d+$/)
 export const APP = {
   login: process.env.REACT_APP_URL_LOGIN,
   register: process.env.REACT_APP_URL_REGISTER,
+  userData: process.env.REACT_APP_URL_USERDATA,
 
   base: process.env.REACT_APP_URL_BASE,
 

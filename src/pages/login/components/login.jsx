@@ -1,5 +1,5 @@
 import { Button, Form, Image, Stack } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { loginValidationSchema } from 'utils/validationSchema'
 import logoBlack from '../../../assets/img/logo-black.png'
@@ -7,34 +7,31 @@ import { route } from 'utils/constants'
 import clsx from 'clsx'
 import styles from '../index.module.scss'
 import Icon from 'assets/svg'
-// import { useDispatch } from 'react-redux'
-// import { setStep } from 'store/slices/auth'
-// import { useLoginMutation } from 'store/api/auth'
+import { Divider } from 'components/ui'
+import { useLoginMutation } from 'store/api/auth'
 
 export default function Login() {
-  // const [login] = useLoginMutation()
-  // const navigate = useNavigate()
-  // const step = useSelector((state) => state.auth.step)
-  // const dispatch = useDispatch()
-  // console.log(step, 'STEP')
+  const [login] = useLoginMutation()
+  // const { data } = useGetUserDataQuery()
+  const navigate = useNavigate()
 
   const formik = useFormik({
-    validateOnMount: true,
+    // validateOnMount: true,
     initialValues: {
-      userNameOrEmail: '',
+      usernameEmail: '',
       password: '',
     },
     validationSchema: loginValidationSchema,
     onSubmit: (values) => {
-      console.log(values)
-      // login(values)
-      // if (isValidEmail(values.input)) {
-      //   values.username = ''
-      //   values.email = values.input
-      // } else {
-      //   values.username = values.input
-      //   values.email = ''
-      // }
+      let newObj = { email: '', password: values.password }
+      // !* Determine input field (email or username) and send right value to server
+      if (values.usernameEmail.includes('@')) {
+        newObj = { ...newObj, email: values.usernameEmail }
+      } else {
+        newObj = { username: values.usernameEmail, password: values.password }
+      }
+      login(newObj)
+      navigate(route.home)
     },
   })
 
@@ -65,17 +62,17 @@ export default function Login() {
                   Username / Email
                 </Form.Label>
                 <Form.Control
-                  id="userNameOrEmail"
-                  name="userNameOrEmail"
+                  id="usernameEmail"
+                  name="usernameEmail"
                   type="text"
                   placeholder="Write your username or email"
                   size="lg"
                   onChange={formik.handleChange}
-                  value={formik.values.userNameOrEmail}
+                  value={formik.values.usernameEmail}
                   className={styles.placeholder}
                 />
-                {formik.errors.userNameOrEmail && formik.touched.userNameOrEmail && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.userNameOrEmail}</Form.Text>
+                {formik.errors.usernameEmail && formik.touched.usernameEmail && (
+                  <Form.Text className="fw-light text-danger">{formik.errors.usernameEmail}</Form.Text>
                 )}
               </Form.Group>
               <Form.Group>
@@ -114,7 +111,7 @@ export default function Login() {
                   <Form.Text className="fw-light text-danger">{formik.errors.email}</Form.Text>
                 )}
               </Form.Group> */}
-              <Button variant="primary" type="submit" className="w-100 mt-4" >
+              <Button variant="primary" type="submit" className="w-100 mt-4" size="lg">
                 Login
               </Button>
 
@@ -123,10 +120,8 @@ export default function Login() {
                 <Link to={route.register} className="fw-bold text-black">
                   Sign Up
                 </Link>
-                <div>
-                  <div className={clsx('mt-3', styles.divider)}>or</div>
-                </div>
-                <Button variant="light" className="w-100 mt-3">
+                <Divider text="or" />
+                <Button variant="light" className="w-100 mt-3" size="lg">
                   <Stack gap={4} direction="horizontal">
                     <Icon name="google" size={24} />
                     <div className="fs-6 fw-medium">Continue with Google</div>

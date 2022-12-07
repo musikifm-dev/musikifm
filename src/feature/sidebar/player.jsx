@@ -8,12 +8,15 @@ import Switch from 'components/ui/switch'
 import { APP } from 'utils/constants'
 import Icon from '../../assets/svg'
 import styles from './style.module.scss'
+// import { useGetPlayerDataQuery } from 'store/api/player'
 
 const Player = () => {
   const { current, switchType } = useSelector((state) => state.player)
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const { windowWidth } = useWindowSize()
   const dispatch = useDispatch()
+
+  // console.log(current);
 
   let smallSwitch = windowWidth < 1200
   let bigSwitch = windowWidth < 768

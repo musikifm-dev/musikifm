@@ -62,20 +62,6 @@
       "target": "plugin::users-permissions.role",
       "inversedBy": "users",
       "configurable": false
-    },
-    "phoneNumber": {
-      "required": true,
-      "min": "6",
-      "max": "14",
-      "unique": false,
-      "type": "biginteger"
-    },
-    "fullName": {
-      "type": "string",
-      "required": true,
-      "minLength": 3,
-      "maxLength": 30,
-      "regex": "/[a-zA-ZığüşöçİĞÜŞÖÇ]/"
     }
   }
 }

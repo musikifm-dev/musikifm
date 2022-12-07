@@ -79,24 +79,6 @@
   font-size: var(--fs-9);
 }
 
-.divider {
-  font-size: var(--fs-13);
-  //   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    height: 0.02rem;
-    width: 100%;
-    background-color: #eaeaea;
-    margin: 0 0.5rem;
-  }
-}
-
 .phoneIcon {
   margin-left: 1rem;
 }

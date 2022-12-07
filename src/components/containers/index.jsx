@@ -1,1 +1,1 @@
-export { default as SliderContainer } from './slider/index'
+export { default as SliderContainer } from './card/index'

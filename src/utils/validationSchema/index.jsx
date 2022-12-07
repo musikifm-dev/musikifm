@@ -16,45 +16,48 @@ export const registerValidationSchema = yup.object().shape({
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!~'%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,15}$/,
       'Password can only contain Latin letters.',
     ),
-  confirmPassword: yup.string().oneOf([yup.ref('password'), null]),
+  // confirmPassword: yup.string().oneOf([yup.ref('password'), null]),
   email: yup
     .string()
     .required('Email is a required field')
     .trim('Email can not include whitespace')
     .email('Email must be a valid'),
-  phoneNumber: yup
+  phone: yup
     .string()
-    // .required('Phone number is a required field')
+    .required('Phone number is a required field')
     .min(6, 'Phone number  must be min 6 characters long')
     .max(14, 'Phone number  must be max 14 characters long'),
-  termsAndConditions: yup.boolean().oneOf([true], 'Terms & Conditions must be checked'),
+  terms: yup.boolean().oneOf([true], 'Terms & Conditions must be checked'),
 })
 
 export const loginValidationSchema = yup.object({
-  userNameOrEmail: yup
+  usernameEmail: yup
     .string('Username/Email must be string')
     .required('Username or Email is a required field')
-    .test('is-username', 'Enter a Valid Username', (value) => {
-      const usernameRegex = /[a-zA-ZığüşöçİĞÜŞÖÇ]/
-      let isValidUsername = usernameRegex.test(value)
-
-      if (!isValidUsername) {
-        console.log('username')
-        return false
-      }
-      return true
-    })
-    .test('is-email', 'Enter a Valid Email', (value) => {
+    .test('is-username', 'Enter a Valid Username or Email', (value) => {
       const emailRegex =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      let isValidEmail = emailRegex.test(value)
+      const usernameRegex = /^[a-zA-Z0-9ığüşöçİĞÜŞÖÇ]{4,10}$/
 
-      if (!isValidEmail) {
-        console.log('email')
+      let isValidEmail = emailRegex.test(value)
+      let isValidUsername = usernameRegex.test(value)
+      console.log({ email: isValidEmail, username: isValidUsername })
+      if (!isValidEmail && !isValidUsername) {
         return false
       }
       return true
     }),
+  // email: yup.string().test('is-email', 'Enter a Valid Email', (value) => {
+  //   const emailRegex =
+  //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  //   let isValidEmail = emailRegex.test(value)
+
+  //   if (!isValidEmail) {
+  //     console.log('email')
+  //     return false
+  //   }
+  //   return true
+  // }),
   // username: yup
   //   .string()
   //   .required('Name is a required field')

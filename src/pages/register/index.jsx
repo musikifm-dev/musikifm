@@ -18,15 +18,21 @@ export default function Register() {
 
   const formik = useFormik({
     initialValues: {
-      phoneNumber: '',
+      phone: '',
       username: '',
       password: '',
       email: '',
-      termsAndConditions: '',
+      terms: false,
     },
     validationSchema: registerValidationSchema,
     onSubmit: (values) => {
-      register(values)
+      const newObj = {
+        phone: values.phone,
+        username: values.username,
+        password: values.password,
+        email: values.email,
+      }
+      register(newObj)
       console.log(values)
     },
   })
@@ -71,7 +77,7 @@ export default function Register() {
                   className={styles.placeholder}
                 />
                 {formik.errors.username && formik.touched.username && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.username}</Form.Text>
+                  <Form.Text className="fs-6 fw-light text-danger">{formik.errors.username}</Form.Text>
                 )}
               </Form.Group>
               <Form.Group>
@@ -89,7 +95,7 @@ export default function Register() {
                   className={styles.placeholder}
                 />
                 {formik.errors.password && formik.touched.password && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.password}</Form.Text>
+                  <Form.Text className="fs-6 fw-light text-danger">{formik.errors.password}</Form.Text>
                 )}
               </Form.Group>
               <Form.Group>
@@ -107,11 +113,11 @@ export default function Register() {
                   className={styles.placeholder}
                 />
                 {formik.errors.email && formik.touched.email && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.email}</Form.Text>
+                  <Form.Text className="fs-6 fw-light text-danger">{formik.errors.email}</Form.Text>
                 )}
               </Form.Group>
               <Form.Group>
-                <Form.Label htmlFor="phoneNumber" className={clsx('mb-3', styles.label)}>
+                <Form.Label htmlFor="phone" className={clsx('mb-3', styles.label)}>
                   Phone Number
                 </Form.Label>
                 <Form.Group className={styles.dropdown}>
@@ -127,39 +133,39 @@ export default function Register() {
                     <Dropdown.Item href="#">+375</Dropdown.Item>
                   </DropdownButton>
                   <Form.Control
-                    id="phoneNumber"
-                    name="phoneNumber"
+                    id="phone"
+                    name="phone"
                     type="text"
                     placeholder="Write your mobile number"
                     size="lg"
                     className={clsx(styles.dropdown__input, styles.placeholder)}
                     onChange={formik.handleChange}
-                    value={formik.values.phoneNumber}
+                    value={formik.values.phone}
                   />
                 </Form.Group>
-                {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.phoneNumber}</Form.Text>
+                {formik.errors.phone && formik.touched.phone && (
+                  <Form.Text className="fs-6 fw-light text-danger">{formik.errors.phone}</Form.Text>
                 )}
               </Form.Group>
             </Stack>
             <Stack gap={3} className="mt-4">
-              <Form.Check
-                type="checkbox"
-                id="termsAndConditions"
-                name="termsAndConditions"
-                onChange={formik.handleChange}
-                value={formik.values.termsAndConditions}
-                className="fw-semibold"
-              >
-                <Form.Check.Input type="checkbox" />
-                <Form.Check.Label>I aggree to Terms & Conditions</Form.Check.Label>
-              </Form.Check>
-              {formik.errors.termsAndConditions && formik.touched.termsAndConditions && (
-                <Form.Text className="fw-light text-danger">{formik.errors.termsAndConditions}</Form.Text>
-              )}
-              {/* <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" /> */}
+              <Form.Group>
+                <Form.Check type="checkbox" id="terms" name="terms" className="fw-semibold">
+                  <Form.Check.Input
+                    type="checkbox"
+                    onChange={formik.handleChange}
+                    value={formik.values.terms}
+                    isInvalid={!formik.values.terms}
+                  />
+                  <Form.Check.Label className="fs-5">I aggree to Terms & Conditions</Form.Check.Label>
+                </Form.Check>
+                {formik.errors.terms && formik.touched.terms && (
+                  <Form.Text className="fs-6 fw-light text-danger">{formik.errors.terms}</Form.Text>
+                )}
+                {/* <Form.Check type={type} id={`default-${type}`} label="I'd like being informed about Musiki news ant tips" /> */}
+              </Form.Group>
 
-              <Button variant="primary" type="submit" className="w-100">
+              <Button variant="primary" type="submit" className="w-100" size="lg">
                 Sign Up for free
               </Button>
               <div>

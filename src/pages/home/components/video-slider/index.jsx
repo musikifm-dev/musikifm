@@ -9,7 +9,7 @@ import styles from './index.module.scss'
 
 export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
-console.log(data);
+
   return (
     <SliderContainer header="VIDEO" breakpoints="video">
       {isSuccess &&

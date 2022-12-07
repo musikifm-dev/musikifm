@@ -11,18 +11,27 @@ import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
 import { Avatar } from 'components/ui'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from 'store/slices/auth'
+import { refreshPage } from 'utils/helpers'
 
 const Navbar = () => {
   const [accordion, setAccordion] = useState('0')
   const [navbar, setNavbar] = useState(false)
   const navigate = useNavigate()
   const { isMobile } = useWindowSize()
-
-  const handleChange = () => {}
+  const { auth } = useSelector((state) => state)
+  const dispatch = useDispatch()
 
   const handleNavbarToggle = (val) => {
+    console.log(val)
     setNavbar(val)
     if (!navbar) setAccordion(null)
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+    refreshPage()
   }
 
   return (
@@ -68,7 +77,6 @@ const Navbar = () => {
                           placeholder="Search"
                           size="lg"
                           className={clsx('text-center', styles.input)}
-                          onChange={handleChange}
                         />
                         <InputGroup.Text className={styles.input__icon}>
                           <Icon name="search" size={22} />
@@ -105,7 +113,7 @@ const Navbar = () => {
                         </div>
                       </div>
 
-                      <Link to={route.profile}>
+                      <Link to={route.profile} className={'mt-4'}>
                         <button className={styles.navBtn}>PROFILE</button>
                       </Link>
                       <Link to={route.moodFilter}>
@@ -121,7 +129,7 @@ const Navbar = () => {
                       >
                         <Accordion.Item eventKey="0" className={clsx('border-0', styles.accordionContainer__item)}>
                           <Accordion.Header bsPrefix={styles.accordionContainer__header}>
-                            <button className={styles.navBtn}>LIBRARY</button>
+                            <div className={styles.navBtn}>LIBRARY</div>
                             <Icon
                               name={accordion === null ? 'up' : 'down'}
                               size={22}
@@ -135,10 +143,16 @@ const Navbar = () => {
                               </div>
                             ))}
                           </Accordion.Body>
-                          <Button variant="link" className="mt-4 fs-4 text-muted text-decoration-none p-0">
-                            Çıkış Yap
-                            <Icon name="logout" size={22} className={styles.logout} />
-                          </Button>
+                          {auth.isAuthenticated && (
+                            <Button
+                              variant="link"
+                              className="mt-4 fs-4 text-muted text-decoration-none p-0"
+                              onClick={handleLogout}
+                            >
+                              Çıkış Yap
+                              <Icon name="logout" size={22} className={styles.logout} />
+                            </Button>
+                          )}
                         </Accordion.Item>
                         {/** if user logged in, show button below */}
                       </Accordion>
@@ -154,9 +168,16 @@ const Navbar = () => {
                 </button>
                 {!isMobile && (
                   <div>
-                    <Link to={route.login} className={styles.btnContainer__btn}>
-                      Login
-                    </Link>
+                    {auth.isAuthenticated ? (
+                      <Link to={route.home} className={styles.btnContainer__btn} onClick={handleLogout}>
+                        Logout
+                      </Link>
+                    ) : (
+                      <Link to={route.login} className={styles.btnContainer__btn}>
+                        Login
+                      </Link>
+                    )}
+
                     <span className={styles.btnContainer__btn}>/</span>
                     <Link to={route.register} className={styles.btnContainer__btn}>
                       Sign Up

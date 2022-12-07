@@ -6,6 +6,9 @@ import PodcastDetail from './components/Detail/PodcastDetail'
 import { route } from './utils/constants/index'
 import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
+// import { useEffect } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { useCheckAuthenticationQuery } from 'store/api/auth'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +35,18 @@ const router = createBrowserRouter(
 )
 
 function App() {
+  // const { data } = useCheckAuthenticationQuery()
+  // const { auth } = useSelector((state) => state)
+  // const dispatch = useDispatch()
+
+  // console.log({ data: data, auth: auth })
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log('DISPATCHED')
+  //     dispatch({ ...auth, isAuthenticated: true })
+  //   }
+  // }, [])
+
   return <RouterProvider router={router} />
 }
 

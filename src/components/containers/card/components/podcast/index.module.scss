@@ -1,0 +1,38 @@
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: black;
+  line-height: 26.66px;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-4);
+  line-height: 2.4rem;
+  color: black;
+}
+
+.btnSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__time {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-4);
+    line-height: 2.2rem;
+  }
+
+  &__podcastBtn {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+}

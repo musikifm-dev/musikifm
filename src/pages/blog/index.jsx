@@ -4,12 +4,7 @@ import { route } from 'utils/constants'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
-
-  // function allow(clicked_name) {
-  //   var blogbox = document.getElementsByClassName('blogBox');
-  //   console.log(clicked_name);
-  // }
-
+  
   return (
     <div>
       {/* <div className="tagFilter">

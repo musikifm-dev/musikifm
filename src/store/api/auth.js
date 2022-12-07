@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { setCredentials } from 'store/slices/auth'
 import { APP } from 'utils/constants'
-// import Songs from 'song.json'
 
-// Define a service using a base URL and expected endpoints
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
     baseUrl: APP.base,
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -14,40 +14,54 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (data) => {
-        const { phoneNumber, username, password, email } = data
+        const { phone, username, password, email } = data
         return {
           url: APP.register,
           method: 'POST',
+          headers: {
+            Authorization: localStorage.getItem('token'),
+          },
           body: {
             username: username,
             password: password,
             email: email,
-            phoneNumber: phoneNumber,
-            // termsAndConditions: termsAndConditions,
+            phone: phone,
           },
         }
       },
     }),
     login: builder.mutation({
       query: (data) => {
-        const { email, password } = data
+        const { username, email, password } = data
         return {
           url: APP.login,
           method: 'POST',
-          // headers: {
-          //   'Content-Type': 'application/json',
-          // },
           body: {
-            // username: username,
+            identifier: email ? email : username,
             password: password,
-            email: email,
           },
+          // credentials: 'include',
         }
       },
+      /* eslint-disable no-unused-vars */
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(setCredentials({ username: data.user.username, id: data.user.id, token: data.jwt }))
+          localStorage.setItem('token', data.jwt)
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+    checkAuthentication: builder.query({
+      query: () => '/users/me',
+    }),
+
+    getUserData: builder.query({
+      query: () => `${APP.userData}/10`,
     }),
   }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useRegisterMutation, useLoginMutation } = authApi
+export const { useRegisterMutation, useLoginMutation, useGetUserDataQuery, useCheckAuthenticationQuery } = authApi

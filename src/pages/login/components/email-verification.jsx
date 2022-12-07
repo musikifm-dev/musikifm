@@ -19,7 +19,7 @@ export default function EmailVerification() {
     },
     onSubmit: (values) => {
       // dispatch(setStep(1)) // if submitting succesfully get back step state to initial val - 1
-      console.log('form')
+      //console.log('form')
       return {
         email: values.email,
       }

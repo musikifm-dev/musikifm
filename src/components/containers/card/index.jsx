@@ -107,7 +107,6 @@ export default function SliderContainer(props) {
       </div>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={70}
         pagination={{
           clickable: true,
         }}
