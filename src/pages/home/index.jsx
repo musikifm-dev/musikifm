@@ -1,9 +1,4 @@
-import BlogSlider from "sections/card/components/blog-slider"
-import HeroSlider from "sections/card/components/hero-slider"
-import PodcastSlider from "sections/card/components/podcast-slider"
-import VideoSlider from "sections/card/components/video-slider"
-
-
+import { BlogSlider, HeroSlider, PodcastSlider, VideoSlider } from 'sections'
 
 const Home = () => {
   return (

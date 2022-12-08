@@ -1,7 +1,7 @@
 import { useGetVideoDataQuery } from 'store/api/data'
 import { SwiperSlide } from 'swiper/react'
 import { default as RBCard } from 'react-bootstrap/Card'
-import SliderContainer from 'sections/card'
+import SliderContainer from 'sections/sliders'
 import { Button } from 'react-bootstrap'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'

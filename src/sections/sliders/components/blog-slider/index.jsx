@@ -5,7 +5,7 @@ import { route } from 'utils/constants'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { SwiperSlide } from 'swiper/react'
 import { useGetBlogDataQuery } from 'store/api/data'
-import SliderContainer from 'sections/card'
+import SliderContainer from 'sections/sliders'
 
 import { Button } from 'react-bootstrap'
 import styles from './index.module.scss'

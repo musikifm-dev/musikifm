@@ -12,7 +12,7 @@ import { Card } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
 import { Stack } from 'react-bootstrap'
-import SliderContainer from '../..'
+import SliderContainer from 'sections/sliders'
 
 const HeroSlider = () => {
   const { data, isSuccess } = useGetHomeDataQuery()
@@ -22,7 +22,7 @@ const HeroSlider = () => {
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>
-            <Card bsPrefix={styles.card}>
+            <Card className={styles.card}>
               <div className="row">
                 <div className="col-sm-12 col-md-6">
                   <CardHeader to={route.podcast} id={item.id} image={item.image} imageStyle={styles.image} />
