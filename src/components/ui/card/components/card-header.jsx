@@ -6,11 +6,11 @@ import { APP } from 'utils/constants'
 import styles from '../index.module.scss'
 
 export default function CardHeader(props) {
-  const { to, id, image, className } = props
+  const { to, id, image, imageStyle, className } = props
   return (
     <div className={styles.header}>
       <Link to={`${to}/${id}`} className={clsx(styles.header__link, className)}>
-        <RBCard.Img variant="top" src={APP.base + image} className={styles.header__img} />
+        <RBCard.Img variant="top" src={APP.base + image} className={clsx(imageStyle, styles.header__img)} />
       </Link>
     </div>
   )
@@ -21,4 +21,5 @@ CardHeader.propTypes = {
   id: PropTypes.number,
   image: PropTypes.string,
   className: PropTypes.string,
+  imageStyle: PropTypes.string,
 }

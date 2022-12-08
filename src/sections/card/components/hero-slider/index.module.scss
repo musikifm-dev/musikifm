@@ -1,0 +1,40 @@
+.card {
+  max-height: 334.7px;
+  box-shadow: 0px 4.69757px 75.1611px rgb(0 0 0 / 7%);
+  background: #ffffff;
+
+  &__title {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: var(--fs-48) !important;
+    font-weight: var(--fw-7) !important;
+    color: black;
+    line-height: 4.8rem !important;
+    height: 100%;
+  }
+}
+
+.image {
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 1400px) {
+  .card {
+    max-height: 300px;
+  }
+  .image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 960px) {
+  .card {
+    &__title {
+      font-size: var(--fs-16);
+      font-weight: var(--fw-5);
+      line-height: 2.2rem;
+      height: 100%;
+    }
+  }
+}

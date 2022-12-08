@@ -12,7 +12,7 @@ import { useLoginMutation } from 'store/api/auth'
 
 export default function Login() {
   const [login] = useLoginMutation()
-  // const { data } = useGetUserDataQuery()
+
   const navigate = useNavigate()
 
   const formik = useFormik({
@@ -22,7 +22,7 @@ export default function Login() {
       password: '',
     },
     validationSchema: loginValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       let newObj = { email: '', password: values.password }
       // !* Determine input field (email or username) and send right value to server
       if (values.usernameEmail.includes('@')) {
@@ -30,7 +30,8 @@ export default function Login() {
       } else {
         newObj = { username: values.usernameEmail, password: values.password }
       }
-      login(newObj)
+      const { data } = await login(newObj)
+      localStorage.setItem('token', data.jwt)
       navigate(route.home)
     },
   })

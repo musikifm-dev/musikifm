@@ -1,10 +1,11 @@
-import HeroSlider from './components/hero-slider'
-import PodcastSlider from './components/podcast-slider/PodcastSlider'
-import BlogSlider from './components/blog-slider/BlogSlider'
-import VideoSlider from './components/video-slider'
+import BlogSlider from "sections/card/components/blog-slider"
+import HeroSlider from "sections/card/components/hero-slider"
+import PodcastSlider from "sections/card/components/podcast-slider"
+import VideoSlider from "sections/card/components/video-slider"
+
+
 
 const Home = () => {
-
   return (
     <>
       <HeroSlider />

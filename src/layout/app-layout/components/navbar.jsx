@@ -11,16 +11,18 @@ import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
 import { Avatar } from 'components/ui'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { logout } from 'store/slices/auth'
+import { useDispatch } from 'react-redux'
+
+import { authApi, useGetMyDataQuery } from 'store/api/auth'
 import { refreshPage } from 'utils/helpers'
 
 const Navbar = () => {
   const [accordion, setAccordion] = useState('0')
   const [navbar, setNavbar] = useState(false)
+  const { data: userData } = useGetMyDataQuery()
   const navigate = useNavigate()
+
   const { isMobile } = useWindowSize()
-  const { auth } = useSelector((state) => state)
   const dispatch = useDispatch()
 
   const handleNavbarToggle = (val) => {
@@ -30,7 +32,8 @@ const Navbar = () => {
   }
 
   const handleLogout = () => {
-    dispatch(logout())
+    localStorage.clear()
+    dispatch(authApi.util.resetApiState())
     refreshPage()
   }
 
@@ -143,7 +146,7 @@ const Navbar = () => {
                               </div>
                             ))}
                           </Accordion.Body>
-                          {auth.isAuthenticated && (
+                          {userData && (
                             <Button
                               variant="link"
                               className="mt-4 fs-4 text-muted text-decoration-none p-0"
@@ -168,20 +171,21 @@ const Navbar = () => {
                 </button>
                 {!isMobile && (
                   <div>
-                    {auth.isAuthenticated ? (
+                    {userData ? (
                       <Link to={route.home} className={styles.btnContainer__btn} onClick={handleLogout}>
                         Logout
                       </Link>
                     ) : (
-                      <Link to={route.login} className={styles.btnContainer__btn}>
-                        Login
-                      </Link>
+                      <>
+                        <Link to={route.login} className={styles.btnContainer__btn}>
+                          Login
+                        </Link>
+                        <span className={styles.btnContainer__btn}>/</span>
+                        <Link to={route.register} className={styles.btnContainer__btn}>
+                          Sign Up
+                        </Link>
+                      </>
                     )}
-
-                    <span className={styles.btnContainer__btn}>/</span>
-                    <Link to={route.register} className={styles.btnContainer__btn}>
-                      Sign Up
-                    </Link>
                   </div>
                 )}
               </Stack>

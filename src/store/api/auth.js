@@ -1,6 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { setCredentials } from 'store/slices/auth'
 import { APP } from 'utils/constants'
+
+const getToken = () => {
+  const token = localStorage.getItem('token')
+  if (token == 'undefined') return undefined
+  return token
+}
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -10,6 +15,10 @@ export const authApi = createApi({
     headers: {
       'Content-Type': 'application/json',
     },
+    prepareHeaders: (headers) => {
+      headers.set('Authorization', getToken() ? `Bearer ${getToken()}` : null)
+      return headers
+    },
   }),
   endpoints: (builder) => ({
     register: builder.mutation({
@@ -18,9 +27,6 @@ export const authApi = createApi({
         return {
           url: APP.register,
           method: 'POST',
-          headers: {
-            Authorization: localStorage.getItem('token'),
-          },
           body: {
             username: username,
             password: password,
@@ -40,22 +46,12 @@ export const authApi = createApi({
             identifier: email ? email : username,
             password: password,
           },
-          // credentials: 'include',
-        }
-      },
-      /* eslint-disable no-unused-vars */
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled
-          dispatch(setCredentials({ username: data.user.username, id: data.user.id, token: data.jwt }))
-          localStorage.setItem('token', data.jwt)
-        } catch (err) {
-          console.log(err)
+          credentials: 'include',
         }
       },
     }),
-    checkAuthentication: builder.query({
-      query: () => '/users/me',
+    getMyData: builder.query({
+      query: () => 'api/users/me',
     }),
 
     getUserData: builder.query({
@@ -64,4 +60,4 @@ export const authApi = createApi({
   }),
 })
 
-export const { useRegisterMutation, useLoginMutation, useGetUserDataQuery, useCheckAuthenticationQuery } = authApi
+export const { useRegisterMutation, useLoginMutation, useGetUserDataQuery, useGetMyDataQuery } = authApi

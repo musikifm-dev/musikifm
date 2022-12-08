@@ -11,7 +11,7 @@ export default function Card(props) {
   const { className, children, loading } = props
 
   return (
-    <RBCard className={clsx(styles.card, className)}>
+    <RBCard className={clsx(styles.card, className)} {...props}>
       {children}
       {loading && <Spinner />}
     </RBCard>
@@ -26,4 +26,3 @@ Card.propTypes = {
 
 Card.Header = CardHeader
 Card.Body = CardBody
-// Card.Footer = CardFooter

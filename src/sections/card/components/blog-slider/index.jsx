@@ -1,9 +1,12 @@
-import { APP, route } from 'utils/constants'
+import { Card } from 'components/ui'
+import CardBody from 'components/ui/card/components/card-body'
+import CardHeader from 'components/ui/card/components/card-header'
+import { route } from 'utils/constants'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { SwiperSlide } from 'swiper/react'
 import { useGetBlogDataQuery } from 'store/api/data'
-import { SliderContainer } from 'components/containers'
-import { Link } from 'react-router-dom'
+import SliderContainer from 'sections/card'
+
 import { Button } from 'react-bootstrap'
 import styles from './index.module.scss'
 
@@ -15,20 +18,18 @@ export default function BlogSlider() {
       {isSuccess &&
         data?.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className={styles.card}>
-              <Link to={`${route.video}/${item.id}`} className={styles.card__link}>
-                <RBCard.Img variant="top" src={APP.base + item.image} className={styles.card__img} />
-              </Link>
-              <RBCard.Body className={styles.card__body}>
-                <RBCard.Title className={styles.card__title}>{item.title}</RBCard.Title>
+            <Card>
+              <CardHeader to={route.podcast} id={item.id} image={item.image} />
+              <CardBody>
+                <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <div className={styles.footerSection}>
                   <Button variant="secondary" className={styles.footerSection__genre}>
-                  #{item.tag}
+                    #{item.tag}
                   </Button>
                   <div className={styles.footerSection__more}>more &gt;</div>
                 </div>
-              </RBCard.Body>
-            </div>
+              </CardBody>
+            </Card>
           </SwiperSlide>
         ))}
     </SliderContainer>

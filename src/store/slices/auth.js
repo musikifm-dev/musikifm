@@ -4,20 +4,9 @@ const localStorageToken = localStorage.getItem('token') !== null ? localStorage.
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: { username: null, id: null, token: localStorageToken, isAuthenticated: false },
+  initialState: {},
   reducers: {
-    setCredentials: (state, action) => {
-      const { username, id, token } = action.payload
-      state.username = username
-      state.token = token
-      state.id = id
-      state.isAuthenticated = true
-    },
-    logout: (state) => {
-      state.username = null
-      state.id = null
-      state.token = null
-      state.isAuthenticated = false
+    logout: () => {
       localStorage.clear()
     },
     loginStep: (state, action) => {
