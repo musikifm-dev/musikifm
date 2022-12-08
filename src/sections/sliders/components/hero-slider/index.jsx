@@ -22,7 +22,7 @@ const HeroSlider = () => {
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>
-            <Card className={styles.card}>
+            <Card bsPrefix={styles.card}>
               <div className="row">
                 <div className="col-sm-12 col-md-6">
                   <CardHeader to={route.podcast} id={item.id} image={item.image} imageStyle={styles.image} />
