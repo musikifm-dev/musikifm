@@ -13,12 +13,12 @@ export default function VideoSlider() {
   const { isSuccess, data } = useGetVideoDataQuery()
 
   return (
-    <SliderContainer header="VIDEO" breakpoints="video">
+    <SliderContainer header="VIDEO" breakpoints="video" route={route.video}>
       {isSuccess &&
         data.map((item, i) => (
           <SwiperSlide key={i}>
             <Card>
-              <CardHeader to={route.podcast} id={item.id} image={item.image} />
+              <CardHeader to={route.video} id={item.id} image={item.image} />
               <CardBody>
                 <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <section className={styles.footerSection}>

@@ -2,12 +2,11 @@ import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper } from 'swiper/react'
 import PropTypes from 'prop-types'
-import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import 'swiper/scss'
 
 export default function SliderContainer(props) {
-  const { children, header, breakpoints } = props
+  const { children, header, breakpoints, route } = props
 
   const renderBreakPoints = () => {
     switch (breakpoints) {
@@ -99,12 +98,14 @@ export default function SliderContainer(props) {
 
   return (
     <div className={styles.slider}>
-      <div className="d-flex justify-content-between align-items-center my-5">
-        <h3 className={styles.slider__header}>{header}</h3>
-        <Link to={route.video} className={styles.slider__seeAll}>
-          See All
-        </Link>
-      </div>
+      {breakpoints && (
+        <div className="d-flex justify-content-between align-items-center my-5">
+          <h3 className={styles.slider__header}>{header}</h3>
+          <Link to={route} className={styles.slider__seeAll}>
+            See All
+          </Link>
+        </div>
+      )}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{
@@ -122,5 +123,6 @@ SliderContainer.propTypes = {
   children: PropTypes.node,
   header: PropTypes.string,
   className: PropTypes.string,
-  breakpoints: PropTypes.any,
+  breakpoints: PropTypes.string,
+  route: PropTypes.string,
 }

@@ -18,7 +18,7 @@ const HeroSlider = () => {
   const { data, isSuccess } = useGetHomeDataQuery()
 
   return (
-    <SliderContainer breakpoints="hero">
+    <SliderContainer>
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>

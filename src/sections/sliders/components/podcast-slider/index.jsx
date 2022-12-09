@@ -22,7 +22,7 @@ export default function PodcastSlider() {
     dispatch(setCurrent(val))
   }
   return (
-    <SliderContainer header="PODCAST" breakpoints="podcast">
+    <SliderContainer header="PODCAST" breakpoints="podcast" route={route.podcast}>
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>
