@@ -14702,6 +14702,7 @@ textarea.form-control-lg {
   --fw-6: 600;
   --fw-7: 700;
   --fw-8: 800;
+  --cl-card-bg: #ffffff;
   --cl-placeholder-bg: #585858;
   --cl-placeholder: #919191;
 }
@@ -15079,18 +15080,4 @@ div#headlessui-menu-items-\:r3\: {
   border: unset;
   background-color: white;
   color: #000;
-}
-
-.podcastSection {
-  background: #fff;
-  padding: 10px;
-}
-.podcastSection__play .play__image img {
-  width: 100%;
-}
-
-.podcastContent {
-  background-color: #fff;
-  padding: 10px;
-  min-height: 400px;
 }

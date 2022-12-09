@@ -1,31 +1,3 @@
-// @import "~bootstrap/scss/functions";
-// @import "~bootstrap/scss/variables";
-// @import "~bootstrap/scss/mixins";
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-@import '../../../node_modules/bootstrap/scss/functions';
-@import '../../../node_modules/bootstrap/scss/variables';
-@import '../../../node_modules/bootstrap/scss/utilities/api';
-@import '../../assets/scss/variables';
-
-// PODCAST
-.slider {
-  :global(.swiper-wrapper) {
-    padding-bottom: 20px;
-  }
-  :global(.swiper-pagination) {
-    bottom: 0;
-    text-align: right;
-  }
-
-  &__header {
-    font-size: var(--fs-30);
-    font-weight: var(--fw-6);
-  }
-
-  &__seeAll {
-    color: black;
-    text-decoration: underline;
-    font-size: var(--fs-20);
-    line-height: 30px;
-  }
+.home {
+  padding: 2.5rem 1.7rem;
 }

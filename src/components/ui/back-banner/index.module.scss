@@ -1,0 +1,54 @@
+.backBanner {
+  display: flex;
+  align-items: center;
+  height: 6.5rem;
+  background-color: black;
+  margin-top: 10px;
+
+  &__icon {
+    font-size: var(--fs-18);
+    font-weight: var(--fw-6);
+  }
+
+  &__btn {
+    background-color: #eeeeee !important;
+    font-size: var(--fs-15) !important;
+    font-weight: var(--fw-5) !important;
+    color: black !important;
+    padding: 0.5rem 1.6rem !important;
+    border: none !important;
+    border-radius: 2rem !important;
+    &:hover {
+      background-color: #cccccca4 !important;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .backBanner {
+    height: 4rem;
+
+    &__icon {
+      font-size: var(--fs-16);
+      font-weight: var(--fw-6);
+    }
+
+    &__btn {
+      font-size: var(--fs-13) !important;
+      font-weight: var(--fw-4) !important;
+      padding: 0.2rem 0.9rem !important;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  //   .backBanner {
+  //     height: 3rem;
+  //   }
+}
+
+@media (max-width: 768px) {
+  .backBanner {
+    height: 2rem;
+  }
+}
