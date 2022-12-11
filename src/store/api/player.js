@@ -4,8 +4,12 @@ import { APP } from 'utils/constants'
 // Define a service using a base URL and expected endpoints
 export const playerDataApi = createApi({
   reducerPath: 'playerDataApi',
+
   baseQuery: fetchBaseQuery({
     baseUrl: APP.base,
+    headers: {
+      'Content-Type': 'application/json',
+    },
   }),
   endpoints: (builder) => ({
     getPlayerData: builder.query({

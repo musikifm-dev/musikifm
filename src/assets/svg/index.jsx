@@ -39,7 +39,7 @@ const PrevIcon = ({ size, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx('icon icon-tabler icon-tabler-chevron-left', className)}
+      className={className}
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -54,13 +54,22 @@ const PrevIcon = ({ size, className }) => {
     </svg>
   )
 }
-const NextIcon = ({ size }) => {
+const NextIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 23 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M3.44445 0.943115L0.348633 4.2057L16.2272 20.9396L0.348633 37.6735L3.44445 40.936L22.319 20.9396L3.44445 0.943115Z"
-        fill="currentColor"
-      />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <polyline points="9 6 15 12 9 18"></polyline>
     </svg>
   )
 }
@@ -119,30 +128,26 @@ const BlackHamburgerIcon = ({ size }) => {
     </svg>
   )
 }
-const ShareIcon = ({ size }) => {
+const ShareIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M2.01562 16.9397V29.0187C2.01563 29.8196 2.31751 30.5876 2.85488 31.154C3.39225 31.7203 4.12107 32.0384 4.88102 32.0384H22.0734C22.8334 32.0384 23.5622 31.7203 24.0996 31.154C24.6369 30.5876 24.9388 29.8196 24.9388 29.0187V16.9397"
-        stroke="white"
-        strokeWidth="3.01974"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M19.2067 7.88055L13.4759 1.84106L7.74512 7.88055"
-        stroke="white"
-        strokeWidth="3.01974"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M13.4775 1.84106V21.4694"
-        stroke="white"
-        strokeWidth="3.01974"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="6" r="3"></circle>
+      <circle cx="18" cy="18" r="3"></circle>
+      <line x1="8.7" y1="10.7" x2="15.3" y2="7.3"></line>
+      <line x1="8.7" y1="13.3" x2="15.3" y2="16.7"></line>
     </svg>
   )
 }
@@ -301,6 +306,106 @@ const LogoutIcon = ({ size, className }) => {
   )
 }
 
+const HeartEmptyIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+    </svg>
+  )
+}
+
+const HeartSolidIcon = ({ size, className }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      version="1.1"
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M340.8,83C307,83,276,98.8,256,124.8c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6  L245.1,418l10.9,11l10.9-11l148.3-149.8c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" />
+    </svg>
+  )
+}
+
+const PlusIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  )
+}
+
+const DotsIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <circle cx="12" cy="12" r="1"></circle>
+      <circle cx="12" cy="19" r="1"></circle>
+      <circle cx="12" cy="5" r="1"></circle>
+    </svg>
+  )
+}
+
+const HeadPhoneIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <rect x="4" y="13" rx="2" width="5" height="7"></rect>
+      <rect x="15" y="13" rx="2" width="5" height="7"></rect>
+      <path d="M4 15v-3a8 8 0 0 1 16 0v3"></path>
+    </svg>
+  )
+}
+
 const Icon = ({ name, size, className }) => {
   const icons = {
     home: HomeIcon,
@@ -322,6 +427,11 @@ const Icon = ({ name, size, className }) => {
     down: DownIcon,
     up: UpIcon,
     logout: LogoutIcon,
+    heartEmpty: HeartEmptyIcon,
+    heartSolid: HeartSolidIcon,
+    plus: PlusIcon,
+    dots: DotsIcon,
+    headphone: HeadPhoneIcon,
   }
 
   const Component = icons[name]

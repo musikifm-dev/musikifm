@@ -41,7 +41,7 @@
       color: white;
       font-weight: bold;
       box-sizing: border-box;
-      padding: 0 1rem;
+      padding: 0 3.5rem 0 0;
     }
     &:before {
       content: attr(data-true);
@@ -67,8 +67,8 @@
   }
   &__switch {
     display: block;
-    width: 24px;
-    margin: 4px;
+    width: 2.4rem;
+    margin: 0.4rem;
     background: #fff;
     position: absolute;
     top: 0;
@@ -119,13 +119,136 @@
       }
     }
   }
-  @media screen and (max-width: 991px) {
-    transform: scale(0.9);
+
+  // @media screen and (max-width: 991px) {
+  //   transform: scale(0.9);
+  // }
+  // @media screen and (max-width: 767px) {
+  //   transform: scale(0.825);
+  // }
+  // @media screen and (max-width: 575px) {
+  //   transform: scale(0.75);
+  // }
+}
+
+@media screen and (max-width: 1400px) {
+  .toggleSwitch {
+    width: 9rem;
+
+    &__label {
+      border-radius: 2rem;
+      margin: 0;
+    }
+    &__inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.2s ease-in 0s;
+      &:before,
+      &:after {
+        width: 50%;
+        height: 2.6rem;
+        padding: 0;
+        line-height: 2.6rem;
+        font-size: var(--fs-11);
+        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+      }
+      &:before {
+        padding-left: 0.3rem;
+      }
+    }
+    &__inner:after {
+      padding-right: 1rem;
+    }
+    &__switch {
+      width: 1.8rem;
+      height: 1.8rem;
+      right: 4.2rem; //
+      margin-right: 0.8rem; // radio switch oynat
+    }
+    &__checkbox:checked + &__label {
+      .toggleSwitch__inner {
+        margin-left: 0;
+      }
+      .toggleSwitch__switch {
+        right: -0.5rem; //
+      }
+    }
+    &.smallSwitch {
+      width: 6.5rem;
+
+      .toggleSwitch__inner:after {
+        padding-right: 1.6rem; //
+      }
+
+      .toggleSwitch__inner {
+        &:after,
+        &:before {
+          height: 2rem; //
+          line-height: 2rem; //
+          font-size: var(--fs-10);
+        }
+      }
+      .toggleSwitch__switch {
+        width: 1.4rem;
+        height: 1.4rem;
+        right: 4.5rem;
+        margin: 0.3rem;
+      }
+
+      .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+        .toggleSwitch__inner {
+          margin-left: 0;
+        }
+        .toggleSwitch__switch {
+          right: -0.1rem;
+        }
+      }
+    }
   }
-  @media screen and (max-width: 767px) {
-    transform: scale(0.825);
-  }
-  @media screen and (max-width: 575px) {
-    transform: scale(0.75);
+}
+
+@media screen and (max-width: 768px) {
+  .toggleSwitch {
+    width: 9rem;
+
+    &__label {
+      border-radius: 2rem;
+      margin: 0;
+    }
+    &__inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.2s ease-in 0s;
+      &:before,
+      &:after {
+        width: 50%;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        font-size: var(--fs-11);
+        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+      }
+      &:before {
+        padding-left: 0.5rem;
+      }
+    }
+    &__inner:after {
+      padding-right: 1rem;
+    }
+    &__switch {
+      width: 1.6rem;
+      height: 1.6rem;
+      right: 4.2rem; //
+      margin-right: 1.2rem; // radio switch oynat
+    }
+    &__checkbox:checked + &__label {
+      .toggleSwitch__inner {
+        margin-left: 0;
+      }
+      .toggleSwitch__switch {
+        right: -0.9rem; //
+      }
+    }
   }
 }

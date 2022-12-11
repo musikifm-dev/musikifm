@@ -17,6 +17,9 @@ export const dataApi = createApi({
     getPodcastData: builder.query({
       query: () => APP.podcast,
     }),
+    getPodcastDetail: builder.query({
+      query: (id) => `${APP.podcasts}/${id}?populate=*`,
+    }),
     getVideoData: builder.query({
       query: () => APP.video,
     }),
@@ -29,6 +32,7 @@ export const dataApi = createApi({
 export const {
   useGetHomeDataQuery,
   useGetPodcastDataQuery,
+  useGetPodcastDetailQuery,
   useGetVideoDataQuery,
   useGetBlogDataQuery,
   useGetVideoDetailQuery,
