@@ -47,6 +47,10 @@
     text-align: center;
     width: 100%;
 
+    &__song {
+      margin-bottom: 1rem;
+    }
+
     &__description {
       display: -webkit-box;
       -webkit-line-clamp: 1;

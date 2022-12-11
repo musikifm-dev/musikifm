@@ -37,6 +37,7 @@ export const APP = {
   userData: process.env.REACT_APP_URL_USERDATA,
 
   base: process.env.REACT_APP_URL_BASE,
+  dataBase: process.env.REACT_APP_URL_DATABASE,
 
   home: process.env.REACT_APP_URL_HOME,
   //REPORT

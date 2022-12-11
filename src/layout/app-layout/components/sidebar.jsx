@@ -1,14 +1,14 @@
 import Player from '../../../feature/sidebar/player'
 import AdsBanner from '../../../feature/sidebar/banner'
 import styles from '../style.module.scss'
-import { useSelector } from 'react-redux'
+import { useGetPlayerDataQuery } from 'store/api/player'
 
 function Sidebar() {
-  const { current } = useSelector((state) => state.player)
+  const { data } = useGetPlayerDataQuery()
   return (
     <div className={styles.sidebar}>
       <Player />
-      <div className={styles.sidebar__description}>{current.description}</div>
+      <div className={styles.sidebar__description}>{data?.description}</div>
       <AdsBanner />
     </div>
   )

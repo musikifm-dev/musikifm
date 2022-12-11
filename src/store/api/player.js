@@ -6,10 +6,7 @@ export const playerDataApi = createApi({
   reducerPath: 'playerDataApi',
 
   baseQuery: fetchBaseQuery({
-    baseUrl: APP.base,
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    baseUrl: APP.dataBase,
   }),
   endpoints: (builder) => ({
     getPlayerData: builder.query({

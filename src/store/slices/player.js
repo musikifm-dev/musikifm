@@ -5,11 +5,10 @@ export const playerSlice = createSlice({
   name: 'player',
   initialState: {
     current: {
-      id: '',
-      title: 'Akira Ito',
-      image: '',
-      description:
-        'Objectively disseminate adaptive intellectual capital through installed base potentialities. Proactively visualize resource sucking processes.',
+      artist: null,
+      description: null,
+      image: null,
+      song: null,
       src: APP.radio,
     }, // * Current song data
     controls: false, // * Podcast forward song feature

@@ -12,9 +12,8 @@ import clsx from 'clsx'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
-  console.log(data);
-  const dispatch = useDispatch()
   const { current } = useSelector((state) => state.player)
+  const dispatch = useDispatch()
 
   const clickHandler = (val) => {
     dispatch(setPlayerType(true)) // setPodcast --> true
