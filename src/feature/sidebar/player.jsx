@@ -13,11 +13,11 @@ import { APP } from 'utils/constants'
 import { useGetPodcastReverseDataQuery } from 'store/api/data'
 
 const Player = () => {
-  const { data, isSuccess, refetch } = useGetPlayerDataQuery()
+  const { data, isSuccess, refetch } = useGetPlayerDataQuery({ pollingInterval: 5000 })
   const { data: reverseData } = useGetPodcastReverseDataQuery()
   const [nextPodcast, setNextPodcast] = useState(0)
   const { current, switchType, isPlaying } = useSelector((state) => state.player)
-  const [imageFrom, setImageFrom] = useState(0)
+  const [imageFrom, setImageFrom] = useState()
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const { windowWidth } = useWindowSize()
   const dispatch = useDispatch()
@@ -54,9 +54,9 @@ const Player = () => {
 
   var pattern = /^((http|https|ftp):\/\/)/
   useEffect(() => {
-    if (current.image !== null && isSuccess) {
-      if (pattern.test(data.image)) {
-        setImageFrom(data.image)
+    if (current.image) {
+      if (pattern.test(current.image)) {
+        setImageFrom(current.image)
       } else {
         setImageFrom(APP.base + current.image)
       }
