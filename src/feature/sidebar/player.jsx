@@ -5,15 +5,20 @@ import PropTypes from 'prop-types'
 import { setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/ui/switch'
-// import { APP } from 'utils/constants'
 import Icon from '../../assets/svg'
 import styles from './style.module.scss'
 import { useGetPlayerDataQuery } from 'store/api/player'
+import { useState } from 'react'
+import { APP } from 'utils/constants'
+import { useGetPodcastReverseDataQuery } from 'store/api/data'
 
 const Player = () => {
-  const { data, isSuccess } = useGetPlayerDataQuery({ pollingInterval: 3000 })
-  const { current, switchType } = useSelector((state) => state.player)
-  const [audio, state, controls] = useAudio({ src: isSuccess && data.src, autoPlay: true })
+  const { data, isSuccess, refetch } = useGetPlayerDataQuery()
+  const { data: reverseData } = useGetPodcastReverseDataQuery()
+  const [nextPodcast, setNextPodcast] = useState(0)
+  const { current, switchType, isPlaying } = useSelector((state) => state.player)
+  const [imageFrom, setImageFrom] = useState(0)
+  const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const { windowWidth } = useWindowSize()
   const dispatch = useDispatch()
 
@@ -21,35 +26,59 @@ const Player = () => {
   let bigSwitch = windowWidth < 768
 
   useEffect(() => {
-    if (isSuccess) dispatch(setCurrent(data))
-  }, [])
-
-  console.log(data)
+    if (isSuccess && !switchType) dispatch(setCurrent(data))
+  }, [data])
 
   useEffect(() => {
     dispatch(setIsPlaying(state.playing))
   }, [state.playing])
 
-  // const dummyRadioData = {
-  //   artist: '',
-  //   description: '',
-  //   image: '',
-  //   sound: '',
-  //   song: '',
-  //   src: current.src,
-  // }
-  console.log(switchType)
+  useEffect(() => {
+    if (isPlaying) {
+      controls.play()
+    } else {
+      controls.pause()
+    }
+  }, [isPlaying])
+
+  let time = state.time.toString().split('.')[0]
+  let res = state.duration.toString() - time
+
+  useEffect(() => {
+    if (res < 1 && switchType === true) {
+      setNextPodcast((prev) => prev + 1)
+      dispatch(setCurrent(reverseData[nextPodcast]))
+      controls.play()
+    }
+  }, [state.playing])
+
+  var pattern = /^((http|https|ftp):\/\/)/
+  useEffect(() => {
+    if (current.image !== null && isSuccess) {
+      if (pattern.test(data.image)) {
+        setImageFrom(data.image)
+      } else {
+        setImageFrom(APP.base + current.image)
+      }
+    }
+  }, [current.image])
 
   const switchHandler = () => {
     dispatch(setPlayerType(!switchType))
     if (switchType) {
+      refetch()
       dispatch(setCurrent(data))
     } else {
-      const newObj = {
-        ...current,
-        src: 'https://ia601002.us.archive.org/0/items/merttezlivehome01/merttez%20live%40home_01.mp3',
-      }
-      dispatch(setCurrent(newObj))
+      dispatch(setCurrent(reverseData[nextPodcast]))
+    }
+  }
+
+  const clickHandler = () => {
+    dispatch(setIsPlaying(state.playing))
+    if (state.playing) {
+      controls.pause()
+    } else {
+      controls.play()
     }
   }
 
@@ -69,12 +98,12 @@ const Player = () => {
       </div>
       <div className={styles.player}>
         {audio}
-        <img className={styles.player__img} src={data?.image} />
+        <img className={styles.player__img} src={imageFrom} />
         <div className={styles.player__overlay} />
 
         <div className={styles.info}>
-          <h3 className={styles.info__artist}>{data?.artist}</h3>
-          <h5 className={styles.info__song}>{data?.song}</h5>
+          <h3 className={styles.info__artist}>{current?.artist}</h3>
+          <h5 className={styles.info__song}>{current?.song}</h5>
         </div>
 
         <div className={styles.controlWrapper}>
@@ -85,8 +114,8 @@ const Player = () => {
             <button onClick={() => controls.seek(state.time - 10)}>
               <Icon name="prev" size="24" />
             </button>
-            <button className={styles.control__icon} onClick={controls[state.playing ? 'pause' : 'play']}>
-              <Icon name={state.playing ? 'pause' : 'play'} size="16" />
+            <button className={styles.control__icon} onClick={clickHandler}>
+              <Icon name={isPlaying === true ? 'pause' : 'play'} size="16" />
             </button>
             <button onClick={() => controls.seek(state.time + 10)}>
               <Icon name="next" size="24" />

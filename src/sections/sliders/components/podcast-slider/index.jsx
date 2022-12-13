@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { SwiperSlide } from 'swiper/react'
 import PropTypes from 'prop-types'
-import { setCurrent, setPlayerType } from 'store/slices/player'
+import { setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
 import Icon from 'assets/svg'
 import SliderContainer from '../../index'
@@ -15,11 +15,22 @@ import styles from './index.module.scss'
 export default function PodcastSlider() {
   const { isSuccess, data } = useGetPodcastDataQuery()
   const dispatch = useDispatch()
-  const { current } = useSelector((state) => state.player)
+  const { current, isPlaying } = useSelector((state) => state.player)
 
   const clickHandler = (val) => {
     dispatch(setPlayerType(true)) // setPodcast --> true
-    dispatch(setCurrent(val))
+    dispatch(
+      setCurrent({
+        image: val.image,
+        artist: val.title,
+        song: val.title, // song name
+        sound: val.title,
+        description: val.description,
+        src: val.src,
+        id: val.id,
+      }),
+    )
+    dispatch(setIsPlaying(!isPlaying))
   }
   return (
     <SliderContainer header="PODCAST" breakpoints="podcast" route={route.podcast}>
@@ -36,7 +47,7 @@ export default function PodcastSlider() {
                 <section className={styles.btnSection}>
                   <div className={styles.btnSection__time}>00:25PM</div>
                   <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
-                    <Icon name={current?.id === item.id ? 'pause' : 'play'} size="18" />
+                    <Icon name={current?.id === item.id && isPlaying === true ? 'pause' : 'play'} size="18" />
                   </button>
                 </section>
               </CardBody>

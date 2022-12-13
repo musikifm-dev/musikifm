@@ -51,4 +51,5 @@ export const APP = {
   videos: process.env.REACT_APP_URL_VIDEOS,
 
   radio: process.env.REACT_APP_URL_RADIO,
+  podcastReverse: process.env.REACT_APP_URL_PODCASTREVERSE
 }

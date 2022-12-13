@@ -17,6 +17,9 @@ export const dataApi = createApi({
     getPodcastData: builder.query({
       query: () => APP.podcast,
     }),
+    getPodcastReverseData: builder.query({
+      query: () => APP.podcastReverse,
+    }),
     getPodcastDetail: builder.query({
       query: (id) => `${APP.podcasts}/${id}?populate=*`,
     }),
@@ -33,6 +36,7 @@ export const {
   useGetHomeDataQuery,
   useGetPodcastDataQuery,
   useGetPodcastDetailQuery,
+  useGetPodcastReverseDataQuery,
   useGetVideoDataQuery,
   useGetBlogDataQuery,
   useGetVideoDetailQuery,
