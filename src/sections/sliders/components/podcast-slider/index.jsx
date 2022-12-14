@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { SwiperSlide } from 'swiper/react'
 import PropTypes from 'prop-types'
-import { setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
+import { setCurrent, setIsPlaying, setPlayerType, setPodcast } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
 import Icon from 'assets/svg'
 import SliderContainer from '../../index'
@@ -16,6 +16,7 @@ export default function PodcastSlider() {
   const { isSuccess, data } = useGetPodcastDataQuery()
   const dispatch = useDispatch()
   const { current, isPlaying } = useSelector((state) => state.player)
+  // console.log(isSuccess && data)
 
   const clickHandler = (val) => {
     dispatch(setPlayerType(true)) // setPodcast --> true
@@ -30,6 +31,7 @@ export default function PodcastSlider() {
         id: val.id,
       }),
     )
+    dispatch(setPodcast(true))
     dispatch(setIsPlaying(!isPlaying))
   }
   return (

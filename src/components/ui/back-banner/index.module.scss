@@ -4,6 +4,7 @@
   height: 6.5rem;
   background-color: black;
   margin-top: 10px;
+  width: 100%;
 
   &__icon {
     font-size: var(--fs-18);
@@ -22,6 +23,14 @@
       background-color: #cccccca4 !important;
     }
   }
+}
+
+.sw {
+  margin-left: 3rem;
+}
+
+.x {
+  width: max-content !important;
 }
 
 @media (max-width: 1200px) {

@@ -16,7 +16,7 @@ const Player = () => {
   const { data, isSuccess, refetch } = useGetPlayerDataQuery({ pollingInterval: 5000 })
   const { data: reverseData } = useGetPodcastReverseDataQuery()
   const [nextPodcast, setNextPodcast] = useState(0)
-  const { current, switchType, isPlaying } = useSelector((state) => state.player)
+  const { current, switchType, isPlaying, podcastPlayer } = useSelector((state) => state.player)
   const [imageFrom, setImageFrom] = useState()
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const { windowWidth } = useWindowSize()
@@ -29,23 +29,33 @@ const Player = () => {
     if (isSuccess && !switchType) dispatch(setCurrent(data))
   }, [data])
 
+  // set current state.playing to isPlaying state
   useEffect(() => {
     dispatch(setIsPlaying(state.playing))
+    // if ((state.playing || isPlaying) && !switchType) {
+    //   controls.play()
+    //   console.log('play')
+    // }
   }, [state.playing])
 
+  // play pause song on podcast slider
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying && switchType && podcastPlayer) {
+      console.log('yes')
       controls.play()
-    } else {
+    }
+    if (!isPlaying && switchType && podcastPlayer) {
+      console.log('no')
       controls.pause()
     }
   }, [isPlaying])
 
+  console.log({ play: isPlaying, podcast: podcastPlayer })
   let time = state.time.toString().split('.')[0]
   let res = state.duration.toString() - time
 
   useEffect(() => {
-    if (res < 1 && switchType === true) {
+    if (res < 1 && switchType) {
       setNextPodcast((prev) => prev + 1)
       dispatch(setCurrent(reverseData[nextPodcast]))
       controls.play()
@@ -69,13 +79,19 @@ const Player = () => {
       refetch()
       dispatch(setCurrent(data))
     } else {
+      console.log('PODCAST')
       dispatch(setCurrent(reverseData[nextPodcast]))
+      if (isPlaying) {
+        controls.play()
+      } else {
+        controls.pause()
+      }
     }
   }
 
   const clickHandler = () => {
-    dispatch(setIsPlaying(state.playing))
-    if (state.playing) {
+    // dispatch(setIsPlaying(state.playing))
+    if (isPlaying) {
       controls.pause()
     } else {
       controls.play()
@@ -115,7 +131,7 @@ const Player = () => {
               <Icon name="prev" size="24" />
             </button>
             <button className={styles.control__icon} onClick={clickHandler}>
-              <Icon name={isPlaying === true ? 'pause' : 'play'} size="16" />
+              <Icon name={isPlaying ? 'pause' : 'play'} size="16" />
             </button>
             <button onClick={() => controls.seek(state.time + 10)}>
               <Icon name="next" size="24" />

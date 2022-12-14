@@ -14,10 +14,14 @@ export const playerSlice = createSlice({
     controls: false, // * Podcast forward song feature
     switchType: false, // * FALSE --> RADIO --- TRUE --> PODCAST
     isPlaying: false, // * Is it playing?
+    podcastPlayer: false,
   },
   reducers: {
     setCurrent: (state, action) => {
       state.current = action.payload
+    },
+    setPodcast: (state, action) => {
+      state.podcastPlayer = action.payload
     },
     setControls: (state, action) => {
       state.controls = action.payload
@@ -31,6 +35,6 @@ export const playerSlice = createSlice({
   },
 })
 
-export const { setControls, setCurrent, setIsPlaying, setPlayerType } = playerSlice.actions
+export const { setCurrent, setPodcast, setControls, setIsPlaying, setPlayerType } = playerSlice.actions
 
 export default playerSlice.reducer
