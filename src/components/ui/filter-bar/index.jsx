@@ -14,13 +14,13 @@ const mock = [
   'sitamet',
   'lorem',
   'dolar',
+  'Nature',
+  'Outdoor',
+  'Mixasdler',
   'Çizgssi Filmler',
   'Güzellik ilgili ipuçları',
   'Gsdçları',
-  'Güzellik isddlgili ipuçları',
   'Güzellik ilsdxgili ipuçları',
-  'Mixzzler',
-  'Mixasdler',
   'Güzellik ilgili ipuçları',
   'Mixler',
   'Güzellsdadik ilgili ipuçları',
@@ -51,7 +51,7 @@ export default function FilterBar(props) {
         keyboard={{
           enabled: true,
         }}
-        className={styles.sw}
+        className={styles.swiper}
         // pagination={{
         //   clickable: true,
         //   dynamicBullets: false,

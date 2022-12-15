@@ -15,7 +15,6 @@ export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState(null)
-  console.log(data)
 
   useEffect(() => {
     isSuccess && setRenderData(data)

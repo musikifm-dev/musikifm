@@ -10,27 +10,6 @@ import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import clsx from 'clsx'
 import { useMemo } from 'react'
-// import { useMemo } from 'react'
-
-// import { useMemo } from 'react'
-
-// const mock = [
-//   'ipsum',
-//   'sitamet',
-//   'lorem',
-//   'dolar',
-//   'Çizgi Filmler',
-//   'Güzellik ilgili ipuçları',
-//   'Güzellik ilgili ipuçları',
-//   'Güzellik ilgili ipuçları',
-//   'Güzellik ilgili ipuçları',
-//   'Mixler',
-//   'Mixler',
-//   'Güzellik ilgili ipuçları',
-//   'Mixler',
-//   'Güzellik ilgili ipuçları',
-//   'Yemek Pisirme',
-// ]
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
@@ -42,35 +21,57 @@ export default function Podcast() {
     dispatch(setPlayerType(true)) // setPodcast --> true
     dispatch(setCurrent(val))
   }
-  const filteredPodcasts = useMemo(() => isSuccess && data.filter((f) => f.tag[0] === selectedFilter), [selectedFilter])
-  console.log(filteredPodcasts.length)
+
+  const filteredPodcasts = useMemo(
+    () => data?.filter((item) => item.tag.indexOf(selectedFilter?.toLowerCase()) >= 0),
+    [selectedFilter],
+  )
+
+  console.log(selectedFilter)
   return (
     <>
       <FilterBar navigate={route.home} />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
-
-        <div>{selectedFilter}</div>
-        {isSuccess &&
-          data?.map((item) => (
-            <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
-              <Card>
-                <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
-                <CardBody>
-                  <div>
-                    <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
-                    <RBCard.Text className={styles.description}>{item.description}</RBCard.Text>
-                  </div>
-                  <section className={styles.btnSection}>
-                    <div className={styles.btnSection__time}>00:25PM</div>
-                    <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
-                      <Icon name={current?.id === item.id ? 'pause' : 'play'} size="18" />
-                    </button>
-                  </section>
-                </CardBody>
-              </Card>
-            </div>
-          ))}
+        {isSuccess && (selectedFilter === null || selectedFilter === undefined)
+          ? data.map((item) => (
+              <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
+                <Card>
+                  <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
+                  <CardBody>
+                    <div>
+                      <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
+                      <RBCard.Text className={styles.description}>{item.description}</RBCard.Text>
+                    </div>
+                    <section className={styles.btnSection}>
+                      <div className={styles.btnSection__time}>00:25PM</div>
+                      <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
+                        <Icon name={current?.id === item.id ? 'pause' : 'play'} size="18" />
+                      </button>
+                    </section>
+                  </CardBody>
+                </Card>
+              </div>
+            ))
+          : filteredPodcasts?.map((item) => (
+              <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
+                <Card>
+                  <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
+                  <CardBody>
+                    <div>
+                      <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
+                      <RBCard.Text className={styles.description}>{item.description}</RBCard.Text>
+                    </div>
+                    <section className={styles.btnSection}>
+                      <div className={styles.btnSection__time}>00:25PM</div>
+                      <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
+                        <Icon name={current?.id === item.id ? 'pause' : 'play'} size="18" />
+                      </button>
+                    </section>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
       </div>
     </>
   )
