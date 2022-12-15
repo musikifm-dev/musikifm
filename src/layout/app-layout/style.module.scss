@@ -31,6 +31,7 @@
 
 // Navbar
 .nav {
+  height: 100%;
   padding: 2.6rem 3.7rem !important;
 }
 .avatar {
@@ -38,7 +39,6 @@
 }
 
 .editProfile {
-  color: #fff;
   background-color: #252424;
   border-radius: 4.3rem;
   margin-top: 1.1rem;
@@ -48,12 +48,11 @@
   font-size: var(--fs-26);
   font-weight: var(--fw-7);
   background: transparent;
-  // padding: 0.225rem 0.5rem;
   border: none;
   transition: 0.3s ease;
+
   &:hover {
-    opacity: 0.9;
-    color: rgba(44, 44, 44, 0.858);
+    color: rgba(91, 91, 91, 0.905) !important;
   }
 }
 
@@ -126,6 +125,7 @@
     // }
   }
   &__icon {
+    color: #fff;
     margin-left: 2rem;
   }
 }
@@ -211,6 +211,50 @@
     // padding: 2.5rem 1.7rem;
     width: 82%;
     max-width: 100%;
+  }
+}
+
+.dark {
+  color: black !important;
+  transition: 0.3s ease;
+}
+
+.light {
+  color: #fff !important;
+
+  &:hover {
+    color: rgba(37, 37, 37, 0.889);
+  }
+}
+
+.darkBg {
+  background-color: black !important;
+}
+
+.lightBg {
+  background-color: #fff !important;
+}
+
+.mood {
+  font-size: var(--fs-26);
+  font-weight: var(--fw-7);
+  background: transparent;
+  border: none;
+  transition: 1s ease-out !important;
+  background: -webkit-linear-gradient(259.17deg, #9740ed 16.17%, #4085ed 85.39%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background: -moz-linear-gradient(259.17deg, #9740ed 16.17%, #4085ed 85.39%) !important;
+  -moz-background-clip: text !important;
+  -moz-text-fill-color: transparent !important;
+
+  &:hover {
+    background: -webkit-linear-gradient(215deg, #9345e0 51.90%, #4085ed 16.17%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background: -moz-linear-gradient(215deg, #9345e0 51.90%, #4085ed 16.17%) !important;
+    -moz-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
   }
 }
 

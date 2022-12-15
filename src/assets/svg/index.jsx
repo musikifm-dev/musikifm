@@ -115,9 +115,16 @@ const PlayIcon = ({ size, className }) => {
   )
 }
 
-const HamburgerIcon = ({ size }) => {
+const HamburgerIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 39 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 39 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
       <path
         d="M38.6576 25.5H0.387695V21.25H38.6576V25.5ZM38.6576 14.875H0.387695V10.625H38.6576V14.875ZM38.6576 4.25H0.387695V0H38.6576V4.25Z"
         fill="currentColor"
@@ -171,7 +178,7 @@ const TimeIcon = ({ size }) => {
   )
 }
 
-const CloseIcon = ({ size, className }) => {
+const CloseIcon = ({ size, className, onClick }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -184,6 +191,7 @@ const CloseIcon = ({ size, className }) => {
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
+      onClick={onClick}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -413,7 +421,7 @@ const HeadPhoneIcon = ({ size, className }) => {
   )
 }
 
-const Icon = ({ name, size, className }) => {
+const Icon = ({ name, size, className, onClick }) => {
   const icons = {
     home: HomeIcon,
     search: SearchIcon,
@@ -442,7 +450,7 @@ const Icon = ({ name, size, className }) => {
   }
 
   const Component = icons[name]
-  return <Component size={size} className={className} />
+  return <Component size={size} className={className} onClick={onClick} />
 }
 
 export default Icon
