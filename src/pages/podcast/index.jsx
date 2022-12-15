@@ -2,13 +2,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCurrent, setPlayerType } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
 import Icon from 'assets/svg'
-import { BackBanner, Card } from 'components/ui'
+import { Card, FilterBar } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import clsx from 'clsx'
+import { useMemo } from 'react'
+// import { useMemo } from 'react'
 
 // import { useMemo } from 'react'
 
@@ -40,24 +42,20 @@ export default function Podcast() {
     dispatch(setPlayerType(true)) // setPodcast --> true
     dispatch(setCurrent(val))
   }
-
-  // const filteredPodcasts = useMemo(() => data.filter((f) => f === selectedFilter), [selectedFilter])
-
+  const filteredPodcasts = useMemo(() => isSuccess && data.filter((f) => f.tag[0] === selectedFilter), [selectedFilter])
+  console.log(filteredPodcasts.length)
   return (
     <>
-      <BackBanner navigate={route.home} />
+      <FilterBar navigate={route.home} />
       <div className={clsx('row', styles.podcast)}>
-        <div className="d-flex justify-content-between align-items-center ">
-          <h3 className={styles.podcast__header}>PODCAST</h3>
-        </div>
+        <h3 className={styles.podcast__header}>PODCAST</h3>
 
-        <div>{selectedFilter}sss</div>
-        
+        <div>{selectedFilter}</div>
         {isSuccess &&
-          data.map((item) => (
+          data?.map((item) => (
             <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
               <Card>
-                <CardHeader to={route.podcast} id={item.id} image={item.image} />
+                <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
                 <CardBody>
                   <div>
                     <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>

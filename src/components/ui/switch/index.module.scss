@@ -60,7 +60,7 @@
   }
   &__inner:after {
     content: attr(data-false);
-    padding-right: 1.8rem;
+    padding-right: 1.5rem; // 1.8 old value
     background-color: #bbb;
     color: #fff;
     text-align: right;
@@ -210,7 +210,7 @@
 
 @media screen and (max-width: 768px) {
   .toggleSwitch {
-    width: 9rem;
+    width: 7.3rem;
 
     &__label {
       border-radius: 2rem;

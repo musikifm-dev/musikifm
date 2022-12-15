@@ -40,7 +40,7 @@ export default function PodcastSlider() {
         data.map((item) => (
           <SwiperSlide key={item.id}>
             <Card>
-              <CardHeader to={route.podcast} id={item.id} image={item.image} />
+              <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
               <CardBody>
                 <div>
                   <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>

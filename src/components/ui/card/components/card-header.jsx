@@ -4,22 +4,32 @@ import { default as RBCard } from 'react-bootstrap/Card'
 import clsx from 'clsx'
 import { APP } from 'utils/constants'
 import styles from '../index.module.scss'
+import Icon from 'assets/svg'
 
 export default function CardHeader(props) {
-  const { to, id, image, imageStyle, className } = props
+  const { to, image, imageStyle, className, isPlayIcon } = props
   return (
     <div className={styles.header}>
-      <Link to={`${to}/${id}`} className={clsx(styles.header__link, className)}>
+      <Link to={to} className={clsx(styles.header__link, className)}>
+        {isPlayIcon && (
+          <div className={styles.icon}>
+            <Icon name="play" size={22} className={styles.icon__item} />
+          </div>
+        )}
         <RBCard.Img variant="top" src={APP.base + image} className={clsx(imageStyle, styles.header__img)} />
       </Link>
     </div>
   )
 }
 
+CardHeader.defaultProps = {
+  isPlayIcon: false,
+}
+
 CardHeader.propTypes = {
   to: PropTypes.string,
-  id: PropTypes.number,
   image: PropTypes.string,
   className: PropTypes.string,
   imageStyle: PropTypes.string,
+  isPlayIcon: PropTypes.bool,
 }

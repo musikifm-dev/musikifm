@@ -2,7 +2,22 @@ import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
-export default function Switch({ id, name, checked, onChange, optionLabels, small, disabled, className }) {
+/**
+* @param switchTextStyle --> to change text style use ::after & ::before
+* @param optionLabels --> give in array like ["John", "Doe"]
+*/
+
+export default function Switch({
+  id,
+  name,
+  checked,
+  onChange,
+  optionLabels,
+  small,
+  disabled,
+  className,
+  switchTextStyle,
+}) {
   function handleKeyPress(e) {
     if (e.keyCode !== 32) return
     e.preventDefault()
@@ -28,7 +43,11 @@ export default function Switch({ id, name, checked, onChange, optionLabels, smal
           htmlFor={id}
         >
           <span
-            className={clsx(styles.toggleSwitch__inner, disabled ? styles.toggleSwitch__disabled : null)}
+            className={clsx(
+              styles.toggleSwitch__inner,
+              disabled ? styles.toggleSwitch__disabled : null,
+              switchTextStyle,
+            )}
             data-false={optionLabels[0]}
             data-true={optionLabels[1]}
             tabIndex={-1}
@@ -56,4 +75,5 @@ Switch.propTypes = {
   small: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
+  switchTextStyle: PropTypes.string,
 }

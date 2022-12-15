@@ -32,7 +32,6 @@ function PodcastDetail() {
     }
     fetchData()
   }, [id])
-  console.log(results)
 
   const clickHandler = () => {
     setClicked((prev) => !prev)
@@ -54,10 +53,10 @@ function PodcastDetail() {
             <div className="col-md-6 d-flex flex-column justify-content-between ">
               <div className="mt-4">
                 <div>
-                  <h2 className={styles.podcastSection__title}>{data.data.attributes.songname}</h2>
+                  <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
                 </div>
                 <div>
-                  <h5 className={styles.podcastSection__artist}>{data.data.attributes.artist}</h5>
+                  <h5 className={styles.podcastSection__artist}>{data?.data?.attributes.artist}</h5>
                 </div>
               </div>
               <div className="d-inline-flex align-items-center mb-4">

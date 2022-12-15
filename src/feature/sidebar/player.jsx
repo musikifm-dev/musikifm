@@ -41,16 +41,13 @@ const Player = () => {
   // play pause song on podcast slider
   useEffect(() => {
     if (isPlaying && switchType && podcastPlayer) {
-      console.log('yes')
       controls.play()
     }
     if (!isPlaying && switchType && podcastPlayer) {
-      console.log('no')
       controls.pause()
     }
   }, [isPlaying])
 
-  console.log({ play: isPlaying, podcast: podcastPlayer })
   let time = state.time.toString().split('.')[0]
   let res = state.duration.toString() - time
 

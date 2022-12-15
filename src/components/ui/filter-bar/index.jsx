@@ -6,6 +6,7 @@ import styles from './index.module.scss'
 import { Navigation, Pagination, Keyboard } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { setPodcastFilter } from 'store/slices/podcast'
+import { useDispatch } from 'react-redux'
 // import 'swiper/scss'
 
 const mock = [
@@ -26,11 +27,12 @@ const mock = [
   'Yemek Psassadsirme',
 ]
 
-export default function BackBanner(props) {
+export default function FilterBar(props) {
   const { navigate } = props
+  const dispatch = useDispatch()
 
   const clickHandler = (val) => {
-    setPodcastFilter(val)
+    dispatch(setPodcastFilter(val))
   }
 
   return (
@@ -67,6 +69,6 @@ export default function BackBanner(props) {
   )
 }
 
-BackBanner.propTypes = {
+FilterBar.propTypes = {
   navigate: PropTypes.any,
 }
