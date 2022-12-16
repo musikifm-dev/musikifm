@@ -5,13 +5,13 @@ import Icon from 'assets/svg'
 import styles from './index.module.scss'
 import { Navigation, Pagination, Keyboard } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { setPodcastFilter } from 'store/slices/podcast'
-import { useDispatch } from 'react-redux'
-// import 'swiper/scss'
+import { deletePodcastFilter, setPodcastFilter } from 'store/slices/podcast'
+import { useDispatch, useSelector } from 'react-redux'
+import clsx from 'clsx'
 
 const mock = [
   'ipsum',
-  'sitamet',
+  'sit amet',
   'lorem',
   'dolar',
   'Nature',
@@ -20,19 +20,24 @@ const mock = [
   'Çizgssi Filmler',
   'Güzellik ilgili ipuçları',
   'Gsdçları',
-  'Güzellik ilsdxgili ipuçları',
-  'Güzellik ilgili ipuçları',
+  'Orman',
+  'Metal',
   'Mixler',
-  'Güzellsdadik ilgili ipuçları',
-  'Yemek Psassadsirme',
+  'Rock',
+  'Emeruk',
 ]
 
 export default function FilterBar(props) {
-  const { navigate } = props
+  const { selectedFilter } = useSelector((state) => state.podcast)
   const dispatch = useDispatch()
+  const { navigate } = props
 
   const clickHandler = (val) => {
-    dispatch(setPodcastFilter(val))
+    if (!selectedFilter.filter((f) => f === val).length > 0) {
+      dispatch(setPodcastFilter(val))
+    } else {
+      dispatch(deletePodcastFilter(val))
+    }
   }
 
   return (
@@ -52,14 +57,13 @@ export default function FilterBar(props) {
           enabled: true,
         }}
         className={styles.swiper}
-        // pagination={{
-        //   clickable: true,
-        //   dynamicBullets: false,
-        // }}
       >
         {mock.map((item, i) => (
           <SwiperSlide key={i} className={styles.x}>
-            <Button className={styles.backBanner__btn} onClick={() => clickHandler(item)}>
+            <Button
+              className={clsx(styles.backBanner__btn, selectedFilter.includes(item) ? styles.clicked : null)}
+              onClick={() => clickHandler(item)}
+            >
               {item}
             </Button>
           </SwiperSlide>

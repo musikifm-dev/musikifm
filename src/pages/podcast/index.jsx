@@ -22,18 +22,15 @@ export default function Podcast() {
     dispatch(setCurrent(val))
   }
 
-  const filteredPodcasts = useMemo(
-    () => data?.filter((item) => item.tag.indexOf(selectedFilter?.toLowerCase()) >= 0),
-    [selectedFilter],
-  )
+  let filter = new Set(selectedFilter)
+  const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((sm) => filter.has(sm))), [selectedFilter])
 
-  console.log(selectedFilter)
   return (
     <>
       <FilterBar navigate={route.home} />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
-        {isSuccess && (selectedFilter === null || selectedFilter === undefined)
+        {isSuccess && (selectedFilter === null || selectedFilter === undefined || selectedFilter.length === 0)
           ? data.map((item) => (
               <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
                 <Card>
