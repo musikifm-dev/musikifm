@@ -6,7 +6,7 @@ import { default as ReactBootstrapNavbar } from 'react-bootstrap/Navbar'
 import { Container, Form, Nav, Image, Offcanvas, Accordion, InputGroup, Stack, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
-import { navLinks, route } from '../../../utils/constants/index'
+import { offCanvasLinks, navbarAuthenticatedLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
@@ -62,6 +62,7 @@ const Navbar = () => {
                   <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
                 </Link>
               </Stack>
+
               <ReactBootstrapNavbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
@@ -74,7 +75,7 @@ const Navbar = () => {
                 <Offcanvas.Body>
                   <Nav className={styles.nav}>
                     <Stack gap={2}>
-                      {navLinks.map((item, i) => (
+                      {offCanvasLinks.map((item, i) => (
                         <Link to={item.route} key={i}>
                           <button className={clsx(styles.navBtn, userData ? styles.light : styles.dark)}>
                             {item.text}
@@ -191,6 +192,21 @@ const Navbar = () => {
             </ReactBootstrapNavbar.Brand>
             <div className={styles.btnContainer}>
               <Stack gap={4} direction="horizontal">
+                {userData && (
+                  <div className={styles.authenticatedLinks}>
+                    <Stack gap={3} direction="horizontal">
+                      {navbarAuthenticatedLinks.map((item, i) => (
+                        <Link to={item.route} key={i}>
+                          <button
+                            className={clsx(styles.authenticatedLinks__item, userData ? styles.light : styles.dark)}
+                          >
+                            {item.text}
+                          </button>
+                        </Link>
+                      ))}
+                    </Stack>
+                  </div>
+                )}
                 <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
                   Mood Filter {isMobile && <span className={styles.tm}>TM</span>}
                 </button>

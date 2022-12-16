@@ -15,13 +15,19 @@ export const route = {
   library: '/library',
 }
 
-export const navLinks = [
+export const offCanvasLinks = [
   { route: route.home, text: 'HOME' },
   { route: route.moodFilter, text: 'MODD FILTER' },
   { route: route.podcast, text: 'PODCAST' },
   { route: route.blog, text: 'BLOG' },
   { route: route.video, text: 'VIDEO' },
   { route: route.schedule, text: 'SCHEDULE' },
+]
+
+export const navbarAuthenticatedLinks = [
+  { route: route.podcast, text: 'PODCAST' },
+  { route: '/', text: 'SONG' },
+  { route: route.video, text: 'VIDEOS' },
 ]
 
 export const authLinks = [
@@ -51,5 +57,5 @@ export const APP = {
   videos: process.env.REACT_APP_URL_VIDEOS,
 
   radio: process.env.REACT_APP_URL_RADIO,
-  podcastReverse: process.env.REACT_APP_URL_PODCASTREVERSE
+  podcastReverse: process.env.REACT_APP_URL_PODCASTREVERSE,
 }

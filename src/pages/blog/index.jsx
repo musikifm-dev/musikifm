@@ -15,6 +15,7 @@ export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState(null)
+  console.log(data)
 
   useEffect(() => {
     isSuccess && setRenderData(data)
@@ -48,7 +49,7 @@ export default function Blog() {
             <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
               <Stack gap={1} direction="horizontal">
                 <Card>
-                  <CardHeader to={`${route.blog}/${item.id}`} image={item.image} isPlayIcon={switchType}/>
+                  <CardHeader to={`${route.blog}/${item.id}`} image={item.image} isPlayIcon={switchType} />
                   <CardBody>
                     <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                     <div className={styles.footerSection}>
