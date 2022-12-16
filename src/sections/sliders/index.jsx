@@ -13,7 +13,7 @@ export default function SliderContainer(props) {
       case 'podcast':
         return {
           320: {
-            slidesPerView: 1,
+            slidesPerView: 1.5,
             spaceBetween: 20,
           },
           576: {
@@ -40,11 +40,11 @@ export default function SliderContainer(props) {
       case 'blog':
         return {
           320: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 20,
           },
           576: {
-            slidesPerView: 1,
+            slidesPerView: 1.5,
             spaceBetween: 10,
           },
           768: {
@@ -67,7 +67,7 @@ export default function SliderContainer(props) {
       case 'video':
         return {
           320: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 20,
           },
           576: {

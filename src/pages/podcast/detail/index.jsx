@@ -14,7 +14,7 @@ function PodcastDetail() {
   const [results, setResult] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [clicked, setClicked] = useState(false)
+  
   const { data, isSuccess } = useGetPodcastDetailQuery(id)
   console.log(isSuccess && data.data)
 
@@ -33,9 +33,7 @@ function PodcastDetail() {
     fetchData()
   }, [id])
 
-  const clickHandler = () => {
-    setClicked((prev) => !prev)
-  }
+  
 
   if (loading) return <p>Loading</p>
   if (error) return <p>Error...</p>
@@ -83,7 +81,7 @@ function PodcastDetail() {
             </div>
           </section>
 
-          <section>
+          {/* <section>
             <div className="row bg-white mt-5 p-3">
               <div className="col-1" />
               <div className="col-4 fs-5 fw-semibold">Song</div>
@@ -114,6 +112,18 @@ function PodcastDetail() {
                 <Icon name="plus" size={15} />
                 <Icon name="dots" size={15} />
               </div>
+            </div>
+          </section> */}
+
+          <section>
+            <div className="row bg-white mt-5 p-3">
+              <div className="p-5">
+                <p className={styles.podcastSection__paragraph}>
+                {data?.data?.attributes.description}
+                </p>
+              
+              </div>
+                  
             </div>
           </section>
         </div>

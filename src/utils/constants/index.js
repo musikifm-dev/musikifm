@@ -17,7 +17,7 @@ export const route = {
 
 export const offCanvasLinks = [
   { route: route.home, text: 'HOME' },
-  { route: route.moodFilter, text: 'MODD FILTER' },
+  { route: route.moodFilter, text: 'MOOD FILTER' },
   { route: route.podcast, text: 'PODCAST' },
   { route: route.blog, text: 'BLOG' },
   { route: route.video, text: 'VIDEO' },
@@ -25,9 +25,9 @@ export const offCanvasLinks = [
 ]
 
 export const navbarAuthenticatedLinks = [
-  { route: route.podcast, text: 'PODCAST' },
-  { route: '/', text: 'SONG' },
-  { route: route.video, text: 'VIDEOS' },
+  { route: route.podcast, text: 'Podcast' },
+  { route: '/', text: 'Song' },
+  { route: route.video, text: 'Videos' },
 ]
 
 export const authLinks = [
