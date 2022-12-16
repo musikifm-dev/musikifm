@@ -14689,12 +14689,14 @@ textarea.form-control-lg {
   --fs-25: 2.5rem;
   --fs-26: 2.6rem;
   --fs-27: 2.7rem;
+  --fs-28: 2.8rem;
   --fs-30: 3rem;
   --fs-31: 3.1rem;
   --fs-32: 3.2rem;
   --fs-39: 3.9rem;
   --fs-48: 4.8rem;
   --fs-50: 5rem;
+  --fs-60: 6rem;
   --fs-61: 6.1rem;
   --fw-3: 300;
   --fw-4: 400;
@@ -15080,4 +15082,18 @@ div#headlessui-menu-items-\:r3\: {
   border: unset;
   background-color: white;
   color: #000;
+}
+
+.podcastSection {
+  background: #fff;
+  padding: 10px;
+}
+.podcastSection__play .play__image img {
+  width: 100%;
+}
+
+.podcastContent {
+  background-color: #fff;
+  padding: 10px;
+  min-height: 400px;
 }

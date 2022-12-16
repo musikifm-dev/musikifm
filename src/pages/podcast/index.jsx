@@ -10,11 +10,12 @@ import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import clsx from 'clsx'
 import { useMemo } from 'react'
+import { deletePodcastFilter, setPodcastFilter } from 'store/slices/podcast'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
   const { current } = useSelector((state) => state.player)
-  const { selectedFilter } = useSelector((state) => state.podcast)
+  const { selectedPodcastFilter } = useSelector((state) => state.podcast)
   const dispatch = useDispatch()
 
   const clickHandler = (val) => {
@@ -22,13 +23,19 @@ export default function Podcast() {
     dispatch(setCurrent(val))
   }
 
-  let filter = new Set(selectedFilter)
-  const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((sm) => filter.has(sm))), [selectedFilter])
-  const isFilteredPodcastReady = selectedFilter === null || selectedFilter === undefined || selectedFilter.length === 0
+  let filter = new Set(selectedPodcastFilter)
+  const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((s) => filter.has(s))), [selectedPodcastFilter])
+  const isFilteredPodcastReady =
+    selectedPodcastFilter === null || selectedPodcastFilter === undefined || selectedPodcastFilter.length === 0
 
   return (
     <>
-      <FilterBar navigate={route.home} />
+      <FilterBar
+        navigate={route.home}
+        setFilter={setPodcastFilter}
+        deleteFilter={deletePodcastFilter}
+        state={selectedPodcastFilter}
+      />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
         {isSuccess && isFilteredPodcastReady

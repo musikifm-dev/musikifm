@@ -3,21 +3,29 @@ import { createSlice } from '@reduxjs/toolkit'
 export const podcastSlice = createSlice({
   name: 'podcast',
   initialState: {
-    selectedFilter: [],
+    selectedPodcastFilter: [],
+    selectedBlogFilter: [],
   },
   reducers: {
     setPodcastFilter: (state, action) => {
-      state.selectedFilter.push(action.payload)
+      state.selectedPodcastFilter.push(action.payload)
     },
     deletePodcastFilter: (state, action) => {
-      if (state.selectedFilter.includes(action.payload)) {
-        console.log('state')
-        state.selectedFilter = state.selectedFilter.filter((n) => n !== action.payload)
+      if (state.selectedPodcastFilter.includes(action.payload)) {
+        state.selectedPodcastFilter = state.selectedPodcastFilter.filter((n) => n !== action.payload)
+      }
+    },
+    setBlogFilter: (state, action) => {
+      state.selectedBlogFilter.push(action.payload)
+    },
+    deleteBlogFilter: (state, action) => {
+      if (state.selectedBlogFilter.includes(action.payload)) {
+        state.selectedBlogFilter = state.selectedBlogFilter.filter((n) => n !== action.payload)
       }
     },
   },
 })
 
-export const { setPodcastFilter, deletePodcastFilter } = podcastSlice.actions
+export const { setPodcastFilter, deletePodcastFilter, setBlogFilter, deleteBlogFilter } = podcastSlice.actions
 
 export default podcastSlice.reducer
