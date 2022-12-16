@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
 /**
-* @param switchTextStyle --> to change text style use ::after & ::before
-* @param optionLabels --> give in array like ["John", "Doe"]
-*/
+ * @param switchTextStyle --> to change text style use ::after & ::before
+ * @param optionLabels --> give in array like ["John", "Doe"]
+ */
 
 export default function Switch({
   id,
@@ -68,6 +68,7 @@ Switch.defaultProps = {
 
 Switch.propTypes = {
   id: PropTypes.string.isRequired,
+  defaultChecked: PropTypes.bool,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string,

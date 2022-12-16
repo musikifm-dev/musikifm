@@ -1,6 +1,5 @@
 import BlogItem from 'components/Items/BlogItem'
 import { useGetBlogDataQuery } from 'store/api/data'
-import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 
 const OtherPost = () => {
@@ -24,10 +23,6 @@ const OtherPost = () => {
           })}
     </div>
   )
-}
-
-OtherPost.propTypes = {
-  id: PropTypes.string,
 }
 
 export default OtherPost
