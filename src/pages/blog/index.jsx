@@ -13,13 +13,15 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState()
   const { selectedBlogFilter } = useSelector((state) => state.podcast)
-  console.log(renderData)
+  const navigate = useNavigate()
+  console.log(navigate.state)
 
   useEffect(() => {
     isSuccess && setRenderData(readableBlog)
@@ -95,8 +97,12 @@ export default function Blog() {
             <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
               <Stack gap={1} direction="horizontal">
                 <Card>
-                  <CardHeader to={`${route.blog}/${item.id}`} image={item.image} isPlayIcon={switchType} />
-
+                  <CardHeader
+                    // to={`${route.blog}/${item.id}`}
+                    onClick={navigate(`${route.blog}/${item.id}`, { state: item.video })}
+                    image={item.image}
+                    isPlayIcon={switchType}
+                  />
                   <CardBody>
                     <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                     <div className={styles.footerSection}>

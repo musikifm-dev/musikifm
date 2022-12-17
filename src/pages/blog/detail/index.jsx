@@ -1,5 +1,5 @@
 import { Spinner } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useGetBlogDetailQuery } from 'store/api/data'
 import { APP } from 'utils/constants'
 import OtherPost from '../../../components/Detail/OtherPost'
@@ -7,6 +7,9 @@ import styles from './index.module.scss'
 
 export default function BlogDetail() {
   const { id } = useParams()
+  const { state } = useLocation()
+  
+  console.log(state)
   const { data, isLoading, isError } = useGetBlogDetailQuery(id)
 
   let image = data?.data.attributes.image.data.attributes.url

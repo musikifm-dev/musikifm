@@ -11,7 +11,7 @@ export const playerSlice = createSlice({
       song: null,
       src: APP.radio,
     }, // * Current song data
-    controls: false, // * Podcast forward song feature
+    controls: null, // * Podcast contol function forward song feature
     switchType: false, // * FALSE --> RADIO --- TRUE --> PODCAST
     isPlaying: false, // * Is it playing?
     podcastPlayer: false,

@@ -7,10 +7,11 @@ import styles from '../index.module.scss'
 import Icon from 'assets/svg'
 
 export default function CardHeader(props) {
-  const { to, image, imageStyle, className, isPlayIcon } = props
+  const { to, image, imageStyle, isPlayIcon, onClick, className } = props
+
   return (
     <div className={styles.header}>
-      <Link to={to} className={clsx(styles.header__link, className)}>
+      <Link to={to && to} className={clsx(styles.header__link, className)} onClick={onClick && onClick}>
         {isPlayIcon && (
           <div className={styles.icon}>
             <Icon name="play" size={22} className={styles.icon__item} />
@@ -32,4 +33,5 @@ CardHeader.propTypes = {
   className: PropTypes.string,
   imageStyle: PropTypes.string,
   isPlayIcon: PropTypes.bool,
+  onClick: PropTypes.func,
 }

@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAudio } from 'react-use'
+import { useAudio, useWindowScroll } from 'react-use'
 import PropTypes from 'prop-types'
-import { setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
+import { setControls, setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/ui/switch'
 import Icon from '../../assets/svg'
@@ -11,16 +11,21 @@ import { useGetPlayerDataQuery } from 'store/api/player'
 import { useState } from 'react'
 import { APP } from 'utils/constants'
 import { useGetPodcastReverseDataQuery } from 'store/api/data'
+import clsx from 'clsx'
 
 const Player = () => {
   const { data, isSuccess, refetch } = useGetPlayerDataQuery({ pollingInterval: 5000 })
   const { data: reverseData } = useGetPodcastReverseDataQuery()
-  const [nextPodcast, setNextPodcast] = useState(0)
   const { current, switchType, isPlaying, podcastPlayer } = useSelector((state) => state.player)
-  const [imageFrom, setImageFrom] = useState()
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
+  const [nextPodcast, setNextPodcast] = useState(0)
+  const [imageFrom, setImageFrom] = useState()
   const { windowWidth } = useWindowSize()
+
+  
   const dispatch = useDispatch()
+  const { isMobile } = useWindowSize()
+  const { y: yAxis } = useWindowScroll()
 
   let smallSwitch = windowWidth < 1200
   let bigSwitch = windowWidth < 768
@@ -32,10 +37,6 @@ const Player = () => {
   // set current state.playing to isPlaying state
   useEffect(() => {
     dispatch(setIsPlaying(state.playing))
-    // if ((state.playing || isPlaying) && !switchType) {
-    //   controls.play()
-    //   console.log('play')
-    // }
   }, [state.playing])
 
   // play pause song on podcast slider
@@ -70,6 +71,10 @@ const Player = () => {
     }
   }, [current.image])
 
+  useEffect(() => {
+    setControls(controls)
+  }, [controls])
+
   const switchHandler = () => {
     dispatch(setPlayerType(!switchType))
     if (switchType) {
@@ -97,7 +102,7 @@ const Player = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.switch}>
+      <div className={clsx(styles.switch, yAxis > 409 && isMobile && styles.switchMobile)}>
         <div className={styles.switch__text}>Şuan</div>
         <Switch
           id="player"

@@ -18,6 +18,11 @@
   }
 }
 
+.switchMobile {
+  position: fixed;
+  z-index: 1000;
+}
+
 // PLAYER
 .player {
   position: relative;

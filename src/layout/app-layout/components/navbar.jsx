@@ -17,18 +17,20 @@ import { useDispatch } from 'react-redux'
 import { authApi, useGetMyDataQuery } from 'store/api/auth'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
+import MobilePlayer from 'sections/mobile-player'
+import { useWindowScroll } from 'react-use'
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [accordion, setAccordion] = useState('0')
   const [navbar, setNavbar] = useState(false)
   const { data: userData } = useGetMyDataQuery()
-  const navigate = useNavigate()
-
-  const { isMobile } = useWindowSize()
   const dispatch = useDispatch()
 
+  const { isMobile } = useWindowSize()
+  const { y: yAxis } = useWindowScroll()
+
   const handleNavbarToggle = (val) => {
-    console.log(val)
     setNavbar(val)
     if (!navbar) setAccordion(null)
   }
@@ -49,18 +51,25 @@ const Navbar = () => {
           onToggle={handleNavbarToggle}
         >
           <Container fluid>
-            <ReactBootstrapNavbar.Brand>
-              <Stack direction="horizontal" gap={2} className="align-items-start">
-                <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
-                  <Icon
-                    name="hamburger"
-                    size={isMobile ? '19' : '30'}
-                    className={clsx(styles.navbar__hamburger, userData ? styles.light : styles.dark)}
-                  />
-                </ReactBootstrapNavbar.Toggle>
-                <Link to={route.home}>
-                  <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
-                </Link>
+            <ReactBootstrapNavbar.Brand className={isMobile && 'w-100'}>
+              <Stack direction="horizontal" gap={2} className={isMobile ? 'w-100' : 'align-items-start'}>
+                <div>
+                  <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
+                    <Icon
+                      name="hamburger"
+                      size={isMobile ? '19' : '30'}
+                      className={clsx(styles.navbar__hamburger, userData ? styles.light : styles.dark)}
+                    />
+                  </ReactBootstrapNavbar.Toggle>
+                </div>
+                {!isMobile && (
+                  <Link to={route.home}>
+                    <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
+                  </Link>
+                )}
+                <div className="d-flex justify-content-center m-auto">
+                  {yAxis > 409 && isMobile && <MobilePlayer />}
+                </div>
               </Stack>
 
               <ReactBootstrapNavbar.Offcanvas
@@ -207,9 +216,11 @@ const Navbar = () => {
                     </Stack>
                   </div>
                 )}
-                <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
-                  Mood Filter {isMobile && <span className={styles.tm}>TM</span>}
-                </button>
+                {!isMobile && userData && (
+                  <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
+                    Mood Filter <span className={styles.tm}>TM</span>
+                  </button>
+                )}
                 {!isMobile && (
                   <div>
                     {userData ? (
