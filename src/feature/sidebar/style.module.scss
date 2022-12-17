@@ -10,7 +10,7 @@
   margin-top: 1rem;
   padding: 1.6rem;
   width: 100%;
-  grid-gap: 1.2rem;
+  grid-gap: 0.5rem;
 
   &__text {
     font-size: var(--fs-16);
@@ -112,7 +112,7 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .switch {
     padding: 1.3rem 1rem;
     grid-gap: 0.5rem;

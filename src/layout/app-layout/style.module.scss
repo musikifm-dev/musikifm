@@ -60,12 +60,12 @@
   margin-right: 3rem;
 
   &__item {
-    font-size: var(--fs-26);
+    font-size: var(--fs-20);
     font-weight: var(--fw-6);
     background: transparent;
     border: none;
     transition: 0.2s ease;
-
+    margin-right: 50px;
     &:hover {
       color: rgba(91, 91, 91, 0.905) !important;
     }
