@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAudio, useWindowScroll } from 'react-use'
+import { useAudio } from 'react-use'
 import PropTypes from 'prop-types'
-import { setControls, setCurrent, setIsPlaying, setPlayerType } from 'store/slices/player'
+import { setCurrent, setPlayerType, setState, updateTime } from 'store/slices/player'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/ui/switch'
 import Icon from '../../assets/svg'
@@ -12,20 +12,19 @@ import { useState } from 'react'
 import { APP } from 'utils/constants'
 import { useGetPodcastReverseDataQuery } from 'store/api/data'
 import clsx from 'clsx'
+import { setNextPodcast } from 'store/slices/podcast'
 
 const Player = () => {
-  const { data, isSuccess, refetch } = useGetPlayerDataQuery({ pollingInterval: 5000 })
+  const { data, isSuccess } = useGetPlayerDataQuery()
   const { data: reverseData } = useGetPodcastReverseDataQuery()
-  const { current, switchType, isPlaying, podcastPlayer } = useSelector((state) => state.player)
+  // eslint-disable-next-line
+  const { current, switchType, playing, muted, duration, time, volume, buffered, podcastPlayer, isMobilePlayer } =
+    useSelector((state) => state.player)
+  const { nextPodcastState } = useSelector((state) => state.podcast)
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
-  const [nextPodcast, setNextPodcast] = useState(0)
   const [imageFrom, setImageFrom] = useState()
   const { windowWidth } = useWindowSize()
-
-  
   const dispatch = useDispatch()
-  const { isMobile } = useWindowSize()
-  const { y: yAxis } = useWindowScroll()
 
   let smallSwitch = windowWidth < 1200
   let bigSwitch = windowWidth < 768
@@ -34,28 +33,35 @@ const Player = () => {
     if (isSuccess && !switchType) dispatch(setCurrent(data))
   }, [data])
 
-  // set current state.playing to isPlaying state
+  // set current state.playing as boolean to playing state
   useEffect(() => {
-    dispatch(setIsPlaying(state.playing))
+    dispatch(setState(state))
+    console.log('playing CHANGED')
   }, [state.playing])
 
-  // play pause song on podcast slider
+  console.log(playing)
+
   useEffect(() => {
-    if (isPlaying && switchType && podcastPlayer) {
+    dispatch(updateTime(state.time))
+  }, [state.time])
+
+  useEffect(() => {
+    if (playing) {
       controls.play()
-    }
-    if (!isPlaying && switchType && podcastPlayer) {
+    } else {
       controls.pause()
     }
-  }, [isPlaying])
+  }, [playing])
 
-  let time = state.time.toString().split('.')[0]
-  let res = state.duration.toString() - time
+  let timer = time.toString().split('.')[0]
+  let res = state.duration.toString() - timer
 
   useEffect(() => {
     if (res < 1 && switchType) {
-      setNextPodcast((prev) => prev + 1)
-      dispatch(setCurrent(reverseData[nextPodcast]))
+      setNextPodcast(reverseData.length)
+      if (nextPodcastState <= reverseData.length) {
+        dispatch(setCurrent(reverseData[nextPodcastState]))
+      }
       controls.play()
     }
   }, [state.playing])
@@ -71,51 +77,36 @@ const Player = () => {
     }
   }, [current.image])
 
-  useEffect(() => {
-    setControls(controls)
-  }, [controls])
-
   const switchHandler = () => {
+    dispatch(setState({ playing: false }))
     dispatch(setPlayerType(!switchType))
     if (switchType) {
-      refetch()
+      // refetch()
       dispatch(setCurrent(data))
     } else {
-      console.log('PODCAST')
-      dispatch(setCurrent(reverseData[nextPodcast]))
-      if (isPlaying) {
-        controls.play()
-      } else {
-        controls.pause()
-      }
+      dispatch(setCurrent(reverseData[nextPodcastState]))
     }
   }
 
   const clickHandler = () => {
-    // dispatch(setIsPlaying(state.playing))
-    if (isPlaying) {
-      controls.pause()
-    } else {
-      controls.play()
-    }
+    dispatch(setState({ playing: !playing }))
   }
 
   return (
     <div className={styles.wrapper}>
-      <div className={clsx(styles.switch, yAxis > 409 && isMobile && styles.switchMobile)}>
+      <div className={clsx(styles.switch)}>
         <div className={styles.switch__text}>Şuan</div>
         <Switch
-          id="player"
+          id="player-switch"
           checked={switchType}
           onChange={switchHandler}
-          defaultChecked={false}
           small={bigSwitch ? false : smallSwitch ? true : false}
           className={styles.switch__item}
         />
         <div className={styles.switch__text}>dinlemektesiniz</div>
       </div>
       <div className={styles.player}>
-        {audio}
+        <div>{audio}</div>
         <img className={styles.player__img} src={imageFrom} />
         <div className={styles.player__overlay} />
 
@@ -133,7 +124,7 @@ const Player = () => {
               <Icon name="prev" size="24" />
             </button>
             <button className={styles.control__icon} onClick={clickHandler}>
-              <Icon name={isPlaying ? 'pause' : 'play'} size="16" />
+              <Icon name={playing ? 'pause' : 'play'} size="16" />
             </button>
             <button onClick={() => controls.seek(state.time + 10)}>
               <Icon name="next" size="24" />

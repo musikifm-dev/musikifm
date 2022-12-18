@@ -18,7 +18,9 @@ import { authApi, useGetMyDataQuery } from 'store/api/auth'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
 import MobilePlayer from 'sections/mobile-player'
-import { useWindowScroll } from 'react-use'
+import useScrollPosition from 'utils/hooks/useScrollPosition'
+// import MobilePlayer from 'sections/mobile-player'
+// import { useWindowScroll } from 'react-use'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -26,9 +28,10 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const { data: userData } = useGetMyDataQuery()
   const dispatch = useDispatch()
-
   const { isMobile } = useWindowSize()
-  const { y: yAxis } = useWindowScroll()
+  const scrollPosition = useScrollPosition()
+  // console.log(scrollPosition)
+  // const { y: yAxis } = useWindowScroll()
 
   const handleNavbarToggle = (val) => {
     setNavbar(val)
@@ -57,7 +60,7 @@ const Navbar = () => {
                   <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                     <Icon
                       name="hamburger"
-                      size={isMobile ? '19' : '30'}
+                      size={isMobile ? '24' : '30'}
                       className={clsx(styles.navbar__hamburger, userData ? styles.light : styles.dark)}
                     />
                   </ReactBootstrapNavbar.Toggle>
@@ -67,9 +70,11 @@ const Navbar = () => {
                     <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
                   </Link>
                 )}
-                <div className="d-flex justify-content-center m-auto">
-                  {yAxis > 409 && isMobile && <MobilePlayer />}
-                </div>
+                {isMobile && scrollPosition >= 520 && (
+                  <div className="d-flex justify-content-center w-100">
+                    <MobilePlayer />
+                  </div>
+                )}
               </Stack>
 
               <ReactBootstrapNavbar.Offcanvas

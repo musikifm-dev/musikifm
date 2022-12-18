@@ -84,16 +84,23 @@ const FavoriteIcon = ({ size }) => {
   )
 }
 
-const PauseIcon = ({ size }) => {
+const PauseIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M2.3418 2.60791V21.2713M12.3252 2.60791V21.2713"
-        stroke="black"
-        strokeWidth="3.99929"
-        strokeLinecap="round"
-        fill="currentColor"
-      />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <rect x="6" y="5" width="3" height="14" rx="1"></rect>
+      <rect x="14" y="5" width="3" height="14" rx="1"></rect>
     </svg>
   )
 }

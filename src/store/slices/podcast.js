@@ -5,6 +5,7 @@ export const podcastSlice = createSlice({
   initialState: {
     selectedPodcastFilter: [],
     selectedBlogFilter: [],
+    nextPodcastState: 0,
   },
   reducers: {
     setPodcastFilter: (state, action) => {
@@ -23,9 +24,16 @@ export const podcastSlice = createSlice({
         state.selectedBlogFilter = state.selectedBlogFilter.filter((n) => n !== action.payload)
       }
     },
+    setNextPodcast: (state, action) => {
+      console.log(action.payload)
+      if (action.payload >= state.nextPodcastState) {
+        state.nextPodcastState += 1
+      }
+    },
   },
 })
 
-export const { setPodcastFilter, deletePodcastFilter, setBlogFilter, deleteBlogFilter } = podcastSlice.actions
+export const { setPodcastFilter, deletePodcastFilter, setBlogFilter, deleteBlogFilter, setNextPodcast } =
+  podcastSlice.actions
 
 export default podcastSlice.reducer

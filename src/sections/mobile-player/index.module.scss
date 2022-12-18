@@ -1,5 +1,5 @@
-.control {
-  button {
+.mobilePlayer {
+  button:not(:nth-child(3)) {
     background: unset;
     border: unset;
     //padding: 0;
@@ -7,11 +7,31 @@
     color: black;
   }
 
-  &__icon {
-    background: #fff !important;
-    // width: 3.8rem;
-    // height: 3.8rem;
+  .icon {
+    border: 0.1rem solid #fff;
+    width: 3.8rem;
+    height: 3.8rem;
     border-radius: 30px;
-    color: #000 !important;
+    background: black !important;
+    // background: #fff;
+
+    &__item {
+      color: #fff;
+      // color: red !important;
+      //color: black;
+    }
+  }
+  .switch {
+    position: absolute;
+    margin-left: 3rem;
+    right: 2.5rem;
   }
 }
+
+// .light {
+//   color: black;
+// }
+
+// .dark {
+//   color: #fff;
+// }
