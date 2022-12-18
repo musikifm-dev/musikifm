@@ -39,8 +39,6 @@ const Player = () => {
     console.log('playing CHANGED')
   }, [state.playing])
 
-  console.log(playing)
-
   useEffect(() => {
     dispatch(updateTime(state.time))
   }, [state.time])
@@ -67,6 +65,7 @@ const Player = () => {
   }, [state.playing])
 
   var pattern = /^((http|https|ftp):\/\/)/
+
   useEffect(() => {
     if (current.image) {
       if (pattern.test(current.image)) {
