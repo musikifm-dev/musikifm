@@ -196,12 +196,20 @@
   .player {
     max-height: fit-content;
     &__img {
-      max-height: fit-content;
+      object-fit: contain;
+      max-height: 40rem;
     }
   }
 }
 
 @media (max-width: 576px) {
+  .player {
+    &__img {
+      object-fit: cover;
+      max-height: 37.5rem;
+    }
+  }
+
   .switch {
     margin: 0 !important;
     padding: 1rem;
