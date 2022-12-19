@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom'
 import { useGetPodcastDetailQuery } from 'store/api/data'
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
+import Comment from 'components/Comments/Comments'
 
 function PodcastDetail() {
   const { id } = useParams()
@@ -33,7 +34,7 @@ function PodcastDetail() {
     fetchData()
   }, [id])
 
-  
+
 
   if (loading) return <p>Loading</p>
   if (error) return <p>Error...</p>
@@ -79,6 +80,8 @@ function PodcastDetail() {
                 <div className={styles.podcastSection__text}>Share</div>
               </div>
             </div>
+
+            
           </section>
 
           {/* <section>
@@ -126,11 +129,19 @@ function PodcastDetail() {
                   
             </div>
           </section>
+          <div className={styles.podcastSection__comments}>
+     
+          <h4>{data?.data?.attributes.reviews.data[0].attributes.userDisplayName}</h4>
+         <p>{data?.data?.attributes.reviews.data[0].attributes.body}</p>
+          </div>
+          <Comment podcastid={id} />
         </div>
         <div className="col-md-3">
           <OtherPost id={id} />
         </div>
       </div>
+
+     
     </div>
   )
 }
