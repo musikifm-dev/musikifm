@@ -1,13 +1,19 @@
+.card {
+  max-height: 35rem;
+  .header {
+    min-height: 22rem;
+  }
+}
+
 .title {
-  text-align: center;
+  padding-left: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   line-height: 22px !important;
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: black;
   margin-top: 1rem !important;
-  padding: 0 1.5rem;
   font-size: var(--fs-20) !important;
   font-weight: var(--fw-6) !important;
 }
@@ -15,14 +21,13 @@
 .footerSection {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 2.5rem 1rem;
 
   &__genre {
     background-color: #eeeeee !important;
     font-size: var(--fs-16) !important;
     font-weight: var(--fw-5) !important;
     color: black !important;
-    padding: 0.5 2rem !important;
     border: none !important;
     border-radius: 2rem !important;
     &:hover {
@@ -31,14 +36,22 @@
   }
 
   &__more {
-    margin-left: 1.2rem;
-    font-size: var(--fs-14);
-    font-weight: var(--fw-5);
+    margin-left: 1rem !important;
+    font-size: var(--fs-14) !important;
+    font-weight: var(--fw-5) !important;
+    color: black !important;
     text-decoration: underline;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
+  .card {
+    max-height: 38.5rem !important;
+    .header {
+      min-height: 21.9rem !important;
+    }
+  }
+
   .footerSection {
     &__genre {
       font-size: var(--fs-12);
@@ -47,7 +60,7 @@
     }
 
     &__more {
-      margin-left: 1.2rem;
+      // margin-left: 1.2rem;
       font-size: var(--fs-12);
       font-weight: var(--fw-5);
       line-height: 1.8rem;

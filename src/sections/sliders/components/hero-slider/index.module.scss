@@ -3,26 +3,26 @@
   background: #ffffff;
 
   &__title {
-    font-size: var(--fs-48) !important;
+    font-size: var(--fs-44) !important;
     font-weight: var(--fw-7) !important;
     color: black;
     padding: 1rem;
-     line-height: 5.150rem !important;
+    line-height: 5.15rem !important;
     height: 100%;
   }
 }
 
 .image {
-  height: 334px;
+  height: 33.47rem;
   object-fit: cover;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1300px) {
   .card {
     min-height: 30rem;
 
     &__title {
-      font-size: var(--fs-39) !important;
+      font-size: var(--fs-32) !important;
       font-weight: var(--fw-7) !important;
       line-height: 4.6rem !important;
       height: 100%;
@@ -37,9 +37,10 @@
   .card {
     min-height: 20rem;
     &__title {
-      font-size: var(--fs-30) !important;
+      padding: 2rem;
+      font-size: var(--fs-25) !important;
       font-weight: var(--fw-6) !important;
-      height: 100%;
+      line-height: 3.8rem !important;
     }
     .image {
       height: 20rem;
@@ -47,15 +48,14 @@
   }
 }
 
-
 @media (max-width: 560px) {
   .card {
     min-height: 22rem;
     &__title {
       padding: 1rem;
-      font-size: var(--fs-30) !important;
+      font-size: var(--fs-22) !important;
       font-weight: var(--fw-6) !important;
-      height: 100%;
+      line-height: 4rem !important;
     }
     .image {
       height: 22rem;

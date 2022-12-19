@@ -1,17 +1,24 @@
 .card {
-  min-height: 447.92px;
+  // min-height: 44.8rem;
   border: none !important;
 }
 
 .header {
-  position: relative;
   &__link {
+    position: relative;
     text-decoration: none;
   }
   &__img {
-    height: 268px;
+    // width: 50%;
+    // max-height: 21.9rem;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    width: 100%;
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   padding-bottom: 100%;
+    // }
   }
 }
 
@@ -40,6 +47,16 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #ffffff;
+  // height: 100%;
+  // width: 50%;
+  // aspect-ratio: 1/2;
+  // object-fit: cover;
+
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   padding-bottom: 100%;
+  // }
 
   // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }

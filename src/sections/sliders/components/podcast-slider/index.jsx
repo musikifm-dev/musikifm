@@ -37,8 +37,8 @@ export default function PodcastSlider() {
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>
-            <Card>
-              <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
+            <Card className={styles.card}>
+              <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} imageStyle={styles.image} />
               <CardBody>
                 <div>
                   <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
@@ -47,7 +47,10 @@ export default function PodcastSlider() {
                 <section className={styles.btnSection}>
                   <div className={styles.btnSection__time}>00:25PM</div>
                   <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
-                    <Icon name={current?.id === item.id && playing === true ? 'pause' : 'play'} size="18" />
+                    <Icon
+                      name={current?.id === item.id && playing === true ? 'pause' : 'play'}
+                      className={styles.btnSection__icon}
+                    />
                   </button>
                 </section>
               </CardBody>

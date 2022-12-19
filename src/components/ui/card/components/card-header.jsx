@@ -10,8 +10,8 @@ export default function CardHeader(props) {
   const { to, image, imageStyle, isPlayIcon, onClick, className } = props
 
   return (
-    <div className={styles.header}>
-      <Link to={to && to} className={clsx(styles.header__link, className)} onClick={onClick && onClick}>
+    <div className={clsx(className, styles.header)}>
+      <Link to={to && to} className={clsx(styles.header__link)} onClick={onClick && onClick}>
         {isPlayIcon && (
           <div className={styles.icon}>
             <Icon name="play" size={22} className={styles.icon__item} />

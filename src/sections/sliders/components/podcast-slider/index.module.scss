@@ -1,16 +1,25 @@
+.card {
+  max-height: 44.8rem;
+  .image {
+    max-height: 26rem;
+  }
+}
+
 .title {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 20px !important;
-  font-weight: 600 !important;
+  padding: 1rem;
+  font-size: var(--fs-20) !important;
+  font-weight: var(--fw-6) !important;
   color: black;
   line-height: 26.66px;
 }
 .description {
+  padding: 0 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: var(--fs-16);
@@ -23,6 +32,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+
   &__time {
     font-size: var(--fs-14);
     font-weight: var(--fw-4);
@@ -30,9 +41,51 @@
   }
 
   &__podcastBtn {
-    width: 4rem;
-    height: 4rem;
+    width: 3.8rem;
+    height: 3.8rem;
     border-radius: 50%;
     background-color: transparent;
+  }
+
+  &__icon {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  .card {
+    max-height: 44.8rem;
+    .image {
+      max-height: 25.4rem;
+    }
+  }
+
+  .title {
+    font-size: var(--fs-17) !important;
+    font-weight: var(--fw-6) !important;
+
+    line-height: 26.66px;
+  }
+  .description {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-4);
+    line-height: 2.4rem;
+  }
+
+  .btnSection {
+    &__time {
+      font-size: var(--fs-13);
+    }
+
+    &__podcastBtn {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    &__icon {
+      width: 1.5rem !important;
+      height: 1.5rem !important;
+    }
   }
 }

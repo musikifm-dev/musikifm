@@ -82,7 +82,7 @@ export default function Blog() {
       />
       <div className={clsx('row', styles.podcast)}>
         <div className="d-flex justify-content-between align-items-center ">
-          <h3 className={styles.podcast__header}>BLOG</h3>
+          <h3 className={styles.podcast__header}>{switchType ? 'VIDEOS' : 'ARTICLES'}</h3>
           <Switch
             id="blogSeeAll"
             name="blogSeeAll"
@@ -98,8 +98,8 @@ export default function Blog() {
               <Stack gap={1} direction="horizontal">
                 <Card>
                   <CardHeader
-                    // to={`${route.blog}/${item.id}`}
-                    onClick={navigate(`${route.blog}/${item.id}`, { state: item.video })}
+                    to={`${route.blog}/${item.id}`}
+                    // onClick={navigate(`${route.blog}/${item.id}`, { state: item.video })}
                     image={item.image}
                     isPlayIcon={switchType}
                   />

@@ -9,9 +9,11 @@ import SliderContainer from 'sections/sliders'
 
 import { Button } from 'react-bootstrap'
 import styles from './index.module.scss'
+import { useNavigate } from 'react-router-dom'
 
 export default function BlogSlider() {
   const { isSuccess, data } = useGetBlogDataQuery()
+  const navigate = useNavigate()
 
   return (
     <SliderContainer header="BLOG" breakpoints="blog" route={route.blog}>
@@ -19,14 +21,20 @@ export default function BlogSlider() {
         data?.map((item) => (
           <SwiperSlide key={item.id}>
             <Card>
-              <CardHeader to={`${route.blog}/${item.id}`} image={item.image} />
+              <CardHeader to={`${route.blog}/${item.id}`} image={item.image} className={styles.header} />
               <CardBody>
                 <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <div className={styles.footerSection}>
                   <Button variant="secondary" className={styles.footerSection__genre}>
                     #{item.tag}
                   </Button>
-                  <div className={styles.footerSection__more}>more &gt;</div>
+                  <Button
+                    variant="link"
+                    className={styles.footerSection__more}
+                    onClick={() => navigate(`${route.blog}/${item.id}`)}
+                  >
+                    more &gt;
+                  </Button>
                 </div>
               </CardBody>
             </Card>

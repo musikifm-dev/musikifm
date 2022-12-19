@@ -1,12 +1,18 @@
+.card {
+  max-height: 40rem;
+  .image {
+    max-height: 26rem;
+  }
+}
+
 .title {
-  text-align: center;
+  padding-left: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
+  line-height: 45px !important;
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: black;
-  line-height: 26.66px !important;
-  padding: 1rem 1.5rem;
   font-size: var(--fs-20) !important;
   font-weight: var(--fw-6) !important;
 }
@@ -14,14 +20,14 @@
 .footerSection {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 2.5rem 1rem;
 
   &__genre {
     background-color: #eeeeee !important;
     font-size: var(--fs-16) !important;
     font-weight: var(--fw-5) !important;
     color: black !important;
-    padding: 0.5 2rem !important;
+    padding: 0.5 1rem !important;
     border: none !important;
     border-radius: 2rem !important;
     &:hover {
@@ -37,7 +43,14 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
+  .card {
+    max-height: 39rem;
+    .image {
+      max-height: 25rem;
+    }
+  }
+
   .footerSection {
     &__genre {
       font-size: var(--fs-12);

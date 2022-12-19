@@ -17,8 +17,13 @@ export default function VideoSlider() {
       {isSuccess &&
         data.map((item, i) => (
           <SwiperSlide key={i}>
-            <Card>
-              <CardHeader to={`${route.video}/${item.id}`} image={item.image} isPlayIcon={true} />
+            <Card className={styles.card}>
+              <CardHeader
+                to={`${route.video}/${item.id}`}
+                image={item.image}
+                isPlayIcon={true}
+                imageStyle={styles.image}
+              />
               <CardBody>
                 <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <section className={styles.footerSection}>

@@ -29,12 +29,12 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 15,
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 34,
+            spaceBetween: 20,
           },
         }
       case 'blog':
@@ -52,16 +52,16 @@ export default function SliderContainer(props) {
             spaceBetween: 10,
           },
           992: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 4,
-            spaceBetween: 44,
+            slidesPerView: 5,
+            spaceBetween: 20,
           },
         }
       case 'video':
@@ -75,7 +75,7 @@ export default function SliderContainer(props) {
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           992: {
@@ -83,12 +83,12 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 15,
           },
           1400: {
             slidesPerView: 3,
-            spaceBetween: 28,
+            spaceBetween: 20,
           },
         }
       default:
