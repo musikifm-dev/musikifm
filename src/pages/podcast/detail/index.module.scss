@@ -1,16 +1,16 @@
 .wrapper {
-  padding: 2.5rem 1.7rem;
+  padding: 5rem 1.7rem;
 
   .podcastSection {
     background: #fff;
     padding: 1rem;
 
     &__title {
-      font-size: var(--fs-30);
-      font-weight: var(--fw-7);
+      font-size: var(--fs-28);
+      font-weight: var(--fw-6);
     }
     &__artist {
-      font-size: var(--fs-25);
+      font-size: var(--fs-22);
       font-weight: var(--fw-5);
     }
     &__text {
@@ -18,7 +18,7 @@
       font-size: var(--fs-20);
       font-weight: var(--fw-5);
     }
-    &__paragraph{
+    &__paragraph {
       font-size: var(--fs-16);
       font-weight: var(--fw-4);
     }
@@ -38,8 +38,8 @@
 
 .genre {
   background-color: #eeeeee !important;
-  font-size: var(--fs-16) !important;
-  font-weight: var(--fw-5) !important;
+  font-size: var(--fs-14) !important;
+  font-weight: var(--fw-4) !important;
   color: black !important;
   padding: 0.5 2rem !important;
   border: none !important;
@@ -61,7 +61,7 @@
 //   background-color: palegoldenrod;
 // }
 
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .wrapper {
     .podcastSection {
       &__title {
@@ -78,9 +78,73 @@
       }
     }
   }
+
+  .genre {
+    font-size: var(--fs-14) !important;
+    font-weight: var(--fw-4) !important;
+  }
+
+  .more {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
+  }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
+  .wrapper {
+    .podcastSection {
+      &__title {
+        font-size: var(--fs-25);
+        font-weight: var(--fw-6);
+      }
+      &__artist {
+        font-size: var(--fs-22);
+        font-weight: var(--fw-5);
+      }
+      &__text {
+        font-size: var(--fs-15);
+        font-weight: var(--fw-5);
+      }
+    }
+  }
+
+  .genre {
+    font-size: var(--fs-14) !important;
+    font-weight: var(--fw-4) !important;
+  }
+
+  .more {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
+  }
 }
-@media (max-width: 1200px) {
+
+@media (max-width: 768px) {
+  .wrapper {
+    .podcastSection {
+      &__title {
+        font-size: var(--fs-25);
+        font-weight: var(--fw-6);
+      }
+      &__artist {
+        font-size: var(--fs-22);
+        font-weight: var(--fw-5);
+      }
+      &__text {
+        font-size: var(--fs-15);
+        font-weight: var(--fw-5);
+      }
+    }
+  }
+
+  .genre {
+    font-size: var(--fs-14) !important;
+    font-weight: var(--fw-4) !important;
+  }
+
+  .more {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
+  }
 }
+

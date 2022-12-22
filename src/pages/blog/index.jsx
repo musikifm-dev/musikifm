@@ -13,15 +13,12 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState()
   const { selectedBlogFilter } = useSelector((state) => state.podcast)
-  const navigate = useNavigate()
-  console.log(navigate.state)
 
   useEffect(() => {
     isSuccess && setRenderData(readableBlog)
@@ -30,10 +27,8 @@ export default function Blog() {
   useEffect(() => {
     if (selectedBlogFilter.length > 0) {
       if (switchType) {
-        console.log('true')
         setRenderData(filteredWatchablePodcasts)
       } else {
-        console.log('false')
         setRenderData(filteredReadeblePodcasts)
       }
     } else {

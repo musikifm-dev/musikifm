@@ -14686,7 +14686,9 @@ textarea.form-control-lg {
   --fs-18: 1.8rem;
   --fs-19: 1.9rem;
   --fs-20: 2rem;
+  --fs-21: 2.1rem;
   --fs-22: 2.2rem;
+  --fs-24: 2.4rem;
   --fs-25: 2.5rem;
   --fs-26: 2.6rem;
   --fs-27: 2.7rem;
@@ -14695,6 +14697,7 @@ textarea.form-control-lg {
   --fs-30: 3rem;
   --fs-31: 3.1rem;
   --fs-32: 3.2rem;
+  --fs-34: 3.4rem;
   --fs-39: 3.9rem;
   --fs-40: 4rem;
   --fs-44: 4.4rem;
@@ -14713,6 +14716,29 @@ textarea.form-control-lg {
   --cl-placeholder: #919191;
 }
 
+/** 
+--> 1920
+Header logo 24.3w 49.3h
+mood filter button 22.3w 63h
+
+hero slider {
+title 700 - 49.5
+description 400 - 2.25
+}
+
+podcast yazisi home da 600 - 36
+card {
+  image - 286w 286h
+  title - 600 22.5
+  description 400 1.8
+  time - 400 1.65
+  ico - 5.7w 5.7h border: 1.78125px solid #000000;
+}
+--> 1440
+--> 1280
+--> 768 -481
+
+*/
 * {
   margin: 0;
   padding: 0;

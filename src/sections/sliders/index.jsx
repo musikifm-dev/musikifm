@@ -17,23 +17,23 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           576: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 3.2,
             spaceBetween: 20,
           },
           992: {
-            slidesPerView: 3,
+            slidesPerView: 3.2,
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 4.2,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 5,
+            slidesPerView: 5.2,
             spaceBetween: 20,
           },
         }
@@ -48,19 +48,19 @@ export default function SliderContainer(props) {
             spaceBetween: 10,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             spaceBetween: 10,
           },
           992: {
-            slidesPerView: 3,
+            slidesPerView: 3.2,
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 4.3,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 5,
+            slidesPerView: 5.3,
             spaceBetween: 20,
           },
         }
@@ -71,23 +71,23 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           576: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             spaceBetween: 20,
           },
           992: {
-            slidesPerView: 2,
+            slidesPerView: 2.2,
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 2,
+            slidesPerView: 2.3,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 3,
+            slidesPerView: 3.3,
             spaceBetween: 20,
           },
         }

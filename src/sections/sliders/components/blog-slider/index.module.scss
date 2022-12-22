@@ -52,6 +52,11 @@
     }
   }
 
+  .title {
+    font-size: var(--fs-16) !important;
+    font-weight: var(--fw-6) !important;
+  }
+
   .footerSection {
     &__genre {
       font-size: var(--fs-12);

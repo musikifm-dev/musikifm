@@ -11,13 +11,14 @@ import styles from './index.module.scss'
  */
 
 export default function Avatar(props) {
-  const { source, alt, size, rounded, className, onClick } = props
+  const { source, alt, size, rounded, className, onClick, children } = props
   return (
     <div
       className={clsx(styles.avatar, styles[`size_${size}`], styles[`rounded_${rounded}`], className)}
       onClick={onClick}
     >
       <img src={source} alt={alt} className={styles.img} draggable="false" />
+      {children && <div className={styles.overlay}>{children}</div>}
     </div>
   )
 }
@@ -25,7 +26,7 @@ export default function Avatar(props) {
 Avatar.defaultProps = {
   alt: 'avatar',
   size: 'md',
-  rounded: 'md',
+  rounded: 'full',
 }
 
 Avatar.propTypes = {
@@ -35,4 +36,5 @@ Avatar.propTypes = {
   source: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
+  children: PropTypes.node,
 }

@@ -428,6 +428,74 @@ const HeadPhoneIcon = ({ size, className }) => {
   )
 }
 
+const CommentIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M16.5 10c3.038 0 5.5 2.015 5.5 4.5c0 1.397 -.778 2.645 -1.999 3.47l-.001 2.03l-1.964 -1.178a6.649 6.649 0 0 1 -1.536 .178c-3.038 0 -5.5 -2.015 -5.5 -4.5s2.462 -4.5 5.5 -4.5z"></path>
+      <path d="M11.197 15.698c-.69 .196 -1.43 .302 -2.197 .302a8.008 8.008 0 0 1 -2.612 -.432l-2.388 1.432v-2.801c-1.237 -1.082 -2 -2.564 -2 -4.199c0 -3.314 3.134 -6 7 -6c3.782 0 6.863 2.57 6.996 5.785l.004 .233"></path>
+      <path d="M10 8h.01"></path>
+      <path d="M7 8h.01"></path>
+      <path d="M15 14h.01"></path>
+      <path d="M18 14h.01"></path>
+    </svg>
+  )
+}
+
+const CommentPlusIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"></path>
+      <line x1="10" y1="11" x2="14" y2="11"></line>
+      <line x1="12" y1="9" x2="12" y2="13"></line>
+    </svg>
+  )
+}
+
+const EditIcon = ({ size, className }) => {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
+    </svg>
+  )
+}
+
 const Icon = ({ name, size, className, onClick }) => {
   const icons = {
     home: HomeIcon,
@@ -454,6 +522,9 @@ const Icon = ({ name, size, className, onClick }) => {
     plus: PlusIcon,
     dots: DotsIcon,
     headphone: HeadPhoneIcon,
+    comment: CommentIcon,
+    commentPlus: CommentPlusIcon,
+    edit: EditIcon,
   }
 
   const Component = icons[name]
