@@ -1,24 +1,21 @@
+import { useState, useEffect, useMemo } from 'react'
+import clsx from 'clsx'
+import { Button, Stack } from 'react-bootstrap'
+import { useGetBlogDataQuery } from 'store/api/data'
 import { Card, FilterBar, Switch } from 'components/ui'
+import { deleteBlogFilter, resetBlogFilter, setBlogFilter } from 'store/slices/blog'
 import CardBody from 'components/ui/card/components/card-body'
 import CardHeader from 'components/ui/card/components/card-header'
 import { default as RBCard } from 'react-bootstrap/Card'
-import clsx from 'clsx'
 import { route } from 'utils/constants'
-
-import { useGetBlogDataQuery } from 'store/api/data'
-import { deleteBlogFilter, setBlogFilter } from 'store/slices/podcast'
-import { Button, Stack } from 'react-bootstrap'
 import styles from './index.module.scss'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState()
-  const { selectedBlogFilter } = useSelector((state) => state.podcast)
+  const { selectedBlogFilter } = useSelector((state) => state.blog)
 
   useEffect(() => {
     isSuccess && setRenderData(readableBlog)
@@ -63,7 +60,7 @@ export default function Blog() {
       setRenderData(readableBlog)
     }
   }
-
+  console.log(selectedBlogFilter)
   // const isFilteredPodcastReady =
   //   selectedBlogFilter === null || selectedBlogFilter === undefined || selectedBlogFilter.length === 0
 
@@ -71,9 +68,10 @@ export default function Blog() {
     <>
       <FilterBar
         navigate={route.home}
-        setFilter={setBlogFilter}
-        deleteFilter={deleteBlogFilter}
         state={selectedBlogFilter}
+        setState={setBlogFilter}
+        deleteState={deleteBlogFilter}
+        resetState={resetBlogFilter}
       />
       <div className={clsx('row', styles.podcast)}>
         <div className="d-flex justify-content-between align-items-center ">

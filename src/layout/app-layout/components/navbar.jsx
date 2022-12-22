@@ -4,21 +4,21 @@ import logoWhite from '../../../assets/img/logo-white.png'
 import { default as ReactBootstrapNavbar } from 'react-bootstrap/Navbar'
 
 import { Container, Form, Nav, Image, Offcanvas, Accordion, InputGroup, Stack, Button } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Icon from 'assets/svg'
 import { offCanvasLinks, navbarAuthenticatedLinks, route } from '../../../utils/constants/index'
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
 import { Avatar } from 'components/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
+import useScrollPosition from 'utils/hooks/useScrollPosition'
 import { authApi, useGetMyDataQuery } from 'store/api/auth'
+import MobilePlayer from 'sections/mobile-player'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
-import MobilePlayer from 'sections/mobile-player'
-import useScrollPosition from 'utils/hooks/useScrollPosition'
 // import MobilePlayer from 'sections/mobile-player'
 // import { useWindowScroll } from 'react-use'
 
@@ -30,8 +30,16 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const { isMobile } = useWindowSize()
   const scrollPosition = useScrollPosition()
-  // console.log(scrollPosition)
-  // const { y: yAxis } = useWindowScroll()
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    if (navbar && pathname !== '/') {
+      console.log(true)
+      setNavbar(false)
+    }
+  }, [pathname])
+
+  // console.log({ path: pathname, route: route.home, toggle: navbar })
 
   const handleNavbarToggle = (val) => {
     setNavbar(val)
@@ -55,24 +63,30 @@ const Navbar = () => {
         >
           <Container fluid>
             <ReactBootstrapNavbar.Brand className={isMobile && 'w-100'}>
-              <Stack direction="horizontal" gap={2} className={isMobile ? 'w-100' : 'align-items-start'}>
-                <div>
-                  <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
-                    <Icon
-                      name="hamburger"
-                      size={isMobile ? '24' : '30'}
-                      className={clsx(styles.navbar__hamburger, userData ? styles.light : styles.dark)}
-                    />
-                  </ReactBootstrapNavbar.Toggle>
-                </div>
+              <Stack
+                direction="horizontal"
+                gap={2}
+                className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-start'}
+              >
+                <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
+                  <Icon
+                    name="hamburger"
+                    size={isMobile ? '24' : '30'}
+                    className={clsx(styles.navbar__hamburger, userData ? styles.light : styles.dark)}
+                  />
+                </ReactBootstrapNavbar.Toggle>
+
                 {!isMobile && (
                   <Link to={route.home}>
                     <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
                   </Link>
                 )}
                 {isMobile && scrollPosition >= 520 && (
-                  <div className="d-flex justify-content-center w-100">
-                    <MobilePlayer />
+                  <div className={styles.mobilePlayer}>
+                    <div className={styles.mobilePlayer__item}>
+                      <MobilePlayer />
+                    </div>
+                    {/* <div>{!navbar && <FilterBar />}</div> */}
                   </div>
                 )}
               </Stack>
@@ -81,13 +95,10 @@ const Navbar = () => {
                 id={`offcanvasNavbar-expand-${expand}`}
                 aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                 placement="start"
-                className={clsx('w-12', userData ? styles.darkBg : styles.lightBg)}
+                className={clsx('w-12', styles.offCanvas, userData ? styles.darkBg : styles.lightBg)}
               >
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Offcanvas</Offcanvas.Title>
-                </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className={styles.nav}>
+                  <Nav className={clsx(styles.nav, isMobile && scrollPosition >= 520 && styles.navOnMobile)}>
                     <Stack gap={2}>
                       {offCanvasLinks.map((item, i) => (
                         <Link to={item.route} key={i}>

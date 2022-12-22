@@ -1,16 +1,16 @@
+import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import clsx from 'clsx'
 import { setCurrent, setPlayerType } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
-import Icon from 'assets/svg'
 import { Card, FilterBar } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
+import Icon from 'assets/svg'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
-import clsx from 'clsx'
-import { useMemo } from 'react'
-import { deletePodcastFilter, setPodcastFilter } from 'store/slices/podcast'
+import { deletePodcastFilter, resetPodcastFilter, setPodcastFilter } from 'store/slices/podcast'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
@@ -25,20 +25,20 @@ export default function Podcast() {
 
   let filter = new Set(selectedPodcastFilter)
   const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((s) => filter.has(s))), [selectedPodcastFilter])
-  const isFilteredPodcastReady =
-    selectedPodcastFilter === null || selectedPodcastFilter === undefined || selectedPodcastFilter.length === 0
+  //  console.log(selectedPodcastFilter)
 
   return (
     <>
       <FilterBar
         navigate={route.home}
-        setFilter={setPodcastFilter}
-        deleteFilter={deletePodcastFilter}
         state={selectedPodcastFilter}
+        setState={setPodcastFilter}
+        deleteState={deletePodcastFilter}
+        resetState={resetPodcastFilter}
       />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
-        {isSuccess && isFilteredPodcastReady
+        {isSuccess && selectedPodcastFilter.includes('All')
           ? data.map((item) => (
               <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
                 <Card>

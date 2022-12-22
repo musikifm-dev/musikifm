@@ -14,6 +14,7 @@ export const authApi = createApi({
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Origin': '*',
     },
     prepareHeaders: (headers) => {
       headers.set('Authorization', getToken() ? `Bearer ${getToken()}` : null)

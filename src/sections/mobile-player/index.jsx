@@ -33,23 +33,44 @@ export default function MobilePlayer() {
   }
 
   return (
-    <div className={clsx(styles.mobilePlayer, 'd-flex flex-column align-items-center justif-content-center')}>
+    <div
+      className={clsx(
+        styles.mobilePlayer,
+        userData && styles.light,
+        'd-flex flex-column align-items-center justif-content-center',
+      )}
+    >
       <section className="d-flex align-items-center">
         <div>
-          <button className={userData ? styles.light : styles.dark}>
-            <Icon name="favorite" size="18" />
+          <button>
+            <Icon
+              name="favorite"
+              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__favorite)}
+            />
           </button>
-          <button className={userData ? styles.light : styles.dark}>
-            <Icon name="prev" size="18" />
+          <button>
+            <Icon
+              name="prev"
+              size="18"
+              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
+            />
           </button>
           <button className={styles.icon} onClick={clickHandler}>
             <Icon name={playing ? 'pause' : 'play'} size="18" className={styles.icon__item} />
           </button>
-          <button className={userData ? styles.light : styles.dark}>
-            <Icon name="next" size="18" />
+          <button>
+            <Icon
+              name="next"
+              size="18"
+              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
+            />
           </button>
-          <button className={userData ? styles.light : styles.dark}>
-            <Icon name="share" size="18" />
+          <button>
+            <Icon
+              name="share"
+              size="18"
+              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
+            />
           </button>
         </div>
 
@@ -68,7 +89,7 @@ export default function MobilePlayer() {
         <Stack direction="horizontal" gap={2} className="d-flex justify-content-center">
           <div>{current.artist}</div>
           <div>-</div>
-          <div>{current.song}</div>
+          <div className={styles.song}>{current.song}</div>
         </Stack>
       </section>
     </div>
