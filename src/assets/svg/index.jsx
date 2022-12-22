@@ -159,23 +159,20 @@ const BlackHamburgerIcon = ({ size }) => {
 const ShareIcon = ({ size, className }) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
       width={size}
       height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
+      viewBox="0 0 29 34"
       fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <circle cx="6" cy="12" r="3"></circle>
-      <circle cx="18" cy="6" r="3"></circle>
-      <circle cx="18" cy="18" r="3"></circle>
-      <line x1="8.7" y1="10.7" x2="15.3" y2="7.3"></line>
-      <line x1="8.7" y1="13.3" x2="15.3" y2="16.7"></line>
+      <path
+        d="M1.5 16.8751V28.875C1.5 29.6707 1.84241 30.4337 2.4519 30.9963C3.0614 31.5589 3.88805 31.875 4.75 31.875H24.25C25.112 31.875 25.9386 31.5589 26.5481 30.9963C27.1576 30.4337 27.5 29.6707 27.5 28.875V16.8751M20.9975 7.87498L14.4975 1.875L7.99757 7.87498M14.4998 1.875V21.3749"
+        stroke="white"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }

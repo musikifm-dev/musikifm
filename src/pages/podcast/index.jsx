@@ -1,15 +1,16 @@
+import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import clsx from 'clsx'
 import { setCurrent, setPlayerType } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
-import Icon from 'assets/svg'
 import { Card, FilterBar } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
+import Icon from 'assets/svg'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
-import clsx from 'clsx'
-import { useMemo } from 'react'
+import { deletePodcastFilter, resetPodcastFilter, setPodcastFilter } from 'store/slices/podcast'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
@@ -28,7 +29,13 @@ export default function Podcast() {
 
   return (
     <>
-      <FilterBar navigate={route.home} />
+      <FilterBar
+        navigate={route.home}
+        state={selectedPodcastFilter}
+        setState={setPodcastFilter}
+        deleteState={deletePodcastFilter}
+        resetState={resetPodcastFilter}
+      />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
         {isSuccess && selectedPodcastFilter.includes('All')

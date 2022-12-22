@@ -424,10 +424,26 @@
   }
 }
 
-// @media (max-width: 375px) {
-//   .navbar {
-//     .mobilePlayer {
-//       margin-right: calc(100% - 35rem) !important;
-//     }
-//   }
-// }
+@media (max-width: 400px) {
+  .navbar {
+    .mobilePlayer {
+      margin-right: calc(100% - 29rem) !important;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    .mobilePlayer {
+      margin-right: calc(100% - 27.4rem) !important;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .navbar {
+    .mobilePlayer {
+      margin-right: calc(100% - 26rem) !important;
+    }
+  }
+}

@@ -1,13 +1,12 @@
-import { Button } from 'react-bootstrap'
-import PropTypes from 'prop-types'
+import { Navigation, Pagination, Keyboard } from 'swiper'
 import { Link } from 'react-router-dom'
+import clsx from 'clsx'
+import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
 import Icon from 'assets/svg'
 import styles from './index.module.scss'
-import { Navigation, Pagination, Keyboard } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useDispatch, useSelector } from 'react-redux'
-import clsx from 'clsx'
-import { deletePodcastFilter, resetPodcastFilter, setPodcastFilter } from 'store/slices/podcast'
+import { useDispatch } from 'react-redux'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 
@@ -31,37 +30,36 @@ const mock = [
 ]
 
 export default function FilterBar(props) {
-  const { navigate } = props
-  const { selectedPodcastFilter } = useSelector((state) => state.podcast)
+  const { navigate, state, setState, deleteState, resetState } = props
   const dispatch = useDispatch()
   const { isMobile } = useWindowSize()
   const scrollPosition = useScrollPosition()
 
   const clickHandler = (val) => {
-    if (!selectedPodcastFilter.filter((f) => f === val).length > 0) {
-      if (selectedPodcastFilter.includes('All') && val !== 'All') {
-        dispatch(deletePodcastFilter('All'))
-        dispatch(setPodcastFilter(val))
+    if (!state.filter((f) => f === val).length > 0) {
+      if (state.includes('All') && val !== 'All') {
+        dispatch(deleteState('All'))
+        dispatch(setState(val))
         console.log('1')
-      } else if (!selectedPodcastFilter.includes('All') && val === 'All') {
-        dispatch(resetPodcastFilter())
-        console.log('2', selectedPodcastFilter)
-      } else if (!selectedPodcastFilter.includes('All') && val !== 'All') {
-        dispatch(setPodcastFilter(val))
+      } else if (!state.includes('All') && val === 'All') {
+        dispatch(resetState())
+        console.log('2', state)
+      } else if (!state.includes('All') && val !== 'All') {
+        dispatch(setState(val))
         console.log('3')
       }
     } else {
-      if (selectedPodcastFilter.includes('All') && val == 'All') {
+      if (state.includes('All') && val == 'All') {
         console.log('4')
         return
-      } else if (selectedPodcastFilter.includes('All') && val !== 'All') {
+      } else if (state.includes('All') && val !== 'All') {
         console.log('5')
-        dispatch(deletePodcastFilter(val))
-      } else if (!selectedPodcastFilter.includes('All') && val !== 'All' && selectedPodcastFilter.length > 1) {
-        dispatch(deletePodcastFilter(val))
+        dispatch(deleteState(val))
+      } else if (!state.includes('All') && val !== 'All' && state.length > 1) {
+        dispatch(deleteState(val))
         console.log('6')
       } else {
-        dispatch(resetPodcastFilter())
+        dispatch(resetState())
         console.log('7')
       }
     }
@@ -89,7 +87,7 @@ export default function FilterBar(props) {
         {mock.map((item, i) => (
           <SwiperSlide key={i} className={styles.x}>
             <Button
-              className={clsx(styles.backBanner__btn, selectedPodcastFilter.includes(item) ? styles.active : null)}
+              className={clsx(styles.backBanner__btn, state.includes(item) ? styles.active : null)}
               onClick={() => clickHandler(item)}
             >
               {item}
@@ -102,5 +100,9 @@ export default function FilterBar(props) {
 }
 
 FilterBar.propTypes = {
-  navigate: PropTypes.any,
+  navigate: PropTypes.string,
+  setState: PropTypes.func,
+  deleteState: PropTypes.func,
+  resetState: PropTypes.func,
+  state: PropTypes.array,
 }

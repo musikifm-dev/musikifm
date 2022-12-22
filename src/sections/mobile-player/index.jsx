@@ -36,7 +36,7 @@ export default function MobilePlayer() {
     <div
       className={clsx(
         styles.mobilePlayer,
-        userData && styles.authenticated,
+        userData && styles.light,
         'd-flex flex-column align-items-center justif-content-center',
       )}
     >

@@ -4,7 +4,6 @@ export const podcastSlice = createSlice({
   name: 'podcast',
   initialState: {
     selectedPodcastFilter: ['All'],
-    selectedBlogFilter: [],
     nextPodcastState: 0,
   },
   reducers: {
@@ -19,15 +18,7 @@ export const podcastSlice = createSlice({
     resetPodcastFilter: (state) => {
       state.selectedPodcastFilter = ['All']
     },
-    setBlogFilter: (state, action) => {
-      state.selectedBlogFilter.push(action.payload)
-    },
-    deleteBlogFilter: (state, action) => {
-      if (state.selectedBlogFilter.includes(action.payload)) {
-        state.selectedBlogFilter = state.selectedBlogFilter.filter((n) => n !== action.payload)
-      }
-    },
-    setNextPodcast: (state, action) => {
+    setNextPodcast: (state, action) => { // player podcast 
       console.log(action.payload)
       if (action.payload >= state.nextPodcastState) {
         state.nextPodcastState += 1
@@ -40,8 +31,6 @@ export const {
   setPodcastFilter,
   deletePodcastFilter,
   resetPodcastFilter,
-  setBlogFilter,
-  deleteBlogFilter,
   setNextPodcast,
 } = podcastSlice.actions
 

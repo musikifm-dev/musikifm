@@ -55,6 +55,8 @@
     }
   }
   .onMobilePlayer {
-    position: absolute;
+    position: fixed;
+    top: 9.4rem;
+    z-index: 1000;
   }
 }

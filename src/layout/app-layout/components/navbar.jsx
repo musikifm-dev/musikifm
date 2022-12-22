@@ -10,15 +10,15 @@ import { offCanvasLinks, navbarAuthenticatedLinks, route } from '../../../utils/
 import styles from '../style.module.scss'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
-import { Avatar, FilterBar } from 'components/ui'
+import { Avatar } from 'components/ui'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
+import useScrollPosition from 'utils/hooks/useScrollPosition'
 import { authApi, useGetMyDataQuery } from 'store/api/auth'
+import MobilePlayer from 'sections/mobile-player'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
-import MobilePlayer from 'sections/mobile-player'
-import useScrollPosition from 'utils/hooks/useScrollPosition'
 // import MobilePlayer from 'sections/mobile-player'
 // import { useWindowScroll } from 'react-use'
 
@@ -39,7 +39,7 @@ const Navbar = () => {
     }
   }, [pathname])
 
-  console.log({ path: pathname, route: route.home, toggle: navbar })
+  // console.log({ path: pathname, route: route.home, toggle: navbar })
 
   const handleNavbarToggle = (val) => {
     setNavbar(val)
@@ -63,7 +63,11 @@ const Navbar = () => {
         >
           <Container fluid>
             <ReactBootstrapNavbar.Brand className={isMobile && 'w-100'}>
-              <Stack direction="horizontal" gap={2} className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-start'}>
+              <Stack
+                direction="horizontal"
+                gap={2}
+                className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-start'}
+              >
                 <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                   <Icon
                     name="hamburger"
@@ -82,7 +86,7 @@ const Navbar = () => {
                     <div className={styles.mobilePlayer__item}>
                       <MobilePlayer />
                     </div>
-                    <div>{!navbar && <FilterBar />}</div>
+                    {/* <div>{!navbar && <FilterBar />}</div> */}
                   </div>
                 )}
               </Stack>
