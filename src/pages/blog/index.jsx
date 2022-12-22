@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import clsx from 'clsx'
 import { Button, Stack } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { useGetBlogDataQuery } from 'store/api/data'
 import { Card, FilterBar, Switch } from 'components/ui'
 import { deleteBlogFilter, resetBlogFilter, setBlogFilter } from 'store/slices/blog'
@@ -9,7 +10,6 @@ import CardHeader from 'components/ui/card/components/card-header'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
-import { useSelector } from 'react-redux'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
@@ -21,18 +21,27 @@ export default function Blog() {
     isSuccess && setRenderData(readableBlog)
   }, [data])
 
+  // useEffect(() => {
+  //   if (selectedBlogFilter.lengt === 1 && selectedBlogFilter.includes('All')) setRenderData(readableBlog)
+  //   console.log(true)
+  // }, [selectedBlogFilter])
+
   useEffect(() => {
     if (selectedBlogFilter.length > 0) {
       if (switchType) {
         setRenderData(filteredWatchablePodcasts)
       } else {
-        setRenderData(filteredReadeblePodcasts)
+        if (selectedBlogFilter.includes('All')) {
+          setRenderData(readableBlog)
+        } else {
+          setRenderData(filteredReadeblePodcasts)
+        }
       }
     } else {
       if (switchType) {
         setRenderData(watchableBlog)
       } else {
-        setRenderData(readableBlog)
+        setRenderData(filteredReadeblePodcasts)
       }
     }
   }, [selectedBlogFilter])
@@ -60,9 +69,7 @@ export default function Blog() {
       setRenderData(readableBlog)
     }
   }
-  console.log(selectedBlogFilter)
-  // const isFilteredPodcastReady =
-  //   selectedBlogFilter === null || selectedBlogFilter === undefined || selectedBlogFilter.length === 0
+
 
   return (
     <>

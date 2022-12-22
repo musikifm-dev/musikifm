@@ -18,9 +18,11 @@ export const commentApi = createApi({
           url: 'api/reviews',
           method: 'POST',
           body: {
-            userDisplayName: user,
-            body: review,
-            podcast: id,
+            data: {
+              userDisplayName: user,
+              body: review,
+              podcast: id,
+            },
           },
         }
       },

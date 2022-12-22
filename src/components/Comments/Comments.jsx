@@ -5,20 +5,18 @@ import { Avatar } from 'components/ui'
 import { useState, useRef } from 'react'
 import { Button, Stack } from 'react-bootstrap'
 import { useGetPodcastDetailQuery } from 'store/api/data'
-// import { APP } from 'utils/constants'
 import styles from './index.module.scss'
-// import { useGetUserDataQuery } from 'store/api/auth'
 import { useSendCommentMutation } from 'store/api/comment'
 import PropTypes from 'prop-types'
-import { useEffect } from 'react'
-import { useMemo } from 'react'
+import { useGetMyDataQuery } from 'store/api/auth'
 
 const INITIAL_HEIGHT = 46
 
 export default function Comment(props) {
   const { podcastId } = props
-  const { data: podcastDetail, refetch } = useGetPodcastDetailQuery(podcastId)
+  const { data: podcastDetail } = useGetPodcastDetailQuery(podcastId)
   const [sendComment] = useSendCommentMutation()
+  const { data: userData } = useGetMyDataQuery()
 
   const [isExpanded, setIsExpanded] = useState(false)
   const [commentValue, setCommentValue] = useState('')
@@ -26,14 +24,6 @@ export default function Comment(props) {
   const outerHeight = useRef(INITIAL_HEIGHT)
   const textRef = useRef(null)
   const containerRef = useRef(null)
-
-  const filteredPodcastDetails = useMemo(() =>
-    podcastDetail.data.attributes.reviews.data.filter((f) => f.id === podcastId),
-  )
-  console.log(filteredPodcastDetails)
-  useEffect(() => {
-    refetch()
-  }, [podcastDetail.data.attributes.reviews.data])
 
   const onExpand = () => {
     if (!isExpanded) {
@@ -58,9 +48,9 @@ export default function Comment(props) {
 
   const formik = useFormik({
     initialValues: {
-      userDisplayName: 'furi544', // Yorum yapan kullanicinin username i gelecek
+      userDisplayName: userData?.username, // Yorum yapan kullanicinin username i gelecek
       body: '', // Yorum
-      podcast: '', // podcast id si
+      podcast: podcastId, // podcast id si
     },
     onSubmit(values) {
       const newData = {
@@ -80,7 +70,7 @@ export default function Comment(props) {
           <div className={styles.title}>Comments</div>
           <div className={styles.comments}>{podcastDetail.data.attributes.reviews.data.length}</div>
         </Stack>
-        {filteredPodcastDetails.map((item) => (
+        {podcastDetail.data.attributes.reviews.data.map((item) => (
           <section className={styles.reviewBox} key={item.id}>
             <div className="d-flex">
               <Avatar
@@ -147,7 +137,6 @@ export default function Comment(props) {
                     minHeight: isExpanded ? outerHeight.current : INITIAL_HEIGHT,
                   }}
                 >
-                  <label htmlFor="comment">Yorumu Yanıtla</label>
                   <textarea
                     ref={textRef}
                     onClick={onExpand}
