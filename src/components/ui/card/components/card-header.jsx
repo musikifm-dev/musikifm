@@ -6,6 +6,15 @@ import { APP } from 'utils/constants'
 import styles from '../index.module.scss'
 import Icon from 'assets/svg'
 
+/**
+ * @param to --> string - link source
+ * @param image --> string -image source
+ * @param imageStyle --> overwrite image css
+ * @param isPlayIcon --> boolean - to put play icon for videos
+ * @param onClick --> clickHandler function
+ * @param className --> overwire css
+ */
+
 export default function CardHeader(props) {
   const { to, image, imageStyle, isPlayIcon, onClick, className } = props
 

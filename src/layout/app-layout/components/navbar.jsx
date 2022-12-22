@@ -19,8 +19,6 @@ import { authApi, useGetMyDataQuery } from 'store/api/auth'
 import MobilePlayer from 'sections/mobile-player'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
-// import MobilePlayer from 'sections/mobile-player'
-// import { useWindowScroll } from 'react-use'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -86,7 +84,6 @@ const Navbar = () => {
                     <div className={styles.mobilePlayer__item}>
                       <MobilePlayer />
                     </div>
-                    {/* <div>{!navbar && <FilterBar />}</div> */}
                   </div>
                 )}
               </Stack>
