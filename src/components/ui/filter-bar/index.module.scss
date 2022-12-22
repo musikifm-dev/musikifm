@@ -7,14 +7,14 @@
   width: 100%;
 
   &__icon {
-    font-size: var(--fs-18);
+    font-size: var(--fs-16);
     font-weight: var(--fw-6);
   }
 
   &__btn {
-    background-color: #eeeeee !important;
-    font-size: var(--fs-15) !important;
-    font-weight: var(--fw-5) !important;
+    background-color: #373737 !important;
+    font-size: var(--fs-16) !important;
+    font-weight: var(--fw-6) !important;
     color: black !important;
     padding: 0.5rem 1.6rem !important;
     border: none !important;
@@ -33,36 +33,28 @@
   width: max-content !important;
 }
 
-.clicked {
-   background-color: #bababaad !important;
-
-}
-
-@media (max-width: 1200px) {
-  .backBanner {
-    height: 4rem;
-
-    &__icon {
-      font-size: var(--fs-16);
-      font-weight: var(--fw-6);
-    }
-
-    &__btn {
-      font-size: var(--fs-13) !important;
-      font-weight: var(--fw-4) !important;
-      padding: 0.2rem 0.9rem !important;
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  //   .backBanner {
-  //     height: 3rem;
-  //   }
+.active {
+  background-color: #ffffff !important;
 }
 
 @media (max-width: 768px) {
   .backBanner {
-    height: 2rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 568px) {
+  .backBanner {
+    left: 0;
+    height: 6.1rem;
+
+    &__btn {
+      font-size: var(--fs-12) !important;
+      font-weight: var(--fw-6) !important;
+      padding: 0.5rem 1.8rem !important;
+    }
+  }
+  .onMobilePlayer {
+    position: absolute;
   }
 }

@@ -10,7 +10,6 @@ import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import clsx from 'clsx'
 import { useMemo } from 'react'
-import { deletePodcastFilter, setPodcastFilter } from 'store/slices/podcast'
 
 export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
@@ -25,20 +24,14 @@ export default function Podcast() {
 
   let filter = new Set(selectedPodcastFilter)
   const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((s) => filter.has(s))), [selectedPodcastFilter])
-  const isFilteredPodcastReady =
-    selectedPodcastFilter === null || selectedPodcastFilter === undefined || selectedPodcastFilter.length === 0
+  //  console.log(selectedPodcastFilter)
 
   return (
     <>
-      <FilterBar
-        navigate={route.home}
-        setFilter={setPodcastFilter}
-        deleteFilter={deletePodcastFilter}
-        state={selectedPodcastFilter}
-      />
+      <FilterBar navigate={route.home} />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
-        {isSuccess && isFilteredPodcastReady
+        {isSuccess && selectedPodcastFilter.includes('All')
           ? data.map((item) => (
               <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
                 <Card>
