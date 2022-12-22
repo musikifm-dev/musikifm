@@ -10,6 +10,33 @@ export default function SliderContainer(props) {
 
   const renderBreakPoints = () => {
     switch (breakpoints) {
+      case 'hero':
+        return {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          576: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 1.2,
+            spaceBetween: 15,
+          },
+          1400: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
+        }
       case 'podcast':
         return {
           320: {
@@ -29,11 +56,11 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 4.2,
+            slidesPerView: 4,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 5.2,
+            slidesPerView: 5,
             spaceBetween: 20,
           },
         }
@@ -56,11 +83,11 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 4.3,
+            slidesPerView: 4,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 5.3,
+            slidesPerView: 4,
             spaceBetween: 20,
           },
         }
@@ -83,11 +110,11 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1200: {
-            slidesPerView: 2.3,
+            slidesPerView: 2,
             spaceBetween: 15,
           },
           1400: {
-            slidesPerView: 3.3,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
         }
@@ -98,7 +125,7 @@ export default function SliderContainer(props) {
 
   return (
     <div className={styles.slider}>
-      {breakpoints && (
+      {breakpoints !== "hero" && (
         <div className="d-flex justify-content-between align-items-center my-5">
           <h3 className={styles.slider__header}>{header}</h3>
           <Link to={route} className={styles.slider__seeAll}>
