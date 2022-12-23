@@ -1,5 +1,10 @@
 import { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { default as RBCard } from 'react-bootstrap/Card'
+import CardBody from 'components/ui/card/components/card-body'
+import CardHeader from 'components/ui/card/components/card-header'
+import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Button, Stack } from 'react-bootstrap'
 import clsx from 'clsx'
 import { useGetVideoDataQuery, useGetVideoHomeSliderQuery } from 'store/api/data'
@@ -9,11 +14,13 @@ import EmbedVideo from 'components/ui/embed-video'
 import { VideoSlider } from 'sections'
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
+import { Card } from 'components/ui'
+import { route } from 'utils/constants'
 
 export default function Video() {
   // eslint-disable-next-line
   const { playing } = useSelector((state) => state.player)
-  const { data } = useGetVideoHomeSliderQuery()
+  const { data, isSuccess } = useGetVideoHomeSliderQuery()
   const { data: videoData, isSuccess: videoLoader } = useGetVideoDataQuery()
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
@@ -32,29 +39,85 @@ export default function Video() {
     <div className={styles.video}>
       <div className="row">
         <div className="col-12">
-          {open ? (
-            <div className={styles.embedVideo}>
-              <EmbedVideo embedId={data?.[0].videourl} />
-            </div>
-          ) : (
-            <div className={styles.image}>
-              <img src={APP.base + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
-              <Stack gap={4} className={clsx(styles.absolute, styles.content)}>
-                <Stack gap={3}>
-                  <div className={clsx(styles.image__title)}>{data?.[0].title}</div>
-                  <div className={clsx(styles.image__description)}>{data?.[0].description}</div>
+          <section>
+            {open ? (
+              <EmbedVideo embedId={data?.[0].videourl} className={styles.embedVideo} />
+            ) : (
+              <div className={styles.image}>
+                <img src={APP.base + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
+                <Stack gap={4} className={clsx(styles.absolute, styles.content)}>
+                  <Stack gap={3}>
+                    <div className={clsx(styles.image__title)}>{data?.[0].title}</div>
+                    <div className={clsx(styles.image__description)}>{data?.[0].description}</div>
+                  </Stack>
+                  <Stack direction="horizontal" gap={isMobile ? 3 : 5} className={styles.btn}>
+                    <Button variant="warning" className={clsx(styles.btn__item, styles.orange)} onClick={clickHandler}>
+                      WATCH VIDEO
+                    </Button>
+                    <Button variant="secondary" className={styles.btn__item}>
+                      READ MORE
+                    </Button>
+                  </Stack>
                 </Stack>
-                <Stack direction="horizontal" gap={isMobile ? 3 : 5} className={styles.btn}>
-                  <Button variant="warning" className={clsx(styles.btn__item, styles.orange)} onClick={clickHandler}>
-                    WATCH VIDEO
-                  </Button>
-                  <Button variant="secondary" className={styles.btn__item}>
-                    READ MORE
-                  </Button>
-                </Stack>
-              </Stack>
+              </div>
+            )}
+          </section>
+          <section>
+            <div className={styles.slider}>
+              {/* <div className="d-flex justify-content-between align-items-center my-5">
+                <h3 className={styles.slider__header}>ssss</h3>
+                <Link to={route} className={styles.slider__seeAll}>
+                  See All
+                </Link>
+              </div> */}
+
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                pagination={{
+                  clickable: true,
+                }}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1.2,
+                  },
+                  576: {
+                    slidesPerView: 1.4,
+                  },
+                  768: {
+                    slidesPerView: 2.2,
+                  },
+                  992: {
+                    slidesPerView: 3.2,
+                  },
+                  1280: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 0,
+                  },
+                  1400: {
+                    slidesPerView: 4.2,
+                    spaceBetween: 0,
+                  },
+                }}
+              >
+                {isSuccess &&
+                  data.slice(1).map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <Card className={styles.card}>
+                        <CardHeader
+                          to={`${route.video}/${item.id}`}
+                          image={item.image}
+                          className={styles.header}
+                          imageStyle={styles.xx}
+                        />
+                        <CardBody>
+                          <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
+                        </CardBody>
+                      </Card>
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
             </div>
-          )}
+          </section>
           <section className={styles.categorySection}>
             <VideoSlider data={filteredKonser} loader={videoLoader} title="Konser" />
             <VideoSlider data={filteredEditoryal} loader={videoLoader} title="Editoryal" />
