@@ -49,7 +49,7 @@ export default function PodcastSlider({ title }) {
                   <button className={styles.btnSection__podcastBtn} onClick={() => clickHandler(item)}>
                     <Icon
                       name={current?.id === item.id && playing === true ? 'pause' : 'play'}
-                      className={styles.btnSection__icon}
+                      className={styles.btnSection__icon} size="12"
                     />
                   </button>
                 </section>

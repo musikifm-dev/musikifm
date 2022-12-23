@@ -47,6 +47,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #ffffff;
+  min-height: 18rem;
   // height: 100%;
   // width: 50%;
   // aspect-ratio: 1/2;
@@ -59,4 +60,11 @@
   // }
 
   // box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+  
+}
+
+.onair{
+  left: 11px;
+  position: relative;
 }

@@ -93,22 +93,9 @@ const FavoriteIcon = ({ size, className }) => {
 
 const PauseIcon = ({ size, className }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <rect x="6" y="5" width="3" height="14" rx="1"></rect>
-      <rect x="14" y="5" width="3" height="14" rx="1"></rect>
-    </svg>
+    <svg width={size} height={size} className={className} viewBox="0 0 14 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2V20.6599M11.9852 2V20.6599" stroke="black" stroke-width="3.99929" stroke-linecap="round" />
+  </svg>
   )
 }
 const PlayIcon = ({ size, className }) => {
