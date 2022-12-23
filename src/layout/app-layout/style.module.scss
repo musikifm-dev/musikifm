@@ -29,11 +29,14 @@
   }
 }
 
+
+
+
 // Navbar
 .nav {
   height: 100%;
   padding: 2.6rem 3.7rem !important;
-  // padding-top: 6.5rem !important;
+  padding-top: 6.5rem !important;
 }
 .avatar {
   background: red;
@@ -200,6 +203,9 @@
   }
 }
 
+
+
+
 .navbar {
   position: fixed !important;
 
@@ -225,7 +231,7 @@
   }
 
   &__content {
-    // padding: 2.5rem 1.7rem;
+    padding: 2.5rem 1.7rem;
     width: 82%;
     max-width: 100%;
   }

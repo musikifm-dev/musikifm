@@ -9,9 +9,14 @@
     padding: 1rem;
     line-height: 5.15rem !important;
     height: 100%;
+    top: -35px;
+    position: relative;
   }
+  
 }
-
+.card-text{
+  font-size: 15px;
+}
 .onair{
   min-height: 5rem;
 }
