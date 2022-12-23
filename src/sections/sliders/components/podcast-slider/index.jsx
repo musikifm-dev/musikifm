@@ -12,7 +12,7 @@ import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
 
-export default function PodcastSlider() {
+export default function PodcastSlider({ title }) {
   const { isSuccess, data } = useGetPodcastDataQuery()
   const dispatch = useDispatch()
   const { current, playing } = useSelector((state) => state.player)
@@ -33,7 +33,7 @@ export default function PodcastSlider() {
     dispatch(setState({ playing: !playing }))
   }
   return (
-    <SliderContainer header="PODCAST" breakpoints="podcast" route={route.podcast}>
+    <SliderContainer header={title} breakpoints="podcast" route={route.podcast}>
       {isSuccess &&
         data.map((item) => (
           <SwiperSlide key={item.id}>
@@ -62,6 +62,7 @@ export default function PodcastSlider() {
 }
 
 PodcastSlider.propTypes = {
+  title: PropTypes.string,
   to: PropTypes.string,
   isPodcast: PropTypes.bool,
   isBlog: PropTypes.bool,

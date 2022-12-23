@@ -4,7 +4,7 @@ import BlogDetail from './pages/blog/detail'
 import VideoDetail from './components/Detail/VideoDetail'
 import PodcastDetail from './pages/podcast/detail'
 import { route } from './utils/constants/index'
-import { Home, Podcast, Register, Videos, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
+import { Home, Podcast, Register, Video, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
 import { AppLayout, AuthLayout } from 'layout'
 import SessionWrapper from 'sections/session-wrapper'
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
         <Route path={`${route.podcast}/:id`} element={<PodcastDetail />} />
         <Route path={route.blog} element={<Blog />} />
         <Route path={`${route.blog}/:id`} element={<BlogDetail />} />
-        <Route path={route.video} element={<Videos />} />
+        <Route path={route.video} element={<Video />} />
         <Route path={`${route.video}/:id`} element={<VideoDetail />} />
         <Route path={route.songs} element={<Songs />} />
         <Route path={route.moodFilter} element={<MoodFilter />} />

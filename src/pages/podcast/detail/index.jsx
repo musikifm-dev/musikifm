@@ -65,10 +65,6 @@ function PodcastDetail() {
               </div>
             </div>
           </section>
-          {/* <div className={styles.podcastSection__comments}>
-            <h4>{data?.data?.attributes.reviews.data[0].attributes.userDisplayName}</h4>
-            <p>{data?.data?.attributes.reviews.data[0].attributes.body}</p>
-          </div> */}
           <Comment podcastId={id} />
         </div>
         <div className="col-md-3">

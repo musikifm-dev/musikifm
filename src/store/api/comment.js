@@ -18,14 +18,22 @@ export const commentApi = createApi({
           url: 'api/reviews',
           method: 'POST',
           body: {
-            userDisplayName: user,
-            body: review,
-            podcast: id,
+            data: {
+              userDisplayName: user,
+              body: review,
+              podcast: id,
+            },
           },
         }
       },
     }),
+    getBlogTags: builder.query({
+      query: () => APP.blogTags, // APP.dataBase
+    }),
+    getPodcastTags: builder.query({
+      query: () => APP.podcastTags, // APP.dataBase
+    }),
   }),
 })
 
-export const { useSendCommentMutation } = commentApi
+export const { useSendCommentMutation, useGetBlogTagsQuery, useGetPodcastTagsQuery } = commentApi

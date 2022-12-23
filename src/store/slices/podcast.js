@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const podcastSlice = createSlice({
   name: 'podcast',
   initialState: {
-    selectedPodcastFilter: ['All'],
+    selectedPodcastFilter: ['tümü'],
     nextPodcastState: 0,
   },
   reducers: {
@@ -16,7 +16,7 @@ export const podcastSlice = createSlice({
       }
     },
     resetPodcastFilter: (state) => {
-      state.selectedPodcastFilter = ['All']
+      state.selectedPodcastFilter = ['tümü']
     },
     setNextPodcast: (state, action) => { // player podcast 
       console.log(action.payload)

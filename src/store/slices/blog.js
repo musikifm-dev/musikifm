@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const blogSlice = createSlice({
   name: 'blog',
   initialState: {
-    selectedBlogFilter: ['All'],
+    selectedBlogFilter: ['tümü'],
   },
   reducers: {
     setBlogFilter: (state, action) => {
@@ -15,8 +15,9 @@ export const blogSlice = createSlice({
       }
     },
     resetBlogFilter: (state) => {
-      state.selectedBlogFilter = ['All']
+      state.selectedBlogFilter = ['tümü']
     },
+    
   },
 })
 
