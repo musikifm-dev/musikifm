@@ -6,7 +6,7 @@ import styles from './index.module.scss'
 import 'swiper/scss'
 
 export default function SliderContainer(props) {
-  const { children, header, breakpoints, route } = props
+  const { header, breakpoints, route, children } = props
 
   const renderBreakPoints = () => {
     switch (breakpoints) {
@@ -125,7 +125,7 @@ export default function SliderContainer(props) {
 
   return (
     <div className={styles.slider}>
-      {breakpoints !== "hero" && (
+      {breakpoints !== 'hero' && (
         <div className="d-flex justify-content-between align-items-center my-5">
           <h3 className={styles.slider__header}>{header}</h3>
           <Link to={route} className={styles.slider__seeAll}>

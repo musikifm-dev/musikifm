@@ -50,12 +50,20 @@ export const APP = {
   blog: process.env.REACT_APP_URL_BLOG,
   podcast: process.env.REACT_APP_URL_PODCAST,
   video: process.env.REACT_APP_URL_VIDEO,
+  videoHomeSlider: process.env.REACT_APP_URL_VIDEO_HOMESLIDER,
 
   //DETAILS
   blogs: process.env.REACT_APP_URL_BLOGS,
   podcasts: process.env.REACT_APP_URL_PODCASTS,
   videos: process.env.REACT_APP_URL_VIDEOS,
 
-  radio: process.env.REACT_APP_URL_RADIO,
+  //TAGS
+  podcastTags: process.env.REACT_APP_URL_PODCAST_TAGS,
+  blogTags: process.env.REACT_APP_URL_BLOG_TAGS,
+
+  // PODCAST REVERSE
   podcastReverse: process.env.REACT_APP_URL_PODCASTREVERSE,
+
+  // RADIO
+  radio: process.env.REACT_APP_URL_RADIO,
 }

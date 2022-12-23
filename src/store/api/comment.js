@@ -27,7 +27,13 @@ export const commentApi = createApi({
         }
       },
     }),
+    getBlogTags: builder.query({
+      query: () => APP.blogTags, // APP.dataBase
+    }),
+    getPodcastTags: builder.query({
+      query: () => APP.podcastTags, // APP.dataBase
+    }),
   }),
 })
 
-export const { useSendCommentMutation } = commentApi
+export const { useSendCommentMutation, useGetBlogTagsQuery, useGetPodcastTagsQuery } = commentApi

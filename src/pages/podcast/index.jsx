@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import clsx from 'clsx'
 import { setCurrent, setPlayerType } from 'store/slices/player'
 import { useGetPodcastDataQuery } from 'store/api/data'
+import { useGetPodcastTagsQuery } from 'store/api/comment'
 import { Card, FilterBar } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
@@ -16,6 +17,7 @@ export default function Podcast() {
   const { isSuccess, data } = useGetPodcastDataQuery()
   const { current } = useSelector((state) => state.player)
   const { selectedPodcastFilter } = useSelector((state) => state.podcast)
+  const { data: podcastTags, isSuccess: podcastTagsSuccess } = useGetPodcastTagsQuery()
   const dispatch = useDispatch()
 
   const clickHandler = (val) => {
@@ -35,6 +37,7 @@ export default function Podcast() {
         setState={setPodcastFilter}
         deleteState={deletePodcastFilter}
         resetState={resetPodcastFilter}
+        tags={podcastTagsSuccess && podcastTags}
       />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>

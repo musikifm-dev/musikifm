@@ -32,6 +32,9 @@ export const dataApi = createApi({
     getVideoDetail: builder.query({
       query: (id) => `${APP.videos}/${id}?populate=*`,
     }),
+    getVideoHomeSlider: builder.query({
+      query: () => APP.videoHomeSlider,
+    }),
   }),
 })
 
@@ -44,4 +47,5 @@ export const {
   useGetBlogDataQuery,
   useGetBlogDetailQuery,
   useGetVideoDetailQuery,
+  useGetVideoHomeSliderQuery,
 } = dataApi

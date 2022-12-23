@@ -10,52 +10,53 @@ import { useDispatch } from 'react-redux'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 
-const mock = [
-  'All',
-  'casper',
-  'sit amet',
-  'lorem',
-  'dolar',
-  'Nature',
-  'metallica',
-  'Mixasdler',
-  'Çizgssi Filmler',
-  'Güzellik ilgili ipuçları',
-  'Gsdçları',
-  'Orman',
-  'Metal',
-  'Mixler',
-  'Rock',
-  'Emeruk',
-]
+// const mock = [
+//   'All',
+//   'casper',
+//   'sit amet',
+//   'lorem',
+//   'dolar',
+//   'Nature',
+//   'metallica',
+//   'Mixasdler',
+//   'Çizgssi Filmler',
+//   'Güzellik ilgili ipuçları',
+//   'Gsdçları',
+//   'Orman',
+//   'Metal',
+//   'Mixler',
+//   'Rock',
+//   'Emeruk',
+// ]
 
 export default function FilterBar(props) {
-  const { navigate, state, setState, deleteState, resetState } = props
+  const { navigate, state, setState, deleteState, resetState, tags } = props
   const dispatch = useDispatch()
+
   const { isMobile } = useWindowSize()
   const scrollPosition = useScrollPosition()
 
   const clickHandler = (val) => {
     if (!state.filter((f) => f === val).length > 0) {
-      if (state.includes('All') && val !== 'All') {
-        dispatch(deleteState('All'))
+      if (state.includes('tümü') && val !== 'tümü') {
+        dispatch(deleteState('tümü'))
         dispatch(setState(val))
         console.log('1')
-      } else if (!state.includes('All') && val === 'All') {
+      } else if (!state.includes('tümü') && val === 'tümü') {
         dispatch(resetState())
         console.log('2', state)
-      } else if (!state.includes('All') && val !== 'All') {
+      } else if (!state.includes('tümü') && val !== 'tümü') {
         dispatch(setState(val))
         console.log('3')
       }
     } else {
-      if (state.includes('All') && val == 'All') {
+      if (state.includes('tümü') && val == 'tümü') {
         console.log('4')
         return
-      } else if (state.includes('All') && val !== 'All') {
+      } else if (state.includes('tümü') && val !== 'tümü') {
         console.log('5')
         dispatch(deleteState(val))
-      } else if (!state.includes('All') && val !== 'All' && state.length > 1) {
+      } else if (!state.includes('tümü') && val !== 'tümü' && state.length > 1) {
         dispatch(deleteState(val))
         console.log('6')
       } else {
@@ -84,7 +85,7 @@ export default function FilterBar(props) {
         }}
         className={styles.swiper}
       >
-        {mock.map((item, i) => (
+        {tags.map((item, i) => (
           <SwiperSlide key={i} className={styles.x}>
             <Button
               className={clsx(styles.backBanner__btn, state.includes(item) ? styles.active : null)}
@@ -105,4 +106,5 @@ FilterBar.propTypes = {
   deleteState: PropTypes.func,
   resetState: PropTypes.func,
   state: PropTypes.array,
+  tags: PropTypes.array,
 }

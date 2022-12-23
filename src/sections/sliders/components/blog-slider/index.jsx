@@ -6,17 +6,18 @@ import { default as RBCard } from 'react-bootstrap/Card'
 import { SwiperSlide } from 'swiper/react'
 import { useGetBlogDataQuery } from 'store/api/data'
 import SliderContainer from 'sections/sliders'
+import PropTypes from 'prop-types'
 
 import { Button } from 'react-bootstrap'
 import styles from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-export default function BlogSlider() {
+export default function BlogSlider({ title }) {
   const { isSuccess, data } = useGetBlogDataQuery()
   const navigate = useNavigate()
 
   return (
-    <SliderContainer header="BLOG" breakpoints="blog" route={route.blog}>
+    <SliderContainer header={title} breakpoints="blog" route={route.blog}>
       {isSuccess &&
         data?.map((item) => (
           <SwiperSlide key={item.id}>
@@ -42,4 +43,8 @@ export default function BlogSlider() {
         ))}
     </SliderContainer>
   )
+}
+
+BlogSlider.propTypes = {
+  title: PropTypes.string,
 }

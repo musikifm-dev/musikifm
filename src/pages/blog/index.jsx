@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react'
 import clsx from 'clsx'
 import { Button, Stack } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { useGetBlogDataQuery } from 'store/api/data'
 import { Card, FilterBar, Switch } from 'components/ui'
 import { deleteBlogFilter, resetBlogFilter, setBlogFilter } from 'store/slices/blog'
 import CardBody from 'components/ui/card/components/card-body'
@@ -10,9 +9,12 @@ import CardHeader from 'components/ui/card/components/card-header'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
+import { useGetBlogTagsQuery } from 'store/api/comment'
+import { useGetBlogDataQuery } from 'store/api/data'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
+  const { data: blogTags, isSuccess: blogTagsSuccess } = useGetBlogTagsQuery()
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState()
   const { selectedBlogFilter } = useSelector((state) => state.blog)
@@ -31,7 +33,7 @@ export default function Blog() {
       if (switchType) {
         setRenderData(filteredWatchablePodcasts)
       } else {
-        if (selectedBlogFilter.includes('All')) {
+        if (selectedBlogFilter.includes('tümü')) {
           setRenderData(readableBlog)
         } else {
           setRenderData(filteredReadeblePodcasts)
@@ -70,7 +72,6 @@ export default function Blog() {
     }
   }
 
-
   return (
     <>
       <FilterBar
@@ -79,6 +80,7 @@ export default function Blog() {
         setState={setBlogFilter}
         deleteState={deleteBlogFilter}
         resetState={resetBlogFilter}
+        tags={blogTagsSuccess && blogTags}
       />
       <div className={clsx('row', styles.podcast)}>
         <div className="d-flex justify-content-between align-items-center ">
