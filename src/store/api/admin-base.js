@@ -2,10 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { APP } from 'utils/constants'
 
 // Define a service using a base URL and expected endpoints
-export const dataApi = createApi({
-  reducerPath: 'dataApi',
+export const adminBaseApi = createApi({
+  reducerPath: 'adminBase',
   baseQuery: fetchBaseQuery({
-    baseUrl: APP.base,
+    baseUrl: APP.adminBase,
   }),
   endpoints: (builder) => ({
     getHomeData: builder.query({
@@ -48,4 +48,4 @@ export const {
   useGetBlogDetailQuery,
   useGetVideoDetailQuery,
   useGetVideoHomeSliderQuery,
-} = dataApi
+} = adminBaseApi

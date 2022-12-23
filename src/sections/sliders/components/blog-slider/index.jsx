@@ -4,7 +4,7 @@ import CardHeader from 'components/ui/card/components/card-header'
 import { route } from 'utils/constants'
 import { default as RBCard } from 'react-bootstrap/Card'
 import { SwiperSlide } from 'swiper/react'
-import { useGetBlogDataQuery } from 'store/api/data'
+import { useGetBlogDataQuery } from 'store/api/admin-base'
 import SliderContainer from 'sections/sliders'
 import PropTypes from 'prop-types'
 

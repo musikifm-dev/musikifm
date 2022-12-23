@@ -10,28 +10,29 @@ import { useDispatch } from 'react-redux'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 
-// const mock = [
-//   'All',
-//   'casper',
-//   'sit amet',
-//   'lorem',
-//   'dolar',
-//   'Nature',
-//   'metallica',
-//   'Mixasdler',
-//   'Çizgssi Filmler',
-//   'Güzellik ilgili ipuçları',
-//   'Gsdçları',
-//   'Orman',
-//   'Metal',
-//   'Mixler',
-//   'Rock',
-//   'Emeruk',
-// ]
+const mock = [
+  'All',
+  'casper',
+  'sit amet',
+  'lorem',
+  'dolar',
+  'Nature',
+  'metallica',
+  'Mixasdler',
+  'Çizgssi Filmler',
+  'Güzellik ilgili ipuçları',
+  'Gsdçları',
+  'Orman',
+  'Metal',
+  'Mixler',
+  'Rock',
+  'Emeruk',
+]
 
 export default function FilterBar(props) {
   const { navigate, state, setState, deleteState, resetState, tags } = props
   const dispatch = useDispatch()
+  console.log(tags);
 
   const { isMobile } = useWindowSize()
   const scrollPosition = useScrollPosition()
@@ -85,7 +86,7 @@ export default function FilterBar(props) {
         }}
         className={styles.swiper}
       >
-        {tags.map((item, i) => (
+        {mock.map((item, i) => (
           <SwiperSlide key={i} className={styles.x}>
             <Button
               className={clsx(styles.backBanner__btn, state.includes(item) ? styles.active : null)}

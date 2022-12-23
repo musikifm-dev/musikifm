@@ -10,7 +10,7 @@ const getToken = () => {
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: APP.base,
+    baseUrl: APP.adminBase,
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',

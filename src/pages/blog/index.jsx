@@ -10,7 +10,7 @@ import { default as RBCard } from 'react-bootstrap/Card'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import { useGetBlogTagsQuery } from 'store/api/comment'
-import { useGetBlogDataQuery } from 'store/api/data'
+import { useGetBlogDataQuery } from 'store/api/admin-base'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()

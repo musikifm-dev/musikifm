@@ -10,7 +10,7 @@ import styles from './style.module.scss'
 import { useGetPlayerDataQuery } from 'store/api/player'
 import { useState } from 'react'
 import { APP } from 'utils/constants'
-import { useGetPodcastReverseDataQuery } from 'store/api/data'
+import { useGetPodcastReverseDataQuery } from 'store/api/admin-base'
 import clsx from 'clsx'
 import { setNextPodcast } from 'store/slices/podcast'
 
@@ -71,7 +71,7 @@ const Player = () => {
       if (pattern.test(current.image)) {
         setImageFrom(current.image)
       } else {
-        setImageFrom(APP.base + current.image)
+        setImageFrom(APP.adminBase + current.image)
       }
     }
   }, [current.image])

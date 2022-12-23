@@ -5,7 +5,7 @@ import { APP } from 'utils/constants'
 export const commentApi = createApi({
   reducerPath: 'commentApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: APP.base,
+    baseUrl: APP.adminBase,
     headers: {
       'Content-Type': 'application/json',
     },

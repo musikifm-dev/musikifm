@@ -42,7 +42,7 @@ export const APP = {
   register: process.env.REACT_APP_URL_REGISTER,
   userData: process.env.REACT_APP_URL_USERDATA,
 
-  base: process.env.REACT_APP_URL_BASE,
+  adminBase: process.env.REACT_APP_URL_ADMINBASE,
   dataBase: process.env.REACT_APP_URL_DATABASE,
 
   home: process.env.REACT_APP_URL_HOME,

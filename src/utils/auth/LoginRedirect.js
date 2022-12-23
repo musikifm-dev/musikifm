@@ -12,7 +12,7 @@ export default function LoginRedirect({ setCookie }) {
   useEffect(() => {
     const altLogin = async () => {
       const req = await fetch(
-        APP.base + `/api/auth/${providerName}/callback?access_token=${searchParams.get('access_token')}`,
+        APP.adminBase + `/api/auth/${providerName}/callback?access_token=${searchParams.get('access_token')}`,
       );
       const res = await req.json();
 

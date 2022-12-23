@@ -1,5 +1,5 @@
 import { BlogSlider, HeroSlider, PodcastSlider, VideoSlider } from 'sections'
-import { useGetVideoDataQuery } from 'store/api/data'
+import { useGetVideoDataQuery } from 'store/api/admin-base'
 import styles from './index.module.scss'
 
 const Home = () => {

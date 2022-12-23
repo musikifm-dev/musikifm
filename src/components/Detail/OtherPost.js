@@ -1,5 +1,5 @@
 import BlogItem from 'components/Items/BlogItem'
-import { useGetBlogDataQuery } from 'store/api/data'
+import { useGetBlogDataQuery } from 'store/api/admin-base'
 import { useParams } from 'react-router-dom'
 
 const OtherPost = () => {

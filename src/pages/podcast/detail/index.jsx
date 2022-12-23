@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import OtherPost from 'components/Detail/OtherPost'
 import { Button, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { useGetPodcastDetailQuery } from 'store/api/data'
+import { useGetPodcastDetailQuery } from 'store/api/admin-base'
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
 import Comment from 'components/Comments/Comments'
@@ -15,7 +15,7 @@ function PodcastDetail() {
   if (isLoading) return <Spinner animation="grow" />
   if (isError) return <p>Error...</p>
 
-  var imgPodcast = APP.base + data?.data?.attributes.image.data.attributes.url
+  var imgPodcast = APP.adminBase + data?.data?.attributes.image.data.attributes.url
 
   return (
     <div className={styles.wrapper}>

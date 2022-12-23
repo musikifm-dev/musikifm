@@ -7,7 +7,7 @@ import CardHeader from 'components/ui/card/components/card-header'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Button, Stack } from 'react-bootstrap'
 import clsx from 'clsx'
-import { useGetVideoDataQuery, useGetVideoHomeSliderQuery } from 'store/api/data'
+import { useGetVideoDataQuery, useGetVideoHomeSliderQuery } from 'store/api/admin-base'
 import { setState } from 'store/slices/player'
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import EmbedVideo from 'components/ui/embed-video'
@@ -44,7 +44,7 @@ export default function Video() {
               <EmbedVideo embedId={data?.[0].videourl} className={styles.embedVideo} />
             ) : (
               <div className={styles.image}>
-                <img src={APP.base + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
+                <img src={APP.adminBase + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
                 <Stack gap={4} className={clsx(styles.absolute, styles.content)}>
                   <Stack gap={3}>
                     <div className={clsx(styles.image__title)}>{data?.[0].title}</div>
