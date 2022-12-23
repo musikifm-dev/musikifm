@@ -22,7 +22,7 @@ export default function BlogSlider({ title }) {
         data?.map((item) => (
           <SwiperSlide key={item.id}>
             <Card>
-              <CardHeader to={`${route.blog}/${item.id}`} image={item.image} className={styles.header} />
+              <CardHeader to={`${route.blog}/${item.id}`} image={item.image} imageStyle={styles.image} className={styles.header} />
               <CardBody>
                 <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <div className={styles.footerSection}>

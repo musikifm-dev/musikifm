@@ -29,15 +29,17 @@ const HeroSlider = () => {
                 </div>
                 <div className="col-sm-12 col-md-6 align-items-center">
                   <CardBody>
-                    {item.onair === true && (
+                   
                       <div className="onair">
+                      {item.onair === true && (
                         <Icon name="onair" size="109" />
+                        )}
                       </div>
-                    )}
+                    
 
                     <Stack direction="vertical" gap={1}>
                       <RBCard.Title className={styles.card__title}>{item.slidertitle}</RBCard.Title>
-                      {/* <RBCard.Text className={styles.card__description}>{item.sliderdescription}</RBCard.Text> */}
+                     <RBCard.Text className={styles.card__description}>{item.sliderdescription}</RBCard.Text> 
                     </Stack>
                   </CardBody>
                 </div>

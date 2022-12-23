@@ -57,11 +57,11 @@ export default function SliderContainer(props) {
           },
           1280: {
             slidesPerView: 4,
-            spaceBetween: 15,
+            spaceBetween: 26,
           },
           1400: {
             slidesPerView: 5,
-            spaceBetween: 20,
+            spaceBetween: 26,
           },
         }
       case 'blog':

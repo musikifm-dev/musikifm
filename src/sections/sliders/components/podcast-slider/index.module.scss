@@ -3,6 +3,9 @@
   .image {
     max-height: 26rem;
   }
+  .card-body{
+    min-height: 19rem;
+  }
 }
 
 .title {
@@ -15,6 +18,7 @@
   font-weight: var(--fw-6) !important;
   color: black;
   line-height: 26.66px;
+  min-height: 7rem;
 }
 .description {
   padding: 0 1rem;
