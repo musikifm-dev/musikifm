@@ -45,12 +45,12 @@ export default function Video() {
             ) : (
               <div className={styles.image}>
                 <img src={APP.adminBase + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
-                <Stack gap={4} className={clsx(styles.absolute, styles.content)}>
+                <Stack gap={5} className={clsx(styles.absolute, styles.content)}>
                   <Stack gap={3}>
                     <div className={clsx(styles.image__title)}>{data?.[0].title}</div>
                     <div className={clsx(styles.image__description)}>{data?.[0].description}</div>
                   </Stack>
-                  <Stack direction="horizontal" gap={isMobile ? 3 : 5} className={styles.btn}>
+                  <Stack direction="horizontal" gap={isMobile ? 3 : 4} className={styles.btn}>
                     <Button variant="warning" className={clsx(styles.btn__item, styles.orange)} onClick={clickHandler}>
                       WATCH VIDEO
                     </Button>
