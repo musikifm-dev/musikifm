@@ -6,6 +6,8 @@
 
     &__item {
       width: 100%;
+      height: 100%;
+      z-index: -1;
       object-fit: cover;
       max-height: 63.6rem;
     }
@@ -23,9 +25,10 @@
       color: white;
     }
     .content {
-      width: 89rem;
-      bottom: 7.6rem;
-      left: 7.6rem;
+      padding: 7.6rem;
+      z-index: 10;
+      bottom: 0;
+      max-width: 89rem;
     }
   }
 }
@@ -169,11 +172,11 @@
         font-size: var(--fs-20);
         font-weight: var(--fw-4);
       }
-
       .content {
-        width: 50rem;
-        bottom: 5rem;
-        left: 6rem;
+        padding: 5rem;
+        z-index: 10;
+        bottom: 0;
+        max-width: 60rem;
       }
     }
   }
@@ -200,9 +203,8 @@
       }
 
       .content {
-        width: 47.5rem;
-        bottom: 5rem;
-        left: 6rem;
+        max-width: 54rem;
+        padding: 3rem;
       }
     }
   }
@@ -220,7 +222,7 @@
   .video {
     .image {
       &__title {
-        font-size: var(--fs-44);
+        font-size: var(--fs-40);
         font-weight: var(--fw-7);
       }
       &__description {
@@ -229,9 +231,7 @@
       }
 
       .content {
-        width: 40rem;
-        bottom: 4rem;
-        left: 4rem;
+        max-width: 50rem;
       }
     }
   }
