@@ -56,7 +56,7 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 5,
+            slidesPerView: 4.3,
             spaceBetween: 26,
           },
           1400: {
@@ -64,7 +64,7 @@ export default function SliderContainer(props) {
             spaceBetween: 26,
           },
           1920: {
-            slidesPerView: 5,
+            slidesPerView: 4.4,
             spaceBetween: 26,
           },
         }
@@ -87,11 +87,11 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
             spaceBetween: 15,
           },
-          1400: {
-            slidesPerView: 4.5,
+          1440: {
+            slidesPerView: 4,
             spaceBetween: 20,
           },
           1920: {
@@ -121,8 +121,8 @@ export default function SliderContainer(props) {
             slidesPerView: 2,
             spaceBetween: 15,
           },
-          1400: {
-            slidesPerView: 2.8,
+          1440: {
+            slidesPerView: 3,
             spaceBetween: 7,
           },
           1920: {
