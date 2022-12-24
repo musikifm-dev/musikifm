@@ -118,8 +118,8 @@ export default function SliderContainer(props) {
             spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 2,
-            spaceBetween: 15,
+            slidesPerView: 2.8,
+            spaceBetween: 20,
           },
           1440: {
             slidesPerView: 3,
