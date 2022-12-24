@@ -84,17 +84,17 @@ export default function Video() {
                     slidesPerView: 1.4,
                   },
                   768: {
-                    slidesPerView: 2.2,
+                    slidesPerView: 2.3,
                   },
                   992: {
-                    slidesPerView: 3.2,
+                    slidesPerView: 3.3,
                   },
                   1280: {
-                    slidesPerView: 3.2,
+                    slidesPerView: 3.5,
                     spaceBetween: 0,
                   },
                   1400: {
-                    slidesPerView: 4.2,
+                    slidesPerView: 4.5,
                     spaceBetween: 0,
                   },
                 }}
@@ -109,7 +109,7 @@ export default function Video() {
                           className={styles.header}
                           imageStyle={styles.xx}
                         />
-                        <CardBody>
+                        <CardBody className={styles.card__body}>
                           <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                         </CardBody>
                       </Card>

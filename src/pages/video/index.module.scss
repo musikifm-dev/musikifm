@@ -92,16 +92,31 @@
 
 .card {
   min-height: 31.8rem;
+  border: none !important;
+  border-radius: unset !important;
+
   .header {
     // height: 18.2rem;
     // min-height: 22rem;
     // height: 15rem;
   }
+  &__body {
+    box-shadow: 0px 3.79351px 60.6962px rgba(0, 0, 0, 0.07) !important;
+  }
 }
+
+// .odd {
+//   box-shadow: 0px 3.79351px 60.6962px rgba(0, 0, 0, 0.07);
+// }
+
+// .even {
+//   box-shadow: 0px 3.79351px 60.6962px rgba(0, 0, 0, 0.07);
+// }
+
 .xx {
   aspect-ratio: unset;
   object-fit: cover;
-  height:  18.2rem;
+  height: 18.2rem;
 }
 
 .title {
@@ -112,7 +127,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: black;
-   margin-top: 1rem !important;
+  margin-top: 1rem !important;
   font-size: var(--fs-20) !important;
   font-weight: var(--fw-6) !important;
 }
