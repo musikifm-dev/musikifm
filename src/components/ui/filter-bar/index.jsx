@@ -11,7 +11,7 @@ import { useWindowSize } from 'utils/hooks/useWindowSize'
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 
 const mock = [
-  'All',
+  'tümü',
   'casper',
   'sit amet',
   'lorem',
@@ -30,9 +30,8 @@ const mock = [
 ]
 
 export default function FilterBar(props) {
-  const { navigate, state, setState, deleteState, resetState, tags } = props
+  const { navigate, state, setState, deleteState, resetState } = props
   const dispatch = useDispatch()
-  console.log(tags);
 
   const { isMobile } = useWindowSize()
   const scrollPosition = useScrollPosition()
@@ -107,5 +106,5 @@ FilterBar.propTypes = {
   deleteState: PropTypes.func,
   resetState: PropTypes.func,
   state: PropTypes.array,
-  tags: PropTypes.array,
+  // tags: PropTypes.array,
 }

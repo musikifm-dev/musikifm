@@ -27,7 +27,6 @@ export default function Podcast() {
 
   let filter = new Set(selectedPodcastFilter)
   const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((s) => filter.has(s))), [selectedPodcastFilter])
-  //  console.log(selectedPodcastFilter)
 
   return (
     <>
