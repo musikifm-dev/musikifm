@@ -87,14 +87,18 @@ export default function Video() {
                     slidesPerView: 2.3,
                   },
                   992: {
-                    slidesPerView: 3.3,
+                    slidesPerView: 0,
                   },
                   1280: {
-                    slidesPerView: 3.5,
+                    slidesPerView: 2.3,
                     spaceBetween: 0,
                   },
                   1400: {
-                    slidesPerView: 4.5,
+                    slidesPerView: 2.442,
+                    spaceBetween: 0,
+                  },
+                  1700: {
+                    slidesPerView: 3.442,
                     spaceBetween: 0,
                   },
                 }}
