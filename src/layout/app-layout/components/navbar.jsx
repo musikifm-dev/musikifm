@@ -214,9 +214,9 @@ const Navbar = () => {
             </ReactBootstrapNavbar.Brand>
             <div className={styles.btnContainer}>
               <Stack gap={4} direction="horizontal">
-                {userData && (
+                {userData && !isMobile && (
                   <div className={styles.authenticatedLinks}>
-                    <Stack gap={3} direction="horizontal">
+                    <Stack gap={2} direction="horizontal">
                       {navbarAuthenticatedLinks.map((item, i) => (
                         <Link to={item.route} key={i}>
                           <button
@@ -231,7 +231,7 @@ const Navbar = () => {
                 )}
                 {!isMobile && userData && (
                   <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
-                    Mood Filter <span className={styles.tm}>TM</span>
+                    MOOD
                   </button>
                 )}
                 {!isMobile && (
