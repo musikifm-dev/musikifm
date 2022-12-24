@@ -12,20 +12,23 @@
   justify-content: space-between;
   // height: calc(100vh - 4.925rem);
   position: fixed;
-  width: 40rem;
+  width: 30rem;
 
   &__description {
-    margin: 1.2rem 3rem;
-    // margin: 1rem 0;
     font-family: var(--f-poppings);
-    font-size: var(--fs-17);
+    font-size: var(--fs-13);
     font-weight: var(--fw-4);
-    line-height: 26px;
+    line-height: 22px;
     display: -webkit-box;
-    -webkit-line-clamp: 19;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
+    background: #fff;
+
+    p{
+      padding: 1rem;
+    }
   }
 }
 
@@ -219,11 +222,11 @@
   padding-top: 6.1rem;
 
   &__side {
-    width: 40rem;
+    width: 30rem;
   }
 
   &__content {
-    width: calc(100% - 40rem);
+    width: calc(100% - 30rem);
   }
 }
 

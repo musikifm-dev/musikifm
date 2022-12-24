@@ -1,47 +1,106 @@
 .podcast {
-  padding: 2.5rem 1.7rem;
-
+  padding: 4rem 5.2rem 9rem 5.3rem;
+  gap: 34px;
   &__header {
     font-size: var(--fs-30);
     font-weight: var(--fw-6);
   }
+  
+}
+
+.box{
+  width: calc(20% - 34px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .title {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 20px !important;
-  font-weight: 600 !important;
+  padding: 1rem;
+  font-size: var(--fs-17) !important;
+  font-weight: var(--fw-6) !important;
   color: black;
-  line-height: 26.66px;
+  line-height: 23.66px !important;
+  min-height: 10rem;
 }
 .description {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: var(--fs-16);
-  font-weight: var(--fw-4);
-  line-height: 2.4rem;
-  color: black;
+padding: 0 1rem;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
+font-size: var(--fs-13);
+font-weight: var(--fw-4);
+line-height: 2.4rem;
+color: black;
 }
 
 .btnSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+
+&__time {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-4);
+  line-height: 2.2rem;
+}
+
+&__podcastBtn {
+  background-color: transparent;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  border: 4px solid;
+  position: relative;
+}
+
+&__icon {
+  width: 1.6rem !important;
+  height: 1.6rem !important;
+  position: absolute;
+  top: 27%;
+  left: 27%;
+}
+}
+
+@media (max-width: 1300px) {
+.card {
+  max-height: 44.8rem;
+  .image {
+    max-height: 25.4rem;
+  }
+}
+
+.title {
+  font-size: var(--fs-17) !important;
+  font-weight: var(--fw-6) !important;
+
+  line-height: 26.66px;
+}
+.description {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-4);
+  line-height: 2.4rem;
+}
+
+.btnSection {
   &__time {
-    font-size: var(--fs-14);
-    font-weight: var(--fw-4);
-    line-height: 2.2rem;
+    font-size: var(--fs-13);
   }
 
   &__podcastBtn {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background-color: transparent;
+    width: 3.5rem;
+    height: 3.5rem;
   }
+
+  &__icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}
 }

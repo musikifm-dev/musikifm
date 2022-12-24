@@ -34,25 +34,25 @@ function PodcastDetail() {
                   <h5 className={styles.podcastSection__artist}>{data?.data?.attributes.artist}</h5>
                 </div>
               </div>
-              <div className="d-inline-flex align-items-center mb-4">
+              <div className="d-inline-flex align-items-center">
                 <Button variant="secondary" className={styles.genre}>
                   #Techno
                 </Button>
-                <span className={styles.more}>more &gt;</span>
+                <span className={styles.more}>more <Icon name="morearrow" size={8} /></span>
               </div>
               {/* <div className="podcastSection__tags"></div> */}
             </div>
             <div className="col-md-4 d-flex justify-content-around align-items-end">
               <div className="d-flex align-items-center">
-                <Icon name="headphone" size={15} />
+                <Icon name="headphone" size={20} />
                 <div className={styles.podcastSection__text}>320</div>
               </div>
               <div className="d-flex align-items-center">
-                <Icon name="heartEmpty" size={15} />
+                <Icon name="heartEmpty" size={22} />
                 <div className={styles.podcastSection__text}>23</div>
               </div>
               <div className="d-flex align-items-center">
-                <Icon name="share" size={15} />
+                <Icon name="share" size={17} />
                 <div className={styles.podcastSection__text}>Share</div>
               </div>
             </div>

@@ -6,14 +6,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eaeaea;
-  // margin-top: 1rem;
-  padding: 1.6rem;
+  background-color: #EAEAEA;
+  padding: 1rem;
   width: 100%;
   grid-gap: 0.5rem;
+  min-height: 5.6rem;
 
   &__text {
-    font-size: var(--fs-16);
+    font-size: var(--fs-14);
     font-weight: var(--fw-6);
   }
 }

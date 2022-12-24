@@ -93,9 +93,16 @@ const FavoriteIcon = ({ size, className }) => {
 
 const PauseIcon = ({ size, className }) => {
   return (
-    <svg width={size} height={size} className={className} viewBox="0 0 14 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 2V20.6599M11.9852 2V20.6599" stroke="black" stroke-width="3.99929" stroke-linecap="round" />
-  </svg>
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 14 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M2 2V20.6599M11.9852 2V20.6599" stroke="black" stroke-width="3.99929" stroke-linecap="round" />
+    </svg>
   )
 }
 const PlayIcon = ({ size, className }) => {
@@ -148,18 +155,26 @@ const ShareIcon = ({ size, className }) => {
     <svg
       width={size}
       height={size}
-      viewBox="0 0 29 34"
+      className={className}
+      viewBox="0 0 20 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <path
-        d="M1.5 16.8751V28.875C1.5 29.6707 1.84241 30.4337 2.4519 30.9963C3.0614 31.5589 3.88805 31.875 4.75 31.875H24.25C25.112 31.875 25.9386 31.5589 26.5481 30.9963C27.1576 30.4337 27.5 29.6707 27.5 28.875V16.8751M20.9975 7.87498L14.4975 1.875L7.99757 7.87498M14.4998 1.875V21.3749"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M1 10V18C1 18.5304 1.23047 19.0391 1.6407 19.4142C2.05094 19.7893 2.60734 20 3.1875 20H16.3125C16.8927 20 17.4491 19.7893 17.8593 19.4142C18.2695 19.0391 18.5 18.5304 18.5 18V10"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
+      <path
+        d="M13.6389 5.089L9.75889 1L5.87891 5.089"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M9.75977 1V14.2892" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   )
 }
@@ -322,19 +337,17 @@ const LogoutIcon = ({ size, className }) => {
 const HeartEmptyIcon = ({ size, className }) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
       width={size}
       height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
+      className={className}
+      viewBox="0 0 24 21"
       fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+      <path
+        d="M22.9781 4.71868C22.6271 3.90709 22.1211 3.17163 21.4883 2.55347C20.855 1.93347 20.1084 1.44077 19.2889 1.10215C18.4393 0.749632 17.5279 0.569192 16.6079 0.571307C15.3171 0.571307 14.0577 0.924331 12.9633 1.59115C12.7014 1.75067 12.4527 1.92587 12.2171 2.11677C11.9814 1.92587 11.7327 1.75067 11.4709 1.59115C10.3764 0.924331 9.11707 0.571307 7.82627 0.571307C6.89679 0.571307 5.99612 0.749127 5.14519 1.10215C4.32306 1.4421 3.5821 1.9311 2.94586 2.55347C2.31224 3.17093 1.80608 3.90656 1.45608 4.71868C1.09215 5.56333 0.90625 6.46027 0.90625 7.38336C0.90625 8.25415 1.08429 9.16156 1.43775 10.0846C1.73362 10.8561 2.15777 11.6563 2.69975 12.4643C3.55853 13.743 4.73936 15.0767 6.20558 16.4286C8.63531 18.6697 11.0415 20.2177 11.1436 20.2805L11.7641 20.678C12.039 20.8532 12.3925 20.8532 12.6674 20.678L13.2879 20.2805C13.39 20.2151 15.7936 18.6697 18.2259 16.4286C19.6922 15.0767 20.873 13.743 21.7318 12.4643C22.2737 11.6563 22.7005 10.8561 22.9938 10.0846C23.3472 9.16156 23.5253 8.25415 23.5253 7.38336C23.5279 6.46027 23.342 5.56333 22.9781 4.71868ZM12.2171 18.6095C12.2171 18.6095 2.89612 12.6447 2.89612 7.38336C2.89612 4.71868 5.1033 2.5587 7.82627 2.5587C9.74021 2.5587 11.4002 3.62562 12.2171 5.18415C13.034 3.62562 14.6939 2.5587 16.6079 2.5587C19.3308 2.5587 21.538 4.71868 21.538 7.38336C21.538 12.6447 12.2171 18.6095 12.2171 18.6095Z"
+        fill="black"
+      />
     </svg>
   )
 }
@@ -400,21 +413,34 @@ const DotsIcon = ({ size, className }) => {
 const HeadPhoneIcon = ({ size, className }) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
       width={size}
       height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
+      className={className}
+      viewBox="0 0 24 20"
       fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <rect x="4" y="13" rx="2" width="5" height="7"></rect>
-      <rect x="15" y="13" rx="2" width="5" height="7"></rect>
-      <path d="M4 15v-3a8 8 0 0 1 16 0v3"></path>
+      <path
+        d="M2 11.8054C2 9.70107 4.05001 9.17627 6.10002 9.17627V18.4013C5.01263 18.4013 3.96977 17.9693 3.20087 17.2004C2.43197 16.4315 2 15.3887 2 14.3013V11.8054Z"
+        stroke="black"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M22.4994 11.8054C22.4994 9.70107 20.4494 9.17627 18.3994 9.17627V18.4013C19.4868 18.4013 20.5297 17.9693 21.2986 17.2004C22.0675 16.4315 22.4994 15.3887 22.4994 14.3013V11.8054Z"
+        stroke="black"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M6.10059 18.4001V8.15003C6.10059 6.51894 6.74853 4.95466 7.90189 3.8013C9.05524 2.64795 10.6195 2 12.2506 2C13.8817 2 15.446 2.64795 16.5993 3.8013C17.7527 4.95466 18.4006 6.51894 18.4006 8.15003V18.4001"
+        stroke="black"
+        stroke-width="2.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   )
 }
@@ -517,7 +543,14 @@ const OnAirIcon = ({ size, className }) => {
 
 const PlayCard = ({ size, className }) => {
   return (
-    <svg width={size} height={size} className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M20 36.625C15.5908 36.625 11.3621 34.8734 8.24435 31.7556C5.12656 28.6379 3.375 24.4092 3.375 20C3.375 15.5908 5.12656 11.3621 8.24435 8.24435C11.3621 5.12656 15.5908 3.375 20 3.375C24.4092 3.375 28.6379 5.12656 31.7556 8.24435C34.8734 11.3621 36.625 15.5908 36.625 20C36.625 24.4092 34.8734 28.6379 31.7556 31.7556C28.6379 34.8734 24.4092 36.625 20 36.625ZM20 39C25.0391 39 29.8718 36.9982 33.435 33.435C36.9982 29.8718 39 25.0391 39 20C39 14.9609 36.9982 10.1282 33.435 6.56497C29.8718 3.00178 25.0391 1 20 1C14.9609 1 10.1282 3.00178 6.56497 6.56497C3.00178 10.1282 1 14.9609 1 20C1 25.0391 3.00178 29.8718 6.56497 33.435C10.1282 36.9982 14.9609 39 20 39Z"
         fill="black"
@@ -526,6 +559,24 @@ const PlayCard = ({ size, className }) => {
       />
       <path
         d="M15.8936 13.0068C16.0879 12.9067 16.3059 12.8622 16.5238 12.8782C16.7417 12.8941 16.951 12.9698 17.1286 13.097L25.4411 19.0345C25.5951 19.1444 25.7205 19.2894 25.8071 19.4575C25.8937 19.6256 25.9388 19.812 25.9388 20.0011C25.9388 20.1902 25.8937 20.3766 25.8071 20.5447C25.7205 20.7129 25.5951 20.8579 25.4411 20.9678L17.1286 26.9053C16.9511 27.0323 16.7419 27.108 16.5241 27.1239C16.3063 27.1399 16.0884 27.0954 15.8942 26.9955C15.7 26.8956 15.5372 26.7441 15.4235 26.5576C15.3099 26.3712 15.2498 26.157 15.25 25.9386V14.0636C15.2498 13.8453 15.3097 13.6312 15.4233 13.4447C15.5368 13.2583 15.6996 13.1067 15.8936 13.0068Z"
+        fill="black"
+      />
+    </svg>
+  )
+}
+
+const moreArrow = ({ size, className }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 5 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.14062 0.090332L0.507812 0.757228L3.75351 4.17776L0.507812 7.59829L1.14062 8.26519L4.99871 4.17776L1.14062 0.090332Z"
         fill="black"
       />
     </svg>
@@ -562,7 +613,8 @@ const Icon = ({ name, size, className, onClick }) => {
     commentPlus: CommentPlusIcon,
     edit: EditIcon,
     onair: OnAirIcon,
-    cardplay: PlayCard
+    cardplay: PlayCard,
+    morearrow: moreArrow
   }
 
   const Component = icons[name]

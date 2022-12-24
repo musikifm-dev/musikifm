@@ -9,7 +9,7 @@ function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <Player />
-      <div className={styles.sidebar__description}>{current?.description}</div>
+      <div className={styles.sidebar__description}> <p>{current?.description}</p></div>
       <AdsBanner />
     </div>
   )
