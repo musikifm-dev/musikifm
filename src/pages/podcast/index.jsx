@@ -61,7 +61,7 @@ export default function Podcast() {
               </div>
             ))
           : filteredPodcasts?.map((item) => (
-              <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
+              <div className={styles.box} key={item.id}>
                 <Card>
                   <CardHeader to={`${route.podcast}/${item.id}`} image={item.image} />
                   <CardBody>
