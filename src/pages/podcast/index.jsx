@@ -40,7 +40,7 @@ export default function Podcast() {
       />
       <div className={clsx('row', styles.podcast)}>
         <h3 className={styles.podcast__header}>PODCAST</h3>
-        {isSuccess && selectedPodcastFilter.includes('All')
+        {isSuccess && selectedPodcastFilter.includes('tümü')
           ? data.map((item) => (
               <div className={styles.box} key={item.id}>
                 <Card>
