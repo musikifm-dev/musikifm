@@ -289,7 +289,6 @@
     width: 30rem;
 
     &__description {
-      margin: 1rem 0.8rem;
       font-size: var(--fs-16);
       line-height: 22px;
       -webkit-line-clamp: 27;
@@ -319,7 +318,7 @@
     width: 25rem;
 
     &__description {
-      -webkit-line-clamp: 29;
+      -webkit-line-clamp: 4;
     }
   }
 }

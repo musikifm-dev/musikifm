@@ -24,7 +24,7 @@ export default function VideoSlider(props) {
                 isPlayIcon={true}
                 imageStyle={styles.image}
               />
-              <CardBody>
+              <CardBody className={styles.cardbody}>
                 <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
                 <section className={styles.footerSection}>
                   <Button variant="secondary" className={styles.footerSection__genre}>

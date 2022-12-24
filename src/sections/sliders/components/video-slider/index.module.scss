@@ -43,12 +43,18 @@
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1280px) {
   .card {
     max-height: 39rem;
+   
     .image {
-      max-height: 25rem;
+      max-height: 20rem;
     }
+  }
+
+  .card-body{
+    min-height: 13rem;
+  height: 13rem;
   }
 
   .footerSection {
@@ -66,3 +72,12 @@
     }
   }
 }
+
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1920px) {
+
+}
+
