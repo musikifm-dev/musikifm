@@ -35,57 +35,57 @@ const LibraryIcon = ({ size }) => {
 
 //Player Icon Set Start
 
-const PrevIcon = ({ size, className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <polyline points="15 6 9 12 15 18"></polyline>
-    </svg>
-  )
-}
-const NextIcon = ({ size, className }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <polyline points="9 6 15 12 9 18"></polyline>
-    </svg>
-  )
-}
-const FavoriteIcon = ({ size, className }) => {
+const PrevIcon = ({ size, className, stroke }) => {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 32 31"
+      className={className}
+      viewBox="0 0 17 29"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <path
-        d="M31.2151 7.02725C30.7197 5.81831 30.0053 4.72278 29.112 3.80199C28.218 2.87845 27.164 2.14453 26.0073 1.64013C24.8078 1.11502 23.5213 0.846242 22.2224 0.849393C20.4002 0.849393 18.6224 1.37525 17.0774 2.36854C16.7078 2.60615 16.3566 2.86713 16.024 3.15148C15.6913 2.86713 15.3402 2.60615 14.9706 2.36854C13.4256 1.37525 11.6477 0.849393 9.82555 0.849393C8.51342 0.849393 7.24194 1.11427 6.0407 1.64013C4.88011 2.14651 3.8341 2.87492 2.93594 3.80199C2.04146 4.72174 1.32692 5.81753 0.832831 7.02725C0.319067 8.28542 0.0566406 9.62148 0.0566406 10.9965C0.0566406 12.2936 0.307979 13.6453 0.806958 15.0203C1.22462 16.1694 1.8234 17.3613 2.5885 18.565C3.80083 20.4697 5.46779 22.4563 7.53764 24.4702C10.9677 27.8084 14.3644 30.1144 14.5086 30.2079L15.3845 30.7999C15.7726 31.0609 16.2716 31.0609 16.6597 30.7999L17.5357 30.2079C17.6799 30.1105 21.0729 27.8084 24.5066 24.4702C26.5765 22.4563 28.2434 20.4697 29.4558 18.565C30.2209 17.3613 30.8233 16.1694 31.2373 15.0203C31.7363 13.6453 31.9876 12.2936 31.9876 10.9965C31.9913 9.62148 31.7289 8.28542 31.2151 7.02725ZM16.024 27.7188C16.024 27.7188 2.86571 18.8337 2.86571 10.9965C2.86571 7.02725 5.98156 3.80978 9.82555 3.80978C12.5274 3.80978 14.8708 5.39904 16.024 7.7206C17.1772 5.39904 19.5205 3.80978 22.2224 3.80978C26.0664 3.80978 29.1823 7.02725 29.1823 10.9965C29.1823 18.8337 16.024 27.7188 16.024 27.7188Z"
-        fill="currentColor"
+        d="M14.6045 28.5L17 26.2158L4.71364 14.5L17 2.78421L14.6045 0.5L1.27598e-07 14.5L14.6045 28.5Z"
+        fill={stroke}
+        stroke={stroke}
+        strokeWidth="1"
+      />
+    </svg>
+  )
+}
+const NextIcon = ({ size, className, stroke }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 17 29"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.39545 0.5L0 2.78421L12.2864 14.5L0 26.2158L2.39545 28.5L17 14.5L2.39545 0.5Z"
+        fill={stroke}
+        stroke={stroke}
+        strokeWidth="1"
+      />
+    </svg>
+  )
+}
+const FavoriteIcon = ({ size, className, stroke }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 25 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M23.9193 4.71339C23.547 3.79104 23.01 2.95521 22.3386 2.25269C21.6667 1.54808 20.8745 0.988137 20.005 0.603309C19.1035 0.202681 18.1365 -0.0023828 17.1602 2.08888e-05C15.7906 2.08888e-05 14.4544 0.401222 13.2931 1.15905C13.0153 1.34033 12.7514 1.53945 12.5014 1.75639C12.2513 1.53945 11.9874 1.34033 11.7096 1.15905C10.5484 0.401222 9.21211 2.08888e-05 7.84251 2.08888e-05C6.85628 2.08888e-05 5.90062 0.202108 4.99774 0.603309C4.12542 0.989651 3.33921 1.54539 2.66414 2.25269C1.99183 2.95441 1.45477 3.79044 1.0834 4.71339C0.697245 5.6733 0.5 6.69265 0.5 7.74172C0.5 8.73135 0.688911 9.76259 1.06395 10.8117C1.37788 11.6884 1.82793 12.5977 2.403 13.516C3.31421 14.9693 4.56713 16.4849 6.12287 18.0214C8.70094 20.5683 11.254 22.3276 11.3624 22.3989L12.0208 22.8507C12.3125 23.0498 12.6875 23.0498 12.9792 22.8507L13.6376 22.3989C13.746 22.3246 16.2963 20.5683 18.8771 18.0214C20.4328 16.4849 21.6858 14.9693 22.597 13.516C23.172 12.5977 23.6249 11.6884 23.936 10.8117C24.3111 9.76259 24.5 8.73135 24.5 7.74172C24.5028 6.69265 24.3055 5.6733 23.9193 4.71339ZM12.5014 20.4999C12.5014 20.4999 2.61135 13.7211 2.61135 7.74172C2.61135 4.71339 4.95329 2.25864 7.84251 2.25864C9.8733 2.25864 11.6346 3.47115 12.5014 5.24238C13.3681 3.47115 15.1295 2.25864 17.1602 2.25864C20.0495 2.25864 22.3914 4.71339 22.3914 7.74172C22.3914 13.7211 12.5014 20.4999 12.5014 20.4999Z"
+        fill={stroke === 'black' ? 'black' : 'white'}
       />
     </svg>
   )
@@ -123,6 +123,47 @@ const PlayIcon = ({ size, className }) => {
   )
 }
 
+const PauseTabletIcon = ({ size, className, stroke }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 14 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 2V20.6599M11.9852 2V20.6599"
+        stroke={stroke === 'black' ? 'white' : 'black'}
+        strokeWidth="3.5"
+        fill="none"
+      />
+    </svg>
+  )
+}
+
+const PlayTabletIcon = ({ className, size, stroke }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-player-play"
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill={stroke === 'black' ? 'white' : 'black'}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill={stroke}></path>
+      <path d="M7 4v16l13 -8z"></path>
+    </svg>
+  )
+}
+
 const HamburgerIcon = ({ size, className }) => {
   return (
     <svg
@@ -150,7 +191,7 @@ const BlackHamburgerIcon = ({ size }) => {
     </svg>
   )
 }
-const ShareIcon = ({ size, className }) => {
+const ShareIcon = ({ size, className, stroke }) => {
   return (
     <svg
       width={size}
@@ -162,19 +203,19 @@ const ShareIcon = ({ size, className }) => {
     >
       <path
         d="M1 10V18C1 18.5304 1.23047 19.0391 1.6407 19.4142C2.05094 19.7893 2.60734 20 3.1875 20H16.3125C16.8927 20 17.4491 19.7893 17.8593 19.4142C18.2695 19.0391 18.5 18.5304 18.5 18V10"
-        stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        stroke={stroke}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M13.6389 5.089L9.75889 1L5.87891 5.089"
-        stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        stroke={stroke}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d="M9.75977 1V14.2892" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9.75977 1V14.2892" stroke={stroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -513,7 +554,7 @@ const EditIcon = ({ size, className }) => {
   )
 }
 
-const OnAirIcon = ({ size, className,height }) => {
+const OnAirIcon = ({ size, className, height }) => {
   return (
     <svg
       width={size}
@@ -583,7 +624,7 @@ const moreArrow = ({ size, className }) => {
   )
 }
 
-const Icon = ({ name, size, className, onClick, height }) => {
+const Icon = ({ name, size, className, onClick, height, stroke }) => {
   const icons = {
     home: HomeIcon,
     search: SearchIcon,
@@ -591,8 +632,10 @@ const Icon = ({ name, size, className, onClick, height }) => {
     prev: PrevIcon,
     next: NextIcon,
     favorite: FavoriteIcon,
-    pause: PauseIcon,
     play: PlayIcon,
+    pause: PauseIcon,
+    pauseTablet: PauseTabletIcon,
+    playTablet: PlayTabletIcon,
     hamburger: HamburgerIcon,
     share: ShareIcon,
     time: TimeIcon,
@@ -614,11 +657,11 @@ const Icon = ({ name, size, className, onClick, height }) => {
     edit: EditIcon,
     onair: OnAirIcon,
     cardplay: PlayCard,
-    morearrow: moreArrow
+    morearrow: moreArrow,
   }
 
   const Component = icons[name]
-  return <Component size={size} height={height} className={className} onClick={onClick} />
+  return <Component size={size} height={height} className={className} stroke={stroke} onClick={onClick} />
 }
 
 export default Icon

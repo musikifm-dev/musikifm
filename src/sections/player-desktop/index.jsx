@@ -6,7 +6,7 @@ import { setCurrent, setPlayerType, setState, updateTime } from 'store/slices/pl
 import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/ui/switch'
 import Icon from '../../assets/svg'
-import styles from './style.module.scss'
+import styles from './index.module.scss'
 import { useGetPlayerDataQuery } from 'store/api/player'
 import { useState } from 'react'
 import { APP } from 'utils/constants'
@@ -14,7 +14,7 @@ import { useGetPodcastReverseDataQuery } from 'store/api/admin-base'
 import clsx from 'clsx'
 import { setNextPodcast } from 'store/slices/podcast'
 
-const Player = () => {
+export default function Player() {
   const { data, isSuccess } = useGetPlayerDataQuery()
   const { data: reverseData } = useGetPodcastReverseDataQuery()
   // eslint-disable-next-line
@@ -203,5 +203,3 @@ Player.propTypes = {
   style: PropTypes.any,
   ref: PropTypes.any,
 }
-
-export default Player
