@@ -26,7 +26,7 @@ function PodcastDetail() {
               <img src={imgPodcast} alt="podcastIMG" className="w-100" />
             </div>
             <div className="col-md-6 d-flex flex-column justify-content-between ">
-              <div className="mt-4">
+              <div >
                 <div>
                   <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
                 </div>
@@ -52,7 +52,7 @@ function PodcastDetail() {
                 <div className={styles.podcastSection__text}>23</div>
               </div>
               <div className="d-flex align-items-center">
-                <Icon name="share" size={17} />
+                <Icon name="share" size={17} stroke="#000" />
                 <div className={styles.podcastSection__text}>Share</div>
               </div>
             </div>

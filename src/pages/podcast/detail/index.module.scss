@@ -6,11 +6,11 @@
     padding: 1rem;
 
     &__title {
-      font-size: var(--fs-28);
+      font-size: var(--fs-22);
       font-weight: var(--fw-6);
     }
     &__artist {
-      font-size: var(--fs-22);
+      font-size: var(--fs-18);
       font-weight: var(--fw-5);
     }
     &__text {
@@ -94,11 +94,11 @@
   .wrapper {
     .podcastSection {
       &__title {
-        font-size: var(--fs-25);
+        font-size: var(--fs-18);
         font-weight: var(--fw-6);
       }
       &__artist {
-        font-size: var(--fs-22);
+        font-size: var(--fs-16);
         font-weight: var(--fw-5);
       }
       &__text {

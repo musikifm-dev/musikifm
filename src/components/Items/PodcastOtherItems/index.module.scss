@@ -1,6 +1,7 @@
 .podcastOtherBox{
     display: flex;
     margin-bottom: 1.6rem;
+    padding: 0rem 1rem;
     &__image{
         width: 30%;
         position: relative;
@@ -16,12 +17,19 @@
         width: 50px;
         height: 50px;
         border-radius: 3rem;
+        border: unset;
     }
     &__content{
         width: 70%;
         background: #eeee;
+        padding: 1.5rem;
         &_title{
-
+            h4{
+                display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;  
+	overflow:hidden;
+            }
         }
     }
     &__info{
@@ -29,5 +37,28 @@
     }
     &__player{
 
+    }
+}
+
+@media (max-width: 1336px) {
+    .podcastOtherBox{
+        &__btn{ 
+            top: 25%;
+            left: 25%;
+            width: 35px;
+            height: 35px;
+            border-radius: 3rem;
+            
+        }
+    }
+}
+
+
+@media (min-width: 1920px) {
+    .podcastOtherBox{
+        &__btn{ 
+            top: 30%;
+            left: 30%;
+        }
     }
 }

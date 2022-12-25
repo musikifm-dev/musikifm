@@ -40,12 +40,11 @@ function PodcastOtherItem({ data }) {
         <div className={styles.podcastOtherBox__content_title}>
           <h4>{data.title}</h4>
         </div>
-        <div className={styles.podcastOtherBox__player}>
-          <div className="timeBox">
-            {/* <Icon name="time" size="14" />
-                            <span>2:36</span> */}
-          </div>
-          
+        <div className={styles.podcastOtherBox__tool}>
+         
+          {/* <div className={styles.podcastOtherBox__tool_favorite}>
+           <Icon name="podcastfavorite" size="17"></Icon>
+          </div> */}
         </div>
       </div>
     </div>

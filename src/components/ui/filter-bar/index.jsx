@@ -69,9 +69,9 @@ export default function FilterBar(props) {
   return (
     <div className={clsx(styles.backBanner, isMobile && scrollPosition >= 520 && styles.onMobilePlayer)}>
       {!isMobile && (
-        <Link to={navigate} className="d-flex align-items-center text-white text-decoration-none">
-          <Icon name="prev" size={22} />
-          <div className={styles.backBanner__icon}>Back</div>
+        <Link to={navigate} className={styles.backBanner__link}>
+          <Icon name="prev" size="16" stroke="#fff" className={styles.backBanner__link_arrow} />
+          <div className={styles.backBanner__link_icon}>Back</div>
         </Link>
       )}
       <Swiper
