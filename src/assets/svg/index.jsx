@@ -513,11 +513,11 @@ const EditIcon = ({ size, className }) => {
   )
 }
 
-const OnAirIcon = ({ size, className }) => {
+const OnAirIcon = ({ size, className,height }) => {
   return (
     <svg
       width={size}
-      height={size}
+      height={height}
       viewBox="0 0 111 49"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -583,7 +583,7 @@ const moreArrow = ({ size, className }) => {
   )
 }
 
-const Icon = ({ name, size, className, onClick }) => {
+const Icon = ({ name, size, className, onClick, height }) => {
   const icons = {
     home: HomeIcon,
     search: SearchIcon,
@@ -618,7 +618,7 @@ const Icon = ({ name, size, className, onClick }) => {
   }
 
   const Component = icons[name]
-  return <Component size={size} className={className} onClick={onClick} />
+  return <Component size={size} height={height} className={className} onClick={onClick} />
 }
 
 export default Icon

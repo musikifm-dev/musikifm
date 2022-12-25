@@ -1,46 +1,122 @@
 .card {
-  min-height: 33.47rem;
+  height: 25rem;
   background: #ffffff;
-
+  overflow: hidden;
   &__title {
-    font-size: var(--fs-44) !important;
+    font-size: var(--fs-33) !important;
     font-weight: var(--fw-7) !important;
     color: black;
     padding: 1rem;
-    line-height: 5.15rem !important;
+    line-height: 3.6rem !important;
     height: 100%;
     top: -35px;
     position: relative;
   }
+
+  &__description{
+    padding: 0 13px;
+    font-size: 15px;
+    position: relative;
+    top: -35px;
+  }
+
+ .herobox{
+  display: flex;
+
+  &__image{
+    width: 50%;
+    height: 25rem;
+  }
+  &__body{
+    width: 50%;
+    &_onair{
+      margin-left: 0.9rem;
+    margin-top: 1.8rem;
+    margin-bottom: 2.8rem;
+    }
+
+    .card-text{
+      padding: 0 13px;
+    font-size: 15px;
+    position: relative;
+    top: -35px;
+    }
+  }
+ }
   
 }
 .card-text{
   font-size: 15px;
 }
-.onair{
-  min-height: 5rem;
-}
 
-.image {
-  height: 33.47rem;
-  object-fit: cover;
+
+@media (min-width: 1920px) {
+  .card {
+    height: 37rem;
+
+
+    &__title {
+      font-size: var(--fs-48) !important;
+      font-weight: var(--fw-7) !important;
+      color: black;
+      padding: 1rem;
+      line-height: 5.4rem !important;
+      height: 100%;
+      top: -35px;
+      position: relative;
+    }
+    &__description{
+      font-size: 24px;
+    }
+  }
+
+  .herobox{
+    &__image{
+      height: 37rem;
+
+      img{
+        height: 37rem;
+      }
+    }
+
+    &__body{
+      
+      &_onair{
+        margin-left: 0.9rem;
+      margin-top: 1.8rem;
+      margin-bottom: 2.8rem;
+      }
+  }
+}
 }
 
 @media (max-width: 1300px) {
   .card {
-    min-height: 30rem;
+    
 
     &__title {
-      font-size: var(--fs-32) !important;
+      font-size: var(--fs-33) !important;
       font-weight: var(--fw-7) !important;
-      line-height: 4.6rem !important;
+      line-height: 3.6rem !important;
       height: 100%;
     }
   }
-  .image {
-    height: 30rem;
-  }
 }
+
+@media (max-width: 1920px) {
+
+  .herobox{
+    &__image{
+      height: 37rem;
+
+      img{
+        height: 37rem;
+      }
+    }
+  }
+ 
+}
+
 
 @media (max-width: 960px) {
   .card {
