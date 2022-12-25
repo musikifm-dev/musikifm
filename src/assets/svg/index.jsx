@@ -49,7 +49,7 @@ const PrevIcon = ({ size, className, stroke }) => {
         d="M14.6045 28.5L17 26.2158L4.71364 14.5L17 2.78421L14.6045 0.5L1.27598e-07 14.5L14.6045 28.5Z"
         fill={stroke}
         stroke={stroke}
-        strokeWidth="1"
+        strokeWidth="0.5"
       />
     </svg>
   )
@@ -68,7 +68,7 @@ const NextIcon = ({ size, className, stroke }) => {
         d="M2.39545 0.5L0 2.78421L12.2864 14.5L0 26.2158L2.39545 28.5L17 14.5L2.39545 0.5Z"
         fill={stroke}
         stroke={stroke}
-        strokeWidth="1"
+        strokeWidth="0.5"
       />
     </svg>
   )
@@ -200,6 +200,7 @@ const ShareIcon = ({ size, className, stroke }) => {
       viewBox="0 0 20 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      strokeWidth="0.5"
     >
       <path
         d="M1 10V18C1 18.5304 1.23047 19.0391 1.6407 19.4142C2.05094 19.7893 2.60734 20 3.1875 20H16.3125C16.8927 20 17.4491 19.7893 17.8593 19.4142C18.2695 19.0391 18.5 18.5304 18.5 18V10"
@@ -589,7 +590,7 @@ const PlayCard = ({ size, className }) => {
       height={size}
       className={className}
       viewBox="0 0 40 40"
-      fill="none" 
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

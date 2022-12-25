@@ -38,12 +38,17 @@ export default function TabletPlayer() {
         <section className={styles.image}>
           <img src={current.image} alt="" className={styles.image__item} />
         </section>
-        <section className="d-flex flex-column align-items-center">
-          <Stack direction='horizontal' gap={3}>
-            <button className={styles.btn}>
-              <Icon name="favorite" className={clsx(styles.btn__favorite)} size="18" />
+        <section className="d-flex flex-column justify-content-center align-items-center">
+          <Stack direction="horizontal" gap={3}>
+            <button className={clsx(styles.btn, styles.otherBtn)}>
+              <Icon
+                name="favorite"
+                className={clsx(styles.btn__favorite)}
+                size="18"
+                stroke={userData ? 'white' : 'black'}
+              />
             </button>
-            <button className={styles.btn}>
+            <button className={clsx(styles.btn, styles.otherBtn)}>
               <Icon name="prev" className={clsx(styles.btn__prev)} stroke={userData ? 'white' : 'black'} size="18" />
             </button>
             <button className={clsx(styles.playerBtn, styles.btn)} onClick={clickHandler}>
@@ -54,14 +59,14 @@ export default function TabletPlayer() {
                 size="16"
               />
             </button>
-            <button className={styles.btn}>
+            <button className={clsx(styles.otherBtn, styles.btn)}>
               <Icon name="next" className={clsx(styles.btn__next)} stroke={userData ? 'white' : 'black'} size="18" />
             </button>
-            <button className={styles.btn}>
+            <button className={clsx(styles.btn, styles.otherBtn)}>
               <Icon name="share" className={styles.btn__share} stroke={userData ? 'white' : 'black'} size="18" />
             </button>
           </Stack>
-          <Stack direction="horizontal" gap={2} className="d-flex justify-content-center">
+          <Stack direction="horizontal" gap={2} className="d-flex justify-content-center mt-3">
             <div>{current.artist}</div>
             <div>-</div>
             <div className={styles.song}>{current.song}</div>

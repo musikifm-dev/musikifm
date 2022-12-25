@@ -73,6 +73,10 @@
       position: absolute;
       bottom: 5%;
 
+      &__btn {
+        margin-left: 0.5rem;
+      }
+
       button {
         background: unset;
         border: unset;
@@ -80,6 +84,7 @@
         margin: 0;
         color: #fff;
       }
+
 
       &__icon {
         background: #fff !important;

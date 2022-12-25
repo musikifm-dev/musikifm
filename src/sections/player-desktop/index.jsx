@@ -13,6 +13,7 @@ import { APP } from 'utils/constants'
 import { useGetPodcastReverseDataQuery } from 'store/api/admin-base'
 import clsx from 'clsx'
 import { setNextPodcast } from 'store/slices/podcast'
+import { Stack } from 'react-bootstrap'
 
 export default function Player() {
   const { data, isSuccess } = useGetPlayerDataQuery()
@@ -116,21 +117,23 @@ export default function Player() {
 
         <div className={styles.controlWrapper}>
           <div className={styles.control}>
-            <button>
-              <Icon name="favorite" size="24" />
-            </button>
-            <button onClick={() => controls.seek(state.time - 10)}>
-              <Icon name="prev" size="24" />
-            </button>
-            <button className={styles.control__icon} onClick={clickHandler}>
-              <Icon name={playing ? 'pause' : 'play'} size="16" fill="#000" />
-            </button>
-            <button onClick={() => controls.seek(state.time + 10)}>
-              <Icon name="next" size="24" />
-            </button>
-            <button>
-              <Icon name="share" size="24" />
-            </button>
+            <Stack direction="horizontal" gap={2}>
+              <button>
+                <Icon name="favorite" size="24" stroke={'white'} />
+              </button>
+              <button onClick={() => controls.seek(state.time - 10)}>
+                <Icon name="prev" size="24" stroke={'white'} />
+              </button>
+              <button className={styles.control__icon} onClick={clickHandler}>
+                <Icon name={playing ? 'pause' : 'play'} size="16" fill="#000" />
+              </button>
+              <button onClick={() => controls.seek(state.time + 10)}>
+                <Icon name="next" size="24" stroke={'white'} />
+              </button>
+              <button>
+                <Icon name="share" size="24" stroke={'white'} />
+              </button>
+            </Stack>
           </div>
         </div>
 
