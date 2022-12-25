@@ -1,7 +1,7 @@
 .card {
-  max-height: 40rem;
+  max-height: 38.2rem;
   .image {
-    max-height: 26rem;
+    max-height: 22.9rem;
   }
 }
 
@@ -9,7 +9,7 @@
   padding-left: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  line-height: 45px !important;
+  line-height: 25px !important;
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: black;
@@ -17,10 +17,16 @@
   font-weight: var(--fw-6) !important;
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 15.2rem;
+}
+
 .footerSection {
   display: flex;
   align-items: center;
-  padding: 2.5rem 1rem;
 
   &__genre {
     background-color: #eeeeee !important;
@@ -30,6 +36,7 @@
     padding: 0.5 1rem !important;
     border: none !important;
     border-radius: 2rem !important;
+    width: max-content !important;
     &:hover {
       background-color: #cccccca4 !important;
     }
@@ -43,21 +50,26 @@
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1920px) {
   .card {
-    max-height: 39rem;
-   
+    max-height: 33.4rem;
     .image {
-      max-height: 20rem;
+      max-height: 15.2rem;
     }
   }
 
-  .card-body{
-    min-height: 13rem;
-  height: 13rem;
+  .title {
+    font-size: var(--fs-15) !important;
+    font-weight: var(--fw-6) !important;
+  }
+
+  .body {
+    height: 13.5rem;
   }
 
   .footerSection {
+    padding: 1rem;
+
     &__genre {
       font-size: var(--fs-12);
       font-weight: var(--fw-4);
@@ -74,10 +86,56 @@
 }
 
 @media (max-width: 1440px) {
+  .card {
+    max-height: 26.4rem;
+    .image {
+      max-height: 15.2rem;
+    }
+  }
 
+  .title {
+    font-size: var(--fs-15) !important;
+    font-weight: var(--fw-6) !important;
+    line-height: 20px !important;
+  }
+
+  .body {
+    height: 12.1rem;
+  }
+
+  .footerSection {
+    &__genre {
+      font-size: var(--fs-12) !important;
+      font-weight: var(--fw-4) !important;
+      line-height: 1.8rem !important;
+    }
+
+    &__more {
+      margin-left: 1.2rem;
+      font-size: var(--fs-11) !important;
+      font-weight: var(--fw-5) !important;
+      line-height: 1.8rem;
+    }
+  }
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1280px) {
+  .title {
+    font-size: var(--fs-13) !important;
+    font-weight: var(--fw-6) !important;
+  }
 
+  .footerSection {
+    &__genre {
+      width: 10.4rem !important;
+      font-size: var(--fs-11) !important;
+      font-weight: var(--fw-4) !important;
+    }
+    &__more {
+      margin-left: 1.2rem;
+      font-size: var(--fs-11);
+      font-weight: var(--fw-5);
+      line-height: 1.8rem;
+    }
+  }
 }
-
