@@ -123,7 +123,7 @@ const Player = () => {
               <Icon name="prev" size="24" />
             </button>
             <button className={styles.control__icon} onClick={clickHandler}>
-              <Icon name={playing ? 'pause' : 'play'} size="16" />
+              <Icon name={playing ? 'pause' : 'play'} size="16" fill="#000" />
             </button>
             <button onClick={() => controls.seek(state.time + 10)}>
               <Icon name="next" size="24" />

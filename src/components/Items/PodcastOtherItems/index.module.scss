@@ -1,0 +1,32 @@
+.podcastOtherBox{
+    display: flex;
+    margin-bottom: 1.6rem;
+    &__image{
+        width: 30%;
+        position: relative;
+        img{
+            width: 100%;
+        }
+    }
+    &__btn{
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        background: #000;
+        width: 50px;
+        height: 50px;
+    }
+    &__content{
+        width: 70%;
+        background: #eeee;
+        &_title{
+
+        }
+    }
+    &__info{
+
+    }
+    &__player{
+
+    }
+}

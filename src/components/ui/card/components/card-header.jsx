@@ -23,7 +23,7 @@ export default function CardHeader(props) {
       <Link to={to && to} className={clsx(styles.header__link)} onClick={onClick && onClick}>
         {isPlayIcon && (
           <div className={styles.icon}>
-            <Icon name="play" size={22} className={styles.icon__item} />
+            <Icon name="play" size={22} className={styles.icon__item} fill="#fff" />
           </div>
         )}
         <RBCard.Img variant="top" src={APP.adminBase + image} className={clsx(imageStyle, styles.header__img)} />

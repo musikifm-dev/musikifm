@@ -91,33 +91,33 @@ const FavoriteIcon = ({ size, className }) => {
   )
 }
 
-const PauseIcon = ({ size, className }) => {
+const PauseIcon = ({ size, className, fill }) => {
   return (
     <svg
       width={size}
       height={size}
       className={className}
       viewBox="0 0 14 23"
-      fill="none"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M2 2V20.6599M11.9852 2V20.6599" stroke="black" stroke-width="3.99929" stroke-linecap="round" />
+      <path d="M2 2V20.6599M11.9852 2V20.6599" stroke={fill} stroke-width="3.99929" stroke-linecap="round" />
     </svg>
   )
 }
-const PlayIcon = ({ size, className }) => {
+const PlayIcon = ({ size, className, fill }) => {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 15 24"
-      fill="none"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
       <path
         d="M1.11973 1.01792C1.37867 0.884587 1.66937 0.825269 1.95985 0.846496C2.25032 0.867723 2.52931 0.968672 2.76611 1.13824L13.8475 9.0535C14.0527 9.19994 14.22 9.39327 14.3354 9.61741C14.4508 9.84154 14.511 10.09 14.511 10.3421C14.511 10.5942 14.4508 10.8427 14.3354 11.0668C14.22 11.2909 14.0527 11.4843 13.8475 11.6307L2.76611 19.546C2.52939 19.7154 2.25054 19.8163 1.96021 19.8375C1.66989 19.8587 1.37933 19.7995 1.12048 19.6663C0.861639 19.5331 0.644529 19.3311 0.493023 19.0826C0.341518 18.834 0.261483 18.5485 0.26172 18.2574V2.42684C0.261415 2.13582 0.341338 1.85035 0.492706 1.60179C0.644075 1.35323 0.861031 1.15121 1.11973 1.01792Z"
-        fill="currentColor"
+        fill={fill}
       />
     </svg>
   )
@@ -583,7 +583,7 @@ const moreArrow = ({ size, className }) => {
   )
 }
 
-const Icon = ({ name, size, className, onClick, height }) => {
+const Icon = ({ name, size, className, onClick, height, fill }) => {
   const icons = {
     home: HomeIcon,
     search: SearchIcon,
@@ -618,7 +618,7 @@ const Icon = ({ name, size, className, onClick, height }) => {
   }
 
   const Component = icons[name]
-  return <Component size={size} height={height} className={className} onClick={onClick} />
+  return <Component size={size} height={height} className={className} onClick={onClick} fill={fill} />
 }
 
 export default Icon

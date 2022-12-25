@@ -1,12 +1,12 @@
 import Icon from 'assets/svg'
 import clsx from 'clsx'
-import OtherPost from 'components/Detail/OtherPost'
 import { Button, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useGetPodcastDetailQuery } from 'store/api/admin-base'
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
 import Comment from 'components/Comments/Comments'
+import OtherPodcast from 'components/Detail/OtherPodcast'
 
 function PodcastDetail() {
   const { id } = useParams()
@@ -67,8 +67,8 @@ function PodcastDetail() {
           </section>
           <Comment podcastId={id} />
         </div>
-        <div className="col-md-3">
-          <OtherPost id={id} />
+        <div className="col-md-3 bg-white">
+          <OtherPodcast id={id} />
         </div>
       </div>
     </div>
