@@ -28,18 +28,11 @@ const HeroSlider = () => {
                 </div>
                 <div className={styles.herobox__body}>
                   <CardBody>
-                   
-                      <div className={styles.herobox__body_onair}>
-                      {item.onair === true && (
-                        <Icon name="onair" height="35" size="79" />
-                        )}
-                      </div>
-                    
-
-                    
-                      <RBCard.Title className={styles.card__title}>{item.slidertitle}</RBCard.Title>
-                     <RBCard.Text className={styles.card__description}>{item.sliderdescription}</RBCard.Text> 
-                    
+                    <div className={styles.herobox__body_onair}>
+                      {item.onair === true && <Icon name="onair" height="35" size="79" />}
+                    </div>
+                    <RBCard.Title className={styles.card__title}>{item.slidertitle}</RBCard.Title>
+                    <RBCard.Text className={styles.card__description}>{item.sliderdescription}</RBCard.Text>
                   </CardBody>
                 </div>
               </div>

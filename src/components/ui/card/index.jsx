@@ -6,7 +6,7 @@ import CardBody from './components/card-body'
 import CardHeader from './components/card-header'
 
 import styles from './index.module.scss'
-
+ 
 export default function Card(props) {
   const { className, children, loading } = props
 

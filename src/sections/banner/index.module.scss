@@ -1,0 +1,15 @@
+.banner {
+  max-height: 30rem;
+}
+
+@media (max-width: 1400px) {
+  .banner {
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .banner {
+    max-height: 35rem;
+  }
+}

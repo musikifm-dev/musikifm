@@ -9,7 +9,7 @@ const OtherPodcast = (id) => {
     <div className="podcastOther mt-5">
       <div className="titleDiv">
         <h4>BUNLARI DA BEĞENEBİLİRSİN</h4>
-      </div>
+      </div> 
       {isSuccess &&
         data
           .filter((f) => f.id !== Number(id))
@@ -19,7 +19,7 @@ const OtherPodcast = (id) => {
                 <PodcastOtherItem id={id} data={item}></PodcastOtherItem>
               </div>
             )
-          })}
+          })} 
     </div>
   )
 }

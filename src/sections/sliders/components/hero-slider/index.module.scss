@@ -13,47 +13,44 @@
     position: relative;
   }
 
-  &__description{
+  &__description {
     padding: 0 13px;
     font-size: 15px;
     position: relative;
     top: -35px;
   }
 
- .herobox{
-  display: flex;
+  .herobox {
+    display: flex;
 
-  &__image{
-    width: 50%;
-    height: 25rem;
-  }
-  &__body{
-    width: 50%;
-    &_onair{
-      margin-left: 0.9rem;
-    margin-top: 1.8rem;
-    margin-bottom: 2.8rem;
+    &__image {
+      width: 50%;
+      height: 25rem;
     }
+    &__body {
+      width: 50%;
+      &_onair {
+        margin-left: 0.9rem;
+        margin-top: 1.8rem;
+        margin-bottom: 2.8rem;
+      }
 
-    .card-text{
-      padding: 0 13px;
-    font-size: 15px;
-    position: relative;
-    top: -35px;
+      .card-text {
+        padding: 0 13px;
+        font-size: 15px;
+        position: relative;
+        top: -35px;
+      }
     }
   }
- }
-  
 }
-.card-text{
+.card-text {
   font-size: 15px;
 }
-
 
 @media (min-width: 1920px) {
   .card {
     height: 37rem;
-
 
     &__title {
       font-size: var(--fs-48) !important;
@@ -65,35 +62,44 @@
       top: -35px;
       position: relative;
     }
-    &__description{
+    &__description {
       font-size: 24px;
     }
   }
 
-  .herobox{
-    &__image{
+  .herobox {
+    &__image {
       height: 37rem;
 
-      img{
+      img {
         height: 37rem;
       }
     }
 
-    &__body{
-      
-      &_onair{
+    &__body {
+      &_onair {
         margin-left: 0.9rem;
-      margin-top: 1.8rem;
-      margin-bottom: 2.8rem;
+        margin-top: 1.8rem;
+        margin-bottom: 2.8rem;
       }
+    }
   }
 }
+
+@media (max-width: 1920px) {
+  .herobox {
+    &__image {
+      height: 37rem;
+
+      img {
+        height: 37rem;
+      }
+    }
+  }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1280px) {
   .card {
-    
-
     &__title {
       font-size: var(--fs-33) !important;
       font-weight: var(--fw-7) !important;
@@ -103,24 +109,10 @@
   }
 }
 
-@media (max-width: 1920px) {
-
-  .herobox{
-    &__image{
-      height: 37rem;
-
-      img{
-        height: 37rem;
-      }
-    }
-  }
- 
-}
-
-
 @media (max-width: 960px) {
   .card {
     min-height: 20rem;
+
     &__title {
       padding: 2rem;
       font-size: var(--fs-25) !important;
@@ -128,7 +120,7 @@
       line-height: 3.8rem !important;
     }
     .image {
-      height: 20rem;
+      height: 100%;
     }
   }
 }

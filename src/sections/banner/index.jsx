@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import playImage from '../../assets/img/banner.png'
-import styles from './style.module.scss'
+import styles from './index.module.scss'
 
 export default function Banner() {
   return (

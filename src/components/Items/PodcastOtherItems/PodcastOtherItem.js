@@ -23,9 +23,9 @@ function PodcastOtherItem({ data }) {
         id: val.id,
       }),
     )
-    dispatch(setState({ playing: !playing }))
+    dispatch(setState({ playing: !playing })) 
   }
-
+ 
   return (
     <div className={styles.podcastOtherBox}>
       <Link to={`/podcast/${data.id}`} className={styles.podcastOtherBox__image}>

@@ -16,9 +16,10 @@ import { useDispatch } from 'react-redux'
 
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 import { authApi, useGetMyDataQuery } from 'store/api/auth'
-import MobilePlayer from 'sections/mobile-player'
+import MobilePlayer from 'sections/player-mobile'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
+import TabletPlayer from 'sections/player-tablet/tablet'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -26,7 +27,7 @@ const Navbar = () => {
   const [navbar, setNavbar] = useState(false)
   const { data: userData } = useGetMyDataQuery()
   const dispatch = useDispatch()
-  const { isMobile } = useWindowSize()
+  const { isMobile, isTablet } = useWindowSize()
   const scrollPosition = useScrollPosition()
   const { pathname } = useLocation()
 
@@ -256,6 +257,7 @@ const Navbar = () => {
                 )}
               </Stack>
             </div>
+            {isTablet && !isMobile && <TabletPlayer />}
           </Container>
         </ReactBootstrapNavbar>
       ))}

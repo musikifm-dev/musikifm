@@ -8,7 +8,7 @@ import { Card } from 'components/ui'
 import CardHeader from 'components/ui/card/components/card-header'
 import CardBody from 'components/ui/card/components/card-body'
 import PropTypes from 'prop-types'
-
+ 
 export default function VideoSlider(props) {
   const { title, data, loader } = props
 
