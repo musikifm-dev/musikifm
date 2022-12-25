@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import LoginRedirect from './utils/auth/LoginRedirect'
 import BlogDetail from './pages/blog/detail'
-import VideoDetail from './components/Detail/VideoDetail'
+import VideoDetail from './pages/video/detail'
 import PodcastDetail from './pages/podcast/detail'
 import { route } from './utils/constants/index'
 import { Home, Podcast, Register, Video, Blog, Songs, EmailVerification, Login, MoodFilter } from './pages'
