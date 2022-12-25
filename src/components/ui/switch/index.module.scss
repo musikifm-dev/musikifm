@@ -17,7 +17,7 @@
     &:focus {
       outline: none;
       > span {
-        box-shadow: 0 0 0.2rem 0.5rem red;
+        box-shadow: 0 0 0.2rem 0.5rem black;
       }
     }
     > span:focus {
@@ -37,7 +37,7 @@
       height: 3.3rem;
       padding: 0;
       line-height: 3.3rem;
-      font-size: var(--fs-12);
+      font-size: var(--fs-15);
       color: white;
       font-weight: bold;
       box-sizing: border-box;
@@ -45,7 +45,7 @@
     }
     &:before {
       content: attr(data-true);
-      padding-left: 0.7rem;
+      padding-left: 1.7rem;
       background-color: #2f855a;
       color: #fff;
     }
@@ -61,7 +61,7 @@
   &__inner:after {
     content: attr(data-false);
     padding-right: 1.5rem; // 1.8 old value
-    background-color: #bbb;
+    background-color: #f5982a;
     color: #fff;
     text-align: right;
   }
@@ -73,11 +73,11 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 4rem;
+    right: 4.2rem;
     border: 0 solid #bbb;
     border-radius: 2rem;
     transition: all 0.2s ease-in 0s;
-    margin-right: 2rem;
+    margin-right: 2.8rem;
   }
 
   &__checkbox:checked + &__label {
@@ -85,11 +85,11 @@
       margin-left: 0;
     }
     .toggleSwitch__switch {
-      right: -1.5rem;
+      right: -2.2rem;
     }
   }
   &.smallSwitch {
-    width: 70px;
+    width: 7rem;
 
     .toggleSwitch__inner:after {
       padding-right: 1.5rem;
@@ -98,7 +98,6 @@
     .toggleSwitch__inner {
       &:after,
       &:before {
-        // content: '';
         height: 2rem;
         line-height: 2rem;
         font-size: var(--fs-10);
@@ -123,7 +122,7 @@
 
 @media screen and (max-width: 1400px) {
   .toggleSwitch {
-    width: 9rem;
+    width: 7.2rem;
 
     &__label {
       border-radius: 2rem;
@@ -200,7 +199,7 @@
 
 @media screen and (max-width: 768px) {
   .toggleSwitch {
-    width: 7.3rem;
+    width: 7.4rem;
 
     &__label {
       border-radius: 2rem;
@@ -238,6 +237,57 @@
       }
       .toggleSwitch__switch {
         right: -0.9rem; //
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 562px) {
+  .toggleSwitch {
+    width: 4.8rem;
+
+    &__label {
+      border-radius: 2rem;
+      margin: 0;
+    }
+    &__inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.2s ease-in 0s;
+      &:before,
+      &:after {
+        width: 50%;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        font-size: var(--fs-11);
+        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+      }
+      &:before {
+        content: '';
+        padding-left: 0.5rem;
+      }
+      &__inner:after {
+        content: '';
+      }
+    }
+
+    &__inner:after {
+      padding-right: 1rem;
+      content: '';
+    }
+    &__switch {
+      width: 1.6rem;
+      height: 1.6rem;
+      right: 1.2rem; //
+      margin-right: 1.3rem; // radio switch oynat
+    }
+    &__checkbox:checked + &__label {
+      .toggleSwitch__inner {
+        margin-left: 0;
+      }
+      .toggleSwitch__switch {
+        right: -0.8rem; //
       }
     }
   }
