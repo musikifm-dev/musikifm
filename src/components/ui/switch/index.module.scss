@@ -264,22 +264,17 @@
         padding: 0 2.3rem 0 0; // podcast sagdan genislet
       }
       &:before {
-        content: '';
-        padding-left: 0.5rem;
-      }
-      &__inner:after {
-        content: '';
+        padding-left: 0.3rem; //
       }
     }
 
     &__inner:after {
       padding-right: 1rem;
-      content: '';
     }
     &__switch {
       width: 1.6rem;
       height: 1.6rem;
-      right: 1.2rem; //
+      right: 3.9rem; //
       margin-right: 1.3rem; // radio switch oynat
     }
     &__checkbox:checked + &__label {
@@ -288,6 +283,75 @@
       }
       .toggleSwitch__switch {
         right: -0.8rem; //
+      }
+    }
+    &.smallSwitch {
+      width: 6.5rem;
+
+      .toggleSwitch__inner:after {
+        padding-right: 1.6rem; //
+      }
+
+      .toggleSwitch__inner {
+        &:before {
+          content: '';
+          padding-left: 0.5rem;
+        }
+        &__inner:after {
+          content: '';
+        }
+        &:after,
+        &:before {
+          height: 2rem; //
+          line-height: 2rem; //
+          font-size: var(--fs-10);
+        }
+      }
+      .toggleSwitch__switch {
+        width: 1.4rem;
+        height: 1.4rem;
+        right: 4.5rem;
+        margin: 0.3rem;
+      }
+
+      .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+        .toggleSwitch__inner {
+          margin-left: 0;
+          &.smallSwitch {
+            width: 6.5rem;
+
+            .toggleSwitch__inner:after {
+              padding-right: 1.6rem; //
+            }
+
+            .toggleSwitch__inner {
+              &:after,
+              &:before {
+                height: 2rem; //
+                line-height: 2rem; //
+                font-size: var(--fs-10);
+              }
+            }
+            .toggleSwitch__switch {
+              width: 1.4rem;
+              height: 1.4rem;
+              right: 4.5rem;
+              margin: 0.3rem;
+            }
+
+            .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+              .toggleSwitch__inner {
+                margin-left: 0;
+              }
+              .toggleSwitch__switch {
+                right: -0.1rem;
+              }
+            }
+          }
+        }
+        .toggleSwitch__switch {
+          right: -0.1rem;
+        }
       }
     }
   }

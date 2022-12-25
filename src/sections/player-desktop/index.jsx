@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useAudio } from 'react-use'
 import PropTypes from 'prop-types'
 import { setCurrent, setPlayerType, setState, updateTime } from 'store/slices/player'
-import { useWindowSize } from 'utils/hooks/useWindowSize'
+// import { useWindowSize } from 'utils/hooks/useWindowSize'
 import Switch from 'components/ui/switch'
 import Icon from '../../assets/svg'
 import styles from './index.module.scss'
@@ -24,11 +24,11 @@ export default function Player() {
   const { nextPodcastState } = useSelector((state) => state.podcast)
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const [imageFrom, setImageFrom] = useState()
-  const { windowWidth } = useWindowSize()
+  // const { windowWidth } = useWindowSize()
   const dispatch = useDispatch()
 
-  let smallSwitch = windowWidth < 1200
-  let bigSwitch = windowWidth < 768
+  // let smallSwitch = windowWidth < 1200
+  // let bigSwitch = windowWidth < 768
 
   useEffect(() => {
     if (isSuccess && !switchType) dispatch(setCurrent(data))
@@ -96,13 +96,7 @@ export default function Player() {
     <div className={styles.wrapper}>
       <div className={clsx(styles.switch)}>
         <div className={styles.switch__text}>Şuan</div>
-        <Switch
-          id="player-switch"
-          checked={switchType}
-          onChange={switchHandler}
-          small={bigSwitch ? false : smallSwitch ? true : false}
-          className={styles.switch__item}
-        />
+        <Switch id="player-switch" checked={switchType} onChange={switchHandler} className={styles.switch__item} />
         <div className={styles.switch__text}>dinlemektesiniz</div>
       </div>
       <div className={styles.player}>
