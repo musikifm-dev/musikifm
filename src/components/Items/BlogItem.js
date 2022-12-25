@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { APP } from 'utils/constants'
 
-function BlogItem({ data }) {
-  const { id, title, tag, image } = data
+function BlogItem(props) {
+  const { data } = props
+  const { id, title, tag, image, video } = data
 
   return (
     <div className="blogBox" data-id={id}>
-      <Link to={`/blog/${id}`}>
+      <Link to={`/${video !== null ? 'video' : 'blog'}/${id}`}>
         <div className="blogBox__image">
-          <img src={APP.adminBase + image} alt="BlogIMG"/>
+          <img src={APP.adminBase + image} alt="BlogIMG" />
         </div>
         <div className="blogBox__content">
           <div className="blogBox__title">
@@ -18,7 +19,7 @@ function BlogItem({ data }) {
           <div className="blogBox__more">
             <div className="hashtagBox">
               <div className="hashtag">
-                <span>{tag}</span>
+                <span>#{tag}</span>
               </div>
             </div>
             <button className="blogLink" data-src="">
@@ -37,6 +38,7 @@ BlogItem.propTypes = {
     title: PropTypes.string,
     tag: PropTypes.string,
     image: PropTypes.string,
+    video: PropTypes.string,
   }),
 }
 

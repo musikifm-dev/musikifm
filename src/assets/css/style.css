@@ -14939,9 +14939,6 @@ h6,
 .blog .blogBox .blogBox__content {
   padding: 20px;
 }
-.blog .blogBox .blogBox__content .blogBox__title {
-  min-height: 100px;
-}
 .blog .blogBox .blogBox__content .blogBox__title h4, .blog .blogBox .blogBox__content .blogBox__title .h4 {
   font-weight: 700;
   color: #000;
@@ -14953,6 +14950,7 @@ h6,
 }
 .blog .blogBox .blogBox__more .hashtag {
   background: #eeeeee;
+  color: black;
   border-radius: 48.2454px;
   width: 80px;
   height: 30px;

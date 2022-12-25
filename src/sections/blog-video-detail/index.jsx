@@ -23,7 +23,7 @@ export default function Detail(props) {
             {type === 'blog' ? (
               <img src={imgBlog} alt="imgBlogImage" className={styles.detail__img} />
             ) : (
-              <EmbedVideo embedId={data?.data?.attributes?.url} />
+              <EmbedVideo embedId={data?.data?.attributes?.url} className={styles.detail__video} />
             )}
             <p className={styles.detail__content}>{data?.data.attributes.content}</p>
           </div>
