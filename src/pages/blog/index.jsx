@@ -1,16 +1,15 @@
 import { useState, useEffect, useMemo } from 'react'
 import clsx from 'clsx'
-import { Button, Stack } from 'react-bootstrap'
+import { Stack } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { Card, FilterBar, Switch } from 'components/ui'
+import { FilterBar, Switch } from 'components/ui'
 import { deleteBlogFilter, resetBlogFilter, setBlogFilter } from 'store/slices/blog'
-import CardBody from 'components/ui/card/components/card-body'
-import CardHeader from 'components/ui/card/components/card-header'
-import { default as RBCard } from 'react-bootstrap/Card'
+
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import { useGetBlogTagsQuery } from 'store/api/comment'
 import { useGetBlogDataQuery } from 'store/api/admin-base'
+import CardSection from 'sections/card'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
@@ -82,9 +81,9 @@ export default function Blog() {
         resetState={resetBlogFilter}
         tags={blogTagsSuccess && blogTags}
       />
-      <div className={clsx('row', styles.podcast)}>
+      <div className={clsx('row', styles.blog)}>
         <div className="d-flex justify-content-between align-items-center ">
-          <h3 className={styles.podcast__header}>{switchType ? 'VIDEOS' : 'ARTICLES'}</h3>
+          <h3 className={styles.blog__header}>{switchType ? 'VIDEOS' : 'ARTICLES'}</h3>
           <Switch
             id="blogSeeAll"
             name="blogSeeAll"
@@ -94,30 +93,16 @@ export default function Blog() {
             optionLabels={['Watch', 'Read']}
           />
         </div>
-        {isSuccess &&
-          renderData?.map((item) => (
-            <div className="col-12 col-md-4 col-lg-3 col-xxl-2 my-4" key={item.id}>
-              <Stack gap={1} direction="horizontal">
-                <Card>
-                  <CardHeader
-                    to={`${route.blog}/${item.id}`}
-                    // onClick={navigate(`${route.blog}/${item.id}`, { state: item.video })}
-                    image={item.image}
-                    isPlayIcon={switchType}
-                  />
-                  <CardBody>
-                    <RBCard.Title className={styles.title}>{item.title}</RBCard.Title>
-                    <div className={styles.footerSection}>
-                      <Button variant="secondary" className={styles.footerSection__genre}>
-                        #{item.tag}
-                      </Button>
-                      <div className={styles.footerSection__more}>more &gt;</div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Stack>
-            </div>
-          ))}
+        <div className="row">
+          {isSuccess &&
+            renderData?.map((item) => (
+              <div className="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 my-4" key={item.id}>
+                <Stack gap={3} direction="horizontal">
+                  <CardSection data={item} type="blog" />
+                </Stack>
+              </div>
+            ))}
+        </div>
       </div>
     </>
   )

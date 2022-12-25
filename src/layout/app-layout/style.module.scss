@@ -333,7 +333,7 @@
   .wrapper {
     padding-top: 20rem;
     &__side {
-      // display: none;
+       display: none;
     }
 
     &__content {
@@ -360,14 +360,20 @@
 
 @media (max-width: 576px) {
   .wrapper {
+    padding-top: 6.1rem;
     flex-direction: column;
 
     &__side {
+      display: block;
       width: 100%;
     }
     &__content {
       width: 100%;
     }
+  }
+
+  .sidebar {
+    display: block;
   }
 
   .navbar {
