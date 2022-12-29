@@ -1,6 +1,6 @@
 import { Card } from 'components/ui'
-import CardBody from 'components/ui/card/components/card-body'
-import CardHeader from 'components/ui/card/components/card-header'
+import CardBody from 'components/ui/card/components/body'
+import CardHeader from 'components/ui/card/components/header'
 import { route } from 'utils/constants'
 import { default as RBCard } from 'react-bootstrap/Card'
 import PropTypes from 'prop-types'

@@ -576,16 +576,9 @@ const EditIcon = ({ size, className }) => {
   )
 }
 
-const OnAirIcon = ({ size, className, height }) => {
+const OnAirIcon = ({ className }) => {
   return (
-    <svg
-      width={size}
-      height={height}
-      viewBox="0 0 111 49"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
+    <svg viewBox="0 0 111 49" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <path
         d="M16.5737 35.8062C13.1321 35.8062 9.83158 34.4391 7.39806 32.0056C4.96454 29.5721 3.5974 26.2715 3.5974 22.83C3.5974 19.3885 4.96454 16.0879 7.39806 13.6544C9.83158 11.2209 13.1321 9.85375 16.5737 9.85375C20.0152 9.85375 23.3157 11.2209 25.7492 13.6544C28.1828 16.0879 29.5499 19.3885 29.5499 22.83C29.5499 26.2715 28.1828 29.5721 25.7492 32.0056C23.3157 34.4391 20.0152 35.8062 16.5737 35.8062ZM16.5737 37.66C20.5068 37.66 24.2789 36.0976 27.06 33.3164C29.8412 30.5352 31.4037 26.7632 31.4037 22.83C31.4037 18.8968 29.8412 15.1248 27.06 12.3436C24.2789 9.56244 20.5068 8 16.5737 8C12.6405 8 8.86842 9.56244 6.08726 12.3436C3.30609 15.1248 1.74365 18.8968 1.74365 22.83C1.74365 26.7632 3.30609 30.5352 6.08726 33.3164C8.86842 36.0976 12.6405 37.66 16.5737 37.66Z"
         fill="#FC0D1B"
@@ -680,7 +673,7 @@ const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
     onair: OnAirIcon,
     cardplay: PlayCard,
     morearrow: moreArrow,
-    podcastfavorite: PodcastFavorite
+    podcastfavorite: PodcastFavorite,
   }
 
   const Component = icons[name]

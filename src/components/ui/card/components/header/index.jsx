@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { default as RBCard } from 'react-bootstrap/Card'
 import clsx from 'clsx'
 import { APP } from 'utils/constants'
-import styles from '../index.module.scss'
+import styles from './index.module.scss'
 import Icon from 'assets/svg'
 
 /**
  * @param to --> string - link source
  * @param image --> string -image source
  * @param imageStyle --> overwrite image css
- * @param isPlayIcon --> boolean - to put play icon for videos 
+ * @param isPlayIcon --> boolean - to put play icon for videos
  * @param onClick --> clickHandler function
  * @param className --> overwire css
  */
@@ -20,13 +20,13 @@ export default function CardHeader(props) {
 
   return (
     <div className={clsx(className, styles.header)}>
-      <Link to={to && to} className={clsx(styles.header__link)} onClick={onClick && onClick}>
+      <Link to={to} className={clsx(styles.link)} onClick={onClick && onClick}>
         {isPlayIcon && (
           <div className={styles.icon}>
             <Icon name="play" size={22} className={styles.icon__item} fill="#fff" />
           </div>
         )}
-        <RBCard.Img variant="top" src={APP.adminBase + image} className={clsx(imageStyle, styles.header__img)} />
+        <RBCard.Img variant="top" src={APP.adminBase + image} className={clsx(imageStyle, styles.link__img)} />
       </Link>
     </div>
   )

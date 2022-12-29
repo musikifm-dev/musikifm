@@ -35,6 +35,145 @@ export const authLinks = [
   { route: route.register, text: 'Sign In' },
 ]
 
+export const renderBreakPoints = (breakpoints) => {
+  switch (breakpoints) {
+    case 'hero':
+      return {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        576: {
+          slidesPerView: 1,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 1.2,
+          spaceBetween: 15,
+        },
+        1400: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+        },
+      }
+    case 'podcast':
+      return {
+        320: {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+        },
+        576: {
+          slidesPerView: 2.2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 2.7,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 3.4,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 4.3,
+          spaceBetween: 26,
+        },
+        1400: {
+          slidesPerView: 5,
+          spaceBetween: 26,
+        },
+        1920: {
+          slidesPerView: 5.4,
+          spaceBetween: 26,
+        },
+        2500: {
+          slidesPerView: 6.2,
+          spaceBetween: 20,
+        },
+      }
+    case 'blog':
+      return {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+        },
+        576: {
+          slidesPerView: 1.5,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2.2,
+          spaceBetween: 10,
+        },
+        992: {
+          slidesPerView: 3.5,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 3.5,
+          spaceBetween: 15,
+        },
+        1440: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1920: {
+          slidesPerView: 4.5,
+          spaceBetween: 20,
+        },
+        2500: {
+          slidesPerView: 5.2,
+          spaceBetween: 20,
+        },
+      }
+    case 'video':
+      return {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+        },
+        576: {
+          slidesPerView: 1.2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: 2.7,
+          spaceBetween: 20,
+        },
+        1440: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1920: {
+          slidesPerView: 3.2,
+          spaceBetween: 20,
+        },
+        2500: {
+          slidesPerView: 4.2,
+          spaceBetween: 20,
+        },
+      }
+    default:
+      return null
+  }
+}
+
 export const RE_DIGIT = new RegExp(/^\d+$/)
 
 export const APP = {

@@ -2,138 +2,12 @@ import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper } from 'swiper/react'
 import PropTypes from 'prop-types'
-import styles from './index.module.scss'
 import 'swiper/scss'
+import { renderBreakPoints } from 'utils/constants'
+import styles from './index.module.scss'
 
 export default function SliderContainer(props) {
   const { header, breakpoints, route, children } = props
-
-  const renderBreakPoints = () => {
-    switch (breakpoints) {
-      case 'hero':
-        return {
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          576: {
-            slidesPerView: 1,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          992: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: 1.2,
-            spaceBetween: 15,
-          },
-          1400: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-          },
-        }
-      case 'podcast':
-        return {
-          320: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-          },
-          576: {
-            slidesPerView: 2.2,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 2.7,
-            spaceBetween: 20,
-          },
-          992: {
-            slidesPerView: 3.4,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: 4.3,
-            spaceBetween: 26,
-          },
-          1400: {
-            slidesPerView: 5,
-            spaceBetween: 26,
-          },
-          1920: {
-            slidesPerView: 4.4,
-            spaceBetween: 26,
-          },
-        }
-      case 'blog':
-        return {
-          320: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-          },
-          576: {
-            slidesPerView: 1.5,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 2.2,
-            spaceBetween: 10,
-          },
-          992: {
-            slidesPerView: 3.5,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: 3.5,
-            spaceBetween: 15,
-          },
-          1440: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1920: {
-            slidesPerView: 4.5,
-            spaceBetween: 20,
-          },
-        }
-      case 'video':
-        return {
-          320: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-          },
-          576: {
-            slidesPerView: 1.2,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: 2.7,
-            spaceBetween: 20,
-          },
-          1440: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1920: {
-            slidesPerView: 3.2,
-            spaceBetween: 20,
-          },
-        }
-      default:
-        return null
-    }
-  }
 
   return (
     <div className={styles.slider}>
@@ -147,10 +21,10 @@ export default function SliderContainer(props) {
       )}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
+        breakpoints={renderBreakPoints(breakpoints)}
         pagination={{
           clickable: true,
         }}
-        breakpoints={renderBreakPoints(breakpoints)}
       >
         {children}
       </Swiper>

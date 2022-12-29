@@ -1,0 +1,80 @@
+.card {
+  height: 36.58rem !important;
+
+  &__header {
+    height: 20.9rem !important;
+  }
+
+  .body {
+    padding: 1.2rem;
+
+    &__title {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      color: black;
+      overflow: hidden;
+      line-height: 2rem;
+      font-size: var(--fs-19) !important;
+      font-weight: var(--fw-6) !important;
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+
+    &__genre {
+      background-color: #eeeeee !important;
+      font-size: var(--fs-13) !important;
+      color: black !important;
+      border: none !important;
+      border-radius: 2rem !important;
+      &:hover {
+        background-color: #cccccca4 !important;
+      }
+    }
+
+    &__more {
+      font-size: var(--fs-13) !important;
+      font-weight: var(--fw-5) !important;
+      color: black !important;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1789px) {
+}
+@media (max-width: 1600px) {
+}
+
+@media (max-width: 1366px) {
+  .card {
+    max-height: 38.5rem !important;
+    &__image {
+      height: 16rem;
+    }
+    &__header {
+      min-height: 21.9rem !important;
+    }
+    &__title {
+      font-size: var(--fs-16) !important;
+      font-weight: var(--fw-6) !important;
+    }
+  }
+
+  .footer {
+    &__genre {
+      font-size: var(--fs-12);
+      font-weight: var(--fw-4);
+      line-height: 1.8rem;
+    }
+
+    &__more {
+      font-size: var(--fs-12);
+      font-weight: var(--fw-5);
+      line-height: 1.8rem;
+    }
+  }
+}

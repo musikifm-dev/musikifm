@@ -1,104 +1,61 @@
 .card {
-  height: 25rem;
-  background: #ffffff;
-  overflow: hidden;
-  &__title {
-    font-size: var(--fs-33) !important;
-    font-weight: var(--fw-7) !important;
-    color: black;
-    padding: 1rem;
-    line-height: 3.6rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  height: 33.5rem !important;
+
+  &__header {
+    width: 50%;
     height: 100%;
-    top: -35px;
-    position: relative;
   }
 
-  &__description {
-    padding: 0 13px;
-    font-size: 15px;
-    position: relative;
-    top: -35px;
-  }
+  .body {
+    width: 50%;
+    padding: 4rem;
 
-  .herobox {
-    display: flex;
-
-    &__image {
-      width: 50%;
-      height: 25rem;
+    &__icon {
+      width: 6.9rem !important;
+      height: 3.8rem !important;
     }
-    &__body {
-      width: 50%;
-      &_onair {
-        margin-left: 0.9rem;
-        margin-top: 1.8rem;
-        margin-bottom: 2.8rem;
-      }
-
-      .card-text {
-        padding: 0 13px;
-        font-size: 15px;
-        position: relative;
-        top: -35px;
-      }
+    &__title {
+      margin-top: 1.2rem;
+      font-size: var(--fs-44) !important;
+      font-weight: var(--fw-7) !important;
+      color: black;
+      line-height: 3.6rem !important;
+      height: 100%;
     }
   }
 }
-.card-text {
-  font-size: 15px;
-}
 
-@media (min-width: 1920px) {
+@media (max-width: 1789px) {
   .card {
     height: 37rem;
 
-    &__title {
-      font-size: var(--fs-48) !important;
-      font-weight: var(--fw-7) !important;
-      color: black;
-      padding: 1rem;
-      line-height: 5.4rem !important;
-      height: 100%;
-      top: -35px;
-      position: relative;
-    }
-    &__description {
-      font-size: 24px;
-    }
-  }
-
-  .herobox {
-    &__image {
+    &__header {
       height: 37rem;
-
-      img {
-        height: 37rem;
-      }
     }
 
-    &__body {
-      &_onair {
-        margin-left: 0.9rem;
-        margin-top: 1.8rem;
-        margin-bottom: 2.8rem;
+    .body {
+      &__icon {
+      }
+      &__title {
+        font-size: var(--fs-48) !important;
+        font-weight: var(--fw-7) !important;
+        color: black;
+        padding: 1rem;
+        line-height: 5.4rem !important;
+        height: 100%;
+        top: -35px;
+        position: relative;
       }
     }
   }
 }
 
-@media (max-width: 1920px) {
-  .herobox {
-    &__image {
-      height: 37rem;
-
-      img {
-        height: 37rem;
-      }
-    }
-  }
+@media (max-width: 1600px) {
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1366px) {
   .card {
     &__title {
       font-size: var(--fs-33) !important;
@@ -109,33 +66,40 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .card {
-    min-height: 20rem;
+    height: 20rem;
 
-    &__title {
-      padding: 2rem;
-      font-size: var(--fs-25) !important;
-      font-weight: var(--fw-6) !important;
-      line-height: 3.8rem !important;
-    }
-    .image {
+    &__header {
       height: 100%;
+    }
+
+    .body {
+      &__title {
+        padding: 2rem;
+        font-size: var(--fs-25) !important;
+        font-weight: var(--fw-6) !important;
+        line-height: 3.8rem !important;
+      }
     }
   }
 }
 
 @media (max-width: 560px) {
   .card {
-    min-height: 22rem;
-    &__title {
-      padding: 1rem;
-      font-size: var(--fs-22) !important;
-      font-weight: var(--fw-6) !important;
-      line-height: 4rem !important;
-    }
-    .image {
+    height: 22rem;
+
+    &__header {
       height: 22rem;
+    }
+
+    .body {
+      &__title {
+        padding: 1rem;
+        font-size: var(--fs-22) !important;
+        font-weight: var(--fw-6) !important;
+        line-height: 4rem !important;
+      }
     }
   }
 }
