@@ -16,7 +16,7 @@
 // }
 
 .switch::before {
-  padding-left: 2rem;
+  padding-left: 25px;
 }
 
 .title {
@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1366px) {
   .footerSection {
     &__genre {
       font-size: var(--fs-12);
@@ -73,5 +73,14 @@
       font-weight: var(--fw-5);
       line-height: 1.8rem;
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .switch::after {
+    padding-left: 29px;
+  }
+  .switch::before {
+    padding-left: 22px;
   }
 }

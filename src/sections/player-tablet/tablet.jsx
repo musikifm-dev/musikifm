@@ -78,7 +78,7 @@ export default function TabletPlayer() {
               id="mobile-switch"
               checked={switchType}
               onChange={switchHandler}
-              small={false}
+              small={true}
               className={styles.switch__item}
             />
           </div>

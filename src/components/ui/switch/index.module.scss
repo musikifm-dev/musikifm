@@ -1,6 +1,7 @@
 .toggleSwitch {
   position: relative;
-  width: 10rem;
+  width: 115px;
+  height: 32px;
   display: inline-block;
   vertical-align: middle;
   text-align: left;
@@ -34,18 +35,18 @@
       display: block;
       float: left;
       width: 50%;
-      height: 3.3rem;
+      height: 32px;
       padding: 0;
-      line-height: 3.3rem;
+      line-height: 32px;
       font-size: var(--fs-13);
       color: white;
       font-weight: bold;
       box-sizing: border-box;
-      padding: 0 3.5rem 0 0;
+      padding: 0 35px 0 0;
     }
     &:before {
       content: attr(data-true);
-      padding-left: 1.2rem;
+      padding-left: 15px;
       background-color: #2f855a;
       color: #fff;
     }
@@ -60,24 +61,24 @@
   }
   &__inner:after {
     content: attr(data-false);
-    padding-right: 2rem; // 1.8 old value
+    padding-right: 30px; // 1.8 old value
     background-color: #f5982a;
     color: #fff;
     text-align: right;
   }
   &__switch {
     display: block;
-    width: 2.4rem;
-    margin: 0.4rem;
+    width: 21px;
+    margin: 5.5px;
     background: #fff;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 4.2rem;
+    right: 42px;
     border: 0 solid #bbb;
-    border-radius: 2rem;
+    border-radius: 20px;
     transition: all 0.2s ease-in 0s;
-    margin-right: 2.8rem;
+    margin-right: 47px;
   }
 
   &__checkbox:checked + &__label {
@@ -85,7 +86,7 @@
       margin-left: 0;
     }
     .toggleSwitch__switch {
-      right: -2.2rem;
+      right: -40px;
     }
   }
   &.smallSwitch {
@@ -120,12 +121,13 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media (max-width: 1366px) {
   .toggleSwitch {
-    width: 7.2rem;
+    width: 90px;
+    height: 32px;
 
     &__label {
-      border-radius: 2rem;
+      border-radius: 20px;
       margin: 0;
     }
     &__inner {
@@ -136,31 +138,29 @@
       &:before,
       &:after {
         width: 50%;
-        height: 2.6rem;
+        height: 32px;
         padding: 0;
-        line-height: 2.6rem;
+        line-height: 32px;
         font-size: var(--fs-11);
-        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+        padding: 0 35px 0 0; // podcast sagdan genislet
       }
       &:before {
-        padding-left: 0.3rem;
+        padding-left: 15px;
       }
     }
     &__inner:after {
-      padding-right: 1rem;
+      padding-right: 22px;
     }
     &__switch {
-      width: 1.8rem;
-      height: 1.8rem;
-      right: 4.2rem; //
-      margin-right: 0.8rem; // radio switch oynat
+      right: 50px; //
+      margin-right: 14px; // radio switch oynat
     }
     &__checkbox:checked + &__label {
       .toggleSwitch__inner {
         margin-left: 0;
       }
       .toggleSwitch__switch {
-        right: -0.5rem; //
+        right: -9px; //
       }
     }
     &.smallSwitch {
@@ -197,9 +197,10 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .toggleSwitch {
-    width: 7.4rem;
+    width: 90px;
+    height: 32px;
 
     &__label {
       border-radius: 2rem;
@@ -213,22 +214,22 @@
       &:before,
       &:after {
         width: 50%;
-        height: 2.6rem;
-        line-height: 2.6rem;
+        height: 32px;
+        line-height: 32px;
         font-size: var(--fs-11);
-        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+        padding: 0 35px 0 0; // podcast sagdan genislet
       }
       &:before {
-        padding-left: 0.5rem;
+        padding-left: 10px;
       }
     }
     &__inner:after {
       padding-right: 1rem;
     }
     &__switch {
-      width: 1.6rem;
-      height: 1.6rem;
-      right: 4.2rem; //
+      width: 20px;
+      height: 20px;
+      right: 46px; //
       margin-right: 1.2rem; // radio switch oynat
     }
     &__checkbox:checked + &__label {
@@ -239,15 +240,47 @@
         right: -0.9rem; //
       }
     }
+    &.smallSwitch {
+      width: 75px;
+      height: 32px;
+
+      .toggleSwitch__inner:after {
+        padding-right: 16px; //
+      }
+
+      .toggleSwitch__inner {
+        &:after,
+        &:before {
+          height: 32px; //
+          line-height: 32px; //
+          font-size: var(--fs-10);
+        }
+      }
+      .toggleSwitch__switch {
+        width: 19px;
+        height: 19px;
+        right: 46px;
+        margin: 6px;
+      }
+
+      .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+        .toggleSwitch__inner {
+          margin-left: 0;
+        }
+        .toggleSwitch__switch {
+          right: -2px;
+        }
+      }
+    }
   }
 }
 
-@media screen and (max-width: 562px) {
+@media (max-width: 562px) {
   .toggleSwitch {
-    width: 4.8rem;
+    width: 80px;
 
     &__label {
-      border-radius: 2rem;
+      border-radius: 20px;
       margin: 0;
     }
     &__inner {
@@ -258,38 +291,39 @@
       &:before,
       &:after {
         width: 50%;
-        height: 2.6rem;
-        line-height: 2.6rem;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
         font-size: var(--fs-11);
-        padding: 0 2.3rem 0 0; // podcast sagdan genislet
+        padding: 0 35px 0 0; // podcast sagdan genislet
       }
       &:before {
-        padding-left: 0.3rem; //
+        padding-left: 8px;
       }
     }
-
     &__inner:after {
-      padding-right: 1rem;
+      padding-right: 20px;
     }
     &__switch {
-      width: 1.6rem;
-      height: 1.6rem;
-      right: 3.9rem; //
-      margin-right: 1.3rem; // radio switch oynat
+      width: 18px;
+      height: 18px;
+      right: 50px; //
+      margin-right: 8px; // radio switch oynat
     }
     &__checkbox:checked + &__label {
       .toggleSwitch__inner {
         margin-left: 0;
       }
       .toggleSwitch__switch {
-        right: -0.8rem; //
+        right: -4px; //
       }
     }
     &.smallSwitch {
-      width: 6.5rem;
+      width: 49px;
+      height: 30px;
 
       .toggleSwitch__inner:after {
-        padding-right: 1.6rem; //
+        padding-right: 25px; //
       }
 
       .toggleSwitch__inner {
@@ -297,20 +331,19 @@
           content: '';
           padding-left: 0.5rem;
         }
-        &__inner:after {
-          content: '';
-        }
+
         &:after,
         &:before {
-          height: 2rem; //
-          line-height: 2rem; //
+          content: '';
+          height: 30px; //
+          line-height: 30px; //
           font-size: var(--fs-10);
         }
       }
       .toggleSwitch__switch {
-        width: 1.4rem;
-        height: 1.4rem;
-        right: 4.5rem;
+        width: 20px;
+        height: 20px;
+        right: 22px;
         margin: 0.3rem;
       }
 
