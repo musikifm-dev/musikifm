@@ -13,7 +13,7 @@ export default function BlogCard({ data }) {
 
   return (
     <Card className={styles.card}>
-      <CardHeader to={`${route.blog}/${id}`} image={image} className={styles.card__header}/>
+      <CardHeader to={`${route.blog}/${id}`} image={image} className={styles.card__header} />
       <CardBody className={styles.body}>
         <div className={styles.body__title}>{title}</div>
         <div className={styles.footer}>

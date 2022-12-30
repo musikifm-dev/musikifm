@@ -14,7 +14,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       color: black;
-      line-height: 1.35 !important;
+      line-height: 1.35;
       font-size: var(--fs-21) !important;
       font-weight: var(--fw-6) !important;
     }
@@ -113,7 +113,6 @@
 
       &__title {
         font-size: var(--fs-14) !important;
-        line-height: 10.35px !important;
       }
 
       .footer {

@@ -1,12 +1,12 @@
 .card {
-  height: 36.58rem !important;
+  height: 365.8px !important;
 
   &__header {
-    height: 20.9rem !important;
+    height: 209px !important;
   }
 
   .body {
-    padding: 1.2rem;
+    padding: 15.2px;
 
     &__title {
       display: -webkit-box;
@@ -14,8 +14,8 @@
       -webkit-box-orient: vertical;
       color: black;
       overflow: hidden;
-      line-height: 2rem;
-      font-size: var(--fs-19) !important;
+      line-height: 1.35;
+      font-size: var(--fs-21) !important;
       font-weight: var(--fw-6) !important;
     }
   }
@@ -25,18 +25,19 @@
     align-items: center;
 
     &__genre {
+      padding: 3.8px 11.4px;
       background-color: #eeeeee !important;
-      font-size: var(--fs-13) !important;
+      font-size: var(--fs-15) !important;
       color: black !important;
       border: none !important;
-      border-radius: 2rem !important;
+      border-radius: 20px !important;
       &:hover {
         background-color: #cccccca4 !important;
       }
     }
 
     &__more {
-      font-size: var(--fs-13) !important;
+      font-size: var(--fs-15) !important;
       font-weight: var(--fw-5) !important;
       color: black !important;
       text-decoration: underline;
@@ -44,37 +45,136 @@
   }
 }
 
+@media (max-width: 2500px) {
+  .card {
+    .body {
+      &__title {
+        font-size: var(--fs-19) !important;
+      }
+
+      .footer {
+        &__genre {
+          font-size: var(--fs-14) !important;
+        }
+
+        &__more {
+          font-size: var(--fs-14) !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1920px) {
+  .card {
+    height: 287px !important;
+
+    &__header {
+      height: 164px !important;
+    }
+
+    .body {
+      padding: 11.9px;
+
+      &__title {
+        font-size: var(--fs-15) !important;
+      }
+
+      .footer {
+        &__genre {
+          padding: 3px 8.9px;
+          font-size: var(--fs-11) !important;
+        }
+        &__more {
+          font-size: var(--fs-11) !important;
+          font-weight: var(--fw-5) !important;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1789px) {
+  .card {
+    height: 256.7px !important;
+
+    &__header {
+      height: 146px !important;
+    }
+
+    .body {
+      padding: 10.7px;
+
+      &__title {
+        font-size: var(--fs-14) !important;
+      }
+
+      .footer {
+        &__genre {
+          padding: 2.7px 8px;
+          font-size: var(--fs-10) !important;
+        }
+        &__more {
+          font-size: var(--fs-10) !important;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 1600px) {
-}
-
-@media (max-width: 1366px) {
   .card {
-    max-height: 38.5rem !important;
-    &__image {
-      height: 16rem;
-    }
+    height: 219.1px !important;
+
     &__header {
-      min-height: 21.9rem !important;
-    }
-    &__title {
-      font-size: var(--fs-16) !important;
-      font-weight: var(--fw-6) !important;
-    }
-  }
-
-  .footer {
-    &__genre {
-      font-size: var(--fs-12);
-      font-weight: var(--fw-4);
-      line-height: 1.8rem;
+      height: 125.2px !important;
     }
 
-    &__more {
-      font-size: var(--fs-12);
-      font-weight: var(--fw-5);
-      line-height: 1.8rem;
+    .body {
+      padding: 9.1px;
+
+      &__title {
+        font-size: var(--fs-12) !important;
+      }
+
+      .footer {
+        &__genre {
+          padding: 2.3px 6.8px;
+          font-size: var(--fs-8) !important;
+        }
+        &__more {
+          font-size: var(--fs-8) !important;
+        }
+      }
     }
   }
 }
+
+// @media (max-width: 1366px) {
+//   .card {
+//     height: 385px !important;
+//     &__image {
+//       height: 160px;
+//     }
+//     &__header {
+//       height: 21.9rem !important;
+//     }
+//     &__title {
+//       font-size: var(--fs-16) !important;
+//       font-weight: var(--fw-6) !important;
+//     }
+//   }
+
+//   .footer {
+//     &__genre {
+//       font-size: var(--fs-12);
+//       font-weight: var(--fw-4);
+//       line-height: 1.8rem;
+//     }
+
+//     &__more {
+//       font-size: var(--fs-12);
+//       font-weight: var(--fw-5);
+//       line-height: 1.8rem;
+//     }
+//   }
+// }

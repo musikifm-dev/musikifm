@@ -15,12 +15,12 @@ export default function VideoCard({ data }) {
       <CardHeader to={`${route.video}/${id}`} image={image} isPlayIcon={true} className={styles.card__header} />
       <CardBody className={styles.body}>
         <RBCard.Title className={styles.body__title}>{title}</RBCard.Title>
-        <section className={styles.footer}>
+        <div className={styles.footer}>
           <Button variant="secondary" className={styles.footer__genre}>
             #{tag}
           </Button>
           <div className={styles.footer__more}>more &gt;</div>
-        </section>
+        </div>
       </CardBody>
     </Card>
   )
