@@ -14671,42 +14671,42 @@ textarea.form-control-lg {
 :root {
   --f-poppins: "Poppins", sans-serif;
   --f-patrick-hand: "Patrick Hand", cursive;
-  --fs-6: 0.6rem;
-  --fs-7: 0.7rem;
-  --fs-8: 0.8rem;
-  --fs-9: 0.9rem;
-  --fs-10: 1rem;
-  --fs-11: 1.1rem;
-  --fs-12: 1.2rem;
-  --fs-13: 1.3rem;
-  --fs-14: 1.4rem;
-  --fs-15: 1.5rem;
-  --fs-16: 1.6rem;
-  --fs-17: 1.7rem;
-  --fs-18: 1.8rem;
-  --fs-19: 1.9rem;
-  --fs-20: 2rem;
-  --fs-21: 2.1rem;
-  --fs-22: 2.2rem;
-  --fs-24: 2.4rem;
-  --fs-25: 2.5rem;
-  --fs-26: 2.6rem;
-  --fs-27: 2.7rem;
-  --fs-28: 2.8rem;
-  --fs-29: 2.9rem;
-  --fs-30: 3rem;
-  --fs-31: 3.1rem;
-  --fs-32: 3.2rem;
-  --fs-33: 3.3rem;
-  --fs-34: 3.4rem;
-  --fs-39: 3.9rem;
-  --fs-40: 4rem;
-  --fs-44: 4.4rem;
-  --fs-48: 4.8rem;
-  --fs-50: 5rem;
-  --fs-60: 6rem;
-  --fs-61: 6.1rem;
-  --fs-62: 6.2rem;
+  --fs-6: 6px;
+  --fs-7: 7px;
+  --fs-8: 8px;
+  --fs-9: 9px;
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-21: 21px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+  --fs-25: 25px;
+  --fs-26: 26px;
+  --fs-27: 27px;
+  --fs-28: 28px;
+  --fs-29: 29px;
+  --fs-30: 30px;
+  --fs-31: 31px;
+  --fs-32: 32px;
+  --fs-33: 33px;
+  --fs-34: 34px;
+  --fs-39: 39px;
+  --fs-40: 40px;
+  --fs-44: 44px;
+  --fs-48: 48px;
+  --fs-50: 50px;
+  --fs-60: 60px;
+  --fs-61: 61px;
+  --fs-62: 62px;
   --fw-3: 300;
   --fw-4: 400;
   --fw-5: 500;
@@ -14745,10 +14745,6 @@ card {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  font-size: 10px;
 }
 
 body {
