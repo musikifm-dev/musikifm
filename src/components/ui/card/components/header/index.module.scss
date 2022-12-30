@@ -9,8 +9,8 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      width: 7rem;
-      height: 7rem;
+      width: 60px;
+      height: 60px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -18,8 +18,8 @@
       background-color: #f05e0c;
 
       &__item {
-        width: 4rem;
-        height: 4rem;
+        width: 60%;
+        height: 60%;
         color: #fff;
       }
     }
@@ -31,4 +31,46 @@
       height: 100%;
     }
   }
+}
+
+@media (max-width: 1920px) {
+  .header {
+    .link {
+      .icon {
+        width: 48.5px;
+        height: 47.7px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1789px) {
+  .header {
+    .link {
+      .icon {
+        width: 43.4px;
+        height: 42.7px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .header {
+    .link {
+      .icon {
+        width: 37px;
+        height: 36.4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 568px) {
 }

@@ -6,7 +6,7 @@
   }
 
   .body {
-    padding: 10.5px;
+    padding: 15.1px;
 
     &__title {
       display: -webkit-box;
@@ -14,7 +14,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       color: black;
-      line-height: 22px !important;
+      line-height: 1.35 !important;
       font-size: var(--fs-21) !important;
       font-weight: var(--fw-6) !important;
     }
@@ -24,6 +24,7 @@
       align-items: center;
 
       &__genre {
+        padding: 3.8px 11.4px;
         background-color: #eeeeee;
         color: black;
         border: none;
@@ -51,7 +52,6 @@
     .body {
       &__title {
         font-size: var(--fs-19) !important;
-        line-height: 10.35px !important;
       }
 
       .footer {
@@ -78,19 +78,22 @@
     }
 
     .body {
+      padding: 11.9px;
+      
       &__title {
-        font-size: var(--fs-16) !important;
+        font-size: var(--fs-15) !important;
         line-height: 1.35 !important;
       }
 
       .footer {
         &__genre {
-          font-size: var(--fs-14) !important;
+          padding: 3px 8.9px;
+          font-size: var(--fs-11) !important;
         }
 
         &__more {
           margin-left: 10.2px;
-          font-size: var(--fs-14) !important;
+          font-size: var(--fs-11) !important;
           font-weight: var(--fw-5) !important;
         }
       }
@@ -106,19 +109,22 @@
     }
 
     .body {
+      padding: 10.7px;
+
       &__title {
-        font-size: var(--fs-15) !important;
+        font-size: var(--fs-14) !important;
         line-height: 10.35px !important;
       }
 
       .footer {
         &__genre {
-          font-size: var(--fs-12) !important;
+          padding: 2.7px 8px;
+          font-size: var(--fs-10) !important;
         }
 
         &__more {
           margin-left: 1.2rem;
-          font-size: var(--fs-12) !important;
+          font-size: var(--fs-10) !important;
         }
       }
     }
@@ -127,26 +133,28 @@
 
 @media (max-width: 1600px) {
   .card {
-    height: 20rem !important;
+    height: 193.5px !important;
 
     &__header {
       height: 113.8px !important;
     }
     .body {
-      padding: 0.9px;
+      padding: 9.1px;
 
       &__title {
-        font-size: var(--fs-11) !important;
+        font-size: var(--fs-12) !important;
       }
 
       .footer {
+        gap: 2.6px;
         &__genre {
+          padding: 2.3px 6.8px;
           font-size: var(--fs-8) !important;
           line-height: 10.8px;
         }
 
         &__more {
-          margin-left: 0.8px;
+          // margin-left: 0.8px;
           padding: 0.2px 0 !important;
           font-size: var(--fs-8) !important;
           font-weight: var(--fw-5) !important;
@@ -170,10 +178,8 @@
         font-weight: var(--fw-4) !important;
       }
       &__more {
-        margin-left: 10.2px;
         font-size: var(--fs-12);
         font-weight: var(--fw-5);
-        line-height: 10.8px;
       }
     }
   }
