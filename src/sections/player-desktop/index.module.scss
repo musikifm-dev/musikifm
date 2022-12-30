@@ -9,11 +9,10 @@
   background-color: #eaeaea;
   padding: 1rem;
   width: 100%;
-  grid-gap: 0.5rem;
-  min-height: 5.6rem;
+  grid-gap: 9px;
 
   &__text {
-    font-size: var(--fs-14);
+    font-size: var(--fs-16);
     font-weight: var(--fw-6);
   }
 }
@@ -96,7 +95,31 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1789px) {
+  .switch {
+    gap: 7.3px;
+    &__text {
+      font-size: var(--fs-13);
+    }
+  }
+  .player {
+    max-height: 25rem;
+
+    &__img {
+      max-height: 25rem;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .switch {
+    padding: 21.6px 9.8px;
+    grid-gap: 8.1px;
+    &__text {
+      font-size: var(--fs-10);
+    }
+  }
+
   .player {
     max-height: 25rem;
 

@@ -180,42 +180,36 @@
   }
 }
 
-@media (max-width: 1366px) {
-  .card {
-    height: 44.8rem;
+// @media (max-width: 1366px) { // * Bu kisim tasarima gore değişecek
+//   .card {
+//     height: 223.8px !important;
 
-    &__header {
-      height: 25.4rem;
-    }
+//     &__header {
+//       height: 123.2px !important;
+//     }
 
-    .body {
-      &__title {
-        font-size: var(--fs-17) !important;
-        font-weight: var(--fw-6) !important;
+//     .body {
+//       padding: 5.5px; 
 
-        line-height: 26.66px;
-      }
-      &__description {
-        font-size: var(--fs-14);
-        font-weight: var(--fw-4);
-        line-height: 2.4rem;
-      }
+//       &__title {
+//         font-size: var(--fs-12) !important;
+//         font-weight: var(--fw-6) !important;
+//       }
+//       &__description {
+//         font-size: var(--fs-9);
+//         font-weight: var(--fw-4);
+//       }
 
-      .footer {
-        &__time {
-          font-size: var(--fs-13);
-        }
+//       .footer {
+//         &__time {
+//           font-size: var(--fs-12);
+//         }
 
-        &__podcastBtn {
-          width: 3.5rem;
-          height: 3.5rem;
-        }
-
-        &__icon {
-          width: 1.5rem !important;
-          height: 1.5rem !important;
-        }
-      }
-    }
-  }
-}
+//         &__podcastBtn {
+//           height: 22.1px;
+//           width: 22.1px;
+//         }
+//       }
+//     }
+//   }
+// }

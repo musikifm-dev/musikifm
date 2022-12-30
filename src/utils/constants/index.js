@@ -79,11 +79,11 @@ export const renderBreakPoints = (breakpoints) => {
           spaceBetween: 20,
         },
         992: {
-          slidesPerView: 3.4,
-          spaceBetween: 20,
+          slidesPerView: 4.4,
+          spaceBetween: 15.5,
         },
         1366: {
-          slidesPerView: 7.7,
+          slidesPerView: 7.4,
           spaceBetween: 15.5,
         },
         1600: {
@@ -119,7 +119,7 @@ export const renderBreakPoints = (breakpoints) => {
         },
         992: {
           slidesPerView: 3.5,
-          spaceBetween: 20,
+          spaceBetween: 15.5,
         },
         1366: {
           slidesPerView: 5.2,
@@ -158,7 +158,7 @@ export const renderBreakPoints = (breakpoints) => {
         },
         992: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 15.5,
         },
         1366: {
           slidesPerView: 4,

@@ -12,7 +12,7 @@
   justify-content: space-between;
   // height: calc(100vh - 4.925rem);
   position: fixed;
-  width: 30rem;
+  width: 400px;
 
   &__description {
     font-family: var(--f-poppings);
@@ -211,11 +211,11 @@
   padding-top: 6.1rem;
 
   &__side {
-    width: 30rem;
+    width: 400px;
   }
 
   &__content {
-    width: calc(100% - 30rem);
+    width: calc(100% - 400px);
   }
 }
 
@@ -263,19 +263,19 @@
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1920px) {
   .wrapper {
     &__side {
-      width: 30rem;
+      width: 361.1px;
     }
 
     &__content {
-      width: calc(100% - 30rem);
+      width: calc(100% - 361.1px);
     }
   }
 
   .sidebar {
-    width: 30rem;
+    width: 361.1px;
 
     &__description {
       font-size: var(--fs-16);
@@ -292,11 +292,69 @@
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1789px) {
   .wrapper {
     &__side {
-      width: 25rem;
+      width: 323px;
     }
+
+    &__content {
+      width: calc(100% - 323px);
+    }
+  }
+
+  .sidebar {
+    width: 323px;
+
+    &__description {
+      font-size: var(--fs-16);
+      line-height: 22px;
+      -webkit-line-clamp: 27;
+    }
+  }
+
+  .switch {
+    padding: 0.6rem;
+  }
+  .banner {
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 1600px) {
+  .wrapper {
+    &__side {
+      width: 246.5px;
+    }
+
+    &__content {
+      width: calc(100% - 246.5px);
+    }
+  }
+
+  .sidebar {
+    width: 246.5px;
+
+    &__description {
+      font-size: var(--fs-16);
+      line-height: 22px;
+      -webkit-line-clamp: 27;
+    }
+  }
+
+  .switch {
+    padding: 0.6rem;
+  }
+  .banner {
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .wrapper {
+    // &__side {
+    //   width: 25rem;
+    // }
 
     &__content {
       width: calc(100% - 25rem);
@@ -304,7 +362,7 @@
   }
 
   .sidebar {
-    width: 25rem;
+    // width: 25rem;
 
     &__description {
       -webkit-line-clamp: 4;
@@ -333,7 +391,7 @@
   .wrapper {
     padding-top: 20rem;
     &__side {
-       display: none;
+      display: none;
     }
 
     &__content {
