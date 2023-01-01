@@ -284,81 +284,81 @@
   }
 }
 
-@media (max-width: 1366px) {
-  .toggleSwitch {
-    width: 90px;
-    height: 32px;
+// @media (max-width: 1366px) {
+//   .toggleSwitch {
+//     width: 90px;
+//     height: 32px;
 
-    &__label {
-      border-radius: 20px;
-      margin: 0;
-    }
-    &__inner {
-      display: block;
-      width: 200%;
-      margin-left: -100%;
-      transition: margin 0.2s ease-in 0s;
-      &:before,
-      &:after {
-        width: 50%;
-        height: 32px;
-        padding: 0;
-        line-height: 32px;
-        font-size: var(--fs-11);
-        padding: 0 35px 0 0; // podcast sagdan genislet
-      }
-      &:before {
-        padding-left: 15px;
-      }
-    }
-    &__inner:after {
-      padding-right: 22px;
-    }
-    &__switch {
-      right: 50px; //
-      margin-right: 14px; // radio switch oynat
-    }
-    &__checkbox:checked + &__label {
-      .toggleSwitch__inner {
-        margin-left: 0;
-      }
-      .toggleSwitch__switch {
-        right: -9px; //
-      }
-    }
-    &.smallSwitch {
-      width: 6.5rem;
+//     &__label {
+//       border-radius: 20px;
+//       margin: 0;
+//     }
+//     &__inner {
+//       display: block;
+//       width: 200%;
+//       margin-left: -100%;
+//       transition: margin 0.2s ease-in 0s;
+//       &:before,
+//       &:after {
+//         width: 50%;
+//         height: 32px;
+//         padding: 0;
+//         line-height: 32px;
+//         font-size: var(--fs-11);
+//         padding: 0 35px 0 0; // podcast sagdan genislet
+//       }
+//       &:before {
+//         padding-left: 15px;
+//       }
+//     }
+//     &__inner:after {
+//       padding-right: 22px;
+//     }
+//     &__switch {
+//       right: 50px; //
+//       margin-right: 14px; // radio switch oynat
+//     }
+//     &__checkbox:checked + &__label {
+//       .toggleSwitch__inner {
+//         margin-left: 0;
+//       }
+//       .toggleSwitch__switch {
+//         right: -9px; //
+//       }
+//     }
+//     &.smallSwitch {
+//       width: 6.5rem;
 
-      .toggleSwitch__inner:after {
-        padding-right: 1.6rem; //
-      }
+//       .toggleSwitch__inner:after {
+//         padding-right: 1.6rem; //
+//       }
 
-      .toggleSwitch__inner {
-        &:after,
-        &:before {
-          height: 2rem; //
-          line-height: 2rem; //
-          font-size: var(--fs-10);
-        }
-      }
-      .toggleSwitch__switch {
-        width: 1.4rem;
-        height: 1.4rem;
-        right: 4.5rem;
-        margin: 0.3rem;
-      }
+//       .toggleSwitch__inner {
+//         &:after,
+//         &:before {
+//           height: 2rem; //
+//           line-height: 2rem; //
+//           font-size: var(--fs-10);
+//         }
+//       }
+//       .toggleSwitch__switch {
+//         width: 1.4rem;
+//         height: 1.4rem;
+//         right: 4.5rem;
+//         margin: 0.3rem;
+//       }
 
-      .toggleSwitch__checkbox:checked + .toggleSwitch__label {
-        .toggleSwitch__inner {
-          margin-left: 0;
-        }
-        .toggleSwitch__switch {
-          right: -0.1rem;
-        }
-      }
-    }
-  }
-}
+//       .toggleSwitch__checkbox:checked + .toggleSwitch__label {
+//         .toggleSwitch__inner {
+//           margin-left: 0;
+//         }
+//         .toggleSwitch__switch {
+//           right: -0.1rem;
+//         }
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 768px) {
   .toggleSwitch {
