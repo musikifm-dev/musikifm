@@ -12,7 +12,7 @@ export default function SliderContainer(props) {
   return (
     <div className={styles.slider}>
       {breakpoints !== 'hero' && (
-        <div className="d-flex justify-content-between align-items-center my-5">
+        <div className="d-flex justify-content-between align-items-center title-slider">
           <h3 className={styles.slider__header}>{header}</h3>
           <Link to={route} className={styles.slider__seeAll}>
             See All
