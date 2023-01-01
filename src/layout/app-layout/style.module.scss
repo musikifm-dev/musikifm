@@ -194,21 +194,24 @@
 
 .navbar {
   position: fixed !important;
-
+  height: 80px;
   &__hamburger {
     width: 100%;
     height: 100%;
   }
   &__logo {
     width: 100%;
-    height: 3rem;
+    height: 100%;
+  }
+  .navbar-toggler{
+    padding-bottom: 0;
   }
 }
 
 .wrapper {
   display: flex;
   width: 100%;
-  padding-top: 6.1rem;
+  padding-top: 80px;
 
   &__side {
     width: 400px;
@@ -264,7 +267,20 @@
 }
 
 @media (max-width: 1920px) {
+  .navbar {
+    position: fixed !important;
+    height: 80px;
+    &__hamburger {
+      width: 100%;
+      height: 100%;
+    }
+    &__logo {
+      width: 161px;
+      height: 33px;
+    }
+  }
   .wrapper {
+    padding-top: 80px;
     &__side {
       width: 361.1px;
     }
@@ -293,7 +309,20 @@
 }
 
 @media (max-width: 1789px) {
+  .navbar {
+    position: fixed !important;
+    height: 69px;
+    &__hamburger {
+      width: 22px;
+      height: 16px;
+    }
+    &__logo {
+      width: 150px;
+      height: 30px;
+    }
+  }
   .wrapper {
+    padding-top: 69px;
     &__side {
       width: 323px;
     }
@@ -322,7 +351,21 @@
 }
 
 @media (max-width: 1600px) {
+  .navbar {
+    position: fixed !important;
+    height: 61px ;
+    padding: 0 !important;
+    &__hamburger {
+      width: 20px;
+      height: 15px; 
+    }
+    &__logo {
+      width: 135px;
+      height: 28px;
+    }
+  }
   .wrapper {
+    padding-top: 61px;
     &__side {
       width: 246.5px;
     }
@@ -351,13 +394,26 @@
 }
 
 @media (max-width: 1366px) {
+  .navbar {
+    position: fixed !important;
+    height: 52px ;
+    padding: 0 !important;
+    &__hamburger {
+      width: 20px;
+      height: 15px; 
+    }
+    &__logo {
+      width: 115px;
+      height: 23px;
+    }
+  }
   .wrapper {
     // &__side {
     //   width: 25rem;
     // }
-
+    padding-top: 52px;
     &__content {
-      width: calc(100% - 25rem);
+      width: calc(100% - 246.5px);
     }
   }
 
@@ -435,7 +491,7 @@
   }
 
   .navbar {
-    padding: 0.9rem 0.775rem !important;
+    height: 52px;
 
     &__logo {
       width: 100%;
@@ -447,6 +503,9 @@
       flex-direction: column;
       margin: 0 auto;
     }
+  }
+  .wrapper{
+    padding-top: 52px;
   }
 
   .nav {

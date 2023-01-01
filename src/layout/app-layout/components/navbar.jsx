@@ -65,7 +65,7 @@ const Navbar = () => {
               <Stack
                 direction="horizontal"
                 gap={2}
-                className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-start'}
+                className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-center'}
               >
                 <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                   <Icon
