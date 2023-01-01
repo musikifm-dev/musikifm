@@ -1,17 +1,21 @@
 .slider {
   :global(.swiper-wrapper) {
-    padding-bottom: 20px;
+    padding-bottom: 24.5px;
   }
   :global(.swiper-pagination) {
-    bottom: 0 !important;
+    bottom: -6px !important;
     text-align: right;
     background-color: #e5e5e5 !important;
+    margin-top: 23.5px;
   }
   :global(.swiper-pagination-bullet),
   :global(.swiper-pagination-bullet-active) {
     width: 10px;
     height: 10px;
     border-radius: 5px;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #000;
   }
 
   &__header {
@@ -23,6 +27,10 @@
     color: black;
     text-decoration: underline;
     font-size: var(--fs-20);
+  }
+  :global(.title-slider){
+    margin-top: 50px;
+    margin-bottom: 22px;
   }
 }
 
@@ -51,7 +59,7 @@
 @media (max-width: 1600px) {
   .slider {
     &__header {
-      font-size: var(--fs-23);
+      font-size: var(--fs-24);
     }
     &__seeAll {
       font-size: var(--fs-14);
