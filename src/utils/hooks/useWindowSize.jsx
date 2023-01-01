@@ -4,27 +4,20 @@ export const useWindowSize = () => {
   const [device, setDevice] = useState({
     isMobile: undefined,
     isTablet: undefined,
-    isSDesktop: undefined,
-    isMDesktop: undefined,
-    isLDesktop: undefined,
+    isDesktop: undefined,
   })
   const [windowSize, setWindowSize] = useState({ width: undefined, height: undefined })
 
   useEffect(() => {
     function handleResize() {
       let innerWidth = window.innerWidth
-      // let innerHeight = window.innerHeight
 
-      if (innerWidth < 576) {
+      if (innerWidth < 768) {
         setDevice({ isMobile: true, isTablet: false, isSDesktop: false, isMDesktop: false, isLDesktop: false })
-      } else if (innerWidth < 768) {
+      } else if (innerWidth < 1024) {
         setDevice({ isMobile: false, isTablet: true, isSDesktop: false, isMDesktop: false, isLDesktop: false })
-      } else if (innerWidth > 991) {
-        setDevice({ isMobile: false, isTablet: false, isSDesktop: true, isMDesktop: false, isLDesktop: false })
-      } else if (innerWidth > 1199) {
-        setDevice({ isMobile: false, isTablet: false, isSDesktop: false, isMDesktop: true, isLDesktop: false })
-      } else if (innerWidth > 1280) {
-        setDevice({ isMobile: false, isTablet: false, isSDesktop: false, isMDesktop: false, isLDesktop: true })
+      } else if (innerWidth > 1024) {
+        setDevice({ isMobile: false, isTablet: false, isSDesktop: true })
       }
       setWindowSize({
         width: window.innerWidth,

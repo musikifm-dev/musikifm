@@ -387,12 +387,13 @@
       }
     }
     &__inner:after {
-      padding-right: 1rem;
+      padding-right: 19px;
     }
     &__switch {
       width: 20px;
       height: 20px;
       right: 46px; //
+      margin: 6px;
       margin-right: 1.2rem; // radio switch oynat
     }
     &__checkbox:checked + &__label {
@@ -400,7 +401,11 @@
         margin-left: 0;
       }
       .toggleSwitch__switch {
-        right: -0.9rem; //
+        width: 20px;
+        height: 20px;
+        margin: 6px;
+        right: -2px; //
+        // line-height: 32px;
       }
     }
     &.smallSwitch {

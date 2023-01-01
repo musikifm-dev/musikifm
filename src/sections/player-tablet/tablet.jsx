@@ -39,7 +39,7 @@ export default function TabletPlayer() {
           <img src={current.image} alt="" className={styles.image__item} />
         </section>
         <section className="d-flex flex-column justify-content-center align-items-center">
-          <Stack direction="horizontal" gap={3}>
+          <Stack direction="horizontal" gap={3} className="justify-content-center">
             <button className={clsx(styles.btn, styles.otherBtn)}>
               <Icon
                 name="favorite"

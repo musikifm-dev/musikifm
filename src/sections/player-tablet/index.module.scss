@@ -5,7 +5,6 @@
   left: 0;
   top: 100%;
   height: 13.6rem;
-  // z-index: 1000;
   box-shadow: 0px 5.33239px 85.3182px rgba(0, 0, 0, 0.07);
 }
 
@@ -42,13 +41,6 @@
   background-color: black;
 }
 
-.authenticated,
-.nonauthenticated {
-  // position: absolute;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-}
-
 .btn {
   background: transparent;
   outline: none;
@@ -65,19 +57,19 @@
   &__share,
   &__next,
   &__prev {
-    width: 2.9rem;
-    height: 2.9rem;
+    width: 25px;
+    height: 25px;
   }
 }
 
 .playerBtn {
-  height: 3.9rem;
-  width: 3.9rem;
+  height: 42px;
+  width: 42px;
 }
 
 .otherBtn {
-  height: 3rem;
-  width: 3rem;
+  height: 20px;
+  width: 20px;
 }
 
 .image {
