@@ -93,7 +93,13 @@ export default function Player() {
     <div className={styles.wrapper}>
       <div className={styles.switch}>
         <div className={styles.switch__text}>Şuan</div>
-        <Switch id="player-switch" checked={switchType} onChange={switchHandler} className={styles.switch__item} />
+        <Switch
+          id="player-switch"
+          checked={switchType}
+          onChange={switchHandler}
+          className={styles.switch__item}
+          switchTextStyle={styles.switchStyle}
+        />
         <div className={styles.switch__text}>dinlemektesiniz</div>
       </div>
       <div className={styles.player}>

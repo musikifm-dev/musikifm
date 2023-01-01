@@ -1,5 +1,6 @@
 .wrapper {
   width: 100%;
+  height: 100%;
 }
 
 .switch {
@@ -17,9 +18,8 @@
   }
 }
 
-.switchMobile {
-  position: fixed;
-  z-index: 1000;
+.switchStyle::before {
+  padding-left: 1rem;
 }
 
 // PLAYER
@@ -27,7 +27,6 @@
   position: relative;
   color: #fff;
   width: 100%;
-  min-height: 27rem;
 
   &__overlay {
     position: absolute;
@@ -40,7 +39,7 @@
   }
 
   &__img {
-    min-height: 27rem;
+    // min-height: 27rem;
     width: 100%;
     // object-fit: cover;
   }
@@ -95,6 +94,19 @@
   }
 }
 
+@media (max-width: 1920px) {
+  .switch {
+    gap: 7.3px;
+    &__text {
+      font-size: var(--fs-13);
+    }
+  }
+
+  .player {
+    height: 361.1px;
+  }
+}
+
 @media (max-width: 1789px) {
   .switch {
     gap: 7.3px;
@@ -102,12 +114,9 @@
       font-size: var(--fs-13);
     }
   }
-  .player {
-    max-height: 25rem;
 
-    &__img {
-      max-height: 25rem;
-    }
+  .player {
+    height: 323px;
   }
 }
 
@@ -121,11 +130,7 @@
   }
 
   .player {
-    max-height: 25rem;
-
-    &__img {
-      max-height: 25rem;
-    }
+    height: 246px;
   }
 }
 
