@@ -6,20 +6,23 @@ const OtherPodcast = (id) => {
   const { data, isSuccess } = useGetPodcastDataQuery()
 
   return (
-    <div className="podcastOther mt-5">
+    <div className="podcastOther">
       <div className="titleDiv">
-        <h4>BUNLARI DA BEĞENEBİLİRSİN</h4>
-      </div> 
+        <h4>MORE PODCAST</h4>
+      </div>
+      <div className="podcastOther__section">
       {isSuccess &&
         data
           .filter((f) => f.id !== Number(id))
           .map((item) => {
             return (
-              <div key={item.id}>
+              <div key={item.id} className="podcastOther__box">
                 <PodcastOtherItem id={id} data={item}></PodcastOtherItem>
               </div>
             )
           })} 
+      </div> 
+     
     </div>
   )
 }

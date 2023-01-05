@@ -20,12 +20,12 @@ function PodcastDetail() {
   return (
     <div className={styles.wrapper}>
       <div className="row">
-        <div className="col-md-9 px-5">
+        <div className="col-md-8">
           <section className={clsx(styles.podcastSection, 'row bg-white')}>
-            <div className="col-md-2">
-              <img src={imgPodcast} alt="podcastIMG" className="w-100" />
+            <div className={clsx(styles.podcastSection__image, 'col-md-2')}>
+              <img src={imgPodcast} alt="podcastIMG" />
             </div>
-            <div className="col-md-6 d-flex flex-column justify-content-between ">
+            <div className="col-md-6 p-0 d-flex flex-column justify-content-between ">
               <div >
                 <div>
                   <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
@@ -37,6 +37,12 @@ function PodcastDetail() {
               <div className="d-inline-flex align-items-center">
                 <Button variant="secondary" className={styles.genre}>
                   #Techno
+                </Button>
+                <Button variant="secondary" className={styles.genre}>
+                  #Disco
+                </Button>
+                <Button variant="secondary" className={styles.genre}>
+                  #Derenza
                 </Button>
                 <span className={styles.more}>more <Icon name="morearrow" size={8} /></span>
               </div>
@@ -59,15 +65,15 @@ function PodcastDetail() {
           </section>
 
           <section>
-            <div className="row bg-white mt-5 p-3">
-              <div className="p-5">
-                <p className={styles.podcastSection__paragraph}>{data?.data?.attributes.description}</p>
-              </div>
+            <div className={styles.podcastSection__paragraph}>
+             
+                <p className={styles.podcastSection__paragraph_p}>{data?.data?.attributes.description}</p>
+            
             </div>
           </section>
           <Comment id={id} />
         </div>
-        <div className="col-md-3 bg-white">
+        <div className="col-md-4">
           <OtherPodcast id={id} />
         </div>
       </div>

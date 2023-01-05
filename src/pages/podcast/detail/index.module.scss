@@ -1,9 +1,11 @@
 .wrapper {
-  
+  padding: 48px;
 
   .podcastSection {
     background: #fff;
-    padding: 1rem;
+    padding: 16px;
+    box-shadow: 0 5.3px 85.3px 0 rgb(0 0 0 / 7%);
+    height: 192px;
 
     &__title {
       font-size: var(--fs-22);
@@ -19,11 +21,25 @@
       font-weight: var(--fw-5);
     }
     &__paragraph {
-      font-size: var(--fs-16);
-      font-weight: var(--fw-4);
+      margin-top: 32px;
+      &_p{
+        font-size: var(--fs-16);
+        font-weight: var(--fw-4);
+      }
+     
+    }
+
+    &__image{
+      
+      padding: 0;
+      img{
+        width: 100%;
+      }
     }
   }
 }
+
+
 
 .podcastSection__play .play__image img {
   width: 100%;
