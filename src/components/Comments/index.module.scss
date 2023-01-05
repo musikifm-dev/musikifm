@@ -1,5 +1,5 @@
 .wrapper {
-  margin-top: 5rem !important;
+  margin-top: 44px;
 }
 
 .post {
@@ -49,15 +49,15 @@
   border-radius: 4px;
   gap: 16px;
   padding: 8px 16px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .responsibilityText {
-  font-size: var(--fs-16);
+  font-size: var(--fs-12);
 }
 
 .bold {
-  font-size: var(--fs-19);
+  font-size: var(--fs-16);
   font-weight: var(--fw-7);
   color: rgba(0, 0, 0, 0.6);
 }
@@ -166,7 +166,7 @@
 }
 
 .title {
-  font-size: var(--fs-18);
+  font-size: var(--fs-16);
   font-weight: var(--fw-6);
 }
 
@@ -208,12 +208,6 @@ textarea {
 textarea::placeholder {
   color: var(--gray);
 }
-
-// label {
-//   height: 0;
-//   width: 0;
-//   visibility: hidden;
-// }
 
 button {
   cursor: pointer;
@@ -317,6 +311,10 @@ button[type='submit'] {
 
 .commentBox.expanded .commentField {
   transform: translateY(40px);
+}
+
+@media (max-width: 1789px) {
+  
 }
 
 @media (max-width: 1400px) {

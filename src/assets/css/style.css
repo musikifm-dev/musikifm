@@ -14699,6 +14699,7 @@ textarea.form-control-lg {
   --fs-32: 32px;
   --fs-33: 33px;
   --fs-34: 34px;
+  --fs-37: 37px;
   --fs-39: 39px;
   --fs-40: 40px;
   --fs-44: 44px;
@@ -14751,6 +14752,7 @@ body {
   font-family: "Poppins", sans-serif;
   padding-right: 0px !important;
   overflow-x: hidden;
+  background: #e5e5e5;
 }
 
 .h1,

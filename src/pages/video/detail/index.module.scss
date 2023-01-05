@@ -1,0 +1,235 @@
+.wrapper {
+  padding: 48px;
+}
+
+.contentSection {
+  .contentSectionFeedback {
+    margin: 44px 0;
+  }
+  &__title {
+    font-size: var(--fs-60);
+    font-weight: var(--fw-7);
+  }
+  &__img {
+    width: 100%;
+    aspect-ratio: 3/1;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__video {
+    padding: 25%;
+  }
+  &__video,
+  &__img {
+    margin-top: 32px;
+    height: 560px;
+  }
+  &__content {
+    font-size: var(--fs-20);
+    font-weight: var(--fw-4);
+    margin-top: 48px;
+  }
+  &__shareIcon {
+    width: 13.2px;
+    height: 14.2px;
+  }
+  &__heartIcon {
+    width: 17px;
+    height: 16px;
+  }
+  &__copyIcon {
+    width: 20px;
+    height: 10px;
+  }
+  &__reportIcon {
+    width: 14px;
+    height: 16px;
+    color: red;
+  }
+  &__feedback {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
+  }
+}
+
+.orange {
+  border: none;
+  background-color: #f05e0c;
+  &:hover {
+    background-color: #f0600cd2;
+  }
+}
+
+.image {
+  position: relative;
+
+  &__item {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    max-height: 63.6rem;
+  }
+  &__title {
+    font-size: var(--fs-44);
+    font-weight: var(--fw-7);
+  }
+  &__description {
+    font-size: var(--fs-20);
+  }
+  &__title,
+  &__description,
+  .btn .btn__item {
+    color: white;
+  }
+  .btn {
+    &__item {
+      width: 260px;
+      height: 60px;
+      font-size: var(--fs-21);
+      font-weight: var(--fw-6);
+      border-radius: none !important;
+    }
+  }
+  .content {
+    padding: 68px;
+    z-index: 10;
+    bottom: 0;
+    max-width: 89rem;
+  }
+}
+
+.absolute {
+  position: absolute;
+}
+
+@media (max-width: 1920px) {
+  .image {
+    &__title {
+      font-size: var(--fs-37);
+    }
+    &__description {
+      font-size: var(--fs-17);
+    }
+  }
+
+  .contentSection {
+    &__content {
+      font-size: var(--fs-17);
+    }
+  }
+}
+
+@media (max-width: 1789px) {
+  .image {
+    &__title {
+      font-size: var(--fs-30);
+    }
+    &__description {
+      font-size: var(--fs-14);
+    }
+    .btn {
+      &__item {
+        width: 215.8px;
+        height: 49.8px;
+        font-size: var(--fs-17);
+        font-weight: var(--fw-4);
+      }
+    }
+  }
+
+  .contentSection {
+    &__content {
+      font-size: var(--fs-14);
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .image {
+    &__title {
+      font-size: var(--fs-25);
+    }
+    &__description {
+      font-size: var(--fs-11);
+    }
+    .btn {
+      &__item {
+        width: 172.6px;
+        height: 39.8px;
+        font-size: var(--fs-14);
+        font-weight: var(--fw-6);
+      }
+    }
+  }
+
+  .contentSection {
+    &__content {
+      font-size: var(--fs-11);
+    }
+  }
+}
+
+// @media (max-width: 1440px) {
+//   .detail {
+//     &__title {
+//       font-size: var(--fs-50);
+//       font-weight: var(--fw-7);
+//     }
+//     &__content {
+//       font-size: var(--fs-20);
+//       font-weight: var(--fw-4);
+//     }
+//   }
+// }
+
+// @media (max-width: 1280px) {
+//   .detail {
+//     &__title {
+//       font-size: var(--fs-40);
+//       font-weight: var(--fw-7);
+//     }
+//     &__content {
+//       font-size: var(--fs-18);
+//       font-weight: var(--fw-4);
+//     }
+//   }
+// }
+
+// @media (max-width: 992px) {
+//   .detail {
+//     &__title {
+//       font-size: var(--fs-34);
+//       font-weight: var(--fw-7);
+//     }
+//     &__content {
+//       font-size: var(--fs-16);
+//       font-weight: var(--fw-4);
+//     }
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .detail {
+//     &__title {
+//       font-size: var(--fs-30);
+//       font-weight: var(--fw-7);
+//     }
+//     &__content {
+//       font-size: var(--fs-16);
+//       font-weight: var(--fw-4);
+//     }
+//   }
+// }
+// @media (max-width: 576px) {
+//   .detail {
+//     &__title {
+//       font-size: var(--fs-34);
+//       font-weight: var(--fw-7);
+//     }
+//     &__content {
+//       font-size: var(--fs-16);
+//       font-weight: var(--fw-4);
+//     }
+//   }
+// }
