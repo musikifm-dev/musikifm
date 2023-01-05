@@ -15,7 +15,7 @@ const OtherPost = (props) => {
   return (
     <div className="blog mt-5">
       <div className="titleDiv">
-        <h3>OTHER POSTS</h3>
+        <h3>{type === "video" ? "OTHER VIDEOS" : "OTHER POSTS"}</h3>
       </div>
       <Stack gap={4} direction="vertical">
         {type === 'video' &&
