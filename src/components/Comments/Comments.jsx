@@ -1,65 +1,65 @@
 import clsx from 'clsx'
-import { useFormik } from 'formik'
+// import { useFormik } from 'formik'
 import Icon from 'assets/svg'
 import { Avatar } from 'components/ui'
 import { useState, useRef } from 'react'
-import { Button, Stack } from 'react-bootstrap'
+import { Stack } from 'react-bootstrap'
 import styles from './index.module.scss'
-import { useSendCommentMutation } from 'store/api/comment'
+// import { useSendCommentMutation } from 'store/api/comment'
 import PropTypes from 'prop-types'
-import { useGetMyDataQuery } from 'store/api/auth'
+// import { useGetMyDataQuery } from 'store/api/auth'
 import useAutosizeTextArea from 'utils/hooks/useAutosizeTextarea'
 
-const INITIAL_HEIGHT = 46
+// const INITIAL_HEIGHT = 46
 
 export default function Comment(props) {
-  const { id, detailData, loader } = props
-  const [sendComment] = useSendCommentMutation()
-  const { data: userData } = useGetMyDataQuery()
+  const { detailData, loader } = props
+  // const [sendComment] = useSendCommentMutation()
+  // const { data: userData } = useGetMyDataQuery()
 
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [commentValue, setCommentValue] = useState('')
+  // const [isExpanded, setIsExpanded] = useState(false)
+  // const [commentValue, setCommentValue] = useState('')
 
-  const outerHeight = useRef(INITIAL_HEIGHT)
-  const textRef = useRef(null)
-  const containerRef = useRef(null)
+  // const outerHeight = useRef(INITIAL_HEIGHT)
+  // const textRef = useRef(null)
+  // const containerRef = useRef(null)
 
-  const onExpand = () => {
-    if (!isExpanded) {
-      outerHeight.current = containerRef.current.scrollHeight
-      setIsExpanded(true)
-    }
-  }
+  // const onExpand = () => {
+  //   if (!isExpanded) {
+  //     outerHeight.current = containerRef.current.scrollHeight
+  //     setIsExpanded(true)
+  //   }
+  // }
 
-  const onChange = (e) => {
-    setCommentValue(e.target.value)
-  }
+  // const onChange = (e) => {
+  //   setCommentValue(e.target.value)
+  // }
 
-  const onClose = () => {
-    setCommentValue('')
-    setIsExpanded(false)
-  }
+  // const onClose = () => {
+  //   setCommentValue('')
+  //   setIsExpanded(false)
+  // }
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    console.log('send the form data somewhere')
-  }
+  // const onSubmit = (e) => {
+  //   e.preventDefault()
+  //   console.log('send the form data somewhere')
+  // }
 
-  const formik = useFormik({
-    initialValues: {
-      userDisplayName: userData?.username, // Yorum yapan kullanicinin username i gelecek
-      body: '', // Yorum
-      podcast: id, // podcast id si
-    },
-    onSubmit(values) {
-      const newData = {
-        user: values.userDisplayName,
-        review: values.body,
-        id: values.podcast,
-      }
-      sendComment(newData)
-    },
-  })
+  // const formik = useFormik({
+  //   initialValues: {
+  //     userDisplayName: userData?.username, // Yorum yapan kullanicinin username i gelecek
+  //     body: '', // Yorum
+  //     podcast: id, // podcast id si
+  //   },
+  //   onSubmit(values) {
+  //     const newData = {
+  //       user: values.userDisplayName,
+  //       review: values.body,
+  //       id: values.podcast,
+  //     }
+  //     sendComment(newData)
+  //   },
+  // })
 
   const [value, setValue] = useState('')
   const textAreaRef = useRef(null)
@@ -101,12 +101,12 @@ export default function Comment(props) {
             bağlayıcı nitelikte olup yetkili merciler tarafından istendiği taktirde paylaşılacaktır.
           </div>
         </section>
-        <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+        <Stack direction="horizontal" gap={2} className="d-flex align-items-center mt-5">
           <Icon name="comment" className={styles.icon} />
           <div className={styles.title}>Comments</div>
           <div className={styles.comments}>{loader && detailData.data.attributes.reviews.data.length}</div>
         </Stack>
-        {loader &&
+        {/* {loader &&
           detailData.data.attributes.reviews.data.map((item) => (
             <section className={styles.reviewBox} key={item.id}>
               <div className="d-flex">
@@ -156,13 +156,13 @@ export default function Comment(props) {
               <section className={clsx('row d-flex align-items-center', styles.footer)}>
                 <Stack direction="horizontal" gap={3}>
                   {/* LOGIN OLAN KULANICININ AVATARI */}
-                  <Avatar
+        {/* <Avatar
                     source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZNcEHXfzqIQnOmNv4f7z7HP8H0m1WsrLKNQ&usqp=CAU"
                     size="md"
                     className={styles.avatar}
                   />
                   {/* <textarea className={styles.placeholder}>Yorumu Yanıtla</textarea>  */}
-                  <form
+        {/* <form
                     onSubmit={onSubmit}
                     ref={containerRef}
                     className={clsx(
@@ -197,9 +197,9 @@ export default function Comment(props) {
                 </Stack>
               </section>
             </section>
-          ))}
+          ))}  */}
 
-        <div className={styles.postTitle}>Post Your Comment</div>
+        {/* <div className={styles.postTitle}>Post Your Comment</div>
         <section className="p-2">
           <div className={clsx('row d-flex align-items-center', styles.postComment)}>
             <form className={styles.postComment__form}>
@@ -217,7 +217,7 @@ export default function Comment(props) {
           <Button variant="dark" size="lg" className={styles.commentButton} onClick={formik.handleSubmit}>
             Send Comment
           </Button>
-        </section>
+        </section> */}
       </div>
     </div>
   )
