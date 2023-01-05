@@ -1,10 +1,10 @@
 .wrapper {
-  padding: 2.5rem 1.7rem;
+  padding: 32px 48px 48px 96px;
 }
 
 .detail {
   &__title {
-    font-size: var(--fs-62);
+    font-size: var(--fs-60);
     font-weight: var(--fw-7);
   }
   &__img {
@@ -18,7 +18,8 @@
   }
   &__video,
   &__img {
-    margin-top: 3.9rem;
+    margin-top: 32px;
+    height: 560px;
   }
   &__content {
     font-size: var(--fs-18);

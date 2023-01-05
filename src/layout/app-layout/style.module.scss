@@ -118,7 +118,6 @@
       box-shadow: none !important;
       color: black !important;
       &:not(.collapsed)::after {
-        background-image: url();
         color: black !important;
       }
       &::after {
