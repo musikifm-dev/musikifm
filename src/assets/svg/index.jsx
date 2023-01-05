@@ -639,6 +639,42 @@ const moreArrow = ({ size, className }) => {
   )
 }
 
+const copyLinkIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 21 11"
+      fill="none"
+      className={className}
+    >
+      <path
+        d="M9.02319 10.5H5.02319C3.63986 10.5 2.46086 10.0123 1.48619 9.037C0.51086 8.06233 0.0231934 6.88333 0.0231934 5.5C0.0231934 4.11667 0.51086 2.93733 1.48619 1.962C2.46086 0.987333 3.63986 0.5 5.02319 0.5H9.02319V2.5H5.02319C4.18986 2.5 3.48153 2.79167 2.89819 3.375C2.31486 3.95833 2.02319 4.66667 2.02319 5.5C2.02319 6.33333 2.31486 7.04167 2.89819 7.625C3.48153 8.20833 4.18986 8.5 5.02319 8.5H9.02319V10.5ZM6.02319 6.5V4.5H14.0232V6.5H6.02319ZM11.0232 10.5V8.5H15.0232C15.8565 8.5 16.5649 8.20833 17.1482 7.625C17.7315 7.04167 18.0232 6.33333 18.0232 5.5C18.0232 4.66667 17.7315 3.95833 17.1482 3.375C16.5649 2.79167 15.8565 2.5 15.0232 2.5H11.0232V0.5H15.0232C16.4065 0.5 17.5859 0.987333 18.5612 1.962C19.5359 2.93733 20.0232 4.11667 20.0232 5.5C20.0232 6.88333 19.5359 8.06233 18.5612 9.037C17.5859 10.0123 16.4065 10.5 15.0232 10.5H11.0232Z"
+        fill="black"
+      />
+    </svg>
+  )
+}
+
+const reportFlagIcon = ({ size, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 16 17"
+      fill="none"
+      className={className}
+    >
+      <path
+        d="M0.0231934 16.5V0.5H8.42319L8.79653 2.38235H14.0232V11.7941H7.48986L7.11653 9.91177H1.88986V16.5H0.0231934Z"
+        fill="black"
+      />
+    </svg>
+  )
+}
+
 const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
   const icons = {
     home: HomeIcon,
@@ -674,6 +710,8 @@ const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
     cardplay: PlayCard,
     morearrow: moreArrow,
     podcastfavorite: PodcastFavorite,
+    copyLink: copyLinkIcon,
+    report: reportFlagIcon,
   }
 
   const Component = icons[name]

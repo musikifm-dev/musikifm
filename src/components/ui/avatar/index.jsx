@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
 /**
- * @param size string -- sm, md, lg, xl
+ * @param size string -- xs, sm, md, lg, xl
  * @param rounded string -- none, sm, md, lg, full
  * @param source string
  * @param alt string

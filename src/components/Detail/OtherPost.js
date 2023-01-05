@@ -6,7 +6,7 @@ const OtherPost = () => {
   const { id } = useParams()
   const { data, isSuccess } = useGetBlogDataQuery()
   const filteredData = data?.filter((f) => f.id !== Number(id))
-  console.log(filteredData)
+
   return (
     <div className="blog mt-5">
       <div className="titleDiv">

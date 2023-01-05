@@ -12,6 +12,7 @@
   justify-content: space-between;
   position: fixed;
   width: 400px;
+  height: 100%;
 
   &__description {
     font-family: var(--f-poppings);
@@ -19,11 +20,10 @@
     font-weight: var(--fw-4);
     line-height: 1.5;
     display: -webkit-box !important;
-    word-break: break-all;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
     overflow: hidden;
     background: #fff;
+    height: 100%;
 
     p {
       padding: 16px;
@@ -288,7 +288,7 @@
     &__description {
       font-size: var(--fs-17);
       line-height: 22px;
-      -webkit-line-clamp: 27;
+      // -webkit-line-clamp: 27;
     }
   }
 
@@ -330,7 +330,7 @@
     &__description {
       font-size: var(--fs-14);
       line-height: 22px;
-      -webkit-line-clamp: 27;
+      // -webkit-line-clamp: 27;
       min-height: 178px
     }
   }
@@ -374,7 +374,7 @@
     &__description {
       font-size: var(--fs-16);
       line-height: 22px;
-      -webkit-line-clamp: 3;
+      // -webkit-line-clamp: 3;
       min-height: 178px
     }
   }
@@ -416,7 +416,7 @@
     // width: 25rem;
 
     &__description {
-      -webkit-line-clamp: 4;
+      // -webkit-line-clamp: 4;
     }
   }
 }
@@ -462,7 +462,7 @@
 
   .sidebar {
     &__description {
-      -webkit-line-clamp: 34;
+      // -webkit-line-clamp: 34;
     }
   }
 }

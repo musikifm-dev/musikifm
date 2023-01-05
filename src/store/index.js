@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import playerReducer from './slices/player'
 import podcastReducer from './slices/podcast'
 import blogReducer from './slices/blog'
+import navbarReducer from './slices/navbar'
 import { playerDataApi } from './api/player'
 import { authApi } from './api/auth'
 import { commentApi } from './api/comment'
@@ -13,6 +14,7 @@ export default configureStore({
     player: playerReducer,
     podcast: podcastReducer,
     blog: blogReducer,
+    navbar: navbarReducer,
     [dataBaseApi.reducerPath]: dataBaseApi.reducer,
     [adminBaseApi.reducerPath]: adminBaseApi.reducer,
     [playerDataApi.reducerPath]: playerDataApi.reducer,

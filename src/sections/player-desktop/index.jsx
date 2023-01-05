@@ -24,9 +24,6 @@ export default function Player() {
   const [imageFrom, setImageFrom] = useState()
   const dispatch = useDispatch()
 
-  // let smallSwitch = windowWidth < 1200
-  // let bigSwitch = windowWidth < 768
-
   useEffect(() => {
     if (isSuccess && !switchType) dispatch(setCurrent(data))
   }, [data])
@@ -34,7 +31,6 @@ export default function Player() {
   // set current state.playing as boolean to playing state
   useEffect(() => {
     dispatch(setState(state))
-    console.log('playing CHANGED')
   }, [state.playing])
 
   useEffect(() => {

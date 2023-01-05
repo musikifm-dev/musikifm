@@ -52,25 +52,18 @@ export default function MobilePlayer() {
             <Icon
               name="prev"
               size="18"
-              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
+              className={clsx(styles.mobilePlayer__item)}
+              stroke={userData ? 'white' : 'black'}
             />
           </button>
           <button className={styles.icon} onClick={clickHandler}>
-            <Icon name={playing ? 'pause' : 'play'} size="18" className={styles.icon__item} />
+            <Icon name={playing ? 'pause' : 'play'} size="18" className={styles.icon__item} fill="white" />
           </button>
           <button>
-            <Icon
-              name="next"
-              size="18"
-              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
-            />
+            <Icon name="next" size="18" className={styles.mobilePlayer__item} stroke={userData ? 'white' : 'black'} />
           </button>
           <button>
-            <Icon
-              name="share"
-              size="18"
-              className={clsx(userData ? styles.light : styles.dark, styles.mobilePlayer__item)}
-            />
+            <Icon name="share" size="18" className={styles.mobilePlayer__item} stroke={userData ? 'white' : 'black'} />
           </button>
         </div>
 

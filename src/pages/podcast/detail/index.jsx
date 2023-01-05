@@ -65,7 +65,7 @@ function PodcastDetail() {
               </div>
             </div>
           </section>
-          <Comment podcastId={id} />
+          <Comment id={id} />
         </div>
         <div className="col-md-3 bg-white">
           <OtherPodcast id={id} />
