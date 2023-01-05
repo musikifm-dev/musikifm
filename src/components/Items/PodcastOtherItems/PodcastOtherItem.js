@@ -7,6 +7,7 @@ import { APP } from 'utils/constants'
 import styles from './index.module.scss'
 
 
+
 function PodcastOtherItem({ data }) {
   const dispatch = useDispatch()
   const { current,playing } = useSelector((state) => state.player)
@@ -27,27 +28,32 @@ function PodcastOtherItem({ data }) {
   }
  
   return (
-    <div className={styles.podcastOtherBox}>
-      <Link to={`/podcast/${data.id}`} className={styles.podcastOtherBox__image}>
-        <div>
-          <img src={APP.adminBase + data.image} />
-        </div>
-        <button className={styles.podcastOtherBox__btn} data-src="" onClick={() => clickHandler(data)}>
-            <Icon name={current?.id === data.id && playing === true ? 'pause' : 'play'} size="18" fill="#fff" />
-          </button>
-      </Link>
-      <div className={styles.podcastOtherBox__content}>
-        <div className={styles.podcastOtherBox__content_title}>
-          <h4>{data.title}</h4>
-        </div>
-        <div className={styles.podcastOtherBox__tool}>
-         
-          {/* <div className={styles.podcastOtherBox__tool_favorite}>
-           <Icon name="podcastfavorite" size="17"></Icon>
-          </div> */}
-        </div>
-      </div>
+    <div className="podcastBox">
+<Link to={`/podcast/${data.id}`}>
+  <div className="podcastBox__image">
+    <img src={APP.adminBase + data.image} />
+  </div>
+</Link>
+<div className="podcastBox__content">
+  <div className="podcastBox__title">
+    <h4>{data.title}</h4>
+  </div>
+  <div className="podcastBox__info">
+    <p>{data.description}</p>
+  </div>
+  <div className="podcastBox__player">
+    <div className="timeBox">
+      {/* <Icon name="time" size="14" />
+                      <span>2:36</span> */}
     </div>
+    <button className="PlayPodcast" data-src="" onClick={() => clickHandler(data)}>
+      <Icon name={current?.id === data.id && playing === true ? 'pause' : 'play'} size="18" />
+    </button>
+  </div>
+</div>
+</div>
+
+
   )
 }
 
