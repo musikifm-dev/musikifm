@@ -9,7 +9,9 @@ import { route } from 'utils/constants'
 import styles from './index.module.scss'
 import { useGetBlogTagsQuery } from 'store/api/comment'
 import { useGetBlogDataQuery } from 'store/api/admin-base'
-import CardSection from 'sections/card'
+// import CardSection from 'sections/card'
+import { BlogCard } from 'sections'
+import { useWindowSize } from 'utils/hooks/useWindowSize'
 
 export default function Blog() {
   const { isSuccess, data } = useGetBlogDataQuery()
@@ -17,6 +19,7 @@ export default function Blog() {
   const [switchType, setSwitchType] = useState(false)
   const [renderData, setRenderData] = useState()
   const { selectedBlogFilter } = useSelector((state) => state.blog)
+  const { windowWidth } = useWindowSize()
 
   useEffect(() => {
     isSuccess && setRenderData(readableBlog)
@@ -96,9 +99,10 @@ export default function Blog() {
         <div className="row">
           {isSuccess &&
             renderData?.map((item) => (
-              <div className="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 my-4" key={item.id}>
-                <Stack gap={3} direction="horizontal">
-                  <CardSection data={item} type="blog" />
+              <div className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 my-4" key={item.id}>
+                <Stack gap={2} direction={windowWidth < 568 ? 'vertical' : 'horizontal'}>
+                  {/* <CardSection data={item} type="blog" /> */}
+                  <BlogCard data={item} />
                 </Stack>
               </div>
             ))}

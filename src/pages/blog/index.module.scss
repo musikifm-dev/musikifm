@@ -77,6 +77,11 @@
 }
 
 @media (max-width: 576px) {
+  .blog {
+    padding: 0;
+    margin-top: 20px !important;
+  }
+
   .switch::after {
     padding-left: 29px;
   }

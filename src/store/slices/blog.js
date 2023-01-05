@@ -22,5 +22,4 @@ export const blogSlice = createSlice({
 })
 
 export const { setBlogFilter, deleteBlogFilter, resetBlogFilter } = blogSlice.actions
-
 export default blogSlice.reducer

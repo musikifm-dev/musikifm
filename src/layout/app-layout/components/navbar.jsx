@@ -12,7 +12,7 @@ import { useWindowSize } from 'utils/hooks/useWindowSize'
 import clsx from 'clsx'
 import { Avatar } from 'components/ui'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useScrollPosition from 'utils/hooks/useScrollPosition'
 import { authApi, useGetMyDataQuery } from 'store/api/auth'
@@ -20,11 +20,13 @@ import MobilePlayer from 'sections/player-mobile'
 import { refreshPage } from 'utils/helpers'
 import { ProfileSidebar } from 'sections'
 import TabletPlayer from 'sections/player-tablet/tablet'
+import { setIsOpen } from 'store/slices/navbar'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const { isOpen } = useSelector((state) => state.navbar)
   const [accordion, setAccordion] = useState('0')
-  const [navbar, setNavbar] = useState(false)
+  // const [navbar, setNavbar] = useState(false)
   const { data: userData } = useGetMyDataQuery()
   const dispatch = useDispatch()
   const { isMobile, isTablet } = useWindowSize()
@@ -32,25 +34,26 @@ const Navbar = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    if (navbar && pathname !== '/') {
-      console.log(true)
-      setNavbar(false)
+    if (isOpen && pathname !== '/') {
+      dispatch(setIsOpen(false))
+      setAccordion(null)
     }
   }, [pathname])
 
   // console.log({ path: pathname, route: route.home, toggle: navbar })
 
   const handleNavbarToggle = (val) => {
-    setNavbar(val)
-    if (!navbar) setAccordion(null)
+    dispatch(setIsOpen(val))
+    if (!isOpen) setAccordion(null)
   }
+
 
   const handleLogout = () => {
     localStorage.clear()
     dispatch(authApi.util.resetApiState())
     refreshPage()
   }
-
+  
   return (
     <>
       {[false].map((expand) => (
@@ -59,8 +62,9 @@ const Navbar = () => {
           expand={expand}
           className={clsx(styles.navbar, userData ? styles.darkBg : styles.lightBg)}
           onToggle={handleNavbarToggle}
+          
         >
-          <Container fluid>
+          <Container fluid className={userData ? styles.darkBg : styles.lightBg}>
             <ReactBootstrapNavbar.Brand className={isMobile && 'w-100'}>
               <Stack
                 direction="horizontal"
@@ -257,7 +261,7 @@ const Navbar = () => {
                 )}
               </Stack>
             </div>
-            {isTablet && !isMobile && <TabletPlayer />}
+            {isTablet && !isMobile && isOpen === false && <TabletPlayer />}
           </Container>
         </ReactBootstrapNavbar>
       ))}
