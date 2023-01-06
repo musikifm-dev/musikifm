@@ -12,25 +12,25 @@ import { Avatar } from 'components/ui'
 // import styles from './index.module.scss'
 
 export default function ProfileSidebar() {
-//   const [show, setShow] = useState(false)
-//   const [accordion, setAccordion] = useState('0')
+  //   const [show, setShow] = useState(false)
+  //   const [accordion, setAccordion] = useState('0')
   //   const { data: userData } = useGetMyDataQuery()
-//   const dispatch = useDispatch()
+  //   const dispatch = useDispatch()
 
-//   const handleClose = () => setShow(false)
-//   const handleToggle = () => setShow((prev) => !prev)
+  //   const handleClose = () => setShow(false)
+  //   const handleToggle = () => setShow((prev) => !prev)
 
-//   const handleLogout = () => {
-//     localStorage.clear()
-//     dispatch(authApi.util.resetApiState())
-//     refreshPage()
-//   }
+  //   const handleLogout = () => {
+  //     localStorage.clear()
+  //     dispatch(authApi.util.resetApiState())
+  //     refreshPage()
+  //   }
 
   return (
-    <>
+    <div className="d-flex align-items-center">
       <Avatar
         source="https://images.squarespace-cdn.com/content/v1/569591ff0ab3771dba3f1ec6/1650383193773-4E38HIVJMG16Q5MHD80A/JD+Solo+by+Todd+V+Wolfson.jpg?format=2500w"
-        size="sm"
+        size="xs"
         rounded="full"
         // onClick={handleToggle}
       />
@@ -106,6 +106,6 @@ export default function ProfileSidebar() {
           </Accordion>
         </Offcanvas.Body>
       </Offcanvas> */}
-    </>
+    </div>
   )
 }

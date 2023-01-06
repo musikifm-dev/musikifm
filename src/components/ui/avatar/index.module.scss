@@ -31,9 +31,13 @@
     }
   }
   /* Sizes */
-  &.size_xs {
+  &.size_xxs {
     width: 32px;
     height: 32px;
+  }
+  &.size_xs {
+    width: 40px;
+    height: 40px;
   }
   &.size_sm {
     width: 3.9rem;
