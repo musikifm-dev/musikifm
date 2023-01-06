@@ -9,24 +9,24 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   position: fixed;
   width: 400px;
-  height: 100%;
+  height: calc(100% - 74px);
 
-  &__description {
+  .description {
     font-family: var(--f-poppings);
-    font-size: var(--fs-18);
+    font-size: var(--fs-20);
     font-weight: var(--fw-4);
     line-height: 1.5;
     display: -webkit-box !important;
     text-overflow: ellipsis;
-    overflow: hidden;
     background: #fff;
+    overflow-y: auto;
     height: 100%;
 
-    p {
-      padding: 16px;
+    &__item {
+      padding: 32px;
     }
   }
 }
@@ -303,18 +303,18 @@
   .sidebar {
     width: 361.1px;
 
-    &__description {
-      font-size: var(--fs-17);
+    .description {
+      height: inherit;
+      font-size: var(--fs-16);
       line-height: 22px;
-      // -webkit-line-clamp: 27;
+      &__item {
+        padding: 28px;
+      }
     }
   }
 
   .switch {
     padding: 0.6rem;
-  }
-  .banner {
-    max-height: 20rem;
   }
 }
 
@@ -345,11 +345,13 @@
   .sidebar {
     width: 323px;
 
-    &__description {
+    .description {
+      height: inherit;
       font-size: var(--fs-14);
       line-height: 22px;
-      // -webkit-line-clamp: 27;
-      min-height: 178px;
+      &__item {
+        padding: 25px;
+      }
     }
   }
 
@@ -365,9 +367,6 @@
 
   .switch {
     padding: 0.6rem;
-  }
-  .banner {
-    max-height: 20rem;
   }
 }
 
@@ -398,11 +397,16 @@
 
   .sidebar {
     width: 246.5px;
+    height: calc(100% - 53px);
 
-    &__description {
+    .description {
+      height: inherit;
       font-size: var(--fs-16);
       line-height: 22px;
-      min-height: 178px;
+
+      &__item {
+        padding: 25px;
+      }
     }
   }
 
@@ -414,10 +418,6 @@
 
   .switch {
     padding: 0.6rem;
-  }
-
-  .banner {
-    height: 205px;
   }
 }
 
@@ -446,6 +446,17 @@
     }
     &__btn {
       font-size: var(--fs-12);
+    }
+  }
+  .sidebar {
+    height: calc(100% - 53px);
+    .description {
+      height: inherit;
+      font-size: var(--fs-12);
+
+      &__item {
+        padding: 19px;
+      }
     }
   }
 }
