@@ -16,11 +16,7 @@ body {
   font-family: $primaryFont;
   padding-right: 0px !important; // **Can couse ui issue
   overflow-x: hidden;
-<<<<<<< HEAD
-  background: #e5e5e5;  
-=======
   background: #e5e5e5;
->>>>>>> 7c0ef522129f1b9a3d9dcf5c6332949b139545fc
 }
 
 .h1,
@@ -202,28 +198,6 @@ h6 {
     background: pink;
   }
 }
-
-.titleDiv {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-
-  h3 {
-    font-size: 30px;
-    font-weight: 600;
-  }
-
-  a {
-    color: #000;
-    text-decoration: underline;
-  }
-}
-
-// HERO SLİDER
-
-// PODCAST
-
-//BLOG
 
 .blog {
   .owl-theme {
@@ -472,7 +446,3 @@ div#headlessui-menu-items-\:r3\: {
   padding: 10px;
   min-height: 400px;
 }
-
-// SECTION
-
-// SWIPER

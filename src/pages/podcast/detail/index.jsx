@@ -2,15 +2,16 @@ import Icon from 'assets/svg'
 import clsx from 'clsx'
 import { Button, Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { useGetPodcastDetailQuery } from 'store/api/admin-base'
+import { useGetPodcastDataQuery, useGetPodcastDetailQuery } from 'store/api/admin-base'
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
 import Comment from 'components/Comments/Comments'
-import OtherPodcast from 'components/Detail/OtherPodcast'
+import OtherPost from 'components/Detail/OtherPost'
 
 function PodcastDetail() {
   const { id } = useParams()
   const { data, isLoading, isError } = useGetPodcastDetailQuery(id)
+  const { data: podcastData, isLoading: podcastIsLoading } = useGetPodcastDataQuery()
 
   if (isLoading) return <Spinner animation="grow" />
   if (isError) return <p>Error...</p>
@@ -26,7 +27,7 @@ function PodcastDetail() {
               <img src={imgPodcast} alt="podcastIMG" />
             </div>
             <div className="col-md-6 p-0 d-flex flex-column justify-content-between ">
-              <div >
+              <div>
                 <div>
                   <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
                 </div>
@@ -44,7 +45,9 @@ function PodcastDetail() {
                 <Button variant="secondary" className={styles.genre}>
                   #Derenza
                 </Button>
-                <span className={styles.more}>more <Icon name="morearrow" size={8} /></span>
+                <span className={styles.more}>
+                  more <Icon name="morearrow" size={8} />
+                </span>
               </div>
               {/* <div className="podcastSection__tags"></div> */}
             </div>
@@ -66,15 +69,13 @@ function PodcastDetail() {
 
           <section>
             <div className={styles.podcastSection__paragraph}>
-             
-                <p className={styles.podcastSection__paragraph_p}>{data?.data?.attributes.description}</p>
-            
+              <p className={styles.podcastSection__paragraph_p}>{data?.data?.attributes.description}</p>
             </div>
           </section>
           <Comment id={id} />
         </div>
         <div className="col-md-4">
-          <OtherPodcast id={id} />
+          <OtherPost data={podcastData} loader={podcastIsLoading} type="podcast" />
         </div>
       </div>
     </div>

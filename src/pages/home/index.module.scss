@@ -1,4 +1,21 @@
 .home {
-  padding: 2.5rem 1.7rem;
+  padding: 48px 0 48px 48px;
 }
 
+@media (max-width: 1920px) {
+  .home {
+    padding: 44.5px 0 44.5px 44.5px;
+  }
+}
+
+@media (max-width: 1789px) {
+  .home {
+    padding: 39.8px 0 39.8px 39.8px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .home {
+    padding: 34px 0 34px 34px;
+  }
+}

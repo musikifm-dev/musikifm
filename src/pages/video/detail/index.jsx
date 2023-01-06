@@ -28,8 +28,6 @@ export default function VideoDetail() {
     dispatch(setState({ playing: !playing }))
   }
 
-  console.log(videosData)
-
   // let image = data?.data.attributes.image.data.attributes.url
   // const imgBlog = APP.adminBase + image
 
