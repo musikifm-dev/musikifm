@@ -61,7 +61,7 @@ const Navbar = () => {
           onToggle={handleNavbarToggle}
         >
           <div className={isMobile && 'w-100'}>
-            <div className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'd-flex'}>
+            <div className={isMobile ? 'w-100 d-flex' : 'd-flex'}>
               <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                 <Icon
                   name="hamburger"
@@ -70,11 +70,10 @@ const Navbar = () => {
                 />
               </ReactBootstrapNavbar.Toggle>
 
-              {!isMobile && (
-                <Link to={route.home}>
-                  <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
-                </Link>
-              )}
+              <Link to={route.home}>
+                <Image src={userData ? logoWhite : logoBlack} className={styles.navbar__logo} />
+              </Link>
+
               {isMobile && scrollPosition >= 520 && (
                 <div className={styles.mobilePlayer}>
                   <div className={styles.mobilePlayer__item}>
@@ -221,13 +220,9 @@ const Navbar = () => {
               </div>
             )}
             <div className={styles.rightBox}>
-              <div>
-                {' '}
-                <Icon name="search" size={24} fill={userData ? 'white' : 'black'} />
-              </div>
-              {!isMobile && userData && (
+              <div>{!isMobile && <Icon name="search" size={24} fill={userData ? 'white' : 'black'} />}</div>
+              {userData && (
                 <div>
-                  {' '}
                   <button className={styles.btnContainer__moodBtn} onClick={() => navigate(route.moodFilter)}>
                     MOOD
                   </button>

@@ -200,7 +200,9 @@
 
 .navbar {
   position: fixed !important;
-  height: 82px;
+  padding: 0 !important;
+  height: 74px;
+
   &__hamburger {
     width: 100%;
     height: 100%;
@@ -219,7 +221,7 @@
 .wrapper {
   display: flex;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 74px;
 
   &__side {
     width: 400px;
@@ -277,10 +279,10 @@
 @media (max-width: 1920px) {
   .navbar {
     position: fixed !important;
-    height: 80px;
+    // height: 80px;
     &__hamburger {
-      width: 100%;
-      height: 100%;
+      width: 29px;
+      height: 29px;
     }
     &__logo {
       width: 161px;
@@ -319,7 +321,11 @@
 @media (max-width: 1789px) {
   .navbar {
     position: fixed !important;
-    height: 69px;
+    // height: 69px;
+    &__hamburger {
+      width: 28px;
+      height: 28px;
+    }
     &__logo {
       width: 150px;
       height: 30px;
@@ -368,8 +374,8 @@
 @media (max-width: 1600px) {
   .navbar {
     position: fixed !important;
-    height: 61px;
-    padding: 0 !important;
+    height: 58px;
+
     &__hamburger {
       width: 24px;
       height: 24px;
@@ -380,7 +386,7 @@
     }
   }
   .wrapper {
-    padding-top: 61px;
+    padding-top: 58px;
     &__side {
       width: 246.5px;
     }
@@ -396,7 +402,6 @@
     &__description {
       font-size: var(--fs-16);
       line-height: 22px;
-      // -webkit-line-clamp: 3;
       min-height: 178px;
     }
   }
@@ -419,7 +424,7 @@
 @media (max-width: 1366px) {
   .navbar {
     position: fixed !important;
-    height: 58.96px;
+    height: 53px;
     padding: 0 !important;
 
     &__hamburger {
@@ -428,7 +433,7 @@
     }
   }
   .wrapper {
-    padding-top: 52px;
+    padding-top: 53px;
 
     &__content {
       width: calc(100% - 246.5px);
@@ -513,7 +518,14 @@
   }
 
   .navbar {
-    height: 52px;
+    display: flex;
+    flex-wrap: nowrap !important;
+    // height: 52px;
+
+    // &__hamburger {
+    //   width: 27px;
+    //   height: 27px;
+    // }
 
     .mobilePlayer {
       padding: 0.225rem 0;
@@ -543,16 +555,16 @@
   }
 
   .btnContainer {
+    padding-right: 24px;
+
     &__moodBtn {
       position: relative;
-      font-size: var(--fs-13);
-      font-weight: var(--fw-5);
-      padding-bottom: 0.3rem;
-      padding-top: 0.3rem;
-      padding-left: 1.5rem;
-      padding-right: 2.4rem;
+      font-size: var(--fs-16);
+      font-weight: var(--fw-6);
+      padding: 5px 16px;
+
       color: #fff;
-      background: black;
+      // background: black;
 
       &:hover {
         color: black;

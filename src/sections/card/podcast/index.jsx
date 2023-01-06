@@ -44,7 +44,6 @@ export default function PodcastCard({ data }) {
             <Icon
               name={current?.id === id && playing === true ? 'pause' : 'play'}
               className={styles.footer__icon}
-              size="12"
               fill="#000"
             />
           </button>
