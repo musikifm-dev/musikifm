@@ -6,7 +6,7 @@ import { useGetPodcastDataQuery, useGetPodcastDetailQuery } from 'store/api/admi
 import { APP } from 'utils/constants'
 import styles from './index.module.scss'
 import Comment from 'components/Comments/Comments'
-import OtherPost from 'components/Detail/OtherPost'
+import { OtherPosts } from 'sections'
 
 function PodcastDetail() {
   const { id } = useParams()
@@ -75,7 +75,7 @@ function PodcastDetail() {
           <Comment id={id} />
         </div>
         <div className="col-md-4">
-          <OtherPost data={podcastData} loader={podcastIsLoading} type="podcast" />
+          <OtherPosts data={podcastData} loader={podcastIsLoading} type="podcast" />
         </div>
       </div>
     </div>

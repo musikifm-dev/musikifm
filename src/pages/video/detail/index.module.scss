@@ -3,6 +3,7 @@
 }
 
 .contentSection {
+  padding-right: 48px;
   .contentSectionFeedback {
     margin: 44px 0;
   }
@@ -27,7 +28,6 @@
   &__content {
     font-size: var(--fs-20);
     font-weight: var(--fw-4);
-    margin-top: 48px;
   }
   &__shareIcon {
     width: 13.2px;
@@ -44,12 +44,16 @@
   &__reportIcon {
     width: 14px;
     height: 16px;
-    color: red;
   }
   &__feedback {
     font-size: var(--fs-14);
     font-weight: var(--fw-5);
   }
+}
+
+.contentSection,
+.otherPostsSection {
+  margin-top: 48px !important;
 }
 
 .orange {
@@ -83,6 +87,9 @@
     color: white;
   }
   .btn {
+    display: flex;
+    gap: 24px;
+
     &__item {
       width: 260px;
       height: 60px;
@@ -92,10 +99,12 @@
     }
   }
   .content {
-    padding: 68px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 64px;
     z-index: 10;
     bottom: 0;
-    max-width: 89rem;
   }
 }
 
@@ -129,6 +138,8 @@
       font-size: var(--fs-14);
     }
     .btn {
+      gap: 19.9px;
+
       &__item {
         width: 215.8px;
         height: 49.8px;
@@ -154,12 +165,17 @@
       font-size: var(--fs-11);
     }
     .btn {
+      gap: 15.9px;
+      
       &__item {
         width: 172.6px;
         height: 39.8px;
         font-size: var(--fs-14);
         font-weight: var(--fw-6);
       }
+    }
+    .content {
+      padding: 62.7px;
     }
   }
 

@@ -1,7 +1,7 @@
 import { Spinner, Stack } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import { APP } from 'utils/constants'
-import OtherPost from 'components/Detail/OtherPost'
+// import OtherPost from 'components/Detail/OtherPost'
 import styles from './index.module.scss'
 import { EmbedVideo } from 'components/ui'
 import Comment from 'components/Comments/Comments'
@@ -54,7 +54,7 @@ export default function Detail(props) {
           <Comment detailData={data} loader={loader} />
         </div>
         <div className="col-md-3">
-          <OtherPost />
+          {/* <OtherPost /> */}
         </div>
       </div>
     </div>
