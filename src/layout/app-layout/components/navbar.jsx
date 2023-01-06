@@ -61,11 +61,7 @@ const Navbar = () => {
           onToggle={handleNavbarToggle}
         >
           <div className={isMobile && 'w-100'}>
-            <Stack
-              direction="horizontal"
-              gap={2}
-              className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'align-items-center'}
-            >
+            <div className={isMobile ? 'w-100 align-items-center justify-content-between no-wrap' : 'd-flex'}>
               <ReactBootstrapNavbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
                 <Icon
                   name="hamburger"
@@ -86,7 +82,7 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
-            </Stack>
+            </div>
 
             <ReactBootstrapNavbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
