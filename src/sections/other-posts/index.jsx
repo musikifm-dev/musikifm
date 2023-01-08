@@ -18,7 +18,7 @@ const OtherPosts = (props) => {
 
   return (
     <div>
-      <h3 className={styles.header}>{podcastType ? podcastType : blogType ? blogType : videoType}</h3>
+      <h3 className={styles.otherTitle}>{podcastType ? podcastType : blogType ? blogType : videoType}</h3>
 
       {!podcastType && (
         <div className={styles.card}>
@@ -28,13 +28,13 @@ const OtherPosts = (props) => {
       )}
 
       {podcastType && !loader && (
-        <>
+        <div className={styles.podcastSection}>
           {filteredData.map((item) => (
-            <div className="col-sm-12 col-md-6 col-lg-6" key={item.id}>
+            <div className={styles.podcastSection_box} key={item.id}>
               <PodcastCard data={item} />
             </div>
           ))}
-        </>
+        </div>
       )}
     </div>
   )

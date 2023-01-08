@@ -122,12 +122,7 @@ const PauseIcon = ({ size, className, fill }) => {
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M2 2V20.6599M11.9852 2V20.6599"
-        stroke={fill}
-        strokeWidth="3.99929"
-        strokeLinecap="round"
-      />
+      <path d="M2 2V20.6599M11.9852 2V20.6599" stroke={fill} strokeWidth="3.99929" strokeLinecap="round" />
     </svg>
   )
 }
@@ -674,6 +669,72 @@ const CommentIcon = ({ size, className }) => {
     </svg>
   )
 }
+const WhoListened = ({ size, className }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 17 14"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 13V6.25c-1.5 0-3 .384-3 1.923V10a3 3 0 0 0 3 3zm0 0V5.5a4.5 4.5 0 0 1 9 0V13m0 0V6.25c1.5 0 3 .384 3 1.923V10a3 3 0 0 1-3 3z"
+        stroke="#000"
+        stroke-width="1.68"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+const WhoLiked = ({ size, className }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 15 16"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.51 8.396c.316-.404.49-.9.49-1.414 0-.818-.47-1.591-1.228-2.023a1.298 1.298 0 0 0-.643-.169H8.633l.112-2.237a1.916 1.916 0 0 0-.553-1.445 2 2 0 0 0-.666-.451A2.051 2.051 0 0 0 6.731.5c-.975 0-1.837.637-2.096 1.549l-1.61 5.66H.6a.59.59 0 0 0-.6.583v6.626a.59.59 0 0 0 .6.582h11.274c.173 0 .342-.033.497-.098.893-.37 1.468-1.216 1.468-2.155 0-.23-.033-.455-.1-.674a2.298 2.298 0 0 0 .387-2.088c.315-.404.49-.899.49-1.414a2.418 2.418 0 0 0-.105-.675zM1.35 14.189V9.02h1.519v5.17H1.35zm11.933-6.425-.411.346.26.462a1 1 0 0 1 .13.497c0 .3-.135.586-.368.783l-.41.346.26.462c.086.152.13.323.13.497 0 .3-.135.586-.368.783l-.41.346.26.462a1 1 0 0 1 .13.497c0 .408-.248.775-.63.943H4.069V8.962L5.934 2.4a.802.802 0 0 1 .295-.422.843.843 0 0 1 .497-.166c.142 0 .283.04.395.122a.64.64 0 0 1 .274.555l-.18 3.612h5.895c.334.198.54.533.54.88 0 .301-.135.585-.367.783z"
+        fill="#000"
+      />
+    </svg>
+  )
+}
+const like = ({ size, className, fill }) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 18 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.8 1.5h0c.573 0 1.142.15 1.66.445.52.296.975.73 1.323 1.273a1 1 0 0 0 1.684 0C10.15 2.153 11.249 1.5 12.45 1.5c1.945 0 3.675 1.759 3.675 4.127 0 2.213-1.204 4.43-2.877 6.283-1.53 1.695-3.332 2.95-4.623 3.513-1.291-.563-3.093-1.818-4.623-3.513-1.673-1.853-2.877-4.07-2.877-6.283C1.125 3.26 2.855 1.5 4.8 1.5z"
+        fill={fill}
+        stroke="#000"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+const report = ({ size, className, fill }) => {
+  return (
+    <svg width={size} height={size} className={className} viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 16.5V.5h8.4l.373 1.882H14v9.412H7.467l-.374-1.882H1.867V16.5H0z" fill="#000" fill-opacity=".2" />
+    </svg>
+  )
+}
 
 const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
   const icons = {
@@ -713,6 +774,10 @@ const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
     copyLink: copyLinkIcon,
     report: reportFlagIcon,
     comment: CommentIcon,
+    wholistened: WhoListened,
+    wholiked: WhoLiked,
+    like: like,
+    report:report
   }
 
   const Component = icons[name]
