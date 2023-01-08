@@ -19,7 +19,41 @@
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
+  justify-content: space-between;
   &_box{
-    width: 215px;
+    width: 214px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .podcastSection{
+    &_box{
+      width: 214px;
+    }
+  }
+}
+
+@media (max-width: 1789px) {
+  .podcastSection{
+    &_box{
+      width: 175px;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .podcastSection{
+    gap: 20px;
+    &_box{
+      width: 140px;
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .podcastSection{
+    &_box{
+      width: 130px;
+    }
   }
 }
