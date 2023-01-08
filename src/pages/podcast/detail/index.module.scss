@@ -1,6 +1,18 @@
 .wrapper {
   padding: 48px;
 
+  .podcastDetail{
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    .podcastContent{
+      width: 914px;
+    }
+    .podcastOther{
+      width: 462px;
+    }
+  }
+
   .podcastSection {
     background: #fff;
     padding: 16px;
@@ -16,24 +28,60 @@
       font-weight: var(--fw-5);
     }
     &__text {
-      margin-left: 1rem;
+      margin-left: 8px;
       font-size: var(--fs-15);
       font-weight: var(--fw-5);
     }
     &__paragraph {
       margin-top: 32px;
       &_p{
-        font-size: var(--fs-16);
+        font-size: 20px;
         font-weight: var(--fw-4);
       }
      
     }
 
     &__image{
-      
+      margin-right: 24px;
       padding: 0;
       img{
         width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .podcastIcon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0;
+    padding: 12px;
+    &__right{
+      display: flex;
+      &_btn{
+        display: flex;
+        align-items: center;
+        border: unset;
+        margin-right: 30px;
+        background-color: unset;
+        font-weight: 500;
+        span{
+          margin-left: 7px;
+        }
+      }
+    }
+    &__left{
+      &_btn{
+        display: flex;
+        align-items: center;
+        border: unset;
+        background-color: unset;
+        font-weight: 500;
+        color: #00000066;
+        span{
+          margin-left: 7px;
+        }
       }
     }
   }
@@ -60,6 +108,7 @@
   padding: 0.5 2rem !important;
   border: none !important;
   border-radius: 2rem !important;
+  margin-right: 10px;
   &:hover {
     background-color: #cccccca4 !important;
   }

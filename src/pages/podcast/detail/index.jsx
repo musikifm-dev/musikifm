@@ -20,8 +20,8 @@ function PodcastDetail() {
 
   return (
     <div className={styles.wrapper}>
-      <div className="row">
-        <div className="col-md-8">
+      <div className={styles.podcastDetail}>
+        <div className={styles.podcastContent}>
           <section className={clsx(styles.podcastSection, 'row bg-white')}>
             <div className={clsx(styles.podcastSection__image, 'col-md-2')}>
               <img src={imgPodcast} alt="podcastIMG" />
@@ -51,17 +51,17 @@ function PodcastDetail() {
               </div>
               {/* <div className="podcastSection__tags"></div> */}
             </div>
-            <div className="col-md-4 d-flex justify-content-around align-items-end">
+            <div className="col-md-3 d-flex justify-content-around align-items-end">
               <div className="d-flex align-items-center">
-                <Icon name="headphone" size={20} />
+                <Icon name="wholistened" size={15} />
                 <div className={styles.podcastSection__text}>320</div>
               </div>
               <div className="d-flex align-items-center">
-                <Icon name="heartEmpty" size={22} />
+                <Icon name="wholiked" size={15} />
                 <div className={styles.podcastSection__text}>23</div>
               </div>
               <div className="d-flex align-items-center">
-                <Icon name="share" size={17} stroke="#000" />
+                <Icon name="share" size={15} stroke="#000" />
                 <div className={styles.podcastSection__text}>Share</div>
               </div>
             </div>
@@ -72,9 +72,32 @@ function PodcastDetail() {
               <p className={styles.podcastSection__paragraph_p}>{data?.data?.attributes.description}</p>
             </div>
           </section>
+
+          <div className={styles.podcastIcon}>
+            <div className={styles.podcastIcon__right}>
+              <button className={styles.podcastIcon__right_btn}>
+                <Icon name="share" size={15} stroke="#000" />
+                <span>SHARE</span>
+              </button>
+              <button className={styles.podcastIcon__right_btn}>
+                <Icon name="like" size={15} stroke="#000" />
+                <span>LİKE</span>
+              </button>
+              <button className={styles.podcastIcon__right_btn}>
+                <Icon name="copyLink" size={15} stroke="#000" />
+                <span>COPY LİNK</span>
+              </button>
+            </div>
+            <div className={styles.podcastIcon__left}>
+              <button className={styles.podcastIcon__left_btn}>
+                <Icon name="report" size={15} stroke="#00000033" />
+                <span>Report</span>
+              </button>
+            </div>
+          </div>
           <Comment id={id} />
         </div>
-        <div className="col-md-4">
+        <div className={styles.podcastOther}>
           <OtherPosts data={podcastData} loader={podcastIsLoading} type="podcast" />
         </div>
       </div>
