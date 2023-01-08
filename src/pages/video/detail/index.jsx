@@ -75,7 +75,7 @@ export default function VideoDetail() {
             </Stack>
             <Stack direction="horizontal" gap={2}>
               <Icon name="report" className={styles.contentSection__reportIcon} />
-              <span className={styles.contentSection__feedback}>Report</span>
+              <span className={clsx(styles.contentSection__feedback, styles.report)}>Report</span>
             </Stack>
           </div>
           <Comment detailData={data} loader={isLoading} />
