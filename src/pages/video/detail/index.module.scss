@@ -48,6 +48,7 @@
   &__feedback {
     font-size: var(--fs-14);
     font-weight: var(--fw-5);
+    color: rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -95,7 +96,6 @@
       height: 60px;
       font-size: var(--fs-21);
       font-weight: var(--fw-6);
-      border-radius: none !important;
     }
   }
   .content {
@@ -166,7 +166,7 @@
     }
     .btn {
       gap: 15.9px;
-      
+
       &__item {
         width: 172.6px;
         height: 39.8px;
