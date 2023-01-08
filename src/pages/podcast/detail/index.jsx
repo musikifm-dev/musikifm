@@ -22,20 +22,20 @@ function PodcastDetail() {
     <div className={styles.wrapper}>
       <div className={styles.podcastDetail}>
         <div className={styles.podcastContent}>
-          <section className={clsx(styles.podcastSection, 'row bg-white')}>
-            <div className={clsx(styles.podcastSection__image, 'col-md-2')}>
+          <section className={clsx(styles.podcastSection, 'bg-white')}>
+            <div className={clsx(styles.podcastSection__left)}>
               <img src={imgPodcast} alt="podcastIMG" />
             </div>
-            <div className={clsx(styles.podcastSection__middle, 'col-md-7 d-flex flex-column justify-content-between ')}>
+            <div className={clsx(styles.podcastSection__middle)}>
               <div>
                 <div>
-                  <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
+                  <h2 className={styles.podcastSection__middle_title}>{data?.data?.attributes.songname}</h2>
                 </div>
                 <div>
-                  <h5 className={styles.podcastSection__artist}>{data?.data?.attributes.artist}</h5>
+                  <h5 className={styles.podcastSection__middle_artist}>{data?.data?.attributes.artist}</h5>
                 </div>
               </div>
-              <div className="d-inline-flex align-items-center">
+              <div className={styles.podcastSection__middle_tags}>
                 <Button variant="secondary" className={styles.genre}>
                   #Techno
                 </Button>
@@ -49,9 +49,8 @@ function PodcastDetail() {
                   more <Icon name="morearrow" size={8} />
                 </span>
               </div>
-              {/* <div className="podcastSection__tags"></div> */}
             </div>
-            <div className="col-md-3 d-flex justify-content-around align-items-end">
+            <div className={clsx(styles.podcastSection__right, 'd-flex justify-content-around align-items-end')}>
               <div className="d-flex align-items-center">
                 <Icon name="wholistened" size={15} />
                 <div className={styles.podcastSection__text}>320</div>
