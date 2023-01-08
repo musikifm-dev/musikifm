@@ -67,8 +67,11 @@
   &__feedback {
     font-size: var(--fs-14);
     font-weight: var(--fw-5);
-    color: rgba(0, 0, 0, 0.4);
   }
+}
+
+.report {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .otherPostsSection {
@@ -245,7 +248,7 @@
   .wrapper {
     padding: 32px 48px 32px 64px;
   }
-  
+
   .headerSection,
   .contentSection {
     padding-right: 16px;

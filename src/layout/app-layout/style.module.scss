@@ -369,6 +369,12 @@
   .switch {
     padding: 0.6rem;
   }
+
+  .authenticatedLinks {
+    &__item {
+      font-size: var(--fs-24);
+    }
+  }
 }
 
 @media (max-width: 1600px) {
@@ -420,6 +426,12 @@
   .switch {
     padding: 0.6rem;
   }
+
+  .authenticatedLinks {
+    &__item {
+      font-size: var(--fs-22);
+    }
+  }
 }
 
 @media (max-width: 1366px) {
@@ -458,6 +470,12 @@
       &__item {
         padding: 19px;
       }
+    }
+  }
+
+  .authenticatedLinks {
+    &__item {
+      font-size: var(--fs-20);
     }
   }
 }

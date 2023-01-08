@@ -1,7 +1,7 @@
 import { useGetBlogDataQuery, useGetBlogDetailQuery } from 'store/api/admin-base'
 import Icon from 'assets/svg'
 import clsx from 'clsx'
-// import Comment from 'components/Comments/Comments'
+import Comment from 'components/Comments/Comments'
 import { EmbedVideo } from 'components/ui'
 import { Stack } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -11,7 +11,7 @@ import { APP } from 'utils/constants'
 
 export default function BlogDetail() {
   const { id } = useParams()
-  const { data } = useGetBlogDetailQuery(id)
+  const { data, isLoading } = useGetBlogDetailQuery(id)
   const { data: blogsData, isLoading: blogsIsLoading, isError: blogsIsError } = useGetBlogDataQuery()
 
   return (
@@ -49,10 +49,10 @@ export default function BlogDetail() {
                 </Stack>
                 <Stack direction="horizontal" gap={2}>
                   <Icon name="report" className={styles.contentSection__reportIcon} />
-                  <span className={styles.contentSection__feedback}>Report</span>
+                  <span className={clsx(styles.contentSection__feedback, styles.report)}>Report</span>
                 </Stack>
               </div>
-              {/* <Comment detailData={data} loader={isLoading} /> */}
+              <Comment detailData={data} loader={isLoading} />
             </section>
           </div>
 
