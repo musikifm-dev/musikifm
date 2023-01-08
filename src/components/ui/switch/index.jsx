@@ -64,7 +64,7 @@ export default function Switch({
 
 Switch.defaultProps = {
   smallSwitch: false,
-  optionLabels: ['Radio', 'Podcast'],
+  optionLabels: ['RADIO', 'PODCAST'],
 }
 
 Switch.propTypes = {
