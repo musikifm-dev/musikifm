@@ -1,6 +1,13 @@
+.header {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-4);
+  color: #565656;
+}
+
 .card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 32px;
 }
 .otherTitle{

@@ -1,13 +1,10 @@
 import clsx from 'clsx'
-// import { useFormik } from 'formik'
 import Icon from 'assets/svg'
 import { Avatar } from 'components/ui'
 import { useState, useRef } from 'react'
 import { Stack } from 'react-bootstrap'
 import styles from './index.module.scss'
-// import { useSendCommentMutation } from 'store/api/comment'
 import PropTypes from 'prop-types'
-// import { useGetMyDataQuery } from 'store/api/auth'
 import useAutosizeTextArea from 'utils/hooks/useAutosizeTextarea'
 
 // const INITIAL_HEIGHT = 46
