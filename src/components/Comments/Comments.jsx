@@ -101,7 +101,7 @@ export default function Comment(props) {
         <Stack direction="horizontal" gap={2} className="d-flex align-items-center mt-5">
           <Icon name="comment" className={styles.icon} />
           <div className={styles.title}>Comments</div>
-          <div className={styles.comments}>{loader && detailData.data.attributes.reviews.data.length}</div>
+          <div className={styles.comments}>{loader && detailData?.data?.attributes?.reviews?.data.length}</div>
         </Stack>
         {/* {loader &&
           detailData.data.attributes.reviews.data.map((item) => (

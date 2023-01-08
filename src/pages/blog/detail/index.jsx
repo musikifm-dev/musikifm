@@ -13,7 +13,7 @@ export default function BlogDetail() {
   const { id } = useParams()
   const { data, isLoading } = useGetBlogDetailQuery(id)
   const { data: blogsData, isLoading: blogsIsLoading, isError: blogsIsError } = useGetBlogDataQuery()
-
+console.log(data);
   return (
     <div className={styles.wrapper}>
       <div className="col-12">
