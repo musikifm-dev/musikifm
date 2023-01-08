@@ -22,9 +22,7 @@ export default function SliderContainer(props) {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         breakpoints={renderBreakPoints(breakpoints)}
-        pagination={{
-          clickable: true,
-        }}
+        pagination={breakpoints === 'hero' ? false : true}
       >
         {children}
       </Swiper>

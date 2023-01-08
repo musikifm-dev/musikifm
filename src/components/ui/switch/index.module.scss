@@ -47,7 +47,8 @@
     &:before {
       content: attr(data-true);
       padding-left: 15px;
-      background-color: #2f855a;
+
+      background-color: #f5982a;
       color: #fff;
     }
   }
@@ -62,7 +63,7 @@
   &__inner:after {
     content: attr(data-false);
     padding-right: 30px; // 1.8 old value
-    background-color: #f5982a;
+    background-color: #2f855a;
     color: #fff;
     text-align: right;
   }
