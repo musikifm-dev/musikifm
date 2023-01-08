@@ -18,7 +18,7 @@ const OtherPosts = (props) => {
 
   return (
     <div>
-      <h3>{podcastType ? podcastType : blogType ? blogType : videoType}</h3>
+      <h3 className={styles.header}>{podcastType ? podcastType : blogType ? blogType : videoType}</h3>
 
       {!podcastType && (
         <div className={styles.card}>
