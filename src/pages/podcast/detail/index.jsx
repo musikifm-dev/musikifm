@@ -26,7 +26,7 @@ function PodcastDetail() {
             <div className={clsx(styles.podcastSection__image, 'col-md-2')}>
               <img src={imgPodcast} alt="podcastIMG" />
             </div>
-            <div className="col-md-6 p-0 d-flex flex-column justify-content-between ">
+            <div className={clsx(styles.podcastSection__middle, 'col-md-7 d-flex flex-column justify-content-between ')}>
               <div>
                 <div>
                   <h2 className={styles.podcastSection__title}>{data?.data?.attributes.songname}</h2>
