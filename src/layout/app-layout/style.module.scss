@@ -23,6 +23,7 @@
     text-overflow: ellipsis;
     background: #fff;
     overflow-y: auto;
+    min-height: 200px;
     height: 100%;
 
     &__item {

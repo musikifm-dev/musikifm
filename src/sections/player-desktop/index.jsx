@@ -11,7 +11,8 @@ import { useState } from 'react'
 import { APP } from 'utils/constants'
 import { useGetPodcastReverseDataQuery } from 'store/api/admin-base'
 import { setNextPodcast } from 'store/slices/podcast'
-import { Stack } from 'react-bootstrap'
+import { useWindowSize } from 'utils/hooks/useWindowSize'
+import clsx from 'clsx'
 
 export default function Player() {
   const { data, isSuccess } = useGetPlayerDataQuery()
@@ -23,6 +24,7 @@ export default function Player() {
   const [audio, state, controls] = useAudio({ src: current.src, autoPlay: true })
   const [imageFrom, setImageFrom] = useState()
   const dispatch = useDispatch()
+  const { is1366, is1600, is1789, is1920 } = useWindowSize()
 
   useEffect(() => {
     if (isSuccess && !switchType) dispatch(setCurrent(data))
@@ -108,27 +110,48 @@ export default function Player() {
           <h5 className={styles.info__song}>{current?.song}</h5>
         </div>
 
-        <div className={styles.controlWrapper}>
-          <div className={styles.control}>
-            <Stack direction="horizontal" gap={2}>
+        <section className={styles.controlSection}>
+          <div className={styles.controlContainer}>
+            <div className={styles.controlBox}>
               <button>
-                <Icon name="favorite" size="24" stroke={'white'} />
+                <Icon
+                  name="favorite"
+                  size={is1366 ? '20' : is1600 ? '26' : is1789 ? '28' : is1920 ? '30' : '18'}
+                  stroke={'white'}
+                />
               </button>
               <button onClick={() => controls.seek(state.time - 10)}>
-                <Icon name="prev" size="24" stroke={'white'} />
+                <Icon
+                  name="prev"
+                  size={is1366 ? '20' : is1600 ? '26' : is1789 ? '28' : is1920 ? '30' : '18'}
+                  stroke={'white'}
+                />
               </button>
-              <button className={styles.control__icon} onClick={clickHandler}>
-                <Icon name={playing ? 'pause' : 'play'} size="16" fill="#000" />
+              <button className={styles.controlBox__playerButton} onClick={clickHandler}>
+                <Icon
+                  name={playing ? 'pause' : 'play'}
+                  size={is1366 ? '16' : is1600 ? '21' : is1789 ? '23' : is1920 ? '24' : '14'}
+                  fill="#000"
+                  className={clsx(styles.controlBox__icon, playing ? '' : styles.controlBox__play)}
+                />
               </button>
               <button onClick={() => controls.seek(state.time + 10)}>
-                <Icon name="next" size="24" stroke={'white'} />
+                <Icon
+                  name="next"
+                  size={is1366 ? '20' : is1600 ? '26' : is1789 ? '28' : is1920 ? '30' : '18'}
+                  stroke={'white'}
+                />
               </button>
               <button>
-                <Icon name="share" size="24" stroke={'white'} />
+                <Icon
+                  name="share"
+                  size={is1366 ? '20' : is1600 ? '26' : is1789 ? '28' : is1920 ? '30' : '18'}
+                  stroke={'white'}
+                />
               </button>
-            </Stack>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* {current.src !== APP.radio && (
         <Range

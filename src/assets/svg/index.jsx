@@ -122,7 +122,12 @@ const PauseIcon = ({ size, className, fill }) => {
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M2 2V20.6599M11.9852 2V20.6599" stroke={fill} stroke-width="3.99929" stroke-linecap="round" />
+      <path
+        d="M2 2V20.6599M11.9852 2V20.6599"
+        stroke={fill}
+        strokeWidth="3.99929"
+        strokeLinecap="round"
+      />
     </svg>
   )
 }
