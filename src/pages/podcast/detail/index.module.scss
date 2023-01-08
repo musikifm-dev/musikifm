@@ -6,10 +6,10 @@
     justify-content: space-between;
     gap: 48px;
     .podcastContent{
-      width: 914px;
+      width: 70%;
     }
     .podcastOther{
-      width: 462px;
+      width: 30%;
     }
   }
 
@@ -48,7 +48,6 @@
       padding: 0;
       img{
         width: 100%;
-        height: 100%;
       }
     }
   }
@@ -127,16 +126,18 @@
 //   color: red;
 //   background-color: palegoldenrod;
 // }
-
-@media (max-width: 1600px) {
+@media (max-width: 1789px) {
   .wrapper {
-    .podcastSection {
-      height: 157px;
-
+    .podcastDetail{
       .podcastContent{
-        width: 1020px;
+        width: 70%;
       }
-
+      .podcastOther{
+        width: 30%;
+      }
+    }
+    .podcastSection {
+      height: 178px;
       &__title {
         font-size: 19px;
         font-weight: var(--fw-6);
@@ -149,14 +150,62 @@
         font-size: 16px;
         font-weight: var(--fw-5);
       }
+      &__image{
+        img{
+          height: auto;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .wrapper {
+    .podcastDetail{
+      .podcastContent{
+        width: 70%;
+      }
+      .podcastOther{
+        width: 30%;
+      }
+    }
+    .podcastSection {
+      height: 174px;
+      &__title {
+        font-size: 19px;
+        font-weight: var(--fw-6);
+      }
+      &__artist {
+        font-size: 16px;
+        font-weight: var(--fw-5);
+      }
+      &__text {
+        font-size: 16px;
+        font-weight: var(--fw-5);
+      }
+      &__paragraph {
+        margin-top: 32px;
+        &_p{
+          font-size: 16px;
+          font-weight: var(--fw-4);
+        }
+       
+      }
     }
   }
 }
 
 @media (max-width: 1366px) {
   .wrapper {
+    .podcastDetail{
+      .podcastContent{
+        width: 70%;
+      }
+      .podcastOther{
+        width: 30%;
+      }
+    }
     .podcastSection {
-      height: 146px;
+      height: 132px;
       &__title {
         font-size: 19px;
         font-weight: var(--fw-6);
@@ -168,6 +217,14 @@
       &__text {
         font-size: 14px;
         font-weight: var(--fw-5);
+      }
+      &__paragraph {
+        margin-top: 32px;
+        &_p{
+          font-size: 14px;
+          font-weight: var(--fw-4);
+        }
+       
       }
     }
   }
