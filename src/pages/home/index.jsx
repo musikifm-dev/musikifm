@@ -1,17 +1,15 @@
-import HeroSlider from './components/HeroSlider';
-import PodcastSlider from './components/PodcastSlider';
-import BlogSlider from './components/BlogSlider';
-import VideoSlider from 'pages/home/components/VideoSlider';
+import { BlogSlider, HeroSlider, PodcastSlider, VideoSlider } from 'sections'
+import styles from './index.module.scss'
 
 const Home = () => {
   return (
-    <>
+    <div className={styles.home}>
       <HeroSlider />
-      <PodcastSlider />
-      <BlogSlider />
-      <VideoSlider />
-    </>
-  );
-};
+      <PodcastSlider title="PODCAST" />
+      <BlogSlider title="BLOG" />
+      <VideoSlider title="VIDEO" />
+    </div>
+  )
+}
 
-export default Home;
+export default Home

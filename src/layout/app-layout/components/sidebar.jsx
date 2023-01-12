@@ -1,18 +1,18 @@
-import Player from '../../../feature/sidebar/player';
-import AdsBanner from '../../../feature/sidebar/banner';
-import styles from '../style.module.scss';
+import Player from '../../../sections/player-desktop'
+import styles from '../style.module.scss'
+import { useSelector } from 'react-redux'
+import { Banner } from 'sections'
 
-function Sidebar() {
+export default function Sidebar() {
+  const { current } = useSelector((state) => state.player)
+
   return (
     <div className={styles.sidebar}>
       <Player />
-      <p className='d-none d-md-block mt-4'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit Lorem ipsum dolor sit amet,
-        consectetur Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit Lorem ipsum dolor sit
-        amet, consectetur
-      </p>
-      <AdsBanner />
+      <div className={styles.description}>
+        <p className={styles.description__item}>{current?.description}</p>
+      </div>
+      <Banner />
     </div>
-  );
+  )
 }
-export default Sidebar;

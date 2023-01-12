@@ -1,24 +1,64 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import Songs from 'song.json'
-import { API_URL } from 'utils/URL'
+import { APP } from 'utils/constants'
 
-// Define a service using a base URL and expected endpoints
+const getToken = () => {
+  const token = localStorage.getItem('token')
+  if (token == 'undefined') return undefined
+  return token
+}
+
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: API_URL,
+    baseUrl: APP.adminBase,
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Origin': '*',
+    },
+    prepareHeaders: (headers) => {
+      headers.set('Authorization', getToken() ? `Bearer ${getToken()}` : null)
+      return headers
+    },
   }),
   endpoints: (builder) => ({
-    register: builder.query({
-      query: () => Songs.song + '-' + Songs.artist,
-      
+    register: builder.mutation({
+      query: (data) => {
+        const { phone, username, password, email } = data
+        return {
+          url: APP.register,
+          method: 'POST',
+          body: {
+            username: username,
+            password: password,
+            email: email,
+            phone: phone,
+          },
+        }
+      },
     }),
-    login: builder.query({
-      query: () => Songs.song + '-' + Songs.artist,
+    login: builder.mutation({
+      query: (data) => {
+        const { username, email, password } = data
+        return {
+          url: APP.login,
+          method: 'POST',
+          body: {
+            identifier: email ? email : username,
+            password: password,
+          },
+          credentials: 'include',
+        }
+      },
+    }),
+    getMyData: builder.query({
+      query: () => 'api/users/me',
+    }),
+
+    getUserData: builder.query({
+      query: () => `${APP.userData}/10`,
     }),
   }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetDataQuery } = authApi
+export const { useRegisterMutation, useLoginMutation, useGetUserDataQuery, useGetMyDataQuery } = authApi

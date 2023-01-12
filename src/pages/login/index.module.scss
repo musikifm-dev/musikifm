@@ -1,0 +1,84 @@
+.icon {
+  display: flex;
+  justify-content: end;
+  // align-items: center;
+  // text-align: center;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    transition: 0.175s all;
+    padding: 0.5rem;
+  }
+
+  &__text {
+    padding: 0 1rem 0 0;
+    font-size: var(--fs-12);
+    font-weight: var(--fw-7);
+  }
+
+  &__link:hover {
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ced4da;
+    color: white;
+  }
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.form {
+  width: 350px;
+}
+
+.signup {
+  font-size: var(--fs-31);
+  font-weight: var(--fw-7);
+}
+
+.label {
+  font-family: var(--f-poppins);
+  font-weight: var(--fw-5);
+  font-size: var(--fs-13);
+}
+
+.label:has(div[class~='timer']) {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+
+  &__btn {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+
+    button[class~='btn'] {
+      border: 1px solid #ced4da !important;
+    }
+  }
+
+  &__input {
+    // overflow-x: hidden;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-left: none !important;
+  }
+}
+
+.placeholder::placeholder {
+  text-align: center;
+  font-size: var(--fs-9);
+}
+
+.phoneIcon {
+  margin-left: 1rem;
+}

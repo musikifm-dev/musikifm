@@ -1,0 +1,50 @@
+.inputText {
+  font-size: 3rem !important;
+  font-weight: var(--fw-6) !important;
+  padding: 1.8rem 2.8rem !important;
+  background: #f9f9f9 !important;
+  border: 2px solid #ffffff !important;
+  border-right: none !important;
+  box-shadow: 0px 5.33239px 85.3182px rgba(0, 0, 0, 0.02) !important;
+  line-height: 4.5rem !important;
+}
+
+.input {
+  background: #f9f9f9 !important;
+  border: 2px solid #ffffff !important;
+  border-top: 2px solid #ffffff !important;
+  border-right: 2px solid #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+  border-left: none !important;
+  box-shadow: 0px 5.33239px 85.3182px rgba(0, 0, 0, 0.02) !important;
+
+  &::-webkit-input-placeholder {
+    text-align: center;
+    vertical-align: middle !important;
+    opacity: 0.3 !important;
+  }
+
+  &,
+  &::-webkit-input-placeholder {
+    font-size: var(--fs-27) !important;
+    line-height: 2.7rem !important;
+  }
+}
+
+.react-select__indicatiors {
+  color: red !important;
+  // display: none;
+}
+
+.btn {
+  background-color: #f0f0f0 !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 25px !important;
+  margin-left: 0.3rem !important;
+}
+
+.active {
+  background-color: #000;
+  color: #f1f1f1;
+}

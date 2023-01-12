@@ -1,0 +1,12 @@
+.embed {
+  position: relative;
+  padding-top: 56.25%;
+
+  &__item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

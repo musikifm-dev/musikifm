@@ -1,23 +1,25 @@
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { APP } from 'utils/constants'
 
-function BlogItem({ item }) {
-  const blogImage = 'http://localhost:1337' + item.image;
+function BlogItem(props) {
+  const { data } = props
+  const { id, title, tag, image, video } = data
 
   return (
-    <div className="blogBox" data-id={item.id}>
-      <Link to={`/blog/${item.id}`}>
+    <div className="blogBox" data-id={id}>
+      <Link to={`/${video !== null ? 'video' : 'blog'}/${id}`}>
         <div className="blogBox__image">
-          <img src={blogImage} />
+          <img src={APP.adminBase + image} alt="BlogIMG" />
         </div>
         <div className="blogBox__content">
           <div className="blogBox__title">
-            <h4>{item.title}</h4>
+            <h4>{title}</h4>
           </div>
           <div className="blogBox__more">
             <div className="hashtagBox">
               <div className="hashtag">
-                <span>{item.tag}</span>
+                <span>#{tag}</span>
               </div>
             </div>
             <button className="blogLink" data-src="">
@@ -27,16 +29,17 @@ function BlogItem({ item }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
 BlogItem.propTypes = {
-  item: PropTypes.shape({
+  data: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
     tag: PropTypes.string,
     image: PropTypes.string,
+    video: PropTypes.string,
   }),
-};
+}
 
-export default BlogItem;
+export default BlogItem

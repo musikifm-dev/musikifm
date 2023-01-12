@@ -1,0 +1,172 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  height: 360px !important;
+
+  &__header {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    a {
+      img {
+        height: 360px !important;
+      }
+    }
+  }
+
+  .body {
+    width: 50%;
+    padding: 47.5px 40px 47.5px 40px;
+
+    &__icon {
+      width: 115px !important;
+      height: 75px !important;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 0;
+    }
+    &__title {
+      font-size: var(--fs-44) !important;
+      font-weight: var(--fw-7) !important;
+      color: black;
+      line-height: 48px !important;
+      height: 100%;
+      max-width: 516px;
+    }
+  }
+}
+
+@media (max-width: 1789px) {
+  .card {
+    height: 330px !important;
+
+    &__header {
+      height: 37rem;
+      a {
+        img {
+          height: 330px !important;
+        }
+      }
+    }
+
+    .body {
+      padding: 37.3px 44px 37.3px 44px;
+
+      &__icon {
+        width: 105px !important;
+        height: 77px !important;
+      }
+      &__title {
+        font-size: var(--fs-40) !important;
+        font-weight: var(--fw-7) !important;
+        color: black;
+        line-height: 45px !important;
+        height: 100%;
+        max-width: 470px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .card {
+    height: 300px !important;
+
+    &__header {
+      height: 37rem;
+      a {
+        img {
+          height: 300px !important;
+        }
+      }
+    }
+
+    .body {
+      padding: 33.5px 40px 33.5px 40px;
+
+      &__icon {
+        width: 85px !important;
+        height: 70px !important;
+      }
+      &__title {
+        font-size: 36px !important;
+        font-weight: var(--fw-7) !important;
+        color: black;
+        line-height: 40px !important;
+        height: 100%;
+        max-width: 425px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1366px) {
+  .card {
+    height: 250px !important;
+
+    &__header {
+      height: 37rem;
+      a {
+        img {
+          height: 250px !important;
+        }
+      }
+    }
+
+    .body {
+      padding: 35px 28.5px 35px 28.5px;
+
+      &__icon {
+        width: 85px !important;
+        height: 70px !important;
+      }
+      &__title {
+        font-size: 31px !important;
+        font-weight: var(--fw-7) !important;
+        color: black;
+        line-height: 34px !important;
+        height: 100%;
+        max-width: 367px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    height: 20rem;
+
+    &__header {
+      height: 100%;
+    }
+
+    .body {
+      &__title {
+        padding: 2rem;
+        font-size: var(--fs-25) !important;
+        font-weight: var(--fw-6) !important;
+        line-height: 3.8rem !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .card {
+    height: 22rem;
+
+    &__header {
+      height: 22rem;
+    }
+
+    .body {
+      &__title {
+        padding: 1rem;
+        font-size: var(--fs-22) !important;
+        font-weight: var(--fw-6) !important;
+        line-height: 4rem !important;
+      }
+    }
+  }
+}

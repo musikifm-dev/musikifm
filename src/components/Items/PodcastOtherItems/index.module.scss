@@ -1,0 +1,35 @@
+.podcastOther{
+    background-color: #000;
+  }
+              
+              .podcastBox{
+                &__image{
+                    img{
+                        width: 100%;
+                    }
+                }
+              }
+
+
+@media (max-width: 1336px) {
+    .podcastOtherBox{
+        &__btn{ 
+            top: 25%;
+            left: 25%;
+            width: 35px;
+            height: 35px;
+            border-radius: 3rem;
+            
+        }
+    }
+}
+
+
+@media (min-width: 1920px) {
+    .podcastOtherBox{
+        &__btn{ 
+            top: 30%;
+            left: 30%;
+        }
+    }
+}

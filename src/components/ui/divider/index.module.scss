@@ -1,0 +1,17 @@
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-13);
+  line-height: 4.1rem;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0.1rem;
+    width: 100%;
+    background-color: #eaeaea;
+    margin: 0 0.6rem;
+  }
+}

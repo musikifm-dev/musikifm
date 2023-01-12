@@ -12,14 +12,20 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-family: $primaryFont;
   padding-right: 0px !important; // **Can couse ui issue
   overflow-x: hidden;
+  background: #e5e5e5;
+}
+
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--f-poppings);
 }
 
 // NAVBAR
@@ -33,7 +39,7 @@ body {
 .navbar {
   padding: 9px 25px;
   position: sticky;
-  // top: 0;  // !* sticky navbar 
+  // top: 0;  // !* sticky navbar
   z-index: 9999;
   width: 100%;
 
@@ -193,28 +199,6 @@ body {
   }
 }
 
-.titleDiv {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-
-  h3 {
-    font-size: 30px;
-    font-weight: 600;
-  }
-
-  a {
-    color: #000;
-    text-decoration: underline;
-  }
-}
-
-// HERO SLİDER
-
-// PODCAST
-
-//BLOG
-
 .blog {
   .owl-theme {
     .owl-dots {
@@ -245,8 +229,6 @@ body {
       padding: 20px;
 
       .blogBox__title {
-        min-height: 100px;
-
         h4 {
           font-weight: 700;
           color: #000;
@@ -261,6 +243,7 @@ body {
 
       .hashtag {
         background: #eeeeee;
+        color: black;
         border-radius: 48.2454px;
         width: 80px;
         height: 30px;
@@ -463,17 +446,3 @@ div#headlessui-menu-items-\:r3\: {
   padding: 10px;
   min-height: 400px;
 }
-
-// SECTION
-.sectionHeader {
-  font-size: var(--fs-30);
-  font-weight: var(--fw-6);
-}
-.seeAll {
-  color: black;
-  text-decoration: underline;
-  font-size: var(--fs-19);
-  line-height: 30px;
-}
-
-// SWIPER

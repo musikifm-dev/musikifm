@@ -1,27 +1,50 @@
 :root {
   // * FONTS
-  --f-poppings: 'Poppins', sans-serif;
+  --f-poppins: 'Poppins', sans-serif;
   --f-patrick-hand: 'Patrick Hand', cursive;
 
   // * FONT SIZE
-  --fs-8: 0.8rem;
-  --fs-9: 0.9rem;
-  --fs-10: 1rem;
-  --fs-11: 1.1rem;
-  --fs-12: 1.2rem;
-  --fs-13: 1.3rem;
-  --fs-14: 1.4rem;
-  --fs-15: 1.5rem;
-  --fs-16: 1.6rem;
-  --fs-18: 1.8rem;
-  --fs-20: 2rem;
-  --fs-25: 2.5rem;
-  --fs-30: 3rem;
-  --fs-32: 3.2rem;
-  --fs-39: 3.9rem;
-  --fs-48: 4.8rem;
-  --fs-50: 5rem;
-  --fs-61: 6.1rem;
+  --fs-6: 6px;
+  --fs-7: 7px;
+  --fs-8: 8px;
+  --fs-9: 9px;
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-21: 21px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+  --fs-25: 25px;
+  --fs-26: 26px;
+  --fs-27: 27px;
+  --fs-28: 28px;
+  --fs-29: 29px;
+  --fs-30: 30px;
+  --fs-31: 31px;
+  --fs-32: 32px;
+  --fs-33: 33px;
+  --fs-34: 34px;
+  --fs-36: 36px;
+  --fs-37: 37px;
+  --fs-38: 38px;
+  --fs-39: 39px;
+  --fs-40: 40px;
+  --fs-44: 44px;
+  --fs-46: 46px;
+  --fs-48: 48px;
+  --fs-50: 50px;
+  --fs-56: 56px;
+  --fs-60: 60px;
+  --fs-61: 61px;
+  --fs-62: 62px;
 
   // * FONT WEIGHT
   --fw-3: 300;
@@ -30,4 +53,43 @@
   --fw-6: 600;
   --fw-7: 700;
   --fw-8: 800;
+
+  // * COLORS
+  --cl-card-bg: #ffffff;
+  --cl-placeholder-bg: #585858;
+  --cl-placeholder: #919191;
+
+  // * MARGINS
+  --m-8: 8px;
+  --m-16: 16px;
+  --m-24: 24px;
+  --m-32: 32px;
+  --m-40: 40px;
+  --m-48: 48px;
+  --m-56: 56px;
+  --m-64: 64px;
 }
+
+/** 
+--> 1920
+Header logo 24.3w 49.3h
+mood filter button 22.3w 63h
+
+hero slider {
+title 700 - 49.5
+description 400 - 2.25
+}
+
+podcast yazisi home da 600 - 36
+card {
+  image - 286w 286h
+  title - 600 22.5
+  description 400 1.8
+  time - 400 1.65
+  ico - 5.7w 5.7h border: 1.78125px solid #000000;
+}
+--> 1440
+--> 1280
+--> 768 -481
+
+*/

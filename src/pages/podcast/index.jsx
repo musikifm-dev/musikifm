@@ -1,33 +1,55 @@
-import { useEffect, useState } from 'react';
-import Card from 'components/Card';
-// import PodcastItem from 'components/Items/PodcastItem';
-import { URL_PODCAST } from '../../utils/URL';
-import styles from './style.module.scss';
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import clsx from 'clsx'
+// import { setCurrent, setPlayerType } from 'store/slices/player'
+import { useGetPodcastDataQuery } from 'store/api/admin-base'
+import { useGetPodcastTagsQuery } from 'store/api/comment'
+import { FilterBar } from 'components/ui'
 
-const Podcast = () => {
-  const [podcastData, setPodcastData] = useState([{}]);
+import { route } from 'utils/constants'
+import styles from './index.module.scss'
+import { deletePodcastFilter, resetPodcastFilter, setPodcastFilter } from 'store/slices/podcast'
+import { PodcastCard } from 'sections'
 
-  useEffect(() => {
-    fetch(URL_PODCAST)
-      .then(response => response.json())
-      .then(data => {
-        setPodcastData(data);
-        console.log(data);
-      });
-  }, []);
-  console.log(podcastData);
+export default function Podcast() {
+  const { isSuccess, data } = useGetPodcastDataQuery()
+  // const { current } = useSelector((state) => state.player)
+  const { selectedPodcastFilter } = useSelector((state) => state.podcast)
+  const { data: podcastTags, isSuccess: podcastTagsSuccess } = useGetPodcastTagsQuery()
+  // const dispatch = useDispatch()
+
+  // const clickHandler = (val) => {
+  //   dispatch(setPlayerType(true)) // setPodcast --> true
+  //   dispatch(setCurrent(val))
+  // }
+
+  let filter = new Set(selectedPodcastFilter)
+  const filteredPodcasts = useMemo(() => data?.filter((f) => f.tag.some((s) => filter.has(s))), [selectedPodcastFilter])
+
   return (
-    <div className="page">
-      <div className={`row row-cols-5 ${styles.podcast}`}>
-        {podcastData.map((item, i) => (
-          <div className="col col-lg-3 col-md-4 col-xs-6" key={i}>
-            {/* <PodcastItem item={item} key={item.id} /> */}
-            <Card key={item.id} item={item} />
-          </div>
-        ))}
+    <>
+      <FilterBar
+        navigate={route.home}
+        state={selectedPodcastFilter}
+        setState={setPodcastFilter}
+        deleteState={deletePodcastFilter}
+        resetState={resetPodcastFilter}
+        tags={podcastTagsSuccess && podcastTags}
+      />
+      <div className={clsx('row', styles.podcast)}>
+        <h3 className={styles.podcast__header}>PODCAST</h3>
+        {isSuccess && selectedPodcastFilter.includes('tümü')
+          ? data.map((item) => (
+              <div className={clsx('col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2', styles.box)} key={item.id}>
+                <PodcastCard data={item} />
+              </div>
+            ))
+          : filteredPodcasts?.map((item) => (
+              <div className={clsx('col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2', styles.box)} key={item.id}>
+                <PodcastCard data={item} />
+              </div>
+            ))}
       </div>
-    </div>
-  );
-};
-
-export default Podcast;
+    </>
+  )
+}
