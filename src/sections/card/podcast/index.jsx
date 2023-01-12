@@ -55,10 +55,10 @@ export default function PodcastCard({ data }) {
 
 PodcastCard.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     description: PropTypes.string,
     image: PropTypes.string,
     title: PropTypes.string,
-    tag: PropTypes.string,
+    tag: PropTypes.array,
   }),
 }

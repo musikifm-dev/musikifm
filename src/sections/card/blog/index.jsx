@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom'
 import { route } from 'utils/constants'
 import styles from './index.module.scss'
 
-export default function BlogCard({ data }) {
+export default function BlogCard({ data, isVideo }) {
   const { id, image, title, tag } = data
   const navigate = useNavigate()
 
   return (
     <Card className={styles.card}>
-      <CardHeader to={`${route.blog}/${id}`} image={image} className={styles.card__header} />
+      <CardHeader to={`${route.blog}/${id}`} image={image} className={styles.card__header} isPlayIcon={isVideo} />
       <CardBody className={styles.body}>
         <div className={styles.body__title}>{title}</div>
         <div className={styles.footer}>
@@ -31,9 +31,10 @@ export default function BlogCard({ data }) {
 
 BlogCard.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     image: PropTypes.string,
     title: PropTypes.string,
-    tag: PropTypes.string,
+    tag: PropTypes.array,
   }),
+  isVideo: PropTypes.bool,
 }
