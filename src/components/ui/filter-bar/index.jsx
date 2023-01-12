@@ -33,7 +33,7 @@ export default function FilterBar(props) {
   const { navigate, state, setState, deleteState, resetState } = props
   const dispatch = useDispatch()
 
-  const { isMobile } = useWindowSize()
+  const { isMobile, is1366, is1600 } = useWindowSize()
   const scrollPosition = useScrollPosition()
 
   const clickHandler = (val) => {
@@ -70,7 +70,12 @@ export default function FilterBar(props) {
     <div className={clsx(styles.backBanner, isMobile && scrollPosition >= 520 && styles.onMobilePlayer)}>
       {!isMobile && (
         <Link to={navigate} className={styles.backBanner__link}>
-          <Icon name="prev" size="16" stroke="#fff" className={styles.backBanner__link_arrow} />
+          <Icon
+            name="prev"
+            size={is1600 ? '16' : is1366 ? '14' : isMobile ? '13' : '16'}
+            stroke="#fff"
+            className={styles.backBanner__link_arrow}
+          />
           <div className={styles.backBanner__link_icon}>Back</div>
         </Link>
       )}

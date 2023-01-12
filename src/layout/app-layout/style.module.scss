@@ -12,7 +12,7 @@
   // justify-content: space-between;
   position: fixed;
   width: 400px;
-  height: calc(100% - 74px);
+  // height: calc(100% - 58px);
 
   .description {
     font-family: var(--f-poppings);
@@ -291,7 +291,7 @@
     }
   }
   .wrapper {
-    // padding-top: 80px;
+    padding-top: 74px;
     &__side {
       width: 361.1px;
     }
@@ -333,7 +333,7 @@
     }
   }
   .wrapper {
-    padding-top: 69px;
+    padding-top: 74px;
     &__side {
       width: 323px;
     }
@@ -404,7 +404,7 @@
 
   .sidebar {
     width: 246.5px;
-    height: calc(100% - 53px);
+    // height: calc(100% - 53px);
 
     .description {
       height: inherit;
@@ -462,7 +462,6 @@
     }
   }
   .sidebar {
-    height: calc(100% - 53px);
     .description {
       height: inherit;
       font-size: var(--fs-12);
@@ -482,7 +481,7 @@
 
 @media (max-width: 1024px) {
   .wrapper {
-    padding-top: 20rem;
+    padding-top: 265px;
     &__side {
       display: none;
     }
@@ -498,11 +497,7 @@
 
   .sidebar {
     display: none;
-    // flex-direction: row;
-    // position: unset;
-    // height: auto;
     width: 100%;
-    // max-width: unset;
     &__description {
       // display: none;
     }
@@ -518,21 +513,12 @@
       font-weight: var(--fw-5);
     }
   }
-
-  .sidebar {
-    &__description {
-      // -webkit-line-clamp: 34;
-    }
-  }
 }
-
-// @media (max-width: 768px) {
-// }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding-top: 6.1rem;
     flex-direction: column;
+    padding-top: 53px;
 
     &__side {
       display: block;
@@ -545,6 +531,11 @@
 
   .sidebar {
     display: block;
+    position: unset;
+    width: 100%;
+    .description {
+      display: none !important;
+    }
   }
 
   .navbar {
@@ -565,7 +556,7 @@
     }
   }
   .wrapper {
-    padding-top: 52px;
+    // padding-top: 52px;
   }
 
   .nav {
@@ -576,14 +567,6 @@
     margin-top: 4.5rem !important;
   }
 
-  .sidebar {
-    position: unset;
-    width: 100%;
-    &__description {
-      display: none;
-    }
-  }
-
   .btnContainer {
     padding-right: 24px;
 
@@ -592,9 +575,7 @@
       font-size: var(--fs-16);
       font-weight: var(--fw-6);
       padding: 5px 16px;
-
       color: #fff;
-      // background: black;
 
       &:hover {
         color: black;

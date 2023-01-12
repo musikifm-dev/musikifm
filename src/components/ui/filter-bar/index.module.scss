@@ -1,34 +1,31 @@
 .backBanner {
   display: flex;
   align-items: center;
-  height: 6.5rem;
+  height: 56px;
   background-color: #212121;
-  // margin-top: 10px;
   width: 100%;
 
-  &__link{
-    margin-left: 5rem;
+  &__link {
+    margin-left: 48px;
     display: flex;
     align-items: center;
     color: #fff;
     text-decoration: unset;
-    &_arrow{
-      margin-right: 1rem;
+    &_arrow {
+      margin-right: 10px;
     }
     &_icon {
-      font-size: var(--fs-19);
+      font-size: var(--fs-21);
       font-weight: var(--fw-6);
     }
   }
 
-  
-
   &__btn {
     background-color: #373737 !important;
-    font-size: var(--fs-13) !important;
-    font-weight: var(--fw-5) !important;
+    font-size: var(--fs-16) !important;
+    font-weight: var(--fw-6) !important;
     color: #fff !important;
-    padding: 0.5rem 1.6rem !important;
+    padding: 4px 24px !important;
     border: 2px solid #484848 !important;
     border-radius: 2rem !important;
     text-transform: capitalize;
@@ -39,7 +36,7 @@
 }
 
 .swiper {
-  margin-left: 3rem !important;
+  margin-left: 48px !important;
 }
 
 .x {
@@ -50,6 +47,29 @@
   background-color: #ffffff !important;
   color: black !important;
   border: 2px solid #ffff !important;
+}
+
+@media (max-width: 1600px) {
+  .backBanner {
+    &__btn {
+      font-size: var(--fs-14) !important;
+      font-weight: var(--fw-6) !important;
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .backBanner {
+    &__btn {
+      font-size: var(--fs-12) !important;
+      font-weight: var(--fw-6) !important;
+    }
+    &__link {
+      &_icon {
+        font-size: var(--fs-19);
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {

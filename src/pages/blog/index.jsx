@@ -101,7 +101,6 @@ export default function Blog() {
             renderData?.map((item) => (
               <div className="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-2 my-4" key={item.id}>
                 <Stack gap={2} direction={windowWidth < 568 ? 'vertical' : 'horizontal'}>
-                  {/* <CardSection data={item} type="blog" /> */}
                   <BlogCard data={item} />
                 </Stack>
               </div>

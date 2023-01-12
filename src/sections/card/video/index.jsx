@@ -28,7 +28,7 @@ export default function VideoCard({ data }) {
 
 VideoCard.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     image: PropTypes.string,
     title: PropTypes.string,
     tag: PropTypes.string,

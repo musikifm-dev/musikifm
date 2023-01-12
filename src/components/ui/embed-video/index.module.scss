@@ -1,14 +1,12 @@
 .embed {
-  overflow: hidden;
-  padding-bottom: 32.25%;
   position: relative;
-  height: 0;
+  padding-top: 56.25%;
 
   &__item {
+    position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    position: absolute;
   }
 }

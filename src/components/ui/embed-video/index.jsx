@@ -1,5 +1,7 @@
-import clsx from 'clsx'
+import { forwardRef } from 'react'
 import PropTypes from 'prop-types'
+import ReactPlayer from 'react-player'
+import { useSelector } from 'react-redux'
 import styles from './index.module.scss'
 
 /**
@@ -8,22 +10,28 @@ import styles from './index.module.scss'
  * @returns
  */
 
-export default function EmbedVideo({ embedId, className }) {
+// eslint-disable-next-line react/display-name
+const EmbedVideo = forwardRef((props, ref) => {
+  const { videoState, videoUrl } = useSelector((state) => state.video)
+
   return (
-    <div className={clsx(styles.embed, className)}>
-      <iframe
-        src={`https://www.youtube.com/embed/${embedId}`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Embedded youtube"
+    <div className={styles.embed}>
+      <ReactPlayer
+        ref={ref}
+        controls={true}
+        url={`https://www.youtube.com/embed/${videoUrl}`}
+        playing={videoState}
         className={styles.embed__item}
+        width="100%"
+        height="100%"
       />
     </div>
   )
-}
+})
 
 EmbedVideo.propTypes = {
-  embedId: PropTypes.string.isRequired,
+  // embedId: PropTypes.string.isRequired,
   className: PropTypes.string,
 }
+
+export default EmbedVideo
