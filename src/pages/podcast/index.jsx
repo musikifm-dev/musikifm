@@ -37,7 +37,7 @@ export default function Podcast() {
         tags={podcastTagsSuccess && podcastTags}
       />
       <div className={clsx('row', styles.podcast)}>
-      <h3 className={styles.podcast__header}>PODCAST</h3>
+        <h3 className={styles.podcast__header}>PODCAST</h3>
         {isSuccess && selectedPodcastFilter.includes('tümü')
           ? data.map((item) => (
               <div className={clsx('col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 col-xxl-2', styles.box)} key={item.id}>
