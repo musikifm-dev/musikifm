@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper'
-import { Button, Image, Stack } from 'react-bootstrap'
+import { Button, Stack } from 'react-bootstrap'
 import clsx from 'clsx'
 import { useGetVideoDataQuery, useGetVideoHomeSliderQuery } from 'store/api/admin-base'
 import { setState } from 'store/slices/player'
@@ -15,6 +15,7 @@ import { useRef } from 'react'
 import { changeVideoState, setVideoUrl } from 'store/slices/video'
 import { useEffect } from 'react'
 import ReactPlayer from 'react-player'
+import moment from 'moment'
 
 export default function Video() {
   // eslint-disable-next-line
@@ -26,6 +27,7 @@ export default function Video() {
   const [open, setOpen] = useState(false)
   const { isMobile } = useWindowSize()
   const embedRef = useRef(null)
+  const [duration, setDuration] = useState([])
 
   useEffect(() => {
     if (isSuccess) {
@@ -56,8 +58,15 @@ export default function Video() {
             {open && isSuccess && videoUrl ? (
               <EmbedVideo className={styles.embedVideo} ref={embedRef} />
             ) : (
-              <div className={styles.image}>
-                <img src={APP.adminBase + data?.[0].image} alt="homeSliderImage" className={styles.image__item} />
+              <div
+                className={styles.image}
+                style={{
+                  backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%),url(${
+                    APP.adminBase + data?.[0].image
+                  })`,
+                }}
+              >
+                {/* <img src={APP.adminBase + data?.[0].image} alt="homeSliderImage" className={styles.image__item} /> */}
                 <Stack gap={5} className={clsx(styles.absolute, styles.content)}>
                   <Stack gap={3}>
                     <div className={clsx(styles.image__title)}>{data?.[0].title}</div>
@@ -110,22 +119,40 @@ export default function Video() {
             className={styles.slider}
           >
             {isSuccess &&
-              data.map((item) => (
+              data.map((item, i) => (
                 <SwiperSlide key={item.id}>
                   <div className={clsx(styles.card, styles.active)} onClick={() => videoClickHandler(item)}>
-                    <Image src={APP.adminBase + item.image} className={styles.card__img} />
+                    <div
+                      style={{
+                        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%),url(${
+                          APP.adminBase + item.image
+                        })`,
+                      }}
+                      className={styles.card__img}
+                    />
                     {open && videoUrl === item.videourl && (
                       <div className={styles.card__item}>CURRENTLY PLAYING...</div>
                     )}
-                    {videoUrl !== item.videourl && (
+
+                    {!open && (
                       <div>
-                        <div className={styles.card__duration}>01:25</div>
+                        <div className={styles.card__duration}>{moment(duration[i] * 1000).format('mm:ss')}</div>
+                        <div className={styles.card__title}>{item.title}</div>
+                      </div>
+                    )}
+
+                    {videoUrl !== item.videourl && open && (
+                      <div>
+                        <div className={styles.card__duration}>{moment(duration[i] * 1000).format('mm:ss')}</div>
                         <div className={styles.card__title}>{item.title}</div>
                       </div>
                     )}
                     <ReactPlayer
                       url={`https://www.youtube.com/embed/${item.videourl}`}
-                      onDuration={(d) => console.log(d)}
+                      onDuration={(progress) => {
+                        console.log(progress)
+                        setDuration((prev) => [...prev, progress])
+                      }}
                       className={styles.card__video}
                       style={{ display: 'none' }}
                     />
