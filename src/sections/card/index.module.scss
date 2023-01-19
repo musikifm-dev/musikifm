@@ -1,6 +1,7 @@
 .card {
   height: 43.3rem !important;
   width: 100%;
+  border: none !important;
 }
 
 .image {
@@ -79,7 +80,7 @@
 
 @media (max-width: 1280px) {
   .card {
-    height: 25rem !important; 
+    height: 25rem !important;
   }
 
   .image {

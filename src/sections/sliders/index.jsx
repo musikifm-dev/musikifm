@@ -3,7 +3,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper'
 import { Swiper } from 'swiper/react'
 import PropTypes from 'prop-types'
 import 'swiper/scss'
-import { renderBreakPoints } from 'utils/constants'
+import { renderBreakPoints } from 'utils/helpers'
 import styles from './index.module.scss'
 
 export default function SliderContainer(props) {

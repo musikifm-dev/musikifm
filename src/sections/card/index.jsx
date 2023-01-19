@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './index.module.scss'
 
 export default function CardSection(props) {
-  const { data, type } = props
-  console.log(type);
+  const { data } = props
   const navigate = useNavigate()
 
   return (

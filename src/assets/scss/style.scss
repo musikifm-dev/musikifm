@@ -16,7 +16,7 @@ body {
   font-family: $primaryFont;
   padding-right: 0px !important; // **Can couse ui issue
   overflow-x: hidden;
-  background: #e5e5e5;
+  background: #eeee;
 }
 
 .h1,
@@ -445,4 +445,10 @@ div#headlessui-menu-items-\:r3\: {
   background-color: #fff;
   padding: 10px;
   min-height: 400px;
+}
+
+.dropdown-menu {
+  height: auto;
+  max-height: 150px;
+  overflow-x: hidden;
 }

@@ -290,20 +290,34 @@ const VideoPlayIcon = ({ size }) => {
 
 const GoogleIcon = ({ size, className }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className={clsx('icon icon-tabler icon-tabler-brand-google', className)}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="currentColor"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M17.788 5.108a9 9 0 1 0 3.212 6.892h-8"></path>
+    <svg xmlns="http://www.w3.org/2000/svg" size={size} viewBox="0 0 20 20" fill="none" className={className}>
+      <path
+        d="M19.8055 8.0415H19V8H10V12H15.6515C14.827 14.3285 12.6115 16 10 16C6.6865 16 4 13.3135 4 10C4 6.6865 6.6865 4 10 4C11.5295 4 12.921 4.577 13.9805 5.5195L16.809 2.691C15.023 1.0265 12.634 0 10 0C4.4775 0 0 4.4775 0 10C0 15.5225 4.4775 20 10 20C15.5225 20 20 15.5225 20 10C20 9.3295 19.931 8.675 19.8055 8.0415Z"
+        fill="#FFC107"
+      />
+      <path
+        d="M1.15234 5.3455L4.43784 7.755C5.32684 5.554 7.47984 4 9.99934 4C11.5288 4 12.9203 4.577 13.9798 5.5195L16.8083 2.691C15.0223 1.0265 12.6333 0 9.99934 0C6.15834 0 2.82734 2.1685 1.15234 5.3455Z"
+        fill="#FF3D00"
+      />
+      <path
+        d="M10.0002 20.0003C12.5832 20.0003 14.9302 19.0118 16.7047 17.4043L13.6097 14.7853C12.5719 15.5745 11.3039 16.0014 10.0002 16.0003C7.39916 16.0003 5.19066 14.3418 4.35866 12.0273L1.09766 14.5398C2.75266 17.7783 6.11366 20.0003 10.0002 20.0003Z"
+        fill="#4CAF50"
+      />
+      <path
+        d="M19.8055 8.0415H19V8H10V12H15.6515C15.2571 13.1082 14.5467 14.0766 13.608 14.7855L13.6095 14.7845L16.7045 17.4035C16.4855 17.6025 20 15 20 10C20 9.3295 19.931 8.675 19.8055 8.0415Z"
+        fill="#1976D2"
+      />
+    </svg>
+  )
+}
+
+const AppleIcon = ({ size, className }) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" size={size} viewBox="0 0 20 24" fill="none" className={className}>
+      <path
+        d="M16.721 12.5808C16.7096 10.6295 17.5937 9.1588 19.3791 8.0744C18.3805 6.64378 16.8698 5.85694 14.8784 5.7053C12.9928 5.55651 10.9299 6.80401 10.1745 6.80401C9.37625 6.80401 7.55079 5.7568 6.11445 5.7568C3.15021 5.80258 0 8.12018 0 12.8355C0 14.2289 0.254649 15.6681 0.763948 17.1502C1.44492 19.1016 3.89986 23.8827 6.46066 23.8055C7.79971 23.774 8.74678 22.8555 10.4893 22.8555C12.1803 22.8555 13.0558 23.8055 14.5494 23.8055C17.133 23.7683 19.3534 19.422 20 17.465C16.535 15.8312 16.721 12.681 16.721 12.5808ZM13.7139 3.85408C15.1645 2.13162 15.0329 0.563663 14.99 0C13.7082 0.074392 12.226 0.872676 11.382 1.85408C10.4521 2.90701 9.90558 4.20887 10.0229 5.67668C11.4077 5.78255 12.6724 5.0701 13.7139 3.85408Z"
+        fill="black"
+      />
     </svg>
   )
 }
@@ -730,7 +744,14 @@ const like = ({ size, className, fill }) => {
 }
 const report = ({ size, className, fill }) => {
   return (
-    <svg width={size} height={size} className={className} viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 15 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path d="M0 16.5V.5h8.4l.373 1.882H14v9.412H7.467l-.374-1.882H1.867V16.5H0z" fill="#000" fill-opacity=".2" />
     </svg>
   )
@@ -755,6 +776,7 @@ const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
     blackhamburger: BlackHamburgerIcon,
     videoplay: VideoPlayIcon,
     google: GoogleIcon,
+    apple: AppleIcon,
     phone: PhoneIcon,
     down: DownIcon,
     up: UpIcon,
@@ -777,7 +799,7 @@ const Icon = ({ name, size, className, onClick, height, stroke, fill }) => {
     wholistened: WhoListened,
     wholiked: WhoLiked,
     like: like,
-    report:report
+    report: report,
   }
 
   const Component = icons[name]

@@ -1,17 +1,19 @@
-import { Button, Form, Image, Stack } from 'react-bootstrap'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Button, Form, Image, Spinner, Stack } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { loginValidationSchema } from 'utils/validationSchema'
 import logoBlack from '../../../assets/img/logo-black.png'
 import { route } from 'utils/constants'
-import clsx from 'clsx'
 import styles from '../index.module.scss'
 import Icon from 'assets/svg'
 import { Divider } from 'components/ui'
 import { useLoginMutation } from 'store/api/auth'
+import clsx from 'clsx'
 
 export default function Login() {
   const [login] = useLoginMutation()
+  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -21,8 +23,11 @@ export default function Login() {
       usernameEmail: '',
       password: '',
     },
+    validateOnMount: true,
     validationSchema: loginValidationSchema,
     onSubmit: async (values) => {
+      setIsLoading(true)
+
       let newObj = { email: '', password: values.password }
       // !* Determine input field (email or username) and send right value to server
       if (values.usernameEmail.includes('@')) {
@@ -32,6 +37,7 @@ export default function Login() {
       }
       const { data } = await login(newObj)
       localStorage.setItem('token', data.jwt)
+      setIsLoading(false)
       navigate(route.home)
     },
   })
@@ -47,17 +53,17 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="row justify-content-center mt-5">
-        <div className="col-4">
-          <div className={clsx('d-flex flex-column justify-content-center align-items-center mt-12', styles.x)}>
-            <Link to={route.home}>
-              <Image src={logoBlack} width={200} height={41} />
-            </Link>
-            <div className="d-flex flex-column justify-content-center align-items-center mt-4">
-              <h3 className="fs-3 fw-bold">Login</h3>
-              <div>Go inside the best music experience!</div>
-            </div>
-            <Form className={clsx('flex-column mt-4', styles.form)} onSubmit={formik.handleSubmit}>
+      <div className="row justify-content-center mt-5 px-2">
+        <div className="d-flex flex-column justify-content-center align-items-center mt-12">
+          <Link to={route.home}>
+            <Image src={logoBlack} className={styles.img} />
+          </Link>
+          <div className="d-flex flex-column justify-content-center align-items-center mt-4">
+            <h3 className={styles.title}>Login</h3>
+            <div className={styles.description}>Go inside the best music experience!</div>
+          </div>
+          <Form className={clsx(styles.form, 'flex-column mt-4')} onSubmit={formik.handleSubmit}>
+            <Stack gap={3}>
               <Form.Group>
                 <Form.Label htmlFor="username" className={styles.label}>
                   Username / Email
@@ -73,7 +79,7 @@ export default function Login() {
                   className={styles.placeholder}
                 />
                 {formik.errors.usernameEmail && formik.touched.usernameEmail && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.usernameEmail}</Form.Text>
+                  <Form.Text className="fs-7 fw-light text-danger px-1">{formik.errors.usernameEmail}</Form.Text>
                 )}
               </Form.Group>
               <Form.Group>
@@ -91,7 +97,7 @@ export default function Login() {
                   className={styles.placeholder}
                 />
                 {formik.errors.password && formik.touched.password && (
-                  <Form.Text className="fw-light text-danger">{formik.errors.password}</Form.Text>
+                  <Form.Text className="fs-7 fw-light text-danger px-1">{formik.errors.password}</Form.Text>
                 )}
               </Form.Group>
               {/* <Form.Group>
@@ -112,25 +118,34 @@ export default function Login() {
                   <Form.Text className="fw-light text-danger">{formik.errors.email}</Form.Text>
                 )}
               </Form.Group> */}
-              <Button variant="primary" type="submit" className="w-100 mt-4" size="lg">
-                Login
-              </Button>
+            </Stack>
+            <Button variant="primary" type="submit" className={styles.submit} size="lg">
+              <Stack direction="horizontal" gap={2} className="d-flex justify-content-center">
+                <div>Login</div>
+                {isLoading && <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />}
+              </Stack>
+            </Button>
 
-              <div className="mt-3 text-center">
-                Are you new here?{' '}
-                <Link to={route.register} className="fw-bold text-black">
-                  Sign Up
-                </Link>
-                <Divider text="or" />
-                <Button variant="light" className="w-100 mt-3" size="lg">
-                  <Stack gap={4} direction="horizontal">
-                    <Icon name="google" size={24} />
-                    <div className="fs-6 fw-medium">Continue with Google</div>
-                  </Stack>
-                </Button>
-              </div>
-            </Form>
-          </div>
+            <div className="mt-3 text-center">
+              Are you new here?{' '}
+              <Link to={route.register} className="fw-bold text-black">
+                Sign Up
+              </Link>
+              <Divider text="or" />
+              <Button variant="light" className="w-100 mt-3" size="lg">
+                <Stack gap={5} direction="horizontal">
+                  <Icon name="google" className={styles.loginIcon} />
+                  <div className={styles.loginLabel}>Continue with Google</div>
+                </Stack>
+              </Button>
+              <Button variant="light" className="w-100 mt-3" size="lg">
+                <Stack gap={5} direction="horizontal">
+                  <Icon name="apple" className={styles.loginIcon} />
+                  <div className={styles.loginLabel}>Continue with Apple</div>
+                </Stack>
+              </Button>
+            </div>
+          </Form>
         </div>
       </div>
     </div>

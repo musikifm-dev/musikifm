@@ -1,8 +1,6 @@
 .icon {
   display: flex;
   justify-content: end;
-  // align-items: center;
-  // text-align: center;
 
   &__link {
     display: flex;
@@ -27,12 +25,28 @@
   }
 }
 
-.spaceBetween {
-  justify-content: space-between;
+.img {
+  width: 276px;
+  height: 56px;
+}
+
+.title {
+  font-size: var(--fs-31);
+  font-weight: var(--fw-7);
+}
+
+.description {
+  font-size: var(--fs-19);
+  font-weight: var(--fw-4);
 }
 
 .form {
-  width: 350px;
+  max-width: 428px;
+  width: 100%;
+}
+
+.spaceBetween {
+  justify-content: space-between;
 }
 
 .signup {
@@ -41,9 +55,8 @@
 }
 
 .label {
-  font-family: var(--f-poppins);
-  font-weight: var(--fw-5);
-  font-size: var(--fs-13);
+  font-weight: var(--fw-6);
+  font-size: var(--fs-15);
 }
 
 .label:has(div[class~='timer']) {
@@ -67,18 +80,91 @@
   }
 
   &__input {
-    // overflow-x: hidden;
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
     border-left: none !important;
   }
 }
 
+.placeholder {
+  border: 1px solid #8692a6 !important;
+}
+
 .placeholder::placeholder {
-  text-align: center;
-  font-size: var(--fs-9);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-5);
+  color: #8692a6 !important;
+}
+
+.loginIcon {
+  width: 20px;
+  height: 23px;
+}
+
+.loginLabel {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-6);
 }
 
 .phoneIcon {
   margin-left: 1rem;
+}
+
+.submit {
+  margin-top: 25px;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-6);
+  width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .title {
+    font-size: var(--fs-25);
+    font-weight: var(--fw-7);
+  }
+
+  .description {
+    font-size: var(--fs-16);
+    font-weight: var(--fw-4);
+  }
+
+  .label {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-6);
+  }
+
+  .placeholder::placeholder {
+    font-size: var(--fs-13);
+  }
+
+  .checkboxLabel {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-5);
+  }
+
+  .submit {
+    font-size: var(--fs-16);
+    font-weight: var(--fw-6);
+  }
+
+  .alreadyHaveAcc {
+    text-align: center;
+    font-size: var(--fs-14);
+  }
+
+  .login {
+    font-size: var(--fs-15);
+  }
+
+  .loginLabel {
+    font-size: var(--fs-14);
+    font-weight: var(--fw-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .img {
+    width: 162px;
+    height: 33px;
+  }
 }
