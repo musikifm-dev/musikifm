@@ -109,7 +109,7 @@
   .cardContainer {
     display: flex;
     flex: 0 0 auto;
-    width: 19% !important;
+    width: 32% !important;
   }
 }
 
@@ -124,5 +124,11 @@
   }
   .switch::before {
     padding-left: 22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardContainer {
+    width: 32% !important;
   }
 }

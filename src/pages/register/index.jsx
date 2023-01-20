@@ -44,7 +44,7 @@ export default function Register() {
 
   return (
     <div className="container">
-      <div className="row mt-5 justify-content-center">
+      <div className="row mt-4 justify-content-center">
         <div className="col-10">
           <div className={styles.icon}>
             <Link className={styles.icon__link} onClick={() => navigate(-1)}>
@@ -56,7 +56,7 @@ export default function Register() {
           </div>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center mt-5 px-2">
+      <div className="d-flex flex-column justify-content-center px-2">
         <div className={'d-flex flex-column justify-content-center align-items-center mt-12'}>
           <Link to={route.home}>
             <Image src={logoBlack} className={styles.img} />

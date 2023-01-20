@@ -44,7 +44,7 @@ export default function Login() {
 
   return (
     <div className="container">
-      <div className="row mt-5 justify-content-center">
+      <div className="row mt-4 justify-content-center">
         <div className="col-10">
           <div className={styles.icon}>
             <Link className={styles.icon__link} to={route.home}>
@@ -53,8 +53,8 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="row justify-content-center mt-5 px-2">
-        <div className="d-flex flex-column justify-content-center align-items-center mt-12">
+      <div className="row justify-content-center mt-2 px-2">
+        <div className="d-flex flex-column justify-content-center align-items-center">
           <Link to={route.home}>
             <Image src={logoBlack} className={styles.img} />
           </Link>
@@ -132,18 +132,16 @@ export default function Login() {
                 Sign Up
               </Link>
               <Divider text="or" />
-              <Button variant="light" className="w-100 mt-3" size="lg">
-                <Stack gap={5} direction="horizontal">
+              <Stack gap={3} className="mt-1">
+                <Button variant="light" className={styles.loginBtn} size="lg">
                   <Icon name="google" className={styles.loginIcon} />
-                  <div className={styles.loginLabel}>Continue with Google</div>
-                </Stack>
-              </Button>
-              <Button variant="light" className="w-100 mt-3" size="lg">
-                <Stack gap={5} direction="horizontal">
+                  <div className={styles.loginBtn__google}>Continue with Google</div>
+                </Button>
+                <Button variant="light" className={styles.loginBtn} size="lg">
                   <Icon name="apple" className={styles.loginIcon} />
-                  <div className={styles.loginLabel}>Continue with Apple</div>
-                </Stack>
-              </Button>
+                  <div className={styles.loginBtn__apple}>Continue with Apple</div>
+                </Button>
+              </Stack>
             </div>
           </Form>
         </div>

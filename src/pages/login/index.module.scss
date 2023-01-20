@@ -100,10 +100,22 @@
   width: 20px;
   height: 23px;
 }
+.loginBtn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
 
-.loginLabel {
-  font-size: var(--fs-16);
-  font-weight: var(--fw-6);
+  &__google,
+  &__apple {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: var(--fs-16);
+    font-weight: var(--fw-6);
+  }
 }
 
 .phoneIcon {
