@@ -89,12 +89,15 @@
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
     border-left: none !important;
+
     &::placeholder {
       font-size: var(--fs-14);
       font-weight: var(--fw-5);
+      color: #8692a6 !important;
     }
   }
 }
+
 .placeholder {
   border: 1px solid #8692a6 !important;
 }
@@ -150,6 +153,14 @@
     font-weight: var(--fw-6);
   }
 
+  .dropdown {
+    &__input {
+      &::placeholder {
+        font-size: var(--fs-13);
+      }
+    }
+  }
+
   .placeholder::placeholder {
     font-size: var(--fs-13);
   }
@@ -178,5 +189,25 @@
   .img {
     width: 162px;
     height: 33px;
+  }
+
+  .placeholder::placeholder {
+    font-size: var(--fs-12);
+  }
+
+  .checkboxLabel {
+    font-size: var(--fs-13);
+  }
+
+  .submit {
+    font-size: var(--fs-13) !important;
+  }
+
+  .dropdown {
+    &__input {
+      &::placeholder {
+        font-size: var(--fs-12);
+      }
+    }
   }
 }

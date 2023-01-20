@@ -53,7 +53,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="row justify-content-center mt-2 px-2">
+      <div className="row justify-content-center mt-2">
         <div className="d-flex flex-column justify-content-center align-items-center">
           <Link to={route.home}>
             <Image src={logoBlack} className={styles.img} />
@@ -134,11 +134,11 @@ export default function Login() {
               <Divider text="or" />
               <Stack gap={3} className="mt-1">
                 <Button variant="light" className={styles.loginBtn} size="lg">
-                  <Icon name="google" className={styles.loginIcon} />
+                  <Icon name="google" className={styles.loginBtn__icon} />
                   <div className={styles.loginBtn__google}>Continue with Google</div>
                 </Button>
                 <Button variant="light" className={styles.loginBtn} size="lg">
-                  <Icon name="apple" className={styles.loginIcon} />
+                  <Icon name="apple" className={styles.loginBtn__icon} />
                   <div className={styles.loginBtn__apple}>Continue with Apple</div>
                 </Button>
               </Stack>

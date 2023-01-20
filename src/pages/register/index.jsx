@@ -56,7 +56,7 @@ export default function Register() {
           </div>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center px-2">
+      <div className="d-flex flex-column justify-content-center">
         <div className={'d-flex flex-column justify-content-center align-items-center mt-12'}>
           <Link to={route.home}>
             <Image src={logoBlack} className={styles.img} />
